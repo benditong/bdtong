@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/content_background_color" >
+
+	<com.zykj.xishuashua.view.MyCommonTitle
+        android:id="@+id/aci_mytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+	
+	<!-- 订单详情 -->
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:focusable="true"
+	    android:orientation="vertical"
+        android:focusableInTouchMode="true" >
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+			android:layout_height="@dimen/forty"
+	        android:orientation="horizontal"
+	        android:gravity="center_vertical"
+	        android:background="@drawable/bg_round_lred"
+	        android:layout_marginLeft="@dimen/fifteen"
+	        android:layout_marginRight="@dimen/fifteen"
+	        android:layout_marginTop="@dimen/ten">
+	        <TextView 
+	            android:text="@string/username"
+	            android:textSize="@dimen/t_eighteen"
+	            android:textColor="#4E4E4E"
+	            android:layout_marginLeft="@dimen/ten"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"/>
+	      	<EditText 
+	      	    android:id="@+id/uu_username"
+	      	    android:layout_width="fill_parent"
+	      	    android:layout_height="wrap_content"
+				android:hint="@string/hint_username"
+				android:layout_marginLeft="@dimen/ten"
+                style="@style/edit_text"
+	      	    android:inputType="textPersonName"/>
+	    </LinearLayout>
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+			android:layout_height="@dimen/forty"
+	        android:orientation="horizontal"
+	        android:gravity="center_vertical"
+	        android:background="@drawable/bg_round_lred"
+	        android:layout_marginLeft="@dimen/fifteen"
+	        android:layout_marginRight="@dimen/fifteen"
+	        android:layout_marginTop="@dimen/ten">
+	        <TextView 
+	            android:text="@string/password"
+	            android:textSize="@dimen/t_eighteen"
+	            android:textColor="#4E4E4E"
+	            android:layout_marginLeft="@dimen/ten"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"/>
+	      	<EditText 
+	      	    android:id="@+id/uu_password"
+	      	    android:layout_width="fill_parent"
+	      	    android:layout_height="wrap_content"
+				android:hint="@string/hint_password"
+				android:layout_marginLeft="@dimen/ten"
+                style="@style/edit_text"
+	      	    android:inputType="textPassword"/>
+	    </LinearLayout>
+	    <Button 
+	        android:id="@+id/login_in"
+	        android:layout_width="fill_parent"
+			android:layout_height="@dimen/forty"
+	        android:gravity="center"
+	        android:background="@drawable/bg_round_blue"
+	        android:layout_marginLeft="@dimen/fifteen"
+	        android:layout_marginRight="@dimen/fifteen"
+	        android:layout_marginTop="@dimen/ten"
+	        android:textColor="@color/white"
+	     	android:textSize="@dimen/t_eighteen"
+	        android:text="@string/login_in"/>
+	    <TextView 
+	        android:id="@+id/forgetpwd"
+	        android:layout_width="wrap_content"
+	        android:layout_height="@dimen/forty"
+	        android:layout_gravity="right"
+	        android:layout_marginRight="@dimen/fifteen"
+	        android:gravity="center_vertical"
+	        android:textColor="@color/theme_color"
+	        android:textSize="@dimen/sixteen"
+	        android:text="@string/forgetpwd"/>
+	</LinearLayout>
+</LinearLayout>

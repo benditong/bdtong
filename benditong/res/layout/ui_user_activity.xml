@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/content_background_color"
+	android:orientation="vertical">
+	
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <RelativeLayout
+            android:id="@+id/rl_me_top"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:background="@color/theme_color">
+            
+            <com.zykj.benditong.view.RoundImageView
+                android:visibility="gone"
+                android:id="@+id/rv_me_avatar"
+                android:layout_width="@dimen/seventy"
+                android:layout_height="@dimen/seventy"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/user_head_img"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_me_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rv_me_avatar"
+                android:text="@string/user_mobile"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/t_thirty"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/user_login"
+                android:layout_width="150dip"
+                android:layout_height="35dip"
+                android:background="@drawable/bg_null_white"
+                android:text="@string/user_login"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/t_sixteen"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/ten"
+            android:orientation="horizontal"
+            android:background="@color/white">
+            
+            <LinearLayout
+                android:id="@+id/user_left"
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+            	android:orientation="vertical">
+                <TextView
+                    android:id="@+id/user_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orange"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/t_sixteen"
+                    android:text="@string/user_money" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:gravity="center_horizontal"
+                    android:text="@string/my_money"  />
+          	</LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/content_background_color"/>
+            
+            <LinearLayout
+                android:id="@+id/user_right"
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/user_integral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orange"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/t_sixteen"
+                    android:text="@string/user_integral" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:text="@string/my_integral"  />
+        	</LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/user_store"
+            style="@style/ui_mysetting"
+            android:layout_marginTop="@dimen/ten">
+            <ImageView
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/user_store" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/ten"
+                android:textSize="@dimen/eighteen"
+                android:text="@string/user_store"/>
+            <View 
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <ImageView 
+                android:contentDescription="@string/app_name"
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:src="@drawable/user_right"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/app_about"
+            style="@style/ui_mysetting"
+            android:layout_marginTop="@dimen/ten">
+            <ImageView
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/app_about" />
+            <TextView 
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/ten"
+                android:textSize="@dimen/eighteen"
+                android:text="@string/app_about"/>
+            <View 
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <ImageView 
+                android:contentDescription="@string/app_name"
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:src="@drawable/user_right"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/fifteen"
+            android:layout_marginRight="@dimen/fifteen" />
+        
+        <LinearLayout
+            android:id="@+id/app_explain"
+            style="@style/ui_mysetting">
+            <ImageView
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/app_explain" />
+            <TextView 
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/ten"
+                android:textSize="@dimen/eighteen"
+                android:text="@string/app_explain"/>
+            <ImageView 
+                android:contentDescription="@string/app_name"
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:src="@drawable/user_right"/>
+        </LinearLayout>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/fifteen"
+            android:layout_marginRight="@dimen/fifteen" />
+        
+        <LinearLayout
+            android:id="@+id/reset_password"
+            style="@style/ui_mysetting">
+            <ImageView
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/reset_password" />
+            <TextView 
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/ten"
+                android:textSize="@dimen/eighteen"
+                android:text="@string/reset_password"/>
+            <ImageView 
+                android:contentDescription="@string/app_name"
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:src="@drawable/user_right"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/fifteen"
+            android:layout_marginRight="@dimen/fifteen" />
+        
+        <LinearLayout
+            android:id="@+id/app_version"
+            style="@style/ui_mysetting"
+            android:layout_marginBottom="@dimen/fifty">
+            <ImageView
+                android:layout_width="@dimen/twenty_eight"
+                android:layout_height="@dimen/twenty_eight"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/app_version" />
+            <TextView 
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/ten"
+                android:textSize="@dimen/eighteen"
+                android:text="@string/app_version"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/grey"
+                android:gravity="center_vertical"
+                android:text="@string/app_version_default"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
