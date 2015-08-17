@@ -108,26 +108,16 @@
     <string name="loginout">退出登录</string>
     
     <!-- 我的钱包 -->
-    <string name="alipay_name">请输入收款人姓名</string>
-    <string name="alipay_money">请输入提现金额</string>
-    <string name="alipay_allow">可提现金额：10元</string>
-    <string name="alipay_allow2">金额：10元</string>
-    <string name="btn_alipay">立即提现</string>
-    <string name="btn_calling">立即兑换</string>
-    <string name="text_alipay">余额不够怎么办</string>
-    <string name="go_advice">刷广告</string>
-    <string name="go_share">继续分享</string>
-    <string name="money_ten">10元</string>
-    <string name="money_thirty">30元</string>
-    <string name="money_fifty">50元</string>
-    <string name="user_alipay_username">支付宝账号</string>
-    <string name="user_alipay_hint">支付宝账号/手机号</string>
-    <string name="bind_true">确定</string>
-    <string name="bind_cancel">取消</string>
+    <string name="alipay_allow">钱包余额</string>
+    <string name="alipay_money">56.00元</string>
+    <string name="alipay_allow_out">余额转出(提现)</string>
+    <string name="alipay_allow_money">转出金额</string>
+    <string name="alipay_allow_hint">请输入转出金额</string>
+    <string name="alipay_allow_sure">确认转出</string>
     
-    <!-- 收益记录 -->
-    <string name="record_name">红包类型，发布者名称</string>
-    <string name="record_money">浏览/分享红包0.006元</string>
+    <!-- 收藏 -->
+    <string name="store_pro">收藏的产品</string>
+    <string name="store_res">收藏的店铺</string>
     <string name="record_address">山东 临沂 2015&#8211;06&#8211;30</string>
     
     <!-- 设置 -->

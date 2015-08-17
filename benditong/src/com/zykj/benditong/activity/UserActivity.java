@@ -1,5 +1,6 @@
 package com.zykj.benditong.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -103,6 +104,7 @@ public class UserActivity extends BaseActivity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.user_login:
+			startActivityForResult(new Intent(this, UserLoginActivity.class), Activity.DEFAULT_KEYS_DISABLE);
 			break;
 		case R.id.user_money:
 			isLogin();

@@ -30,7 +30,7 @@ public class UserLoginActivity extends BaseActivity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ui_user_login);
+		initView(R.layout.ui_user_login);
         device_token = UmengRegistrar.getRegistrationId(this);
 		
 		PushAgent.getInstance(this).onAppStart();

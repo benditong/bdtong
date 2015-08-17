@@ -11,20 +11,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.PurchaseAdapter;
-import com.zykj.benditong.http.HttpErrorHandler;
+import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
-import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Order;
 import com.zykj.benditong.view.MyRequestDailog;
 import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
 
-public class PurchaseListFragment extends Fragment implements IXListViewListener, OnItemClickListener{
+public class StoreFragment extends Fragment implements IXListViewListener, OnItemClickListener{
 	
 	private static int PERPAGE=2;//perpage默认每页显示10条信息
 	
@@ -34,10 +31,10 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
     private XListView mListView;
 	private PurchaseAdapter adapter;
 	private List<Order> orders = new ArrayList<Order>();
-	private HttpErrorHandler mNetHandler;
+	private EntityHandler<Order> mNetHandler;
 	
-	public static PurchaseListFragment getInstance(int type){
-		PurchaseListFragment fragment=new PurchaseListFragment();
+	public static StoreFragment getInstance(int type){
+		StoreFragment fragment=new StoreFragment();
 		Bundle bundle=new Bundle();
 		bundle.putInt("type", type);
 		fragment.setArguments(bundle);
@@ -48,7 +45,6 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mListView = new XListView(getActivity(), null);
-        mListView.setDividerHeight(0);
         mListView.setLayoutParams(params);
         mListView.setPullLoadEnable(true);
         mListView.setXListViewListener(this);
@@ -61,7 +57,7 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 		Bundle arguments = getArguments();
 		mType=arguments.getInt("type");
 		
-        adapter = new PurchaseAdapter(getActivity(), R.layout.ui_item_purchase, orders);
+        adapter = new PurchaseAdapter(getActivity(), R.layout.ui_item_reserve, orders);
         mListView.setAdapter(adapter);
 		mListView.setOnItemClickListener(this);
         requestData();
@@ -69,9 +65,8 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 
 	private void requestData() {
 		RequestParams params = new RequestParams();
-		params.put("type", "group");
+		params.put("type", "0".equals(mType)?"restaurant":"hotel");//预订餐厅或者酒店
 		params.put("uid", "3");//BaseApp.getModel().getUserid();
-		params.put("state", mType);
 		params.put("nowpage", nowpage);
 		params.put("perpage", PERPAGE);
 		HttpUtils.getOrderList(creatResponseHandler(),params);
@@ -92,15 +87,13 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 		requestData();
 		mListView.stopLoadMore();
 	}
-	private HttpErrorHandler creatResponseHandler(){
+	
+	private EntityHandler<Order> creatResponseHandler(){
 		if(mNetHandler==null){
-			mNetHandler=new HttpErrorHandler() {
+			mNetHandler=new EntityHandler<Order>(Order.class) {
 				@Override
-				public void onRecevieSuccess(JSONObject json) {
+				public void onReadSuccess(List<Order> list) {
 					MyRequestDailog.closeDialog();
-			        JSONArray jsonArray = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
-			        List<Order> list=JSONArray.parseArray(jsonArray.toString(), Order.class);
-					
 					if(nowpage == 1){orders.clear();}
 					orders.addAll(list);
 					adapter.notifyDataSetChanged();

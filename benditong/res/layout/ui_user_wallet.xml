@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/content_background_color" >
+
+	<com.zykj.xishuashua.view.MyCommonTitle
+        android:id="@+id/aci_mytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+	
+	<!-- 订单详情 -->
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	  	android:background="@color/white"
+	    android:orientation="vertical" >
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+			android:layout_height="@dimen/forty"
+	        android:orientation="horizontal"
+		    android:paddingLeft="@dimen/ten"
+		    android:paddingRight="@dimen/ten"
+	        android:gravity="center_vertical">
+	        <TextView 
+		        android:layout_width="0.0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/alipay_allow"/>
+            <TextView 
+                android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+                android:src="@drawable/user_right"
+				android:text="@string/alipay_money"/>
+	    </LinearLayout>
+	    <View 
+	        android:layout_width="fill_parent"
+			android:layout_height="@dimen/one"
+    		android:background="@color/content_background_color"
+			android:layout_marginLeft="@dimen/ten"
+			android:layout_marginRight="@dimen/ten"/>
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+			android:layout_height="@dimen/forty"
+	        android:orientation="horizontal"
+		    android:paddingLeft="@dimen/ten"
+		    android:paddingRight="@dimen/ten"
+	        android:gravity="center_vertical">
+	        <TextView 
+		        android:layout_width="0.0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/alipay_allow_out"/>
+            <ImageView 
+                android:contentDescription="@string/app_name"
+                android:layout_width="@dimen/twenty"
+                android:layout_height="@dimen/twenty"
+                android:src="@drawable/user_right"/>
+	    </LinearLayout>
+	</LinearLayout>
+</LinearLayout>

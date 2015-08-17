@@ -481,19 +481,24 @@ containing a value of this type.
         public static final int ui_order_reserve=0x7f03000a;
         public static final int ui_user_activity=0x7f03000b;
         public static final int ui_user_login=0x7f03000c;
-        public static final int ui_welcome=0x7f03000d;
-        public static final int xlistview_footer=0x7f03000e;
-        public static final int xlistview_header=0x7f03000f;
+        public static final int ui_user_payout=0x7f03000d;
+        public static final int ui_user_store=0x7f03000e;
+        public static final int ui_user_wallet=0x7f03000f;
+        public static final int ui_welcome=0x7f030010;
+        public static final int xlistview_footer=0x7f030011;
+        public static final int xlistview_header=0x7f030012;
     }
     public static final class string {
         public static final int address=0x7f06000c;
         public static final int aks_version=0x7f060004;
-        public static final int alipay_allow=0x7f060057;
-        public static final int alipay_allow2=0x7f060058;
-        public static final int alipay_money=0x7f060056;
         /**  我的钱包 
          */
-        public static final int alipay_name=0x7f060055;
+        public static final int alipay_allow=0x7f060055;
+        public static final int alipay_allow_hint=0x7f060059;
+        public static final int alipay_allow_money=0x7f060058;
+        public static final int alipay_allow_out=0x7f060057;
+        public static final int alipay_allow_sure=0x7f06005a;
+        public static final int alipay_money=0x7f060056;
         public static final int app_about=0x7f060040;
         public static final int app_explain=0x7f060041;
         /**  常用公用字符串 
@@ -504,21 +509,15 @@ containing a value of this type.
         public static final int app_version_default=0x7f060044;
         public static final int assess_gray=0x7f06002e;
         public static final int assess_orange=0x7f06002d;
-        public static final int bind_cancel=0x7f060064;
-        public static final int bind_true=0x7f060063;
-        public static final int btn_alipay=0x7f060059;
-        public static final int btn_calling=0x7f06005a;
-        public static final int comment_content=0x7f060071;
-        public static final int comment_name=0x7f060070;
-        public static final int comment_time=0x7f060072;
+        public static final int comment_content=0x7f060067;
+        public static final int comment_name=0x7f060066;
+        public static final int comment_time=0x7f060068;
         public static final int edit=0x7f06000d;
         public static final int forgetpwd=0x7f060037;
-        public static final int go_advice=0x7f06005c;
-        public static final int go_share=0x7f06005d;
         public static final int hint_code=0x7f060035;
         public static final int hint_password=0x7f060036;
         public static final int hint_username=0x7f060034;
-        public static final int hot_comment=0x7f06006f;
+        public static final int hot_comment=0x7f060065;
         public static final int identifying_code=0x7f06003a;
         public static final int index_cars=0x7f060017;
         public static final int index_foods=0x7f060014;
@@ -537,10 +536,10 @@ containing a value of this type.
         public static final int index_shops=0x7f060016;
         public static final int integral_luck=0x7f06001a;
         public static final int integral_mall=0x7f060018;
-        public static final int links=0x7f060075;
+        public static final int links=0x7f06006b;
         /**  其他 
          */
-        public static final int load_data=0x7f060074;
+        public static final int load_data=0x7f06006a;
         public static final int login_in=0x7f060038;
         public static final int login_other=0x7f060045;
         public static final int login_qq=0x7f060047;
@@ -552,14 +551,11 @@ containing a value of this type.
         public static final int map_common=0x7f060001;
         public static final int map_site=0x7f060002;
         public static final int map_traffic=0x7f060003;
-        public static final int message=0x7f060076;
-        public static final int message_number=0x7f06006e;
+        public static final int message=0x7f06006c;
+        public static final int message_number=0x7f060064;
         /**  消息详情 
          */
-        public static final int message_title=0x7f06006d;
-        public static final int money_fifty=0x7f060060;
-        public static final int money_ten=0x7f06005e;
-        public static final int money_thirty=0x7f06005f;
+        public static final int message_title=0x7f060063;
         public static final int my_integral=0x7f06003e;
         public static final int my_money=0x7f06003d;
         public static final int next=0x7f060053;
@@ -574,15 +570,11 @@ containing a value of this type.
         public static final int order_tab3=0x7f060022;
         public static final int order_tab4=0x7f060023;
         public static final int password=0x7f060033;
-        public static final int power_on=0x7f060077;
+        public static final int power_on=0x7f06006d;
         public static final int preferential_good=0x7f060019;
         public static final int product_num=0x7f060029;
         public static final int product_price=0x7f060028;
-        public static final int record_address=0x7f060067;
-        public static final int record_money=0x7f060066;
-        /**  收益记录 
-         */
-        public static final int record_name=0x7f060065;
+        public static final int record_address=0x7f06005d;
         public static final int register_in=0x7f060039;
         public static final int res_name=0x7f060026;
         public static final int reserve_tab1=0x7f060024;
@@ -590,25 +582,26 @@ containing a value of this type.
         public static final int reset_password=0x7f060042;
         /**  设置 
          */
-        public static final int setting_about=0x7f060068;
-        public static final int setting_league=0x7f06006a;
-        public static final int setting_push=0x7f06006b;
-        public static final int setting_reading=0x7f060069;
-        public static final int setting_sound=0x7f06006c;
+        public static final int setting_about=0x7f06005e;
+        public static final int setting_league=0x7f060060;
+        public static final int setting_push=0x7f060061;
+        public static final int setting_reading=0x7f06005f;
+        public static final int setting_sound=0x7f060062;
+        /**  收藏 
+         */
+        public static final int store_pro=0x7f06005b;
+        public static final int store_res=0x7f06005c;
         /**  tab 
          */
         public static final int tab_index=0x7f06000f;
         public static final int tab_order=0x7f060010;
         public static final int tab_seting=0x7f060011;
-        public static final int text_alipay=0x7f06005b;
         /**  主题 
          */
         public static final int title=0x7f06000b;
         public static final int total_price=0x7f06002a;
         public static final int user_address=0x7f06004e;
         public static final int user_age=0x7f06004c;
-        public static final int user_alipay_hint=0x7f060062;
-        public static final int user_alipay_username=0x7f060061;
         /**  用户信息 
          */
         public static final int user_avatar=0x7f06004b;
@@ -627,7 +620,7 @@ containing a value of this type.
         /**  登录 
          */
         public static final int username=0x7f060032;
-        public static final int write_comment=0x7f060073;
+        public static final int write_comment=0x7f060069;
         public static final int xlistview_footer_hint_normal=0x7f060009;
         public static final int xlistview_footer_hint_ready=0x7f06000a;
         public static final int xlistview_header_hint_loading=0x7f060007;
