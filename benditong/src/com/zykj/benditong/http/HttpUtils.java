@@ -39,4 +39,14 @@ public class HttpUtils {
     public static void login(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.LOGIN), params, handler);
     }
+    
+    /*猜你喜欢*/
+    public static void getLikeList(AsyncHttpResponseHandler handler, String num){
+        client.get(UrlContants.getUrl(UrlContants.LIKELIST+"&num="+num), handler);
+    }
+    
+    /*上传头像*/
+    public static void postUserAvatar(AsyncHttpResponseHandler handler, RequestParams params){
+        client.get(UrlContants.getUrl(UrlContants.POSIUSERAVATAR), params, handler);
+    }
 }

@@ -1,6 +1,5 @@
 package com.zykj.benditong.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -20,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
@@ -27,10 +28,13 @@ import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.RecyclingPagerAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.EntityHandler;
+import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.AdsImages;
-import com.zykj.benditong.model.New;
+import com.zykj.benditong.model.GuessLike;
 import com.zykj.benditong.utils.CommonUtils;
+import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.AutoListView;
 
@@ -89,26 +93,31 @@ public class IndexActivity extends BaseActivity {
 	 */
 	private void requestData(){
 		HttpUtils.getAdsList(res_getAdsList);
-		List<New> news = new ArrayList<New>();
-		news.add(new New("通往冥王星之路", "经过在太空里历时9年半、长达48亿公里的漫长飞行，美国宇航局的新视野号探测器即将抵达它的目的地：冥王星（Pluto）。", "88"));
-		news.add(new New("跨越时空的抗战遗迹", "1945年3月，美国援华运送物资的车队途经贵州晴隆“二十四道拐”盘山公路时的情景（资料照片，陈亚林提供）。右图：2015年6月24日拍摄的二十四道拐”。", "12"));
-		news.add(new New("长沙大学生穿民国学生装义卖", "7月12日晚上，长沙太平老街，身着民国学生装的大学生在向市民义卖。当天，来自省内各大高校的36名女大学生，为支持“抗战主题皮影剧全国巡演”，她们身着民国学生装，端着募捐箱和装槟榔的篮子在街头义卖。摄影：李健/湖南日报新闻影像中心", "55"));
-		news.add(new New("山东土豪为萌宠海狮庆生", "2015年7月13日，青岛一土豪小伙在青岛某五星级酒店的游泳池边为萌宠海狮庆祝生日", "8"));
-		news.add(new New("盘点盛夏趣味遮阳武器", "7月13日是入伏首日，我国中东部地区迎来大范围高温天气，中央气象台拉响高温黄色预警。面对“烧烤模式”，人们充分发挥想象力，出高招，“研发”出各种“遮阳武器”。", "123"));
-		index_list.setAdapter(new CommonAdapter<New>(this, R.layout.ui_item_like, news) {
-			@Override
-			public void convert(ViewHolder holder, New news) {
-				holder.setText(R.id.product_title, news.getTitle())
-				.setText(R.id.product_content, news.getContent().length()>50?news.getContent().substring(0,50):news.getContent());
-				TextView ptext = holder.getView(R.id.product_price);
-				ptext.setText(Html.fromHtml("<big><big><font color=#25B6ED>"+news.getPrice()+"</font></big></big>元"));
-			}
-		});
-		
+		HttpUtils.getLikeList(res_getLikeList, "5");
 	}
 	
+	/**
+	 * 请求首页猜你喜欢
+	 */
+	private AsyncHttpResponseHandler res_getLikeList = new HttpErrorHandler() {
+		@Override
+		public void onRecevieSuccess(JSONObject json) {
+	        JSONArray jsonArray = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
+	        List<GuessLike> list=JSONArray.parseArray(jsonArray.toString(), GuessLike.class);
+			index_list.setAdapter(new CommonAdapter<GuessLike>(IndexActivity.this, R.layout.ui_item_like, list) {
+				@Override
+				public void convert(ViewHolder holder, GuessLike like) {
+					holder.setText(R.id.product_title, like.getTitle())
+					.setText(R.id.product_content, StringUtil.isEmpty(like.getIntro())?"该商品暂无说明":like.getIntro());
+					TextView ptext = holder.getView(R.id.product_price);
+					ptext.setText(Html.fromHtml("<big><big><font color=#25B6ED>"+like.getPrice()+"</font></big></big>元"));
+				}
+			});
+		}
+	};
+	
 	//轮播图
-	AsyncHttpResponseHandler res_getAdsList = new EntityHandler<AdsImages>(AdsImages.class){
+	private AsyncHttpResponseHandler res_getAdsList = new EntityHandler<AdsImages>(AdsImages.class){
 		@Override
 		public void onReadSuccess(List<AdsImages> list) {
 			IndexActivity.this.imageList = list;

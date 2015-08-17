@@ -20,6 +20,10 @@ public class UrlContants {
 
     public static final String LOGIN = "c=user&a=login";//登录
     
+    public static final String LIKELIST =  "c=info&a=getLikeList";//猜你喜欢
+    
+    public static final String POSIUSERAVATAR =  "c=user&a=postUserAvatar";//猜你喜欢
+    
     public static String getUrl(String token){
         if(token==null || token.equals("")){
             return BASE_URL;

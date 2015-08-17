@@ -1,6 +1,7 @@
 package com.zykj.benditong.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,8 +10,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
-import com.umeng.message.PushAgent;
-import com.umeng.message.UmengRegistrar;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
@@ -25,15 +24,12 @@ public class UserLoginActivity extends BaseActivity{
 	
 	private MyCommonTitle myCommonTitle;
 	private EditText uu_username,uu_password;
-    private String device_token;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		initView(R.layout.ui_user_login);
-        device_token = UmengRegistrar.getRegistrationId(this);
 		
-		PushAgent.getInstance(this).onAppStart();
 		initView();
 	}
 
@@ -42,9 +38,9 @@ public class UserLoginActivity extends BaseActivity{
 	 */
 	private void initView() {
 		myCommonTitle = (MyCommonTitle)findViewById(R.id.aci_mytitle);
+		myCommonTitle.setLisener(this, null);
 		myCommonTitle.setTitle("登录");
 		myCommonTitle.setEditTitle("注册");
-		myCommonTitle.setLisener(this, null);
 
 		uu_username = (EditText)findViewById(R.id.uu_username);//用户名
 		uu_password = (EditText)findViewById(R.id.uu_password);//密码
@@ -80,7 +76,7 @@ public class UserLoginActivity extends BaseActivity{
 					BaseApp.getModel().setPassword(password);//登录密码
 					BaseApp.getModel().setUserid(StringUtil.toStringOfObject(data.getString("id")));//用户Id
 					BaseApp.getModel().setUsername(StringUtil.toStringOfObject(data.getString("username")));//真实姓名
-			        submitDeviceToken("device_token", data.getString("member_id"));
+			        submitDeviceToken(data.getString("id"));
 				}
 				@Override
 				public void onRecevieFailed(String status, JSONObject json) {
@@ -90,16 +86,18 @@ public class UserLoginActivity extends BaseActivity{
 			break;
 		case R.id.forgetpwd:
 			/*忘记密码*/
+			startActivity(new Intent(this, UserRegisterActivity.class).putExtra("type", "forget"));
 			break;
 		case R.id.aci_edit_btn:
 			/*注册*/
+			startActivity(new Intent(this, UserRegisterActivity.class).putExtra("type", "register"));
 			break;
 		}
 	}
 	
-	private void submitDeviceToken(String userid, String member_id){
+	private void submitDeviceToken(String userid){
 		//Tools.toast(this, device_token);
-		setResult(Activity.RESULT_OK, getIntent().putExtra("member_id", member_id));
+		setResult(Activity.RESULT_OK, getIntent().putExtra("userid", userid));
 		finish();
 	}
 }
