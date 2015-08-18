@@ -43,7 +43,7 @@ public class IndexActivity extends BaseActivity {
 
 	private AutoScrollViewPager viewPager;
 	private AutoListView index_list;
-	private LinearLayout im_b1nvshi,im_b1nanshi,im_b1muying,im_b1huazhuang,tv_index_order;
+	private LinearLayout im_b1pinche,im_b1canyin,im_b1jiudian,im_b1shangpu,tv_index_order;
 	/** 当前的位置 */
 	private int now_pos = 0;
 	private List<AdsImages> imageList;
@@ -57,16 +57,38 @@ public class IndexActivity extends BaseActivity {
 		requestData();
 	}
 	
+	
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+		case R.id.im_b1canyin:
+			/* 餐饮  */
+			
+			break;
+		case R.id.im_b1jiudian:
+			/* 酒店  */
+			break;
+		case R.id.im_b1shangpu:
+			/* 商铺  */
+			break;
+		case R.id.im_b1pinche:
+			/* 拼车  */
+			break;
+		default:
+			break;
+		}
+	}
+	
 	/**
 	 * 加载页面
 	 */
 	private void initView(){
 		viewPager = (AutoScrollViewPager) findViewById(R.id.index_slider);//轮播图
 		index_list = (AutoListView)findViewById(R.id.index_list);//猜你喜欢
-		im_b1nvshi = (LinearLayout)findViewById(R.id.im_b1nvshi);//餐饮
-		im_b1nanshi = (LinearLayout)findViewById(R.id.im_b1nanshi);//酒店
-		im_b1muying = (LinearLayout)findViewById(R.id.im_b1muying);//商铺
-		im_b1huazhuang = (LinearLayout)findViewById(R.id.im_b1huazhuang);//拼车
+		im_b1canyin = (LinearLayout)findViewById(R.id.im_b1canyin);//餐饮
+		im_b1jiudian = (LinearLayout)findViewById(R.id.im_b1jiudian);//酒店
+		im_b1shangpu = (LinearLayout)findViewById(R.id.im_b1shangpu);//商铺
+		im_b1pinche = (LinearLayout)findViewById(R.id.im_b1pinche);//拼车
 		tv_index_order = (LinearLayout)findViewById(R.id.tv_index_order);//更多
 
 		LayoutParams pageParms = viewPager.getLayoutParams();
@@ -85,7 +107,7 @@ public class IndexActivity extends BaseActivity {
 			public void onPageScrollStateChanged(int arg0) {}
 		});
 		
-		setListener(im_b1nvshi, im_b1nanshi, im_b1muying, im_b1huazhuang, tv_index_order);
+		setListener(im_b1canyin, im_b1jiudian, im_b1shangpu, im_b1pinche, tv_index_order);
 	}
 	
 	/**
@@ -149,7 +171,7 @@ public class IndexActivity extends BaseActivity {
 			});
 		}
 	};
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();

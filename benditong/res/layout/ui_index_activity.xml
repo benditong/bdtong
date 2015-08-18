@@ -45,7 +45,7 @@
                 android:layout_marginTop="@dimen/ten"
                 android:weightSum="4" >
                 <LinearLayout
-                 	android:id="@+id/im_b1nvshi"
+                 	android:id="@+id/im_b1canyin"
                     android:layout_width="0.0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -65,7 +65,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                  	android:id="@+id/im_b1nanshi"
+                  	android:id="@+id/im_b1jiudian"
                     android:layout_width="0.0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -85,7 +85,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                	android:id="@+id/im_b1muying"
+                	android:id="@+id/im_b1shangpu"
                     android:layout_width="0.0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -105,7 +105,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                  	android:id="@+id/im_b1huazhuang"
+                  	android:id="@+id/im_b1pinche"
                     android:layout_width="0.0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"

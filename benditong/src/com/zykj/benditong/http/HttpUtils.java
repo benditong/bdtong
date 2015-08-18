@@ -47,6 +47,6 @@ public class HttpUtils {
     
     /*上传头像*/
     public static void postUserAvatar(AsyncHttpResponseHandler handler, RequestParams params){
-        client.get(UrlContants.getUrl(UrlContants.POSIUSERAVATAR), params, handler);
+        client.post(UrlContants.getUrl(UrlContants.POSIUSERAVATAR), params, handler);
     }
 }

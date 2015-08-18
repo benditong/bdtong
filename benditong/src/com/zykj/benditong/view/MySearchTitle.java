@@ -26,7 +26,7 @@ public class MySearchTitle extends RelativeLayout {
 
 	public void setAddresseeListener(OnClickListener addresseeClickListener) {
 		if(addresseeClickListener!=null) {
-//			titleAddresseeTV.setOnClickListener(addresseeClickListener);
+			titleAddressee.setOnClickListener(addresseeClickListener);
 		}
 	}
 

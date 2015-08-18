@@ -69,7 +69,8 @@ public class UserLoginActivity extends BaseActivity{
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					JSONObject data = json.getJSONObject(UrlContants.jsonData);
-					BaseApp.getModel().setAvatar(StringUtil.toStringOfObject(data.getString("avatar")));//头像
+					String avatar = StringUtil.toStringOfObject(data.getString("avatar"));
+					BaseApp.getModel().setAvatar(avatar.replace("app.do", UrlContants.SERVERIP));//头像
 					BaseApp.getModel().setMobile(StringUtil.toStringOfObject(data.getString("mobile")));//手机号
 					BaseApp.getModel().setMoney(StringUtil.toStringOfObject(data.getString("account")));//我的钱包
 					BaseApp.getModel().setIntegral(StringUtil.toStringOfObject(data.getString("coins")));//积分

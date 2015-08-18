@@ -45,6 +45,10 @@
     <string name="index_product_price">88元</string>
     <string name="index_product_other">● ● ●</string>
     
+    <!-- 餐饮-->
+    <string name="canyin_left">分类∨</string>
+    <string name="canyin_right">排序方式∨</string>
+    
     <!-- 订单 -->
     <string name="order_tab1">未付款</string>
     <string name="order_tab2">未消费</string>

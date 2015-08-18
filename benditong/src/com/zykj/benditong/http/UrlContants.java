@@ -6,6 +6,8 @@ package com.zykj.benditong.http;
  */
 public class UrlContants {
 
+    public static final String SERVERIP = "121.42.194.222";
+
     public static final String BASE_URL = "http://121.42.194.222/api.php?";
 
     public static final String BASEURL = BASE_URL+"%s";
@@ -16,7 +18,7 @@ public class UrlContants {
 
     public static final String GETADSLIST = "c=public&a=getAdsList&type=slideFocus";//轮播图
     
-    public static final String GETORDERLIST = "c=info&a=getOrderList";
+    public static final String GETORDERLIST = "c=info&a=getOrderList";//获取订单
 
     public static final String LOGIN = "c=user&a=login";//登录
     
