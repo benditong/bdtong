@@ -131,8 +131,8 @@
                 android:layout_weight="1"/>
             <ImageView 
                 android:contentDescription="@string/app_name"
-                android:layout_width="@dimen/twenty_eight"
-                android:layout_height="@dimen/twenty_eight"
+                android:layout_width="@dimen/twenty"
+                android:layout_height="@dimen/twenty"
                 android:src="@drawable/user_right"/>
         </LinearLayout>
         
@@ -158,8 +158,8 @@
                 android:layout_weight="1"/>
             <ImageView 
                 android:contentDescription="@string/app_name"
-                android:layout_width="@dimen/twenty_eight"
-                android:layout_height="@dimen/twenty_eight"
+                android:layout_width="@dimen/twenty"
+                android:layout_height="@dimen/twenty"
                 android:src="@drawable/user_right"/>
         </LinearLayout>
 
@@ -186,8 +186,8 @@
                 android:text="@string/app_explain"/>
             <ImageView 
                 android:contentDescription="@string/app_name"
-                android:layout_width="@dimen/twenty_eight"
-                android:layout_height="@dimen/twenty_eight"
+                android:layout_width="@dimen/twenty"
+                android:layout_height="@dimen/twenty"
                 android:src="@drawable/user_right"/>
         </LinearLayout>
         
@@ -214,8 +214,8 @@
                 android:text="@string/reset_password"/>
             <ImageView 
                 android:contentDescription="@string/app_name"
-                android:layout_width="@dimen/twenty_eight"
-                android:layout_height="@dimen/twenty_eight"
+                android:layout_width="@dimen/twenty"
+                android:layout_height="@dimen/twenty"
                 android:src="@drawable/user_right"/>
         </LinearLayout>
 
@@ -248,5 +248,14 @@
                 android:gravity="center_vertical"
                 android:text="@string/app_version_default"/>
         </LinearLayout>
+        <Button 
+            android:id="@+id/login_out"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty"
+            android:text="@string/login_out"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/forty"
+            android:layout_marginRight="@dimen/forty"
+            android:background="@drawable/bg_round_blue"/>
     </LinearLayout>
 </ScrollView>

@@ -66,7 +66,7 @@ public class UserRegisterActivity extends BaseActivity{
 		phone_code = (EditText)findViewById(R.id.phone_code);//手机号
 		Button identifying_code = (Button)findViewById(R.id.identifying_code);//发送验证码
 		uu_password = (EditText)findViewById(R.id.uu_password);//密码
-		uu_password.setEnabled(false);
+		uu_password.setFocusable(false);
 		Button app_register_in = (Button)findViewById(R.id.app_register_in);//注册
 		app_register_in.setText("forget".equals(type)?"重置密码":"注册");
 		
@@ -162,7 +162,7 @@ public class UserRegisterActivity extends BaseActivity{
 				//短信注册成功后，返回MainActivity,然后提示新好友
 				if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功
 					Tools.toast(UserRegisterActivity.this, "提交验证码成功");
-					uu_password.setEnabled(true);
+					uu_password.setFocusable(true);
 				} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
 					Tools.toast(UserRegisterActivity.this, "验证码已经发送");
 				}

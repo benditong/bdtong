@@ -92,24 +92,15 @@
     <string name="reset_password">重置密码</string>
     <string name="app_version">版本更新</string>
     <string name="app_version_default">已是最新版本</string>
-    <string name="login_other">选用其他方式登录</string>
-    <string name="login_weibo">新浪微博</string>
-    <string name="login_qq">QQ帐号</string>
-    <string name="login_weixin">微信账号</string>
-    <string name="login_quickly">手机号快速注册</string>
     <string name="login_register">没有账号?</string>
+    <string name="login_out">退出登录</string>
     
     <!-- 用户信息 -->
     <string name="user_avatar">头像</string>
-    <string name="user_age">年龄</string>
-    <string name="user_sex">性别</string>
-    <string name="user_address">常驻地</string>
-    <string name="user_pwd">密码</string>
-    <string name="user_cfmpwd">确认密码</string>
-    <string name="user_uptpwd">修改密码</string>
-    <string name="user_update_pwd">确定修改</string>
-    <string name="next">下一步</string>
-    <string name="loginout">退出登录</string>
+    <string name="user_name">昵称</string>
+    <string name="add_name">添加昵称</string>
+    <string name="user_mob">手机号</string>
+    <string name="mobile_number">150****8533</string>
     
     <!-- 我的钱包 -->
     <string name="alipay_allow">钱包余额</string>
