@@ -1,5 +1,6 @@
 package com.zykj.benditong.http;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONArray;
@@ -19,9 +20,19 @@ public abstract class EntityHandler<T> extends HttpErrorHandler{
 
     @Override
     public void onRecevieSuccess(JSONObject json) {
-        JSONArray jsonArray = json.getJSONArray(UrlContants.jsonData);
-        List<T> list=JSONArray.parseArray(jsonArray.toString(), c);
-        onReadSuccess(list);
+    	Object object = json.get(UrlContants.jsonData);
+    	if (object instanceof JSONArray) {
+            JSONArray jsonArray = (JSONArray)object;
+            List<T> list=JSONArray.parseArray(jsonArray.toString(), c);
+            onReadSuccess(list);
+    	} else if (object instanceof JSONObject) {
+    		JSONObject jsonObject = (JSONObject)object;
+    		JSONArray jsonArray = jsonObject.getJSONArray("list");
+            List<T> list=JSONArray.parseArray(jsonArray.toString(), c);
+            onReadSuccess(list);
+    	} else {
+            onReadSuccess(new ArrayList<T>());
+    	}
     }
 
 	@Override

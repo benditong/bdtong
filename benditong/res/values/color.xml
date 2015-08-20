@@ -48,6 +48,11 @@
     <color name="text_dgrey">#707070</color>
     <color name="edit_hint">#989898</color>
     
+    <!-- 下拉菜单 -->
+    <color name="popup_main_background">#b0000000</color>
+    <color name="choose_eara_item_press_color">#f4f4f4</color>
+    <color name="no_color">#00000000</color>
+    
     <!-- 其他 -->
     <color name="theme_color">#25b6ed</color>
     <color name="theme_orange">#F69801</color>

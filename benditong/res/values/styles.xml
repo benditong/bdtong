@@ -91,4 +91,10 @@
         <item name="android:background">@color/white</item>
         <item name="android:orientation">horizontal</item>
     </style>
+    
+    <!-- 下拉菜单  -->
+    <style name="PopupWindowAnimation">  
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>  
+        <item name="android:windowExitAnimation">@anim/pophidden_anim</item>  
+    </style>
 </resources>

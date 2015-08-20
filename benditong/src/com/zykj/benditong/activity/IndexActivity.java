@@ -3,6 +3,7 @@ package com.zykj.benditong.activity;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,7 @@ import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
@@ -63,7 +65,7 @@ public class IndexActivity extends BaseActivity {
 		switch (view.getId()) {
 		case R.id.im_b1canyin:
 			/* 餐饮  */
-			
+			startActivity(new Intent(IndexActivity.this, CanyinActivity.class));
 			break;
 		case R.id.im_b1jiudian:
 			/* 酒店  */
@@ -114,7 +116,9 @@ public class IndexActivity extends BaseActivity {
 	 * 请求服务器数据---首页
 	 */
 	private void requestData(){
-		HttpUtils.getAdsList(res_getAdsList);
+		RequestParams params = new RequestParams();
+		params.put("type", "slideFocus");
+		HttpUtils.getAdsList(res_getAdsList, params);
 		HttpUtils.getLikeList(res_getLikeList, "5");
 	}
 	

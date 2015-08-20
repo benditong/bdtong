@@ -41,13 +41,18 @@
     <!-- 猜你喜欢 -->
     <string name="index_product_title">产品名称</string>
     <string name="index_product_content">内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介&#8230;</string>
-    <string name="index_product_distance">&lt;500</string>
+    <string name="index_product_distance">&lt;500m</string>
     <string name="index_product_price">88元</string>
     <string name="index_product_other">● ● ●</string>
     
     <!-- 餐饮-->
-    <string name="canyin_left">分类∨</string>
-    <string name="canyin_right">排序方式∨</string>
+    <string name="restaurant_name">餐厅名称餐厅名称</string>
+    <string name="restaurant_time">用餐时间：2015&#8211;06&#8211;17 14:00&#8211;16:00</string>
+    <string name="reserve_time">预定时间：2015&#8211;06&#8211;16 14:30</string>
+    <string name="order_delete">删除订单</string>
+    <string name="order_assess">评价</string>
+    <string name="restaurant_score">评价：4.5分</string>
+    <string name="restaurant_address">地址：餐厅地址餐厅地址餐厅地址餐厅地</string>
     
     <!-- 订单 -->
     <string name="order_tab1">未付款</string>
@@ -135,5 +140,6 @@
     <string name="load_data">正在加载,请稍候&#8230;</string>
     <string name="links">网站链接：www.yuming.com</string>
     <string name="message">恭喜你，从发布者名称那里获得了红包类型多少元</string>
-    <string name="power_on">智能开启</string>
+    <string name="power_on">智能开启</string>   
+    <string name="no_data">没有找到符合条件的数据</string> 
 </resources>

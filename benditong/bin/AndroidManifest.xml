@@ -81,6 +81,12 @@
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.CanyinActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         
         <!--【短信验证】-->
         <activity

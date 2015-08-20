@@ -18,54 +18,58 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/eight">
-        <LinearLayout 
-	        android:layout_width="fill_parent"
-	        android:layout_height="@dimen/twenty_five"
-	        android:orientation="horizontal">
-	        <TextView 
-		        android:id="@+id/product_title"
-	            android:text="@string/index_product_title"
-	            android:textColor="@color/black"
-	            android:textSize="@dimen/t_eighteen"
-	            android:layout_width="0.0dip"
-	            android:layout_height="match_parent"
-	            android:layout_weight="1"
-	            android:singleLine="true"/>
-	        <TextView 
-		        android:id="@+id/product_distance"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/t_sixteen"
-	            android:textColor="@color/text_light"
-	            android:text="@string/index_product_distance"/>
-        </LinearLayout>
         <TextView 
-	        android:id="@+id/product_content"
-            android:text="@string/index_product_content"
+	        android:id="@+id/restaurant_name"
+            android:text="@string/restaurant_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/t_eighteen"
+	     	android:layout_width="match_parent"
+	        android:layout_height="@dimen/twenty_five"
+            android:singleLine="true"/>
+        <TextView 
+	        android:id="@+id/restaurant_time"
+            android:text="@string/restaurant_time"
             android:textColor="@color/text_light"
-            android:maxLines="2"
             android:textSize="@dimen/t_sixteen"
             android:paddingTop="@dimen/five"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <LinearLayout 
+        <TextView 
+	        android:id="@+id/reserve_time"
+            android:text="@string/reserve_time"
+            android:textColor="@color/text_light"
+            android:textSize="@dimen/t_sixteen"
+            android:paddingTop="@dimen/five"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+	    <LinearLayout 
 	        android:layout_width="fill_parent"
-	        android:layout_height="@dimen/thirty"
-	        android:orientation="horizontal">
-	        <TextView 
-		        android:id="@+id/product_price"
-	            android:text="@string/index_product_price"
-	            android:textColor="@color/text_light"
-	            android:textSize="@dimen/t_sixteen"
-	            android:layout_width="0.0dip"
-	            android:layout_height="match_parent"
-	            android:layout_weight="1"/>
-	        <TextView 
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/t_sixteen"
-	            android:textColor="@color/text_light"
-	            android:text="@string/index_product_other"/>
-        </LinearLayout>
+	        android:layout_height="@dimen/fifty"
+	        android:orientation="horizontal"
+	        android:paddingTop="@dimen/eight">
+		    <View 
+		        android:layout_width="0.0dip"
+		        android:layout_height="match_parent"
+		        android:layout_weight="1"/>
+		    <Button 
+		        android:id="@+id/order_delete"
+		        android:layout_width="@dimen/eighty"
+		        android:layout_height="@dimen/thirty"
+		        android:background="@drawable/bg_null_black"
+		        android:textColor="@color/black"
+		        android:gravity="center"
+		        android:layout_marginRight="@dimen/ten"
+		        android:text="@string/order_delete"/>
+		    <Button 
+		        android:id="@+id/order_assess"
+		        android:layout_width="@dimen/eighty"
+		        android:layout_height="@dimen/thirty"
+		        android:background="@drawable/bg_null_orange"
+		        android:textColor="@color/theme_orange"
+		        android:gravity="center"
+		        android:text="@string/order_assess"/>
+	    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

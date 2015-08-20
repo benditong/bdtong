@@ -10,36 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 	
-	<LinearLayout 
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-        <TextView
-            android:id="@+id/gift_left"
-            android:textSize="16sp"
-            android:textColor="@drawable/tab_font_color"
-            android:gravity="center"
-            android:background="@drawable/devide_gray_bt"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/canyin_left"/>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#eee"/>
-        <TextView
-            android:id="@+id/gift_right"
-            android:textSize="16sp"
-            android:textColor="@drawable/tab_font_color"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/devide_gray_bt"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/canyin_right"/>
-	</LinearLayout>
+	<com.zykj.benditong.view.ExpandTabView 
+        android:id="@+id/expandtab_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+	
     <com.zykj.benditong.view.XListView
         android:id="@+id/canyin_list"
         android:layout_width="match_parent"

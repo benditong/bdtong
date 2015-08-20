@@ -26,13 +26,13 @@ public class HttpUtils {
     }
     
     /*轮播图*/
-    public static void getAdsList(AsyncHttpResponseHandler handler){
-        client.get(UrlContants.getUrl(UrlContants.GETADSLIST), handler);
+    public static void getAdsList(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.GETADSLIST), params, handler);
     }
     
-    /*轮播图*/
+    /*点单列表*/
     public static void getOrderList(AsyncHttpResponseHandler handler, RequestParams params){
-        client.get(UrlContants.getUrl(UrlContants.GETORDERLIST), params, handler);
+        client.post(UrlContants.getUrl(UrlContants.GETORDERLIST), params, handler);
     }
     
     /*用户登录*/
@@ -49,4 +49,15 @@ public class HttpUtils {
     public static void postUserAvatar(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.POSIUSERAVATAR), params, handler);
     }
+    
+    /*获取分类*/
+    public static void getcategory(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.GETCATEGORY), params, handler);
+    }
+    
+    /*获取默认餐厅列表*/
+    public static void getRestaurants(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.GETRESTAURANTS), params, handler);
+    }
+    
 }
