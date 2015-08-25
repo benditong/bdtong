@@ -19,6 +19,12 @@ public class ViewHolder {
 	private SparseArray<View> mViews;
 	private int mPosition;
 	private View mConvertView;
+	public View btn_sign_up;
+	public TextView tv_orign;
+	public TextView tv_destination;
+	public TextView tv_departure_time;
+	public TextView tv_remain_seats;
+	public TextView tv_price;
 	
 	public ViewHolder(Context context, ViewGroup parent, int layoutId, int position){
 		this.mPosition = position;
@@ -27,6 +33,12 @@ public class ViewHolder {
 		mConvertView.setTag(this);
 	}
 	
+
+	public ViewHolder() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public static ViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position){
 		if(convertView == null){
 			return new ViewHolder(context, parent, layoutId, position);

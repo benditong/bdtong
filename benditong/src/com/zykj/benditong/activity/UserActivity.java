@@ -108,6 +108,7 @@ public class UserActivity extends BaseActivity {
 
 	@Override
 	public void onClick(View view) {
+		Intent intent =null;
 		switch (view.getId()) {
 		case R.id.user_login:
 			/* 用户登录 */
@@ -126,15 +127,35 @@ public class UserActivity extends BaseActivity {
 			break;
 		case R.id.user_store:
 			isLogin();
+			if (CommonUtils.CheckLogin()) {
+				startActivity(new Intent(this, UserStoreActivity.class));
+			}else {
+				startActivity(new Intent(this, UserLoginActivity.class));
+				startActivityForResult(intent, 11);
+			}
 			break;
 		case R.id.app_about:
+			intent = new Intent(this, AppAboutActivity.class);
+			startActivity(intent);
 			break;
 		case R.id.app_explain:
+			intent = new Intent(this, AppExplainActivity.class);
+			startActivity(intent);
 			break;
 		case R.id.reset_password:
 			isLogin();
+			if(CommonUtils.CheckLogin()){
+				//myCommonTitle.setTitle("重置密码");
+				intent = new Intent(this, UserRegisterActivity.class);
+				intent.putExtra("type", "forget");
+				startActivity(intent);
+			}else {
+				intent =new Intent(UserActivity.this,UserLoginActivity.class);
+				startActivityForResult(intent, 11);
+			}
 			break;
 		case R.id.app_version:
+			Tools.toast(this, "已是最新版本");
 			break;
 		case R.id.login_out:
 			BaseApp.getModel().clear();

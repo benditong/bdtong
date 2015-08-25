@@ -30,6 +30,8 @@ public class UrlContants {
     
     public static final String GETRESTAURANTS = "c=info&a=getalllist";//获取列表
     
+    public static final String GETCARPOOLS = "c=info&a=getalllist";//获取列表
+    
     public static String getUrl(String token){
         if(token==null || token.equals("")){
             return BASE_URL;
