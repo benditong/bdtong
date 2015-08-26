@@ -1,25 +1,22 @@
 package com.zykj.benditong.activity;
 
-import java.util.HashMap;
 import java.util.Map;
-
-import org.json.JSONObject;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.format.Time;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
+import com.zykj.benditong.http.AbstractHttpHandler;
+import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.AppModel;
 import com.zykj.benditong.utils.Tools;
-import com.zykj.benditong.view.MyRequestDailog;
 
 public class CarpoolNeederActivity extends BaseActivity {
 	/**
@@ -45,43 +42,11 @@ public class CarpoolNeederActivity extends BaseActivity {
 		super.setContentView(R.layout.ui_carpool_needer);
 		initView();
 		
-		name=getSharedPreferenceValue(AppModel.NAME);
-		phone=getSharedPreferenceValue(AppModel.PHONE);
+//		name=getSharedPreferenceValue(AppModel.NAME);
+//		phone=getSharedPreferenceValue(AppModel.PHONE);
 	}
 	
-	final Handler handle=new Handler(){
-		 public void handleMessage(Message msg) {
-	            switch (msg.what) {
-	                case 0:// 提交信息
-	                    MyRequestDailog.closeDialog();
-	                    String data = (String) msg.obj;
-	                    JSONObject object = null;
-	                    try {
-	                        object = new JSONObject(data);
-	                    } catch (Exception e) {
-	                    }
-
-	                    try {
-	                        if (object == null) {
-	                            Tools.toast(CarpoolNeederActivity.this, "提交失败");
-	                        } else {
-	                            if ((object.getInt("state") == 1)) {// 完善成功
-	                                //getData(0);
-	                                // 重新获取信息
-	                            }else {
-	                            	 Tools.toast(CarpoolNeederActivity.this, "提交失败");
-	                            }
-	                        }
-	                    } catch (Exception e) {
-	                    	 Tools.toast(CarpoolNeederActivity.this, "提交失败");
-	                    }
-
-	                    break;
-	            }
-	        }
-	    };
-		
-
+	
 	private void initView() {
 		// TODO Auto-generated method stub
 		editText_orign = (EditText) findViewById(R.id.user_origin);
@@ -117,58 +82,79 @@ public class CarpoolNeederActivity extends BaseActivity {
 
 		case R.id.btn_carpool_submit:
 			submitCarpoolInfo();
+			finish();
 			break;
 
 		}
 	}
 
 	private void submitCarpoolInfo() {
-		if(from_address.length()<=0){
+		if(editText_orign.length()<=0){
 			Tools.toast(this, "出发地不能为空");
 			return;
 		}
-		if(to_address.length()<=0){
+		if(editText_destination.length()<=0){
 			Tools.toast(this, "目的地不能为空");
 			return;
 		}
-		if(starttime.length()<=0){
-			Tools.toast(this, "出发时间不能为空");
-			return;
-		}
-		if(seats.length()<=0){
+//		if(editText_depart_time.length()<=0){
+//			Tools.toast(this, "出发时间不能为空");
+//			return;
+//		}
+		if(editText_persons.length()<=0){
 			Tools.toast(this, "人数不能为空");
 			return;
 		}
-		if(price.length()<=0){
+		if(editText_cost.length()<=0){
 			Tools.toast(this, "预计费用不能为空");
 			return;
 		}
-		if(name.length()<=0){
+		if(editText_name.length()<=0){
 			Tools.toast(this, "姓名不能为空");
 			return;
 		}
-		if(phone.length()<=0){
+		if(editText_phone.length()<=0){
 			Tools.toast(this, "联系电话不能为空");
 			return;
 		}
-		submit_data=new HashMap<String, String>();
-		submit_data.put("from_address", from_address.trim());
-		submit_data.put("to_address", to_address.trim());
-		submit_data.put("starttime", starttime.trim());
-		submit_data.put("seats", seats.trim());
-		submit_data.put("price", price.trim());
-		submit_data.put("name", name.trim());
-		submit_data.put("phone", phone.trim());
-		
-		MyRequestDailog.showDialog(this, "");
-		startThread(0);
+		addData();
+//		submit_data=new HashMap<String, String>();
+//		submit_data.put("from_address", from_address.trim());
+//		submit_data.put("to_address", to_address.trim());
+//		submit_data.put("starttime", starttime.trim());
+//		submit_data.put("seats", seats.trim());
+//		submit_data.put("price", price.trim());
+//		submit_data.put("name", name.trim());
+//		submit_data.put("phone", phone.trim());
 		
 	}
 
-	private void startThread(int i) {
+
+	private void addData() {
+		// TODO Auto-generated method stub
+		RequestParams params=new RequestParams();
+		params.add(from_address, editText_orign.getText().toString());
+		params.add(to_address, editText_destination.getText().toString());
+		params.add(starttime, editText_depart_time.getText().toString());
+		params.add(seats, editText_persons.getText().toString());
+		params.add(price, editText_cost.getText().toString());
+		params.add(name, editText_name.getText().toString());
+		params.add(phone, editText_phone.getText().toString());
 		
-		
-		
+		HttpUtils.getCars(new AbstractHttpHandler() {
+			
+			@Override
+			public void onJsonSuccess(com.alibaba.fastjson.JSONObject json) {
+				// TODO Auto-generated method stub
+				 String status = json.getString("status");
+	                if ("1".equals(status)) {
+	                    setResult(Activity.RESULT_OK);
+	                    finish();
+	                } else {
+	                    Tools.toast(CarpoolNeederActivity.this, json.getString("msg"));
+	                }
+			}
+		}, params);
 	}
 
 }
