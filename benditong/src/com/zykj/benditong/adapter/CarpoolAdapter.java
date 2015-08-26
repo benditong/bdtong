@@ -2,10 +2,12 @@ package com.zykj.benditong.adapter;
 
 import java.net.ContentHandler;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.zykj.benditong.R;
 import com.zykj.benditong.activity.CarpoolMainActivity;
 import com.zykj.benditong.activity.CarpoolSignUpActivity;
+import com.zykj.benditong.model.Car;
 
 import android.R.anim;
 import android.content.Context;
@@ -22,23 +24,25 @@ public class CarpoolAdapter extends BaseAdapter {
 	
 	Context mContext;
 	LayoutInflater mLayoutInflater;
+	List<Car> list;
 	CarpoolMainActivity mCarpoolMainActivity;
 
-	public CarpoolAdapter(Context context) {
-		context = mContext;
+	public CarpoolAdapter(Context context,List<Car> list) {
 		this.mLayoutInflater = LayoutInflater.from(context);
+		this.mContext = context;
+		this.list=list;
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
-		return position;
+		return list.get(position);
 	}
 
 	@Override
@@ -50,20 +54,13 @@ public class CarpoolAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
+		final Car car=list.get(position);
+		
 		ViewHolder holder = null;
-		// if (convertView==null) {
-		// convertView=mLayoutInflater.inflate(R.layout.ui_carpool_details,
-		// null);
-		// holder=new ViewHolder();
-		// holder.btn_sign_up=convertView.findViewById(R.id.btn_carpool_sign_up);
-		// convertView.setTag(holder);
-		// }else {
-		// holder=(ViewHolder) convertView.getTag();
-		// }
+
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = mLayoutInflater.inflate(R.layout.ui_carpool_details,
-					null);
+			convertView = mLayoutInflater.inflate(R.layout.ui_carpool_details,null);
 			holder.tv_orign = (TextView) convertView
 					.findViewById(R.id.textView_orign_2);
 			holder.tv_destination = (TextView) convertView
@@ -81,11 +78,18 @@ public class CarpoolAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
+		holder.tv_orign.setText(car.getFrom_address());
+		holder.tv_destination.setText(car.getTo_adderess());
+		holder.tv_departure_time.setText(car.getStarttime());
+		holder.tv_remain_seats.setText(car.getSeat());
+		holder.tv_price.setText(car.getPrice());
+		
 		holder.btn_sign_up.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//startActivity(new Intent(mContext, CarpoolSignUpActivity.class));
+				Intent intent=new Intent(mCarpoolMainActivity, CarpoolSignUpActivity.class);
+				mContext.startActivity(intent);
 
 			}
 		});

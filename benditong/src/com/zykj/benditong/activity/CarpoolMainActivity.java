@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
+import com.zykj.benditong.adapter.CarpoolAdapter;
 
 public class CarpoolMainActivity extends BaseActivity implements
 		OnClickListener {
@@ -29,6 +30,8 @@ public class CarpoolMainActivity extends BaseActivity implements
 	private SimpleAdapter mySimpleAdapter = null;
 	RelativeLayout mRelativeLayout;
 	ListView mListView;
+	
+	CarpoolAdapter mCarpoolAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
