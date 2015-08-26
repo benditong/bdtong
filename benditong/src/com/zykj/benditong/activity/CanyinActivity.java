@@ -9,7 +9,6 @@ import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -23,8 +22,8 @@ import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Category;
 import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.ExpandTabView;
-import com.zykj.benditong.view.MySearchTitle;
 import com.zykj.benditong.view.ViewLeft;
 import com.zykj.benditong.view.ViewRight;
 import com.zykj.benditong.view.XListView;
@@ -36,12 +35,12 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
  */
 public class CanyinActivity extends BaseActivity implements IXListViewListener, OnItemClickListener{
 	
-	private static int NUM=2;//perpage默认每页显示10条信息
+	private static int NUM=5;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
 	private int orderby=1;//排序
 	private String tid="";//分类
 
-	private MySearchTitle mySearchTitle;
+	//private MySearchTitle mySearchTitle;
 	private ExpandTabView expandTabView;
 	private ArrayList<View> mViewArray = new ArrayList<View>();
 	private List<Category> mCategory = new ArrayList<Category>();
@@ -69,7 +68,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	 * 加载页面
 	 */
 	private void initView(){
-		mySearchTitle = (MySearchTitle)findViewById(R.id.aci_mytitle);
+		//mySearchTitle = (MySearchTitle)findViewById(R.id.aci_mytitle);
 		expandTabView = (ExpandTabView) findViewById(R.id.expandtab_view);
 		canyin_list = (XListView) findViewById(R.id.canyin_list);
 		canyin_list.setDividerHeight(0);
@@ -140,12 +139,18 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			@Override
 			public void getValue(int position, String showText) {
 				onRefresh(viewLeft, showText);
+				tid = mCategory.get(position).getId();
+				Tools.toast(CanyinActivity.this, tid+"");
+				requestData();
 			}
 		});
 		viewRight.setOnSelectListener(new ViewRight.OnSelectListener() {
 			@Override
-			public void getValue(int position, String showText) {
+			public void getValue(String orderbyid, String showText) {
 				onRefresh(viewRight, showText);
+				orderby = Integer.valueOf(orderbyid);
+				Tools.toast(CanyinActivity.this, orderby+"");
+				requestData();
 			}
 		});
 	}
@@ -156,7 +161,6 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		if (position >= 0 && !expandTabView.getTitle(position).equals(showText)) {
 			expandTabView.setTitle(showText, position);
 		}
-		Toast.makeText(CanyinActivity.this, showText, Toast.LENGTH_SHORT).show();
 	}
 	
 	private int getPositon(View tView) {
