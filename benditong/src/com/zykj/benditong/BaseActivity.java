@@ -1,5 +1,7 @@
 package com.zykj.benditong;
 
+import com.zykj.benditong.utils.Tools;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,7 +13,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.zykj.benditong.utils.Tools;
 
 public abstract class BaseActivity extends Activity implements
 		android.view.View.OnClickListener {
@@ -86,6 +87,7 @@ public abstract class BaseActivity extends Activity implements
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		return super.onKeyDown(keyCode, event);
 	}
+	
 
 	/**
 	 * 回复当前界面的操作

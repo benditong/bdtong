@@ -84,6 +84,7 @@
             android:textSize="@dimen/eighteen" />
 
         <TextView
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/t_ten"

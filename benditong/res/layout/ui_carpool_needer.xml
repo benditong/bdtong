@@ -180,7 +180,7 @@
             <EditText
                 android:id="@+id/user_phone"
                 style="@style/carpool_textview"
-                android:inputType="number" >
+                android:inputType="phone" >
             </EditText>
         </LinearLayout>
 

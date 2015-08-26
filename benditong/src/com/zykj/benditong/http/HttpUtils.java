@@ -60,8 +60,8 @@ public class HttpUtils {
         client.post(UrlContants.getUrl(UrlContants.GETRESTAURANTS), params, handler);
     }
     /*获取默认的拼车信息*/
-    public static void getCarpools(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETRESTAURANTS), params, handler);
+    public static void getCars(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETCARS), params, handler);
     }
     
 }
