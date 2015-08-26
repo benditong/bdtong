@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
@@ -35,8 +36,10 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
  */
 public class CanyinActivity extends BaseActivity implements IXListViewListener, OnItemClickListener{
 	
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int NUM=2;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
+	private int orderby=1;//排序
+	private String tid="";//分类
 
 	private MySearchTitle mySearchTitle;
 	private ExpandTabView expandTabView;
@@ -48,12 +51,14 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	private ViewLeft viewLeft;
 	private Handler mHandler;//异步加载或刷新
 	private ViewRight viewRight;
+	private RequestParams params = new RequestParams();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_canyin_activity);
 		mHandler = new Handler();
+		params.put("type", "restaurant");
 		
 		initView();
 		requestData();
@@ -90,13 +95,17 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		mTextArray.add("分类");
 		mTextArray.add("排序方式");
 		expandTabView.setValue(mTextArray, mViewArray);
+		HttpUtils.getcategory(res_getcategory, params);
 	}
 	
 	private void requestData(){
-		RequestParams params = new RequestParams();
-		params.put("type", "restaurant");
+		params.put("tid", tid);
+		params.put("orderby", orderby);
+		params.put("lng", BaseApp.getModel().getLongitude());//经度
+		params.put("lat", BaseApp.getModel().getLatitude());//纬度
+		params.put("nowpage", nowpage);//当前第几页
+		params.put("perpage", NUM);//每页显示数目
 		HttpUtils.getRestaurants(res_getRestaurants, params);
-		HttpUtils.getcategory(res_getcategory, params);
 	}
 	
 	private AsyncHttpResponseHandler res_getRestaurants = new EntityHandler<Restaurant>(Restaurant.class) {

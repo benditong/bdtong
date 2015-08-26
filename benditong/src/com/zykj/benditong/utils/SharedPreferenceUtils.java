@@ -21,6 +21,8 @@ public class SharedPreferenceUtils {
     private static final String MOBILE="mobile";
     private static final String MONEY="money";
     private static final String INTEGRAL="integral";
+    private static final String LATITUDE="latitude";
+    private static final String LONGITUDE="longitude";
 	
     private SharedPreferenceUtils(Context context){
         mSharedPreference=context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
@@ -62,6 +64,14 @@ public class SharedPreferenceUtils {
 		return mSharedPreference.getString(INTEGRAL, null);
 	}
 
+	public String getLatitude() {
+		return mSharedPreference.getString(LATITUDE, null);
+	}
+
+	public String getLongitude() {
+		return mSharedPreference.getString(LONGITUDE, null);
+	}
+
     public void setUserid(String userid){
         mEditor.putString(USERID, userid);
         mEditor.commit();
@@ -94,6 +104,16 @@ public class SharedPreferenceUtils {
 
     public void setIntegral(String integral){
         mEditor.putString(INTEGRAL,integral);
+        mEditor.commit();
+    }
+
+    public void setLatitude(String latitude){
+        mEditor.putString(LATITUDE,latitude);
+        mEditor.commit();
+    }
+
+    public void setLongitude(String longitude){
+        mEditor.putString(LONGITUDE,longitude);
         mEditor.commit();
     }
     

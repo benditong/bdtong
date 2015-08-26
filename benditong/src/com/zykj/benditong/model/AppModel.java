@@ -17,6 +17,8 @@ public class AppModel {
     private String mobile;//手机
     private String money;//红包金额
     private String integral;//红包个数
+    private String latitude;//经度
+    private String longitude;//纬度
 
     private static SharedPreferenceUtils utils;
     
@@ -50,6 +52,14 @@ public class AppModel {
 
         if(utils.getIntegral() != null){
             model.integral= utils.getIntegral();
+        }
+
+        if(utils.getLatitude() != null){
+            model.latitude= utils.getLatitude();
+        }
+
+        if(utils.getLongitude() != null){
+            model.longitude= utils.getLongitude();
         }
 
         return model;
@@ -103,6 +113,18 @@ public class AppModel {
 	public void setIntegral(String integral) {
 		this.integral = integral;
         utils.setIntegral(integral);
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 	public void clear(){
 		this.setUsername("");

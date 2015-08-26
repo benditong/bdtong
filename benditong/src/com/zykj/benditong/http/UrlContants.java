@@ -27,8 +27,8 @@ public class UrlContants {
     public static final String POSIUSERAVATAR = "c=user&a=postUserAvatar";//猜你喜欢
     
     public static final String GETCATEGORY = "c=info&a=getcategory";//获取分类
-    
-    public static final String GETRESTAURANTS = "c=info&a=getalllist";//获取列表
+
+    public static final String GETRESTAURANTS = "c=info&a=getlist";//获取餐饮、酒店、列表
     
     public static String getUrl(String token){
         if(token==null || token.equals("")){
