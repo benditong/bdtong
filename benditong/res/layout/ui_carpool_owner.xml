@@ -9,7 +9,7 @@
         android:background="#F5F5F5"
         android:orientation="vertical" >
 
-        <LinearLayout
+        <RelativeLayout
             style="@style/carpool_head"
             android:orientation="horizontal" >
 
@@ -25,13 +25,13 @@
                 android:src="@drawable/back" />
 
             <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:text="@string/user_carpool_owner"
                 android:textColor="#FFF"
                 android:textSize="16sp" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
