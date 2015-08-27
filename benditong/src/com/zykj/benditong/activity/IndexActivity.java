@@ -75,6 +75,7 @@ public class IndexActivity extends BaseActivity {
 			break;
 		case R.id.im_b1pinche:
 			/* 拼车  */
+			startActivity(new Intent(IndexActivity.this, CarpoolMainActivity.class));
 			break;
 		default:
 			break;

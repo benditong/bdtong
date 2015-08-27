@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/content_background_color"
+    android:orientation="vertical" >
+
+    <com.zykj.benditong.view.MyCommonTitle
+        android:id="@+id/aci_mytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCFBF9" >
+
+        <ImageView
+            android:id="@+id/imag_about_logo"
+            android:layout_width="55dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/app_logo" >
+        </ImageView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#FCFBF9" >
+
+        <TextView
+            android:id="@+id/about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#FFF"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/t_ten"
+            android:text="网址:"
+            android:textSize="@dimen/eighteen" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/t_ten"
+            android:text="http://55tuantuan.com"
+            android:textSize="@dimen/eighteen" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:weightSum="2" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="#FFF" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/t_ten"
+                android:text="如有疑问，请致电"
+                android:textSize="@dimen/eighteen" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="#FFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/t_ten"
+                android:text="电话:"
+                android:textSize="@dimen/eighteen" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/t_ten"
+                android:text="400-105-5555"
+                android:textSize="@dimen/eighteen" />
+
+            <ImageButton
+                android:id="@+id/imag_buton_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:background="#FFF"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/phone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FCFBF9" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:gravity="right"
+            android:text="©  2011-2015 tuantuan.com" />
+    </LinearLayout>
+
+</LinearLayout>

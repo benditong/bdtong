@@ -68,4 +68,6 @@
     <color name="gift_btn_green">#3ECCB4</color>
     <color name="label_back">#EFFAFF</color>
     <color name="label_button">#EAF9FF</color>
+     <color name="carpool">#ffffff</color> 
+    
 </resources>

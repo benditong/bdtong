@@ -10,6 +10,15 @@ import com.zykj.benditong.utils.SharedPreferenceUtils;
  */
 public class AppModel {
 	
+    /**
+     * 当前帐号是否已经登录的标识
+     */
+    public static boolean is_login = false;
+    public static String NAME = "name";
+    public static String PHONE = "phone";
+	
+	
+	
     private String username;//登录账号
     private String password;//登录密码
     private String userid;//用户Id
