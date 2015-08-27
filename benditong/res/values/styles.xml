@@ -97,4 +97,9 @@
         <item name="android:windowEnterAnimation">@anim/popshow_anim</item>  
         <item name="android:windowExitAnimation">@anim/pophidden_anim</item>  
     </style>
+
+    <!-- RatingBar  -->
+    <style name="mRatingbar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_rating_full</item>
+    </style>
 </resources>

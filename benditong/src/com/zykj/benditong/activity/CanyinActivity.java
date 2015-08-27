@@ -3,6 +3,7 @@ package com.zykj.benditong.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -140,7 +141,6 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			public void getValue(int position, String showText) {
 				onRefresh(viewLeft, showText);
 				tid = mCategory.get(position).getId();
-				Tools.toast(CanyinActivity.this, tid+"");
 				requestData();
 			}
 		});
@@ -149,7 +149,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			public void getValue(String orderbyid, String showText) {
 				onRefresh(viewRight, showText);
 				orderby = Integer.valueOf(orderbyid);
-				Tools.toast(CanyinActivity.this, orderby+"");
+				nowpage = 1;
 				requestData();
 			}
 		});
@@ -180,7 +180,8 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView<?> convertView, View view, int position, long id) {
+		startActivity(new Intent(CanyinActivity.this, CanyinDetailActivity.class).putExtra("restaurant", restaurants.get(position-1)));
 	}
 
 	@Override
