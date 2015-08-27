@@ -3,17 +3,18 @@ package com.zykj.benditong.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
@@ -22,8 +23,8 @@ import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Category;
 import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.ExpandTabView;
-import com.zykj.benditong.view.MySearchTitle;
 import com.zykj.benditong.view.ViewLeft;
 import com.zykj.benditong.view.ViewRight;
 import com.zykj.benditong.view.XListView;
@@ -35,10 +36,12 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
  */
 public class CanyinActivity extends BaseActivity implements IXListViewListener, OnItemClickListener{
 	
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int NUM=5;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
+	private int orderby=1;//排序
+	private String tid="";//分类
 
-	private MySearchTitle mySearchTitle;
+	//private MySearchTitle mySearchTitle;
 	private ExpandTabView expandTabView;
 	private ArrayList<View> mViewArray = new ArrayList<View>();
 	private List<Category> mCategory = new ArrayList<Category>();
@@ -48,12 +51,14 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	private ViewLeft viewLeft;
 	private Handler mHandler;//异步加载或刷新
 	private ViewRight viewRight;
+	private RequestParams params = new RequestParams();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_canyin_activity);
 		mHandler = new Handler();
+		params.put("type", "restaurant");
 		
 		initView();
 		requestData();
@@ -64,7 +69,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	 * 加载页面
 	 */
 	private void initView(){
-		mySearchTitle = (MySearchTitle)findViewById(R.id.aci_mytitle);
+		//mySearchTitle = (MySearchTitle)findViewById(R.id.aci_mytitle);
 		expandTabView = (ExpandTabView) findViewById(R.id.expandtab_view);
 		canyin_list = (XListView) findViewById(R.id.canyin_list);
 		canyin_list.setDividerHeight(0);
@@ -90,13 +95,17 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		mTextArray.add("分类");
 		mTextArray.add("排序方式");
 		expandTabView.setValue(mTextArray, mViewArray);
+		HttpUtils.getcategory(res_getcategory, params);
 	}
 	
 	private void requestData(){
-		RequestParams params = new RequestParams();
-		params.put("type", "restaurant");
+		params.put("tid", tid);
+		params.put("orderby", orderby);
+		params.put("lng", BaseApp.getModel().getLongitude());//经度
+		params.put("lat", BaseApp.getModel().getLatitude());//纬度
+		params.put("nowpage", nowpage);//当前第几页
+		params.put("perpage", NUM);//每页显示数目
 		HttpUtils.getRestaurants(res_getRestaurants, params);
-		HttpUtils.getcategory(res_getcategory, params);
 	}
 	
 	private AsyncHttpResponseHandler res_getRestaurants = new EntityHandler<Restaurant>(Restaurant.class) {
@@ -131,12 +140,17 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			@Override
 			public void getValue(int position, String showText) {
 				onRefresh(viewLeft, showText);
+				tid = mCategory.get(position).getId();
+				requestData();
 			}
 		});
 		viewRight.setOnSelectListener(new ViewRight.OnSelectListener() {
 			@Override
-			public void getValue(int position, String showText) {
+			public void getValue(String orderbyid, String showText) {
 				onRefresh(viewRight, showText);
+				orderby = Integer.valueOf(orderbyid);
+				nowpage = 1;
+				requestData();
 			}
 		});
 	}
@@ -147,7 +161,6 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		if (position >= 0 && !expandTabView.getTitle(position).equals(showText)) {
 			expandTabView.setTitle(showText, position);
 		}
-		Toast.makeText(CanyinActivity.this, showText, Toast.LENGTH_SHORT).show();
 	}
 	
 	private int getPositon(View tView) {
@@ -167,7 +180,8 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView<?> convertView, View view, int position, long id) {
+		startActivity(new Intent(CanyinActivity.this, CanyinDetailActivity.class).putExtra("restaurant", restaurants.get(position-1)));
 	}
 
 	@Override

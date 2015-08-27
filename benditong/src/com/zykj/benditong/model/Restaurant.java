@@ -20,6 +20,7 @@ public class Restaurant implements Serializable{
 	private String tel;
 	private String intro;
 	private String imgsrc;
+	private String coverimg;
 	private String xinyong;
 	private String hits;
 	private String istop;
@@ -28,6 +29,8 @@ public class Restaurant implements Serializable{
 	private String seotitle;
 	private String seokeys;
 	private String seodesc;
+	private String avg;
+	private float km;
 	
 	public String getId() {
 		return id;
@@ -101,6 +104,12 @@ public class Restaurant implements Serializable{
 	public void setImgsrc(String imgsrc) {
 		this.imgsrc = imgsrc;
 	}
+	public String getCoverimg() {
+		return coverimg;
+	}
+	public void setCoverimg(String coverimg) {
+		this.coverimg = coverimg;
+	}
 	public String getXinyong() {
 		return xinyong;
 	}
@@ -148,5 +157,17 @@ public class Restaurant implements Serializable{
 	}
 	public void setSeodesc(String seodesc) {
 		this.seodesc = seodesc;
+	}
+	public String getAvg() {
+		return avg;
+	}
+	public void setAvg(String avg) {
+		this.avg = avg;
+	}
+	public float getKm() {
+		return km;
+	}
+	public void setKm(float km) {
+		this.km = km;
 	}
 }

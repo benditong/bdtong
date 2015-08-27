@@ -48,6 +48,7 @@
     <dimen name="ninety_five">85dp</dimen>
     <dimen name="one_hundred">100dp</dimen>
     <dimen name="one_hundred_thirty">130dp</dimen>
+    <dimen name="one_hundred_fifty">150dp</dimen>
     <dimen name="two_hundred">200dp</dimen>
     <!-- 文本大小 -->
     <dimen name="t_eight">8sp</dimen>

@@ -54,6 +54,12 @@
     <string name="restaurant_score">评价：4.5分</string>
     <string name="restaurant_address">地址：餐厅地址餐厅地址餐厅地址餐厅地</string>
     
+    <!-- 餐饮详情 -->
+    <string name="res_introduct">餐厅简介：</string>
+    <string name="res_assess">评价列表(20)</string>
+    <string name="res_assess_name">还**吹</string>
+    <string name="res_assess_time">2015&#8211;06&#8211;17 14:00</string>
+    <string name="res_assess_more">查看更多评价</string>
     <!--  拼车信息   --> 
   <string name="user_carpool_need">我要拼车</string> 
   <string name="user_carpool_owner">我是车主</string> 
@@ -74,7 +80,6 @@
   <string name="user_carpool_unit_price">单价:</string> 
   <string name="user_carpool_sign_up">立即报名</string> 
     
-    
     <!-- 订单 -->
     <string name="order_tab1">未付款</string>
     <string name="order_tab2">未消费</string>
@@ -93,7 +98,7 @@
     <string name="assess_gray">已评价</string>
     <string name="order_del">删除订单</string>
     
-    <!-- 红包 -->
+    <!-- 钱包 -->
     <string name="user_mobile">183****5566</string>
     <string name="user_login">登录/注册</string>
     

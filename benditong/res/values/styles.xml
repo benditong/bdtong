@@ -106,6 +106,10 @@
         <item name="android:background">#25b6ed</item>
     </style>
 
+    <!-- RatingBar  -->
+    <style name="mRatingbar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_rating_full</item>
+    </style>
     <style name="carpool_textview">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">55sp</item>
@@ -114,5 +118,4 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">#00000000</item>
     </style>
-
 </resources>

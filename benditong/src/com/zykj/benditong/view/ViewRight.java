@@ -13,8 +13,8 @@ import com.zykj.benditong.adapter.TextAdapter;
 public class ViewRight extends RelativeLayout implements ViewBaseAction{
 
 	private ListView mListView;
-	private final String[] items = new String[] { "好评优先", "距离最近" };//显示字段
-	private final String[] itemsVaule = new String[] { "1", "2" };//隐藏id
+	private final String[] items = new String[] { "距离最近", "好评最多", "点击最多" };//显示字段
+	private final String[] itemsVaule = new String[] { "3", "4", "5" };//隐藏id
 	private OnSelectListener mOnSelectListener;
 	private TextAdapter adapter;
 	private String mDistance;
@@ -55,7 +55,7 @@ public class ViewRight extends RelativeLayout implements ViewBaseAction{
 			@Override
 			public void onItemClick(int position, String showText) {
 				if (mOnSelectListener != null) {
-					mOnSelectListener.getValue(position, showText);
+					mOnSelectListener.getValue(itemsVaule[position], showText);
 				}
 			}
 		});
@@ -66,7 +66,7 @@ public class ViewRight extends RelativeLayout implements ViewBaseAction{
 	}
 
 	public interface OnSelectListener {
-		public void getValue(int position, String showText);
+		public void getValue(String orderbyid, String showText);
 	}
 
 	@Override
