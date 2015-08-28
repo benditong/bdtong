@@ -3,6 +3,7 @@ package com.zykj.benditong.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.R;
+import com.zykj.benditong.activity.PurchaseDetailActivity;
 import com.zykj.benditong.adapter.PurchaseAdapter;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
@@ -29,17 +31,17 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 	private static int PERPAGE=2;//perpage默认每页显示10条信息
 	
 	private int nowpage=1;//当前显示的页面 
-	private int mType=0;
+	private int state=0;//订单状态：0未付款1已付款,未消费2已消费3已退款4订单已取消
 	
     private XListView mListView;
 	private PurchaseAdapter adapter;
 	private List<Order> orders = new ArrayList<Order>();
 	private HttpErrorHandler mNetHandler;
 	
-	public static PurchaseListFragment getInstance(int type){
+	public static PurchaseListFragment getInstance(int state){
 		PurchaseListFragment fragment=new PurchaseListFragment();
 		Bundle bundle=new Bundle();
-		bundle.putInt("type", type);
+		bundle.putInt("state", state);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -59,7 +61,7 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		Bundle arguments = getArguments();
-		mType=arguments.getInt("type");
+		state=arguments.getInt("state");
 		
         adapter = new PurchaseAdapter(getActivity(), R.layout.ui_item_purchase, orders);
         mListView.setAdapter(adapter);
@@ -71,7 +73,7 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 		RequestParams params = new RequestParams();
 		params.put("type", "group");
 		params.put("uid", "3");//BaseApp.getModel().getUserid();
-		params.put("state", mType);
+		params.put("state", state);
 		params.put("nowpage", nowpage);
 		params.put("perpage", PERPAGE);
 		HttpUtils.getOrderList(creatResponseHandler(),params);
@@ -100,7 +102,6 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 					MyRequestDailog.closeDialog();
 			        JSONArray jsonArray = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
 			        List<Order> list=JSONArray.parseArray(jsonArray.toString(), Order.class);
-					
 					if(nowpage == 1){orders.clear();}
 					orders.addAll(list);
 					adapter.notifyDataSetChanged();
@@ -115,10 +116,10 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//		Order order = orders.get(position-1);
-//		Intent intent=new Intent(getActivity(), OrderDetailActivity.class);
-//		intent.putExtra("order", order);
-//		getActivity().startActivity(intent);
+		String orderId = orders.get(position-1).getId();
+		Intent intent=new Intent(getActivity(), PurchaseDetailActivity.class);
+		intent.putExtra("orderid", orderId);
+		getActivity().startActivity(intent);
 	}
 }
 

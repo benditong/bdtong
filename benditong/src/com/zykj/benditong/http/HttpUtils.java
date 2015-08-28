@@ -26,13 +26,18 @@ public class HttpUtils {
     }
     
     /*轮播图*/
-    public static void getAdsList(AsyncHttpResponseHandler handler, RequestParams params){
-        client.post(UrlContants.getUrl(UrlContants.GETADSLIST), params, handler);
+    public static void getAdsList(AsyncHttpResponseHandler handler, String type){
+        client.get(UrlContants.getUrl(UrlContants.GETADSLIST)+"&id="+type, handler);
     }
     
     /*点单列表*/
     public static void getOrderList(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.GETORDERLIST), params, handler);
+    }
+    
+    /*点单详情*/
+    public static void getOrder(AsyncHttpResponseHandler handler, String orderid){
+        client.get(UrlContants.getUrl(UrlContants.GETORDER)+"&id="+orderid, handler);
     }
     
     /*用户登录*/
@@ -41,8 +46,8 @@ public class HttpUtils {
     }
     
     /*猜你喜欢*/
-    public static void getLikeList(AsyncHttpResponseHandler handler, String num){
-        client.get(UrlContants.getUrl(UrlContants.LIKELIST+"&num="+num), handler);
+    public static void getLikeList(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.LIKELIST), params, handler);
     }
     
     /*上传头像*/
@@ -55,13 +60,23 @@ public class HttpUtils {
         client.post(UrlContants.getUrl(UrlContants.GETCATEGORY), params, handler);
     }
     
-    /*获取默认餐厅列表*/
+    /*获取餐厅、酒店、商铺列表*/
     public static void getRestaurants(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.GETRESTAURANTS), params, handler);
     }
+    
+    /*获取餐厅、酒店、商铺商品*/
+    public static void getgoodslist(AsyncHttpResponseHandler handler, String tid){
+        client.get(UrlContants.getUrl(UrlContants.GETGOODLIST)+"&tid="+tid, handler);
+    }
+    
+    /*获取餐厅、酒店、商铺商品*/
+    public static void getCommentsList(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.COMMENTLIST), params, handler);
+    }
+    
     /*获取默认的拼车信息*/
     public static void getCars(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.GETCARS), params, handler);
     }
-    
 }

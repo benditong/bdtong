@@ -45,7 +45,7 @@ public class IndexActivity extends BaseActivity {
 
 	private AutoScrollViewPager viewPager;
 	private AutoListView index_list;
-	private LinearLayout im_b1pinche,im_b1canyin,im_b1jiudian,im_b1shangpu,tv_index_order;
+	private LinearLayout im_b1pinche,im_b1canyin,im_b1jiudian,im_b1shangpu,tv_index_order,user_gift_left,user_gift_right;
 	/** 当前的位置 */
 	private int now_pos = 0;
 	private List<AdsImages> imageList;
@@ -65,17 +65,34 @@ public class IndexActivity extends BaseActivity {
 		switch (view.getId()) {
 		case R.id.im_b1canyin:
 			/* 餐饮  */
-			startActivity(new Intent(IndexActivity.this, CanyinActivity.class));
+			startActivity(new Intent(IndexActivity.this, CanyinActivity.class).putExtra("type", "restaurant"));
 			break;
 		case R.id.im_b1jiudian:
 			/* 酒店  */
+			startActivity(new Intent(IndexActivity.this, CanyinActivity.class).putExtra("type", "hotel"));
 			break;
 		case R.id.im_b1shangpu:
 			/* 商铺  */
+			startActivity(new Intent(IndexActivity.this, CanyinActivity.class).putExtra("type", "shop"));
 			break;
 		case R.id.im_b1pinche:
 			/* 拼车  */
 			startActivity(new Intent(IndexActivity.this, CarpoolMainActivity.class));
+			break;
+		case R.id.user_gift_left:
+			/* 积分商城  */
+			Intent intent = new Intent().setClass(IndexActivity.this, CreditActivity.class);
+            intent.putExtra("navColor", "#0acbc1");//配置导航条的背景颜色，请用#ffffff长格式。
+            intent.putExtra("titleColor", "#ffffff");//配置导航条标题的颜色，请用#ffffff长格式。
+            intent.putExtra("url", "http://www.duiba.com.cn/test/demoRedirectSAdfjosfdjdsa");//配置自动登陆地址，每次需服务端动态生成。
+			startActivity(intent);
+			break;
+		case R.id.user_gift_right:
+			/* 积分抽奖  */
+			break;
+		case R.id.tv_index_order:
+			/* 猜你喜欢更多  */
+			startActivity(new Intent(IndexActivity.this, LikeActivity.class));
 			break;
 		default:
 			break;
@@ -92,6 +109,8 @@ public class IndexActivity extends BaseActivity {
 		im_b1jiudian = (LinearLayout)findViewById(R.id.im_b1jiudian);//酒店
 		im_b1shangpu = (LinearLayout)findViewById(R.id.im_b1shangpu);//商铺
 		im_b1pinche = (LinearLayout)findViewById(R.id.im_b1pinche);//拼车
+		user_gift_left = (LinearLayout)findViewById(R.id.user_gift_left);//积分商城
+		user_gift_right = (LinearLayout)findViewById(R.id.user_gift_right);//积分商城
 		tv_index_order = (LinearLayout)findViewById(R.id.tv_index_order);//更多
 
 		LayoutParams pageParms = viewPager.getLayoutParams();
@@ -117,10 +136,11 @@ public class IndexActivity extends BaseActivity {
 	 * 请求服务器数据---首页
 	 */
 	private void requestData(){
+		HttpUtils.getAdsList(res_getAdsList, "slideFocus");
 		RequestParams params = new RequestParams();
-		params.put("type", "slideFocus");
-		HttpUtils.getAdsList(res_getAdsList, params);
-		HttpUtils.getLikeList(res_getLikeList, "5");
+		params.put("nowpage", "1");
+		params.put("perpage", "5");
+		HttpUtils.getLikeList(res_getLikeList, params);
 	}
 	
 	/**
@@ -162,7 +182,7 @@ public class IndexActivity extends BaseActivity {
 					} else {
 						imageView = (ImageView) convertView.getTag();
 					}
-					CommonUtils.showPic(imageList.get(1).getImgsrc(), imageView);
+					CommonUtils.showPic(imageList.get(position).getImgsrc(), imageView);
 					imageView.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View arg0) {

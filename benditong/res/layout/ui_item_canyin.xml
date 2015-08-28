@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/eight"
+    android:background="@drawable/devide_gray_bt" >
+    
+    <ImageView 
+        android:id="@+id/good_img"
+        android:layout_width="@dimen/eighty"
+        android:layout_height="@dimen/seventy"
+        android:src="@drawable/icon_image_default"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/app_name"/>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/eight">
+        <TextView 
+	        android:id="@+id/good_name"
+            android:text="@string/restaurant_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/t_eighteen"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+	        android:layout_height="@dimen/thirty"
+            android:singleLine="true"/>
+        <TextView 
+	        android:id="@+id/good_price"
+            android:text="@string/good_price"
+            android:textColor="@color/text_light"
+            android:textSize="@dimen/t_sixteen"
+            android:paddingTop="@dimen/ten"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

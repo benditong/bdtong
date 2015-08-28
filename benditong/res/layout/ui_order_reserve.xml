@@ -5,7 +5,6 @@
     android:orientation="vertical" >
 	<RadioGroup 
 	    android:id="@+id/tab_order"
-	    android:layout_marginTop="@dimen/five"
         android:layout_width="match_parent"
         android:layout_height="@dimen/forty"
         android:orientation="horizontal"

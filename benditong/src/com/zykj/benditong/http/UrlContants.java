@@ -19,6 +19,8 @@ public class UrlContants {
     public static final String GETADSLIST = "c=public&a=getAdsList&type=slideFocus";//轮播图
     
     public static final String GETORDERLIST = "c=info&a=getOrderList";//获取订单
+    
+    public static final String GETORDER = "c=info&a=getOrder";//获取订单详情
 
     public static final String LOGIN = "c=user&a=login";//登录
     
@@ -26,9 +28,13 @@ public class UrlContants {
     
     public static final String POSIUSERAVATAR = "c=user&a=postUserAvatar";//猜你喜欢
     
-    public static final String GETCATEGORY = "c=info&a=getcategory";//获取分类
+    public static final String GETCATEGORY = "c=info&a=getcategory";//获取餐饮、酒店、商铺分类
 
-    public static final String GETRESTAURANTS = "c=info&a=getlist";//获取餐饮、酒店、列表
+    public static final String GETRESTAURANTS = "c=info&a=getlist";//获取餐饮、酒店、商铺列表
+    
+    public static final String GETGOODLIST = "c=info&a=getgoodslist";//获取餐饮、酒店、商铺商品
+    
+    public static final String COMMENTLIST = "c=info&a=getCommentsList";//获取评价列表
     
     public static final String GETCARS = "c=info&a=getalllist";//获取列表
     

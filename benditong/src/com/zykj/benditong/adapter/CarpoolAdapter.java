@@ -1,15 +1,7 @@
 package com.zykj.benditong.adapter;
 
-import java.net.ContentHandler;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.zykj.benditong.R;
-import com.zykj.benditong.activity.CarpoolMainActivity;
-import com.zykj.benditong.activity.CarpoolSignUpActivity;
-import com.zykj.benditong.model.Car;
-
-import android.R.anim;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.zykj.benditong.R;
+import com.zykj.benditong.activity.CarpoolMainActivity;
+import com.zykj.benditong.activity.CarpoolSignUpActivity;
+import com.zykj.benditong.model.Car;
 
 public class CarpoolAdapter extends BaseAdapter {
 	

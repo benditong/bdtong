@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants"
     android:padding="@dimen/eight"
     android:background="@color/white" >
     
     <ImageView 
+        android:id="@+id/order_img"
         android:layout_width="@dimen/one_hundred"
         android:layout_height="@dimen/ninety"
         android:src="@drawable/icon_image_default"

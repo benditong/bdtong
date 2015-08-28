@@ -60,6 +60,9 @@
     <string name="res_assess_name">还**吹</string>
     <string name="res_assess_time">2015&#8211;06&#8211;17 14:00</string>
     <string name="res_assess_more">查看更多评价</string>
+    <string name="reserve_go">立即预定</string>
+    <string name="good_price">88元</string>
+    
     <!--  拼车信息   --> 
   <string name="user_carpool_need">我要拼车</string> 
   <string name="user_carpool_owner">我是车主</string> 
@@ -88,10 +91,21 @@
     <string name="reserve_tab1">餐厅预订</string>
     <string name="reserve_tab2">酒店预订</string>
     <string name="res_name">店铺名称</string>
+    <string name="order_num">订单编号：9876543210987654321645</string>
     <string name="order_state">订单状态</string>
+    <string name="order_mobile">购买手机号：</string>
+    <string name="order_time">下单时间</string>
+    <string name="order_date">2015&#8211;06&#8211;17</string>
     <string name="product_price">￥98.00</string>
     <string name="product_num">x1</string>
     <string name="total_price">总价：￥98.00</string>
+    <string name="order1">联系人姓名：</string>
+    <string name="order2">联系电话：</string>
+    <string name="order3">下单时间：</string>
+    <string name="order4">用餐时间：2015&#8211;28&#8211;28 14:00&#8211;16:00</string>
+    <string name="order5">用餐人数：10人</string>
+    <string name="order6">预计消费：300元</string>
+    <string name="order_people">张先生</string>
     <string name="order_cancel">取消订单</string>
     <string name="order_pay">付款</string>
     <string name="assess_orange">评价</string>
