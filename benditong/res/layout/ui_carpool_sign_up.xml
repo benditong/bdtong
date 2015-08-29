@@ -10,7 +10,7 @@
         android:background="#F5F5F5"
         android:orientation="vertical" >
 
-        <LinearLayout
+        <RelativeLayout
             style="@style/carpool_head"
             android:orientation="horizontal" >
 
@@ -26,15 +26,13 @@
                 android:src="@drawable/back" />
 
             <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:text="@string/user_carpool_need"
                 android:textColor="#FFF"
                 android:textSize="16sp" />
-        </LinearLayout>
-
-  
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -49,16 +47,15 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_origin_1"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/textView_orign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:text="济南市＊＊路＊＊建筑"
-                android:textSize="10dp" />
+                android:text="济南市＊＊路＊＊建筑" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,16 +71,15 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_destination_1"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/textView_destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:text="济南市＊＊路＊＊建筑"
-                android:textSize="10dp" />
+                android:text="济南市＊＊路＊＊建筑" />
         </LinearLayout>
 
         <LinearLayout
@@ -99,16 +95,15 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_departure_time_1"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/textView_departure_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:text="2015-6-17   7:00"
-                android:textSize="10dp" />
+                android:text="2015-6-17   7:00" />
         </LinearLayout>
 
         <LinearLayout
@@ -124,16 +119,40 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_number"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/textView_remain_seats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:text="16位"
-                android:textSize="10dp" />
+                android:text="16位" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:background="@color/carpool"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/user_sign_up_number"
+                android:textColor="@color/text_light" />
+
+            <TextView
+                android:id="@+id/user_sign_up_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="@string/user_sign_up_number_default"
+                android:textColor="@color/grey" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,15 +168,14 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_cost"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/textView_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="￥200"
-                android:textSize="10dp" />
+                android:text="￥200" />
         </LinearLayout>
 
         <LinearLayout
@@ -173,14 +191,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_name"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="10sp" />
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
         <LinearLayout
@@ -196,14 +213,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10sp"
                 android:text="@string/user_carpool_phone"
-                android:textColor="@color/text_light"
-                android:textSize="10dp" />
+                android:textColor="@color/text_light" />
 
             <TextView
+                android:id="@+id/user_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="10sp" />
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
         <LinearLayout
@@ -220,8 +236,8 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="20dp"
                 android:background="#ffc600"
-                android:textColor="#FFF"
-                android:text="@string/user_carpool_submit" />
+                android:text="@string/user_carpool_sign_up"
+                android:textColor="#FFF" />
         </LinearLayout>
     </LinearLayout>
 

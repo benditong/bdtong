@@ -10,6 +10,7 @@ import com.zykj.benditong.activity.CarpoolSignUpActivity;
 import com.zykj.benditong.model.Car;
 
 import android.R.anim;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -25,12 +26,13 @@ public class CarpoolAdapter extends BaseAdapter {
 	Context mContext;
 	LayoutInflater mLayoutInflater;
 	List<Car> list;
-	CarpoolMainActivity mCarpoolMainActivity;
+	Activity mCarpoolMainActivity;
 
-	public CarpoolAdapter(Context context,List<Car> list) {
-		this.mLayoutInflater = LayoutInflater.from(context);
-		this.mContext = context;
+	public CarpoolAdapter(Activity mCarpoolMainActivity,List<Car> list) {
+		this.mLayoutInflater = LayoutInflater.from(mCarpoolMainActivity);
+		this.mCarpoolMainActivity = mCarpoolMainActivity;
 		this.list=list;
+		
 	}
 
 	@Override
@@ -60,7 +62,7 @@ public class CarpoolAdapter extends BaseAdapter {
 
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = mLayoutInflater.inflate(R.layout.ui_carpool_details,null);
+			convertView = mLayoutInflater.inflate(R.layout.ui_item_carpool_details,null);
 			holder.tv_orign = (TextView) convertView
 					.findViewById(R.id.textView_orign_2);
 			holder.tv_destination = (TextView) convertView

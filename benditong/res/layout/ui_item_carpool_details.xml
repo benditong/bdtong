@@ -110,7 +110,7 @@
         android:layout_alignTop="@id/image_carpool_remain_seats"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/image_carpool_remain_seats"
-        android:text="@string/user_carpool_departure_time_2"
+        android:text="@string/user_carpool_remain_seats_2"
         android:textSize="12dp" 
         android:textColor="@color/text_light"/>
 
@@ -142,7 +142,7 @@
         android:layout_alignTop="@id/image_carpool_remain_seats"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_price_1"
-        android:text="16位"
+        android:text="￥200"
         android:textSize="12dp" />
 
     <Button

@@ -2,6 +2,8 @@ package com.zykj.benditong.activity;
 
 import java.util.Map;
 
+import org.apache.http.Header;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.R.id;
 import com.zykj.benditong.http.AbstractHttpHandler;
+import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.utils.Tools;
 
@@ -26,12 +29,6 @@ public class CarpoolOwnerActivity extends BaseActivity {
 			editText_name, editText_phone;
 	private ImageButton imageButton;
 	private Button btn_submit;
-
-	/**
-	 * 界面信息
-	 */
-	private String from_address, to_address, starttime, seats, car, name,
-			phone;
 
 	private Map<String, String> submit_data;
 
@@ -58,14 +55,6 @@ public class CarpoolOwnerActivity extends BaseActivity {
 		btn_submit = (Button) findViewById(R.id.btn_carpool_submit);
 		setListener(imageButton, btn_submit);
 
-		Time time = new Time();
-		time.setToNow();// 获得系统现在的时间
-		int year = time.year;
-		int month = time.month + 1;
-		int day = time.monthDay;
-		int hour = time.hour;
-		String strTime = year + "-" + month + "-" + day + "-" + hour + ":00";
-		editText_depart_time.setHint(strTime);
 	}
 
 	@Override
@@ -77,30 +66,32 @@ public class CarpoolOwnerActivity extends BaseActivity {
 
 		case R.id.btn_carpool_submit:
 			submitCarpoolInfo();
-			finish();
 			break;
 		}
 
 	}
 
 	private void submitCarpoolInfo() {
-		// TODO Auto-generated method stub
-		if (editText_orign.length() <= 0) {
+		if (editText_orign.getText().length() <= 0) {
 			Tools.toast(this, "出发地不能为空");
 		}
-		if (editText_destination.length() <= 0) {
+		if (editText_destination.getText().length() <= 0) {
 			Tools.toast(this, "目的地不能为空");
 		}
-		if (editText_seats.length() <= 0) {
+		if(editText_depart_time.getText().toString().length()<=0){
+			Tools.toast(this, "出发时间不能为空");
+			return;
+		}
+		if (editText_seats.getText().toString().length() <= 0) {
 			Tools.toast(this, "剩余座位不能为空");
 		}
-		if (editText_model.length() <= 0) {
+		if (editText_model.getText().length() <= 0) {
 			Tools.toast(this, "车型不能为空");
 		}
-		if (editText_name.length() <= 0) {
+		if (editText_name.getText().length() <= 0) {
 			Tools.toast(this, "联系人不能为空");
 		}
-		if (editText_phone.length() <= 0) {
+		if (editText_phone.getText().toString().length() <= 0) {
 			Tools.toast(this, "联系电话不能为空");
 		}
 		addData();
@@ -109,27 +100,31 @@ public class CarpoolOwnerActivity extends BaseActivity {
 	private void addData() {
 		// TODO Auto-generated method stub
 		RequestParams params=new RequestParams();
-		params.add(from_address, editText_orign.getText().toString());
-		params.add(to_address, editText_destination.getText().toString());
-		params.add(starttime, editText_depart_time.getText().toString());
-		params.add(seats, editText_seats.getText().toString());
-		params.add(car, editText_model.getText().toString());
-		params.add(name, editText_name.getText().toString());
-		params.add(phone, editText_phone.getText().toString());
-		
-		HttpUtils.getCars(new AbstractHttpHandler() {
+		params.put("from_address", editText_orign.getText().toString());
+		params.put("to_address", editText_destination.getText().toString());
+		params.put("starttime", editText_depart_time.getText().toString());
+		params.put("seat", editText_seats.getText().toString());
+		params.put("car", editText_model.getText().toString());
+		params.put("name", editText_name.getText().toString());
+		params.put("mobile", editText_phone.getText().toString());
+		/**
+		 * 我是车主
+		 */
+		HttpUtils.offercar(new HttpErrorHandler() {
+			
 			@Override
-			public void onJsonSuccess(JSONObject json) {
-				// TODO Auto-generated method stub
-				 String status = json.getString("status");
-	                if ("1".equals(status)) {
-	                    setResult(Activity.RESULT_OK);
-	                    finish();
-	                } else {
-	                    Tools.toast(CarpoolOwnerActivity.this, json.getString("msg"));
-	                }
+			public void onRecevieSuccess(JSONObject json) {
+				Tools.toastMessage(CarpoolOwnerActivity.this, "提交成功");
+				finish();
 			}
+		@Override
+		public void onRecevieFailed(String status, JSONObject json) {
+			// TODO Auto-generated method stub
+			super.onRecevieFailed(status, json);
+			Tools.toastMessage(CarpoolOwnerActivity.this, "提交失败");
+		}
 		}, params);
+
 	}
 
 }

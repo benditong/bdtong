@@ -1,5 +1,7 @@
 package com.zykj.benditong.http;
 
+import android.os.Handler;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -60,8 +62,26 @@ public class HttpUtils {
         client.post(UrlContants.getUrl(UrlContants.GETRESTAURANTS), params, handler);
     }
     /*获取默认的拼车信息*/
-    public static void getCars(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETCARS), params, handler);
+    public static void getinfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.CARINFO), params, handler);
     }
+    /*获取默认的客户拼车信息*/
+    public static void needcar(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.NEEDCAR), params, handler);
+    }
+    /*获取默认的车主拼车信息*/
+    public static void offercar(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.OFFERCAR), params, handler);
+    }
+
+    /*获取默认的拼车列表*/
+    public static void getlist(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.CARLIST), params, handler);
+    }
+ 
     
+//    /*获取报名拼车信息*/
+//    public static void regiscar(AsyncHttpResponseHandler handler, RequestParams params){
+//    	client.post(UrlContants.getUrl(UrlContants.OFFERCAR), params, handler);
+//    }
 }
