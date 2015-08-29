@@ -22,6 +22,7 @@
 	        android:paddingRight="@dimen/fifteen"
 	        android:paddingTop="@dimen/eight">
 	        <TextView 
+	            android:id="@+id/form1"
 		        android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
 		       	android:textSize="@dimen/t_sixteen"
@@ -52,6 +53,7 @@
 	        android:paddingRight="@dimen/fifteen"
 	        android:paddingTop="@dimen/eight">
 	        <TextView 
+	            android:id="@+id/form2"
 		        android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
 		       	android:textSize="@dimen/t_sixteen"

@@ -1,6 +1,5 @@
 package com.zykj.benditong.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -17,7 +16,6 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
@@ -26,7 +24,6 @@ import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
-import com.zykj.benditong.model.Category;
 import com.zykj.benditong.model.Good;
 import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
@@ -130,6 +127,7 @@ public class CanyinDetailActivity extends BaseActivity {
 				.putExtra("type", restaurant.getType()).putExtra("pid", restaurant.getId()));
 			break;
 		case R.id.reserve_go:
+			startActivity(new Intent(CanyinDetailActivity.this, CanyinInputActivity.class).putExtra("type", restaurant.getType()));
 			break;
 		default:
 			break;
