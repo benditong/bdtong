@@ -5,13 +5,11 @@
     android:background="@color/theme_color" >
     <ImageView
         android:id="@+id/aci_back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="@dimen/fifty"
+        android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:padding="@dimen/ten"
-        android:src="@drawable/back"/>
+        android:padding="@dimen/fifteen"
+        android:src="@drawable/common_title_back"/>
     <LinearLayout 
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

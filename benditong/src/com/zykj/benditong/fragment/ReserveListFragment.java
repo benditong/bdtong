@@ -3,6 +3,7 @@ package com.zykj.benditong.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,7 +14,8 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.R;
-import com.zykj.benditong.adapter.PurchaseAdapter;
+import com.zykj.benditong.activity.ReserveDetailActivity;
+import com.zykj.benditong.adapter.ReserveAdapter;
 import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Order;
@@ -29,7 +31,7 @@ public class ReserveListFragment extends Fragment implements IXListViewListener,
 	private int mType=0;
 	
     private XListView mListView;
-	private PurchaseAdapter adapter;
+	private ReserveAdapter adapter;
 	private List<Order> orders = new ArrayList<Order>();
 	private EntityHandler<Order> mNetHandler;
 	
@@ -57,7 +59,7 @@ public class ReserveListFragment extends Fragment implements IXListViewListener,
 		Bundle arguments = getArguments();
 		mType=arguments.getInt("type");
 		
-        adapter = new PurchaseAdapter(getActivity(), R.layout.ui_item_reserve, orders);
+        adapter = new ReserveAdapter(getActivity(), R.layout.ui_item_reserve, orders);
         mListView.setAdapter(adapter);
 		mListView.setOnItemClickListener(this);
         requestData();
@@ -108,10 +110,10 @@ public class ReserveListFragment extends Fragment implements IXListViewListener,
 	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//		Order order = orders.get(position-1);
-//		Intent intent=new Intent(getActivity(), OrderDetailActivity.class);
-//		intent.putExtra("order", order);
-//		getActivity().startActivity(intent);
+		Order order = orders.get(position-1);
+		Intent intent=new Intent(getActivity(), ReserveDetailActivity.class);
+		intent.putExtra("order", order);
+		getActivity().startActivity(intent);
 	}
 }
 

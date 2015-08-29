@@ -58,8 +58,10 @@ public class OrderActivity extends FragmentActivity implements onSegmentViewClic
 	public void onSegmentViewClick(View view, int position) {
 		switch (position) {
 		case 0:
+			getSupportFragmentManager().beginTransaction().show(purchaseFragment).hide(reserveFragment).commit();
 			break;
 		case 1:
+			getSupportFragmentManager().beginTransaction().show(reserveFragment).hide(purchaseFragment).commit();
 			break;
 		default:
 			break;

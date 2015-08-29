@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
@@ -23,7 +24,6 @@ import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Category;
 import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
-import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.ExpandTabView;
 import com.zykj.benditong.view.ViewLeft;
 import com.zykj.benditong.view.ViewRight;
@@ -58,7 +58,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_canyin_activity);
 		mHandler = new Handler();
-		params.put("type", "restaurant");
+		params.put("type", getIntent().getStringExtra("type"));
 		
 		initView();
 		requestData();
@@ -78,14 +78,16 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		adapter = new CommonAdapter<Restaurant>(this, R.layout.ui_item_restaurant, restaurants) {
 			@Override
 			public void convert(ViewHolder holder, Restaurant restaurant) {
-				float score = Float.valueOf(StringUtil.toString(restaurant.getXinyong(), "0")); 
+				float score = Float.valueOf(StringUtil.toString(restaurant.getAvg(), "0")); 
 				holder.setText(R.id.restaurant_name, restaurant.getTitle())//
+					.setText(R.id.product_distance, restaurant.getKm()+"km")//
 					.setImageUrl(R.id.restaurant_id, restaurant.getImgsrc(), 10f)//
 					.setText(R.id.restaurant_score, Html.fromHtml("评价：<font color=#FFC500>"+String.format("%.1f分", score)+"</font>"))//
 					.setText(R.id.restaurant_address, restaurant.getAddress());
 			}
 		};
 		canyin_list.setAdapter(adapter);
+		canyin_list.setOnItemClickListener(this);
 		
 		viewLeft = new ViewLeft(this);
 		viewRight = new ViewRight(this);
@@ -115,6 +117,13 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			restaurants.addAll(list);
 			adapter.notifyDataSetChanged();
 		}
+		@Override
+		public void onRecevieFailed(String status, JSONObject json) {
+			if(status.equals("400")){
+				if(nowpage == 1){restaurants.clear();}
+				adapter.notifyDataSetChanged();
+			}
+		}
 	};
 
 	/**
@@ -141,6 +150,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			public void getValue(int position, String showText) {
 				onRefresh(viewLeft, showText);
 				tid = mCategory.get(position).getId();
+				nowpage = 1;
 				requestData();
 			}
 		});

@@ -19,7 +19,8 @@ public class Order implements Serializable{
 	private String title;//餐厅，酒店，团购店铺的名称
 	private String goodsname;//团购商品的名称
 	private String goodsimg;//团购商品图片
-	
+	private String orderComments;
+	private String imgsrc;
 	public String getId() {
 		return id;
 	}
@@ -85,5 +86,17 @@ public class Order implements Serializable{
 	}
 	public void setGoodsimg(String goodsimg) {
 		this.goodsimg = goodsimg;
+	}
+	public String getOrderComments() {
+		return orderComments;
+	}
+	public void setOrderComments(String orderComments) {
+		this.orderComments = orderComments;
+	}
+	public String getImgsrc() {
+		return imgsrc;
+	}
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
 	}
 }

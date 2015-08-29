@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -104,6 +105,12 @@ public class ViewHolder {
 	
 	public ViewHolder setVisibility(int viewId, boolean flag){
 		getView(viewId).setVisibility(flag?View.VISIBLE:View.GONE);
+		return this;
+	}
+	
+	public ViewHolder setRating(int viewId, float value){
+		RatingBar view = getView(viewId);
+		view.setRating(value);
 		return this;
 	}
 	
