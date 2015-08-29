@@ -145,15 +145,18 @@
                 android:text="@string/user_sign_up_number"
                 android:textColor="@color/text_light" />
 
-            <TextView
+            <EditText
                 android:id="@+id/user_sign_up_num"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
+                android:paddingLeft="15dp"
                 android:text="@string/user_sign_up_number_default"
-                android:textColor="@color/grey" />
-        </LinearLayout>
+                android:textColor="@color/grey"
+                android:background="#00000000"
+                android:inputType="number" />        
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -171,7 +174,7 @@
                 android:textColor="@color/text_light" />
 
             <TextView
-                android:id="@+id/textView_price"
+                android:id="@+id/textView_cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -193,11 +196,13 @@
                 android:text="@string/user_carpool_name"
                 android:textColor="@color/text_light" />
 
-            <TextView
+            <EditText
                 android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:background="#00000000"
+                android:inputType="text"/>
         </LinearLayout>
 
         <LinearLayout
@@ -215,11 +220,13 @@
                 android:text="@string/user_carpool_phone"
                 android:textColor="@color/text_light" />
 
-            <TextView
+            <EditText
                 android:id="@+id/user_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical" 
+                android:background="#00000000"
+                android:inputType="phone"/>
         </LinearLayout>
 
         <LinearLayout

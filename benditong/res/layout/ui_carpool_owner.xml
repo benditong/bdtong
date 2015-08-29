@@ -50,8 +50,8 @@
 
             <EditText
                 android:id="@+id/user_origin"
-                style="@style/carpool_textview" >
-            </EditText>
+                style="@style/carpool_textview" 
+                android:inputType="text"/>"
         </LinearLayout>
 
         <LinearLayout
@@ -71,7 +71,8 @@
 
             <EditText
                 android:id="@+id/user_destination"
-                style="@style/carpool_textview" >
+                style="@style/carpool_textview"
+                android:inputType="text" >
             </EditText>
         </LinearLayout>
 

@@ -42,6 +42,8 @@ public class UrlContants {
     
     public static final String NEEDCAR = "c=car&a=needcar";//我要拼车
     
+    public static final String GETCARLIST = "c=car&a=getlist";//拼车列表
+    
     public static final String OFFERCAR = "c=car&a=offercar";//我要拼车
     
     public static String getUrl(String token){

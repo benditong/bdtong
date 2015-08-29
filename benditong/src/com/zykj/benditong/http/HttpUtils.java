@@ -74,9 +74,23 @@ public class HttpUtils {
     public static void getCommentsList(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.COMMENTLIST), params, handler);
     }
-    
+   
     /*获取默认的拼车信息*/
-    public static void getCars(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETCARS), params, handler);
+    public static void getList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETCARLIST), params, handler);
+    }
+   
+    /*获取默认的拼车详情信息*/
+    public static void getInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.CARINFO), params, handler);
+    }
+    /*获取默认的车主 拼车信息*/
+    public static void offerCar(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.OFFERCAR), params, handler);
+    }
+    
+    /*获取默认的用户 拼车信息*/
+    public static void needcar(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.NEEDCAR), params, handler);
     }
 }

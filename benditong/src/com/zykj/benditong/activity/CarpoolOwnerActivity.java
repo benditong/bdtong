@@ -50,7 +50,6 @@ public class CarpoolOwnerActivity extends BaseActivity {
 		editText_model = (EditText) findViewById(R.id.user_car_model);
 		editText_name = (EditText) findViewById(R.id.user_name);
 		editText_phone = (EditText) findViewById(R.id.user_phone);
-
 		imageButton = (ImageButton) findViewById(R.id.btn_back);
 		btn_submit = (Button) findViewById(R.id.btn_carpool_submit);
 		setListener(imageButton, btn_submit);
@@ -110,7 +109,7 @@ public class CarpoolOwnerActivity extends BaseActivity {
 		/**
 		 * 我是车主
 		 */
-		HttpUtils.offercar(new HttpErrorHandler() {
+		HttpUtils.offerCar(new HttpErrorHandler() {
 			
 			@Override
 			public void onRecevieSuccess(JSONObject json) {

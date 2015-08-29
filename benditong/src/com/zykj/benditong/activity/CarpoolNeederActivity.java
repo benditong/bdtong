@@ -44,7 +44,7 @@ public class CarpoolNeederActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		editText_orign = (EditText) findViewById(R.id.user_origin);
 		editText_destination = (EditText) findViewById(R.id.user_destination);
-		editText_depart_time = (EditText) findViewById(R.id.departure_time_1);
+		editText_depart_time = (EditText) findViewById(R.id.user_departure_time);
 		editText_persons = (EditText) findViewById(R.id.user_persons);
 		editText_cost = (EditText) findViewById(R.id.user_car_cost);
 		editText_name = (EditText) findViewById(R.id.user_name);
