@@ -10,7 +10,7 @@ public class Car implements Serializable{
 	
 	private String id;
 	private String from_address;
-	private String to_adderess;
+	private String to_address;
 	private String starttime;
 	private String endtime;
 	private String seat;
@@ -33,11 +33,11 @@ public class Car implements Serializable{
 	public void setFrom_address(String from_address) {
 		this.from_address = from_address;
 	}
-	public String getTo_adderess() {
-		return to_adderess;
+	public String getTo_address() {
+		return to_address;
 	}
-	public void setTo_adderess(String to_adderess) {
-		this.to_adderess = to_adderess;
+	public void setTo_address(String to_address) {
+		this.to_address = to_address;
 	}
 	public String getStarttime() {
 		return starttime;

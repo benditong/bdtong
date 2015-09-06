@@ -45,13 +45,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:text="@string/user_carpool_origin_1" 
-                android:textColor="@color/text_light"/>
+                android:text="@string/user_carpool_origin_1"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_origin"
-                style="@style/carpool_textview" >
-            </EditText>
+                style="@style/carpool_textview" 
+                android:inputType="text"/>"
         </LinearLayout>
 
         <LinearLayout
@@ -66,15 +66,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:text="@string/user_carpool_destination_1" 
-                android:textColor="@color/text_light"/>
+                android:text="@string/user_carpool_destination_1"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_destination"
-                style="@style/carpool_textview" >
+                style="@style/carpool_textview"
+                android:inputType="text" >
             </EditText>
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -87,17 +88,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:textColor="@color/text_light"
-                android:text="@string/user_carpool_departure_time_1" />
+                android:text="@string/user_carpool_departure_time_1"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_departure_time"
-                style="@style/carpool_textview" 
-                android:inputType="numberSigned">
+                style="@style/carpool_textview"
+                android:inputType="datetime" >
             </EditText>
         </LinearLayout>
-        
-                <LinearLayout
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1sp"
@@ -109,16 +110,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:textColor="@color/text_light"
-                android:text="@string/user_carpool_remain_seats_1" />
+                android:text="@string/user_carpool_remain_seats_1"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_remain_seats"
-                style="@style/carpool_textview" 
-                android:inputType="number">
+                style="@style/carpool_textview"
+                android:inputType="number" >
             </EditText>
         </LinearLayout>
-                <LinearLayout
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1sp"
@@ -130,16 +132,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:textColor="@color/text_light"
-                android:text="@string/user_carpool_car_model" />
+                android:text="@string/user_carpool_car_model"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_car_model"
-                style="@style/carpool_textview" >
+                style="@style/carpool_textview"
+                android:inputType="text" >
             </EditText>
         </LinearLayout>
-        
-                        <LinearLayout
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1sp"
@@ -151,16 +154,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:textColor="@color/text_light"
-                android:text="@string/user_carpool_name" />
+                android:text="@string/user_carpool_name"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_name"
-                style="@style/carpool_textview" >
+                style="@style/carpool_textview" 
+                android:inputType="text">
             </EditText>
         </LinearLayout>
-        
-                                <LinearLayout
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1sp"
@@ -172,34 +176,31 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10sp"
-                android:textColor="@color/text_light"
-                android:text="@string/user_carpool_phone" />
+                android:text="@string/user_carpool_phone"
+                android:textColor="@color/text_light" />
 
             <EditText
                 android:id="@+id/user_phone"
-                style="@style/carpool_textview" 
-                android:inputType="number">
+                style="@style/carpool_textview"
+                android:inputType="number" >
             </EditText>
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal" >
 
             <Button
                 android:id="@+id/btn_carpool_submit"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginBottom="50dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="50dp"
                 android:background="#ffc600"
-                android:text="@string/user_carpool_submit" 
-                />
-
+                android:text="@string/user_carpool_submit" />
         </LinearLayout>
     </LinearLayout>
 

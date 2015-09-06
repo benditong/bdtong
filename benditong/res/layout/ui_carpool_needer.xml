@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-        android:background="#F5F5F5"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#F5F5F5" >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -28,9 +28,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:text="@string/user_carpool_need"
                 android:textColor="#FFF"
-                android:layout_centerInParent="true"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -51,8 +51,8 @@
 
             <EditText
                 android:id="@+id/user_origin"
-                style="@style/carpool_textview" >
-            </EditText>
+                style="@style/carpool_textview" 
+                android:inputType="text"/>
         </LinearLayout>
 
         <LinearLayout
@@ -72,8 +72,8 @@
 
             <EditText
                 android:id="@+id/user_destination"
-                style="@style/carpool_textview" >
-            </EditText>
+                style="@style/carpool_textview"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,8 +94,7 @@
             <EditText
                 android:id="@+id/user_departure_time"
                 style="@style/carpool_textview"
-                android:inputType="numberSigned" >
-            </EditText>
+                android:inputType="datetime" />
         </LinearLayout>
 
         <LinearLayout
@@ -116,8 +115,7 @@
             <EditText
                 android:id="@+id/user_persons"
                 style="@style/carpool_textview"
-                android:inputType="number" >
-            </EditText>
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,8 +136,7 @@
             <EditText
                 android:id="@+id/user_car_cost"
                 style="@style/carpool_textview"
-                android:inputType="number" >
-            </EditText>
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -159,8 +156,8 @@
 
             <EditText
                 android:id="@+id/user_name"
-                style="@style/carpool_textview" >
-            </EditText>
+                style="@style/carpool_textview"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -181,8 +178,7 @@
             <EditText
                 android:id="@+id/user_phone"
                 style="@style/carpool_textview"
-                android:inputType="phone" >
-            </EditText>
+                android:inputType="phone" />
         </LinearLayout>
 
         <LinearLayout
@@ -199,8 +195,8 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="20dp"
                 android:background="#ffc600"
-                android:textColor="#FFF"
-                android:text="@string/user_carpool_submit" />
+                android:text="@string/user_carpool_submit"
+                android:textColor="#FFF" />
         </LinearLayout>
     </LinearLayout>
 

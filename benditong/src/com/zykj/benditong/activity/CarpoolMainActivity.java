@@ -3,44 +3,75 @@ package com.zykj.benditong.activity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import org.apache.http.Header;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CarpoolAdapter;
+import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.model.Car;
+import com.zykj.benditong.utils.Tools;
 
-public class CarpoolMainActivity extends BaseActivity implements
-		OnClickListener {
+public class CarpoolMainActivity extends BaseActivity {
 	private Button btn_carpoolNeeder, btn_carpoolOwner, btn_carpoolSignUp;
 	private ImageButton btn_carpoolBack;
-	private String data[] = new String[] { "济南市＊＊路＊＊建筑", "青岛市＊＊路＊＊建筑",
-			"2015-6-17   7:00", "16位", "￥200" };
-	private List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-	private ListView datalist;
-	private SimpleAdapter mySimpleAdapter = null;
-	RelativeLayout mRelativeLayout;
-	ListView mListView;
-	
-	CarpoolAdapter mCarpoolAdapter;
+	// private static int NUM = 5;// perpage默认每页显示10条信息
+	private int nowpage = 1;// 当前显示的页面
+	private Handler mHandler;
+	private ListView car_listView;
+	private CarpoolAdapter adapter;
+	private ArrayList<HashMap<String, String>> arrayList_hashMap=new ArrayList<HashMap<String,String>>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.ui_carpool);
-
 		initView();
+		getShopListData();
 
+	}
+
+	private void getShopListData() {
+		RequestParams params = new RequestParams();
+		params.put("type", "need");
+		params.put("nowpage", "1");//第几页
+		params.put("perpage", "5");//每页条数
+		HttpUtils.getList(new AsyncHttpResponseHandler() {
+			@Override
+			public void onSuccess(int statusCode, Header[] header, byte[] stringjson) {
+				/** 访问成功 */
+				String jsonString = new String(stringjson);
+	            JSONObject jsonObject = (JSONObject) JSON.parse(jsonString);
+	            JSONObject datas = jsonObject.getJSONObject("datas");
+	            String jsonArray = datas.getString("list");
+	            List<Car> list = JSONArray.parseArray(jsonArray, Car.class);
+
+				adapter = new CarpoolAdapter(CarpoolMainActivity.this, list);
+	            car_listView.setAdapter(adapter);
+			}
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+				/** 访问失败 */
+				Toast.makeText(CarpoolMainActivity.this, "请求失败", Toast.LENGTH_LONG).show();
+//				Tools.toast(CarpoolMainActivity.this, "请求失败");
+			}
+		}, params);
 	}
 
 	private void initView() {
@@ -48,28 +79,11 @@ public class CarpoolMainActivity extends BaseActivity implements
 		btn_carpoolBack = (ImageButton) findViewById(R.id.carpool_main_back);
 		btn_carpoolNeeder = (Button) findViewById(R.id.btn_carpool_need);
 		btn_carpoolOwner = (Button) findViewById(R.id.btn_carpool_owner);
+		car_listView = (ListView) findViewById(R.id.listView_carpool_details);
+
 		btn_carpoolSignUp = (Button) findViewById(R.id.btn_carpool_sign_up);
+
 		setListener(btn_carpoolBack, btn_carpoolNeeder, btn_carpoolOwner);
-
-		datalist = (ListView) findViewById(R.id.listView_carpool_details);
-
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("orign", data[0]);
-		map.put("destination", data[1]);
-		map.put("time", data[2]);
-		map.put("seats", data[3]);
-		map.put("price", data[4]);
-
-		list.add(map);
-
-		mySimpleAdapter = new SimpleAdapter(this, list,
-				R.layout.ui_carpool_details, new String[] { "orign",
-						"destination", "time", "seats", "price" }, new int[] {
-						R.id.textView_orign_2, R.id.textView_destination_2,
-						R.id.textView_departure_time_2,
-						R.id.textView_remain_seats_2, R.id.textView_price_2 });
-		datalist.setAdapter(mySimpleAdapter);
-
 	}
 
 	@Override
@@ -84,9 +98,6 @@ public class CarpoolMainActivity extends BaseActivity implements
 		case R.id.btn_carpool_owner:
 			startActivity(new Intent(this, CarpoolOwnerActivity.class));
 			break;
-		// case R.id.listView_carpool_details:
-		// startActivity(new Intent(this, CarpoolSignUpActivity.class));
-		// break;
 		}
 	}
 

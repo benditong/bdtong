@@ -36,7 +36,15 @@ public class UrlContants {
     
     public static final String COMMENTLIST = "c=info&a=getCommentsList";//获取评价列表
     
-    public static final String GETCARS = "c=info&a=getalllist";//获取列表
+    public static final String CARLIST = "c=info&a=getlist";//获取列表
+    
+    public static final String CARINFO = "c=info&a=getinfo";//获取列表
+    
+    public static final String NEEDCAR = "c=car&a=needcar";//我要拼车
+    
+    public static final String GETCARLIST = "c=car&a=getlist";//拼车列表
+    
+    public static final String OFFERCAR = "c=car&a=offercar";//我要拼车
     
     public static final String GETAREA = "c=public&a=getArea";//获取城市列表
     

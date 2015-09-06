@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#FFF"
+    android:id="@+id/relayout_details">
+
+    <ImageView
+        android:id="@+id/image_orign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/carpool_origin" />
+
+    <TextView
+        android:id="@+id/textView_orign_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_orign"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/image_orign"
+        android:text="@string/user_carpool_origin_2"
+        android:textSize="12dp"
+        android:textColor="@color/text_light" />
+
+    <TextView
+        android:id="@+id/textView_orign_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_orign"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/textView_orign_1"
+        android:text="济南市**路**建筑"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:id="@+id/image_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_orign"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/carpool_destination" />
+
+    <TextView
+        android:id="@+id/textView_destination_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_destination"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/image_destination"
+        android:text="@string/user_carpool_destination_2"
+        android:textSize="12dp"
+        android:textColor="@color/text_light" />
+
+    <TextView
+        android:id="@+id/textView_destination_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_destination"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/textView_destination_1"
+        android:text="青岛市**路**建筑"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:id="@+id/image_carpool_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_destination"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/carpool_time" />
+
+    <TextView
+        android:id="@+id/textView_departure_time_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_carpool_time"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/image_carpool_time"
+        android:text="@string/user_carpool_departure_time_2"
+        android:textSize="12dp" 
+        android:textColor="@color/text_light"/>
+
+    <TextView
+        android:id="@+id/textView_departure_time_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_carpool_time"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/textView_departure_time_1"
+        android:text="2015-06-17   7:00"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:id="@+id/image_carpool_remain_seats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_carpool_time"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/carpool_remain_seats" />
+
+    <TextView
+        android:id="@+id/textView_remain_seats_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_carpool_remain_seats"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/image_carpool_remain_seats"
+        android:text="@string/user_carpool_remain_seats_2"
+        android:textSize="12dp" 
+        android:textColor="@color/text_light"/>
+
+    <TextView
+        android:id="@+id/textView_remain_seats_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_carpool_remain_seats"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/textView_remain_seats_1"
+        android:text="16位"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/textView_price_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_carpool_remain_seats"
+        android:layout_marginLeft="90dp"
+        android:layout_toRightOf="@id/textView_remain_seats_2"
+        android:text="@string/user_carpool_unit_price"
+        android:textSize="12dp"
+        android:textColor="@color/text_light" />
+
+    <TextView
+        android:id="@+id/textView_price_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_carpool_remain_seats"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/textView_price_1"
+        android:text="￥200"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/btn_carpool_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/carpool_sign_up_button_bg"
+        android:paddingBottom="3dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="3dp"
+        android:text="@string/user_carpool_sign_up"
+        android:textColor="#FFF" />
+
+</RelativeLayout>
