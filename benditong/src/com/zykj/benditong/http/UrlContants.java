@@ -38,6 +38,10 @@ public class UrlContants {
     
     public static final String GETCARS = "c=info&a=getalllist";//获取列表
     
+    public static final String GETAREA = "c=public&a=getArea";//获取城市列表
+    
+    public static final String SUBMIT = "c=info&a=postOrder";//获取城市列表
+    
     public static String getUrl(String token){
         if(token==null || token.equals("")){
             return BASE_URL;

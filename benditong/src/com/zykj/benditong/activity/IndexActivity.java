@@ -34,15 +34,18 @@ import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.AdsImages;
+import com.zykj.benditong.model.Area;
 import com.zykj.benditong.model.GuessLike;
 import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.AutoListView;
+import com.zykj.benditong.view.MySearchTitle;
 
 @SuppressLint("HandlerLeak")
 public class IndexActivity extends BaseActivity {
 
+	private MySearchTitle aci_mytitle;
 	private AutoScrollViewPager viewPager;
 	private AutoListView index_list;
 	private LinearLayout im_b1pinche,im_b1canyin,im_b1jiudian,im_b1shangpu,tv_index_order,user_gift_left,user_gift_right;
@@ -59,10 +62,20 @@ public class IndexActivity extends BaseActivity {
 		requestData();
 	}
 	
-	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Area area = (Area) data.getSerializableExtra("area");
+		aci_mytitle.setAddresseeText(area.getTitle());
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
+		case R.id.address:
+			/* 城市 */
+			startActivityForResult(new Intent(IndexActivity.this, CitysActivity.class), 1);
+			break;
 		case R.id.im_b1canyin:
 			/* 餐饮  */
 			startActivity(new Intent(IndexActivity.this, CanyinActivity.class).putExtra("type", "restaurant"));
@@ -82,13 +95,14 @@ public class IndexActivity extends BaseActivity {
 		case R.id.user_gift_left:
 			/* 积分商城  */
 			Intent intent = new Intent().setClass(IndexActivity.this, CreditActivity.class);
-            intent.putExtra("navColor", "#0acbc1");//配置导航条的背景颜色，请用#ffffff长格式。
+            intent.putExtra("navColor", "#25b6ed");//配置导航条的背景颜色，请用#ffffff长格式。
             intent.putExtra("titleColor", "#ffffff");//配置导航条标题的颜色，请用#ffffff长格式。
             intent.putExtra("url", "http://www.duiba.com.cn/test/demoRedirectSAdfjosfdjdsa");//配置自动登陆地址，每次需服务端动态生成。
 			startActivity(intent);
 			break;
 		case R.id.user_gift_right:
 			/* 积分抽奖  */
+			startActivity(new Intent(IndexActivity.this, LuckPanActivity.class));
 			break;
 		case R.id.tv_index_order:
 			/* 猜你喜欢更多  */
@@ -103,6 +117,9 @@ public class IndexActivity extends BaseActivity {
 	 * 加载页面
 	 */
 	private void initView(){
+		aci_mytitle = (MySearchTitle) findViewById(R.id.aci_mytitle);//轮播图
+		aci_mytitle.setAddresseeListener(this);
+		
 		viewPager = (AutoScrollViewPager) findViewById(R.id.index_slider);//轮播图
 		index_list = (AutoListView)findViewById(R.id.index_list);//猜你喜欢
 		im_b1canyin = (LinearLayout)findViewById(R.id.im_b1canyin);//餐饮
@@ -129,7 +146,7 @@ public class IndexActivity extends BaseActivity {
 			public void onPageScrollStateChanged(int arg0) {}
 		});
 		
-		setListener(im_b1canyin, im_b1jiudian, im_b1shangpu, im_b1pinche, tv_index_order);
+		setListener(im_b1canyin, im_b1jiudian, im_b1shangpu, im_b1pinche, tv_index_order, user_gift_left, user_gift_right);
 	}
 	
 	/**

@@ -79,4 +79,14 @@ public class HttpUtils {
     public static void getCars(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.GETCARS), params, handler);
     }
+
+    /*获取城市列表*/
+    public static void getArea(AsyncHttpResponseHandler handler){
+    	client.post(UrlContants.getUrl(UrlContants.GETAREA), handler);
+    }
+
+    /*获取城市列表*/
+    public static void submit(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMIT), params, handler);
+    }
 }

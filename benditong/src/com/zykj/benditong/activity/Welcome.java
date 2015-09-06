@@ -29,8 +29,8 @@ public class Welcome extends BaseActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//在使用SDK各组件之前初始化context信息，传入ApplicationContext  
-        //注意该方法要再setContentView方法之前实现  
+		//在使用SDK各组件之前初始化context信息，传入ApplicationContext
+        //注意该方法要再setContentView方法之前实现
         SDKInitializer.initialize(getApplicationContext());
 		initView(R.layout.ui_welcome);
 		
@@ -128,7 +128,7 @@ public class Welcome extends BaseActivity {
 		public void onReceiveLocation(BDLocation location) {
 			BaseApp.getModel().setLatitude(String.valueOf(location.getLatitude()));
 			BaseApp.getModel().setLongitude(String.valueOf(location.getLongitude()));
-			Tools.toast(Welcome.this, String.valueOf(location.getLatitude())+","+String.valueOf(location.getLongitude()));
+//			Tools.toast(Welcome.this, String.valueOf(location.getLatitude())+","+String.valueOf(location.getLongitude()));
 			checkLogin();
 		}
 	}

@@ -10,6 +10,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -41,7 +42,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	private int orderby=1;//排序
 	private String tid="";//分类
 
-	//private MySearchTitle mySearchTitle;
+	private ImageView aci_back_btn;
 	private ExpandTabView expandTabView;
 	private ArrayList<View> mViewArray = new ArrayList<View>();
 	private List<Category> mCategory = new ArrayList<Category>();
@@ -69,7 +70,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	 * 加载页面
 	 */
 	private void initView(){
-		//mySearchTitle = (MySearchTitle)findViewById(R.id.aci_mytitle);
+		aci_back_btn = (ImageView)findViewById(R.id.aci_back_btn);
 		expandTabView = (ExpandTabView) findViewById(R.id.expandtab_view);
 		canyin_list = (XListView) findViewById(R.id.canyin_list);
 		canyin_list.setDividerHeight(0);
@@ -98,6 +99,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 		mTextArray.add("排序方式");
 		expandTabView.setValue(mTextArray, mViewArray);
 		HttpUtils.getcategory(res_getcategory, params);
+		setListener(aci_back_btn);
 	}
 	
 	private void requestData(){
@@ -140,6 +142,17 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 			viewLeft.setDatas(names);
 		}
 	};
+	
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+		case R.id.aci_back_btn:
+			finish();
+			break;
+		default:
+			break;
+		}
+	}
 
 	/**
 	 * 添加菜单点击事件

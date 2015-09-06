@@ -4,11 +4,57 @@
 	android:layout_height="match_parent"
 	android:background="@color/content_background_color"
 	android:orientation="vertical">
-
-	<com.zykj.benditong.view.MySearchTitle
-        android:id="@+id/aci_mytitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+	
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/fifty"
+	    android:background="@color/theme_color" >
+	    <ImageView
+	        android:id="@+id/aci_back_btn"
+	        android:layout_width="@dimen/fifty"
+	        android:layout_height="match_parent"
+	        android:contentDescription="@string/app_name"
+	        android:padding="@dimen/fifteen"
+	        android:src="@drawable/common_title_back"/>
+	    <RelativeLayout
+	        android:id="@+id/rl_sousuokuang"
+	        android:layout_width="fill_parent"
+	        android:layout_height="35dp"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="15dp"
+	        android:layout_toRightOf="@id/aci_back_btn"
+	        android:background="@drawable/shape_corner_down" >
+	        <RelativeLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_centerInParent="true"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="10dp"
+	            android:focusable="true"
+	            android:background="@null"
+	            android:focusableInTouchMode="true" >
+	            <ImageView
+	                android:id="@+id/search_delete"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentRight="true"
+	                android:src="@drawable/ico_search"
+	                android:contentDescription="@string/app_name"/>
+	            <EditText
+	                android:id="@+id/search_input"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_centerVertical="true"
+	                android:focusable="false"
+	                android:layout_toLeftOf="@id/search_delete"
+	             	android:hint="@string/app_search"
+	                android:textColor="#000"
+	            	style="@style/edit_text"
+	                android:textSize="14sp" />
+	        </RelativeLayout>
+	    </RelativeLayout>
+	</RelativeLayout>
 	
 	<com.zykj.benditong.view.ExpandTabView 
         android:id="@+id/expandtab_view"

@@ -86,7 +86,7 @@
 				        android:layout_height="@dimen/thirty"
 				        android:layout_gravity="center_vertical"
 				        android:layout_marginLeft="@dimen/ten"
-			        	android:src="@drawable/icon_image_default"
+			        	android:src="@drawable/mobile"
 				        android:contentDescription="@string/app_name"/>
 			    </LinearLayout>
 			    <LinearLayout 
