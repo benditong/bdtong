@@ -64,8 +64,10 @@ public class IndexActivity extends BaseActivity {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Area area = (Area) data.getSerializableExtra("area");
-		aci_mytitle.setAddresseeText(area.getTitle());
+		if(data != null){
+			Area area = (Area) data.getSerializableExtra("area");
+			aci_mytitle.setAddresseeText(area.getTitle());
+		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
