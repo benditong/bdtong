@@ -74,7 +74,7 @@
   <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;名</string> 
   <string name="user_carpool_phone">联系电话</string> 
   <string name="user_carpool_submit">提交信息</string> 
-  <string name="user_carpool_number">剩余座位</string> 
+  <string name="user_carpool_number">人&#160;&#160;&#160;&#160;&#160;&#160;数</string> 
   <string name="user_carpool_cost">预计费用</string> 
   <string name="user_carpool_origin_2">出&#160;发&#160;地:</string> 
   <string name="user_carpool_destination_2">目&#160;的&#160;地:</string> 

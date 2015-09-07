@@ -59,13 +59,18 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/five"
         android:background="#f1f1f1" />
+    
+    <com.zykj.benditong.view.XListView
+        android:id="@+id/car_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <ListView
+  <!--  <ListView
         android:id="@+id/listView_carpool_details"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:divider="#f1f1f1"
         android:dividerHeight="5dp" >
     </ListView>
-
+ --> 
 </LinearLayout>

@@ -83,6 +83,7 @@ public class CarpoolAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				Intent intent=new Intent(context, CarpoolSignUpActivity.class);
 				intent.putExtra("car", (dataList).get(position));
+				intent.putExtra("tid", (dataList).get(position).getId());
 				context.startActivity(intent);
 			}
 		});

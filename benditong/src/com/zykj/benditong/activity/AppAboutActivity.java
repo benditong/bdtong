@@ -30,7 +30,7 @@ public class AppAboutActivity extends BaseActivity{
 		mCallButton.setOnTouchListener(new OnTouchListener() {
 		
 			public boolean onTouch(View arg0, MotionEvent arg1) {
-				Intent intent=new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+tv_phone.getText()));
+				Intent intent=new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+tv_phone.getText().toString().trim()));
 				AppAboutActivity.this.startActivity(intent);
 				return true;
 			}

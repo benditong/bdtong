@@ -46,6 +46,8 @@ public class UrlContants {
     
     public static final String OFFERCAR = "c=car&a=offercar";//我要拼车
     
+    public static final String POSTCARORDER = "c=car&a=carorder";//立即报名
+    
     public static String getUrl(String token){
         if(token==null || token.equals("")){
             return BASE_URL;

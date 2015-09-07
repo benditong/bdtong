@@ -93,4 +93,9 @@ public class HttpUtils {
     public static void needcar(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.NEEDCAR), params, handler);
     }
+    
+    /*立即报名提交拼车信息*/
+    public static void postcaroder(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.POSTCARORDER), params, handler);
+    }
 }

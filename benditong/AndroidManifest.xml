@@ -25,6 +25,7 @@
     <!-- 百度地地图 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:name="com.zykj.benditong.BaseApp"

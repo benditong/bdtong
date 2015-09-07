@@ -442,6 +442,7 @@ containing a value of this type.
         public static final int btn_carpool_sign_up=0x7f090056;
         public static final int btn_carpool_submit=0x7f09002d;
         public static final int canyin_list=0x7f09000f;
+        public static final int car_listview=0x7f090024;
         public static final int carpool_main_back=0x7f090021;
         public static final int container=0x7f090037;
         public static final int dialog_load=0x7f090008;
@@ -473,7 +474,6 @@ containing a value of this type.
         public static final int layout_address=0x7f090096;
         public static final int layout_age=0x7f090094;
         public static final int listView=0x7f0900a0;
-        public static final int listView_carpool_details=0x7f090024;
         public static final int login_in=0x7f09009b;
         public static final int login_out=0x7f090093;
         public static final int mobile_number=0x7f090097;

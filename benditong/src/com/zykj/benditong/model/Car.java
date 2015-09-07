@@ -8,6 +8,7 @@ public class Car implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private String tid;
 	private String id;
 	private String from_address;
 	private String to_address;
@@ -92,6 +93,12 @@ public class Car implements Serializable{
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public String getTid() {
+		return tid;
+	}
+	public void setTid(String tid) {
+		this.tid = tid;
 	}
 	
 	

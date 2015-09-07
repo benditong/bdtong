@@ -177,8 +177,7 @@
                 android:id="@+id/textView_cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="￥200" />
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
         <LinearLayout
