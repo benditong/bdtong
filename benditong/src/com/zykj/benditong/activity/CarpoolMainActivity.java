@@ -69,11 +69,11 @@ public class CarpoolMainActivity extends BaseActivity {
 				adapter = new CarpoolAdapter(CarpoolMainActivity.this, list);
 				car_listView.setAdapter(adapter);
 
-				if (nowpage == 1) {
-					cars.clear();
-				}
-				cars.addAll(list);
-				adapter.notifyDataSetChanged();
+//				if (nowpage == 1) {
+//					cars.clear();
+//				}
+//				cars.addAll(list);
+//				adapter.notifyDataSetChanged();
 
 			}
 

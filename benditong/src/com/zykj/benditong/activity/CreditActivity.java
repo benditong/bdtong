@@ -26,7 +26,6 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
-import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.PluginState;
@@ -37,6 +36,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.zykj.benditong.R;
 
 /**
  * Version 1.0.1
@@ -158,7 +159,8 @@ public class CreditActivity extends Activity {
         mTitle.setTextColor(titlel.intValue());
         mNavigationBar.setBackgroundColor(navl.intValue());
         //添加后退按钮监听事件
-        mBackView.setPadding(50, 50, 50, 50);
+        mBackView.setImageResource(R.drawable.common_title_back);
+        mBackView.setPadding(20, 20, 20, 20);
         mBackView.setClickable(true);
         mBackView.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
@@ -287,12 +289,11 @@ public class CreditActivity extends Activity {
         lp.addRule(RelativeLayout.CENTER_IN_PARENT);
         
         mBackView = new ImageView(this);
-        mBackView.setBackgroundResource(android.R.drawable.ic_menu_revert);
         RelativeLayout.LayoutParams mBackLayout=new RelativeLayout.LayoutParams(dp50, dp50);
         mBackLayout.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
         mBackLayout.addRule(RelativeLayout.ALIGN_PARENT_LEFT); 
         mBackLayout.setMargins(dp10, 0, 0, 0);
-        mNavigationBar.addView(mBackView,mBackLayout);
+        mNavigationBar.addView(mBackView);
         
         //在导航栏的右侧添加分享按钮（无分享信息的页面隐藏）
         mShare=new TextView(this);
@@ -435,16 +436,17 @@ public class CreditActivity extends Activity {
 			delayRefresh = false;
 		} else {
 	    	// 返回页面时，如果页面含有onDBNewOpenBack()方法,则调用该js方法。
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-				mWebView.evaluateJavascript("if(window.onDBNewOpenBack){onDBNewOpenBack()}", new ValueCallback<String>() {
-					@Override
-					public void onReceiveValue(String value) {
-						Log.e("credits", "刷新积分");
-					}
-				});
-			} else {
-				mWebView.loadUrl("javascript:if(window.onDBNewOpenBack){onDBNewOpenBack()}");
-			}
+            mWebView.loadUrl("javascript:if(window.onDBNewOpenBack){onDBNewOpenBack()}");
+//			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//				mWebView.evaluateJavascript("if(window.onDBNewOpenBack){onDBNewOpenBack()}", new ValueCallback<String>() {
+//					@Override
+//					public void onReceiveValue(String value) {
+//						Log.e("credits", "刷新积分");
+//					}
+//				});
+//			} else {
+//				mWebView.loadUrl("javascript:if(window.onDBNewOpenBack){onDBNewOpenBack()}");
+//			}
 		}
 	}
 

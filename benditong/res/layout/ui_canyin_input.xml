@@ -22,6 +22,7 @@
 	        android:paddingRight="@dimen/fifteen"
 	        android:paddingTop="@dimen/eight">
 	        <TextView 
+	            android:id="@+id/form1"
 		        android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
 		       	android:textSize="@dimen/t_sixteen"
@@ -29,14 +30,15 @@
 		        android:gravity="center_vertical"
 		        android:text="用餐时间"/>
 	        <EditText 
-	            android:id="@+id/order_people"
+	            android:id="@+id/order_time"
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
+		        android:layout_marginLeft="@dimen/ten"
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"
-		        android:hint="\t\t\t月\t\t\t日\t\t\t时\t\t\t分"/>
+		        android:hint="\t\t月\t\t日\t\t时\t\t分"/>
 	    </LinearLayout>
 	    
 	    <View 
@@ -52,6 +54,7 @@
 	        android:paddingRight="@dimen/fifteen"
 	        android:paddingTop="@dimen/eight">
 	        <TextView 
+	            android:id="@+id/form2"
 		        android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
 		       	android:textSize="@dimen/t_sixteen"
@@ -63,10 +66,12 @@
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
+		        android:layout_marginLeft="@dimen/ten"
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"
-		        android:hint="\t\t\t\t\t\t\t\t\t\t\t分"/>
+		        android:inputType="number"
+		        android:hint="\t\t\t\t\t\t\t\t位"/>
 	    </LinearLayout>
 	    
 	    <View 
@@ -89,14 +94,16 @@
 		        android:gravity="center_vertical"
 		        android:text="预计消费"/>
 	        <EditText 
-	            android:id="@+id/order_people"
+	            android:id="@+id/order_pay"
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
+		        android:inputType="numberDecimal"
+		        android:layout_marginLeft="@dimen/ten"
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"
-		        android:hint="\t\t\t\t\t\t\t\t\t\t\t元"/>
+		        android:hint="\t\t\t\t\t\t\t\t元"/>
 	    </LinearLayout>
 	    
 	    <View 
@@ -117,12 +124,13 @@
 		       	android:textSize="@dimen/t_sixteen"
 			  	android:textColor="@color/text_dgrey"
 		        android:gravity="center_vertical"
-		        android:text="姓\t\t\t名"/>
+		        android:text="姓        名"/>
 	        <EditText 
-	            android:id="@+id/order_people"
+	            android:id="@+id/order_name"
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
+		        android:layout_marginLeft="@dimen/ten"
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"/>
@@ -148,10 +156,12 @@
 		        android:gravity="center_vertical"
 		        android:text="联系电话"/>
 	        <EditText 
-	            android:id="@+id/order_people"
+	            android:id="@+id/order_mobile"
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
+		        android:inputType="numberSigned"
+		        android:layout_marginLeft="@dimen/ten"
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"/>

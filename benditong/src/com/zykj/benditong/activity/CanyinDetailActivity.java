@@ -1,12 +1,12 @@
 package com.zykj.benditong.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -17,7 +17,6 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
@@ -26,9 +25,9 @@ import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
-import com.zykj.benditong.model.Category;
 import com.zykj.benditong.model.Good;
 import com.zykj.benditong.model.Restaurant;
+import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.AutoListView;
@@ -123,6 +122,8 @@ public class CanyinDetailActivity extends BaseActivity {
 		case R.id.res_address:
 			break;
 		case R.id.res_phone:
+			/** 打电话  */
+            startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+restaurant.getTel())));
 			break;
 		case R.id.res_assess_more:
 			/** 更多评价 */
@@ -130,6 +131,9 @@ public class CanyinDetailActivity extends BaseActivity {
 				.putExtra("type", restaurant.getType()).putExtra("pid", restaurant.getId()));
 			break;
 		case R.id.reserve_go:
+			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请先登录!");return;}
+			startActivity(new Intent(CanyinDetailActivity.this, CanyinInputActivity.class)
+				.putExtra("type", restaurant.getType()).putExtra("id", restaurant.getId()));
 			break;
 		default:
 			break;

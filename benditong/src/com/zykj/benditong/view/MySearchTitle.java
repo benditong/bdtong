@@ -30,6 +30,12 @@ public class MySearchTitle extends RelativeLayout {
 		}
 	}
 
+	public void setAddresseeText(String text) {
+		if(text!=null) {
+			titleAddressee.setText(text);
+		}
+	}
+
 	public void setSearchDelListener(OnClickListener addresseeClickListener) {
 		if(addresseeClickListener!=null) {
 			titleSearchEdit.setOnClickListener(addresseeClickListener);

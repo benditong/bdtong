@@ -93,9 +93,19 @@ public class HttpUtils {
     public static void needcar(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.NEEDCAR), params, handler);
     }
-    
-    /*立即报名提交拼车信息*/
+    /*获取默认的用户 拼车信息*/
     public static void postcaroder(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.POSTCARORDER), params, handler);
+    }
+    
+
+    /*获取城市列表*/
+    public static void getArea(AsyncHttpResponseHandler handler){
+    	client.post(UrlContants.getUrl(UrlContants.GETAREA), handler);
+    }
+
+    /*获取城市列表*/
+    public static void submit(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMIT), params, handler);
     }
 }
