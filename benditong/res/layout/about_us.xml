@@ -37,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
             android:text="公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介" />
     </ScrollView>
 
@@ -46,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="2dp"
-        android:gravity="center_vertical"
         android:background="#FFF"
+        android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <TextView
@@ -55,16 +55,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/t_ten"
             android:text="网址:"
-            android:textSize="@dimen/eighteen" 
-            android:textColor="@color/text_light"/>
+            android:textColor="@color/text_light"
+            android:textSize="@dimen/eighteen" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/t_ten"
             android:text="http://55tuantuan.com"
-            android:textSize="@dimen/eighteen"
-            android:textColor="@color/text_light" />
+            android:textColor="@color/text_light"
+            android:textSize="@dimen/eighteen" />
     </LinearLayout>
 
     <LinearLayout
@@ -73,7 +73,8 @@
         android:layout_marginTop="2dp"
         android:background="#FFF"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,15 +93,22 @@
             android:textColor="@color/text_light"
             android:textSize="@dimen/eighteen" />
 
-        <ImageButton
-            android:id="@+id/imag_buton_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:background="#FFF"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:src="@drawable/phone" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/imag_buton_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:layout_marginRight="20dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/phone" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
