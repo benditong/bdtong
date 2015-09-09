@@ -36,7 +36,7 @@ public class UrlContants {
     
     public static final String COMMENTLIST = "c=info&a=getCommentsList";//获取评价列表
     
-    public static final String CARLIST = "c=info&a=getlist";//获取列表
+   // public static final String CARLIST = "c=car&a=getlist";//获取列表
     
     public static final String CARINFO = "c=info&a=getinfo";//获取列表
     
