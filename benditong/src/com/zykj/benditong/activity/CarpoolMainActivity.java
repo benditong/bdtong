@@ -3,7 +3,6 @@ package com.zykj.benditong.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,8 +19,6 @@ import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CarpoolAdapter;
-import com.zykj.benditong.adapter.CommonAdapter;
-import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Car;
@@ -30,7 +27,7 @@ import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class CarpoolMainActivity extends BaseActivity implements
-		IXListViewListener, OnClickListener, OnItemClickListener {
+		IXListViewListener, OnItemClickListener {
 	private static int PERPAGE = 5;// perpage默认每页显示5条信息
 	private int nowpage = 1;// 当前显示的页面
 	private Button btn_carpoolNeeder, btn_carpoolOwner;
@@ -78,7 +75,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 //			}
 //		};
 		//car_listView.setAdapter(adapter);
-		car_listView.setOnItemClickListener(this);
+		//car_listView.setOnItemClickListener(this);
 
 	}
 
@@ -105,7 +102,6 @@ public class CarpoolMainActivity extends BaseActivity implements
 			adapter.notifyDataSetChanged();
 		}
 	};
-
 	// HttpUtils.getList(new AsyncHttpResponseHandler() {
 	// @Override
 	// public void onSuccess(int statusCode, Header[] header,
@@ -230,6 +226,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 		car_listView.stopLoadMore();
 		car_listView.setRefreshTime("刚刚");
 	}
+	//item 监听事件，可以点击Button实现或者item实现，因为上面代码setItemClickListener注销了，下面代码未实现
 	@Override
 	public void onItemClick(AdapterView<?> conView, View view, int position,
 			long id) {
