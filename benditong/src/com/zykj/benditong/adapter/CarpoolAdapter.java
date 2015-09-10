@@ -84,7 +84,7 @@ public class CarpoolAdapter extends BaseAdapter {
 				Intent intent=new Intent(context, CarpoolSignUpActivity.class);
 				intent.putExtra("car", (dataList).get(position));
 				intent.putExtra("tid", (dataList).get(position).getId());
-				context.startActivity(intent);
+				context.startActivity(intent.putExtra("car", dataList.get(position)));
 			}
 		});
 

@@ -64,7 +64,7 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.btn_back:
-			startActivity(new Intent(this, CarpoolMainActivity.class));
+			finish();
 			break;
 		case R.id.btn_carpool_submit:
 			submitRegistInfo();
