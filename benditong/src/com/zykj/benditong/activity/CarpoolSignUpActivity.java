@@ -16,6 +16,7 @@ import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Car;
+import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 
 public class CarpoolSignUpActivity extends BaseActivity {
@@ -24,8 +25,9 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	 */
 	private String tid;
 	private TextView textView_orign, textView_destination,
-			textView_depart_time, textView_persons, textView_cost;
+			textView_depart_time, textView_remain_seats, textView_cost;
 	private EditText editText_sign_persons, editText_name, editText_phone;
+	private String mobileCode;
 	private ImageButton imageButton;
 	private Button btn_submit;
 	private Car car;
@@ -44,18 +46,16 @@ public class CarpoolSignUpActivity extends BaseActivity {
 		textView_orign = (TextView) findViewById(R.id.textView_orign);
 		textView_destination = (TextView) findViewById(R.id.textView_destination);
 		textView_depart_time = (TextView) findViewById(R.id.textView_departure_time);
-		textView_persons = (TextView) findViewById(R.id.textView_remain_seats);
+		textView_remain_seats = (TextView) findViewById(R.id.textView_remain_seats);
 		editText_sign_persons = (EditText) findViewById(R.id.user_sign_up_num);
-		textView_cost = (TextView) findViewById(R.id.textView_cost);
 		editText_name = (EditText) findViewById(R.id.user_name);
 		editText_phone = (EditText) findViewById(R.id.user_mobile);
 		imageButton = (ImageButton) findViewById(R.id.btn_back);
 		btn_submit = (Button) findViewById(R.id.btn_carpool_submit);
-
 		textView_orign.setText(car.getFrom_address());
 		textView_destination.setText(car.getTo_address());
 		textView_depart_time.setText(car.getStarttime());
-		textView_persons.setText(car.getSeat());
+		textView_remain_seats.setText(car.getSeat());
 
 		setListener(imageButton, btn_submit);
 	}
@@ -74,17 +74,18 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	}
 
 	private void submitRegistInfo() {
+		mobileCode=editText_phone.getText().toString().trim();
 		if (editText_sign_persons.getText().toString().trim().length() <= 0) {
 			Tools.toastMessage(CarpoolSignUpActivity.this, "报名人数不能为空");
 		}
 		if (editText_name.getText().toString().trim().length() <= 0) {
 			Tools.toast(this, "联系人不能为空");
 		}
-		if (editText_phone.getText().toString().trim().length() <= 0) {
-			Tools.toast(this, "联系电话不能为空");
+		if (!TextUtil.isMobile(mobileCode)) {
+			Tools.toast(CarpoolSignUpActivity.this, "手机格式不正确");
 		}
 	
-		if(Integer.parseInt(editText_sign_persons.getText().toString())>Integer.parseInt(textView_persons.getText().toString())){
+		if(Integer.parseInt(editText_sign_persons.getText().toString())>Integer.parseInt(textView_remain_seats.getText().toString())){
 			Tools.toastMessage(CarpoolSignUpActivity.this, "你预定的座位已超出");
 		}else {
 			addData();
@@ -98,8 +99,8 @@ public class CarpoolSignUpActivity extends BaseActivity {
 		RequestParams params = new RequestParams();
 		params.put("tid", car.getId());
 		params.put("seat", editText_sign_persons.getText().toString().trim());
-		Float tatal=(float) (Integer.parseInt(car.getPrice().toString())*Integer.parseInt(editText_sign_persons.getText().toString()));
-		textView_cost.setText(String.format("￥%.2f",  tatal));
+		//Float tatal=(float) (Integer.parseInt(car.getPrice().toString())*Integer.parseInt(editText_sign_persons.getText().toString()));
+		//textView_cost.setText(String.format("￥%.2f",  tatal));
 		params.put("name", editText_name.getText().toString().trim());
 		params.put("mobile", editText_phone.getText().toString().trim());
 		/**
@@ -111,7 +112,14 @@ public class CarpoolSignUpActivity extends BaseActivity {
 			public void onRecevieSuccess(JSONObject json) {
 				Tools.toastMessage(CarpoolSignUpActivity.this, "报名成功");
 				//textView_persons.setText("Integer.parseInt(textView_persons.getText().toString())-(Integer.parseInt(editText_sign_persons.getText().toString())");
-				finish();
+				//upData();
+//				int orderSeats=Integer.parseInt(editText_sign_persons.getText().toString().trim());
+//				int remainSeats=Integer.parseInt(textView_remain_seats.getText().toString().trim());
+//				remainSeats-=orderSeats;
+//				Intent intent=new Intent(CarpoolSignUpActivity.this, CarpoolMainActivity.class);
+//				intent.putExtra("remain", String.valueOf(remainSeats)) ;
+//				startActivity(intent);
+//				finish();
 			}
 
 			@Override
@@ -121,4 +129,10 @@ public class CarpoolSignUpActivity extends BaseActivity {
 			}
 		}, params);
 	}
+
+//	protected void upData() {
+//		int orderSeats=Integer.parseInt(editText_sign_persons.getText().toString().trim());
+//		int remainSeats=Integer.parseInt(textView_remain_seats.getText().toString().trim());
+//		textView_remain_seats.setText(String.valueOf(remainSeats-=orderSeats));
+//	}
 }

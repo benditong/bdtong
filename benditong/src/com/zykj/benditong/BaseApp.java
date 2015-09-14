@@ -22,6 +22,7 @@ public class BaseApp extends Application {
 	public static final String config = "config";//存储的sharePerfence
 	public static final String IS_INTRO = "is_intro";//当前的是否已经进行过指引
 	public static final String VERSION = "version";//当前应用中存储的版本号
+	
 	// ===========常量==========
 	private static final String TAG = "BaseApp";
 	public static final String FILE_DIR = "heer_dir";

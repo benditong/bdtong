@@ -96,6 +96,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 			if (nowpage == 1) {
 				cars.clear();
 			}
+			//String remainSeats=getIntent().getExtras().get("remainSeats").toString();
 			cars.addAll(list);
 			adapter=new CarpoolAdapter(CarpoolMainActivity.this, cars);
 			car_listView.setAdapter(adapter);
@@ -235,6 +236,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 		intent.putExtra("car", cars.get(position - 1));
 		intent.putExtra("tid", cars.get(position - 1).getId());
 		startActivity(intent.putExtra("car", cars.get(position - 1)));
+		finish();
 		// CarpoolSignUpActivity.class).putExtra("car", cars.get(arg2-1)));
 	}
 }

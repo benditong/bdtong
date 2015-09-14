@@ -3,6 +3,7 @@ package com.zykj.benditong.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -16,8 +17,8 @@ import com.zykj.benditong.view.MyCommonTitle;
 
 public class AppAboutActivity extends BaseActivity{
 	private MyCommonTitle myCommonTitle; 
-	ImageButton mCallButton;
-	TextView tv_phone;
+	private ImageButton mCallButton;
+	private TextView tv_phone,about_us;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,6 +27,8 @@ public class AppAboutActivity extends BaseActivity{
 		myCommonTitle=(MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("关于我们");
 		tv_phone=(TextView) findViewById(R.id.phone);
+		about_us=(TextView) findViewById(R.id.about_us);
+		about_us.setText(Html.fromHtml(about_us.getText().toString()));
 		mCallButton=(ImageButton) findViewById(R.id.imag_buton_phone);
 		mCallButton.setOnTouchListener(new OnTouchListener() {
 		

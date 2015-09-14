@@ -8,19 +8,23 @@ public class Car implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String tid;
-	private String id;
-	private String from_address;
-	private String to_address;
-	private String starttime;
-	private String endtime;
-	private String seat;
-	private String price;
-	private String ischeck;
-	private String addtime;
-	private String car;
-	private String name;
-	private String mobile;
+	private String tid;//报名信息的ID编号
+	private String id;//信息编号
+	private String from_address;//出发地
+	private String to_address;//目的地
+	private String starttime;//出发时间
+	private String endtime;//预计到发时间
+	private String seat;//人数
+	private String price;//预计费用
+	private String ischeck;//信息状态
+	private String addtime;//信息发布日期
+	private String car;//车型
+	private String name;//姓名
+	private String mobile;//联系电话
+	private String seatprice;   //座位与价格段划分
+	private String orderSeat; //已订购的座位数
+	private String remain;     //剩余座位数
+	private String trueprice; //当前座位数的价格
 	
 	public String getId() {
 		return id;
@@ -99,6 +103,30 @@ public class Car implements Serializable{
 	}
 	public void setTid(String tid) {
 		this.tid = tid;
+	}
+	public String getSeatprice() {
+		return seatprice;
+	}
+	public void setSeatprice(String seatprice) {
+		this.seatprice = seatprice;
+	}
+	public String getOrderSeat() {
+		return orderSeat;
+	}
+	public void setOrderSeat(String orderSeat) {
+		this.orderSeat = orderSeat;
+	}
+	public String getRemain() {
+		return remain;
+	}
+	public void setRemain(String remain) {
+		this.remain = remain;
+	}
+	public String getTrueprice() {
+		return trueprice;
+	}
+	public void setTrueprice(String trueprice) {
+		this.trueprice = trueprice;
 	}
 	
 	

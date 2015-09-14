@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:text="@string/user_carpool_number"
+                android:text="@string/user_carpool_remain_seats"
                 android:textColor="@color/text_light" />
 
             <TextView
@@ -170,28 +170,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:text="@string/user_carpool_cost"
-                android:textColor="@color/text_light" />
-
-            <TextView
-                android:id="@+id/textView_cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1sp"
-            android:background="@color/carpool"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/user_carpool_name"
                 android:textColor="@color/text_light" />
 
@@ -201,7 +179,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="#00000000"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:hint="@string/name"/>
         </LinearLayout>
 
         <LinearLayout
@@ -225,7 +204,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical" 
                 android:background="#00000000"
-                android:inputType="phone"/>
+                android:inputType="phone"
+                android:hint="@string/mobile"/>
         </LinearLayout>
 
         <LinearLayout
