@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,13 +30,14 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class LikeActivity extends BaseActivity implements IXListViewListener, OnItemClickListener{
 
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int PERPAGE=10;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
 	
 	private MyCommonTitle myCommonTitle;
 	private XListView mListView;
 	private CommonAdapter<GuessLike> adapter;
 	private List<GuessLike> likes = new ArrayList<GuessLike>();
+	private Handler mHandler = new Handler();//异步加载或刷新
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class LikeActivity extends BaseActivity implements IXListViewListener, On
 		myCommonTitle.setTitle("猜你喜欢");
 		
 		mListView = (XListView)findViewById(R.id.advert_listview);
+		mListView.setDividerHeight(0);
         mListView.setPullLoadEnable(true);
         mListView.setXListViewListener(this);
 		mListView.setOnItemClickListener(this);
@@ -87,21 +90,37 @@ public class LikeActivity extends BaseActivity implements IXListViewListener, On
 			adapter.notifyDataSetChanged();
 		}
 	};
-	
-	//下拉刷新 重建
+
 	@Override
 	public void onRefresh() {
-		nowpage = 1;
-		requestData();
-		mListView.stopRefresh();
+		/**下拉刷新 重建*/
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				nowpage = 1;
+				requestData();
+				onLoad();
+			}
+		}, 1000);
 	}
-	
-	//上拉加载分页
+
 	@Override
 	public void onLoadMore() {
-		nowpage += 1;
-		requestData();
+		/**上拉加载分页*/
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				nowpage += 1;
+				requestData();
+				onLoad();
+			}
+		}, 1000);
+	}
+
+	private void onLoad() {
+		mListView.stopRefresh();
 		mListView.stopLoadMore();
+		mListView.setRefreshTime("刚刚");
 	}
 
 	@Override

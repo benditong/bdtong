@@ -38,6 +38,7 @@
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"
+		        android:textColorHint="@color/grey"
 		        android:hint="\t\t月\t\t日\t\t时\t\t分"/>
 	    </LinearLayout>
 	    
@@ -71,6 +72,7 @@
 		        android:gravity="center_vertical"
 		        android:background="@null"
 		        android:inputType="number"
+		        android:textColorHint="@color/grey"
 		        android:hint="\t\t\t\t\t\t\t\t位"/>
 	    </LinearLayout>
 	    
@@ -103,6 +105,7 @@
 		       	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 		        android:background="@null"
+		        android:textColorHint="@color/grey"
 		        android:hint="\t\t\t\t\t\t\t\t元"/>
 	    </LinearLayout>
 	    

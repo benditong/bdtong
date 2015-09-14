@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/content_background_color" >
 
-	<com.zykj.xishuashua.view.MyCommonTitle
+	<com.zykj.benditong.view.MyCommonTitle
         android:id="@+id/aci_mytitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -26,24 +26,26 @@
 			android:layout_height="wrap_content"
 			android:textSize="@dimen/t_seventeen"
 			android:text="@string/alipay_allow_money"/>
-           <EditText 
-               android:layout_width="0.0dip"
+     	<EditText 
+     	    android:id="@+id/user_payout"
+          	android:layout_width="0.0dip"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:layout_marginLeft="@dimen/five"
 			style="@style/edit_text"
-               android:src="@drawable/user_right"
-               android:hint="@string/alipay_allow_hint"
-               android:inputType="number"/>
+            android:src="@drawable/user_right"
+            android:hint="@string/alipay_allow_hint"
+            android:inputType="numberDecimal"/>
     </LinearLayout>
     <Button 
+        android:id="@+id/pay_button"
      	android:layout_width="fill_parent"
 		android:layout_height="@dimen/forty"
 		android:layout_marginTop="@dimen/twenty"
 		android:layout_marginLeft="@dimen/ten"
 		android:layout_marginRight="@dimen/ten"
-		android:background="@drawable/bg_round_lred"
-		android:textColor="@color/dgrey"
+		android:background="@drawable/bg_round_yellow"
+		android:textColor="@color/white"
 		android:textSize="@dimen/t_eighteen"
 		android:text="@string/alipay_allow_sure"/>
 </LinearLayout>

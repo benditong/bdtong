@@ -56,12 +56,20 @@
     
     <!-- 餐饮详情 -->
     <string name="res_introduct">餐厅简介：</string>
-    <string name="res_assess">评价列表(20)</string>
+    <string name="res_assess">评价列表</string>
     <string name="res_assess_name">还**吹</string>
     <string name="res_assess_time">2015&#8211;06&#8211;17 14:00</string>
     <string name="res_assess_more">查看更多评价</string>
     <string name="reserve_go">立即预定</string>
     <string name="good_price">88元</string>
+    
+    <!-- 团购详情 -->
+    <string name="good_assess">122评价></string>
+    <string name="buy_info">购买须知</string>
+    <string name="title_one">有效期：</string>
+    <string name="title_two">使用时间：</string>
+    <string name="title_three">使用规则：</string>
+    <string name="buy_assess">宝贝评价</string>
     
     <!--  拼车信息   --> 
   <string name="user_carpool_need">我要拼车</string> 

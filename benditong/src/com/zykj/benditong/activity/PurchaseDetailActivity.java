@@ -61,8 +61,8 @@ public class PurchaseDetailActivity extends BaseActivity{
 		public void onRecevieSuccess(JSONObject json) {
 			final Order order = JSONObject.parseObject(json.getString(UrlContants.jsonData), Order.class);
 			order_num.setText(order.getInnum());
-			ImageLoader.getInstance().displayImage(order.getImgsrc()+order.getGoodsimg(), order_img);
-			product_name.setText(order.getGoodsname());
+			ImageLoader.getInstance().displayImage(order.getGoodsimg(), order_img);
+			product_name.setText(order.getTitle());
 			product_price.setText("￥"+order.getInprice());
 			product_content.setText(order.getName());
 			product_num.setText("x"+order.getInnum());

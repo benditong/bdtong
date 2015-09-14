@@ -85,6 +85,13 @@ public class ViewHolder {
 		return this;
 	}
 	
+	public ViewHolder setText(int viewId, String text, int flag){
+		TextView tv = getView(viewId);
+		tv.setText(text);
+		tv.getPaint().setFlags(flag);
+		return this;
+	}
+	
 	public ViewHolder setImageView(int viewId, int resId){
 		ImageView view = getView(viewId);
 		view.setImageResource(resId);

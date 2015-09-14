@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
@@ -25,6 +27,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.RecyclingPagerAdapter;
@@ -43,7 +46,7 @@ import com.zykj.benditong.view.AutoListView;
 import com.zykj.benditong.view.MySearchTitle;
 
 @SuppressLint("HandlerLeak")
-public class IndexActivity extends BaseActivity {
+public class IndexActivity extends BaseActivity implements OnItemClickListener{
 
 	private MySearchTitle aci_mytitle;
 	private AutoScrollViewPager viewPager;
@@ -52,6 +55,7 @@ public class IndexActivity extends BaseActivity {
 	/** 当前的位置 */
 	private int now_pos = 0;
 	private List<AdsImages> imageList;
+	private List<GuessLike> datalist;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,7 @@ public class IndexActivity extends BaseActivity {
 
 	@Override
 	public void onClick(View view) {
+		RequestParams params = new RequestParams();
 		switch (view.getId()) {
 		case R.id.address:
 			/* 城市 */
@@ -96,15 +101,38 @@ public class IndexActivity extends BaseActivity {
 			break;
 		case R.id.user_gift_left:
 			/* 积分商城  */
-			Intent intent = new Intent().setClass(IndexActivity.this, CreditActivity.class);
-            intent.putExtra("navColor", "#25b6ed");//配置导航条的背景颜色，请用#ffffff长格式。
-            intent.putExtra("titleColor", "#ffffff");//配置导航条标题的颜色，请用#ffffff长格式。
-            intent.putExtra("url", "http://www.duiba.com.cn/test/demoRedirectSAdfjosfdjdsa");//配置自动登陆地址，每次需服务端动态生成。
-			startActivity(intent);
+			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请登录");return;}
+			params.put("uid", BaseApp.getModel().getUserid());
+			params.put("points", BaseApp.getModel().getIntegral());
+			HttpUtils.getLoginUrl(new HttpErrorHandler() {
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					String url = json.getJSONObject(UrlContants.jsonData).getString("url");
+					Intent intent = new Intent().setClass(IndexActivity.this, CreditActivity.class);
+		            intent.putExtra("navColor", "#25b6ed");//配置导航条的背景颜色，请用#ffffff长格式。
+		            intent.putExtra("titleColor", "#ffffff");//配置导航条标题的颜色，请用#ffffff长格式。
+		            intent.putExtra("url", url);//配置自动登陆地址，每次需服务端动态生成。
+					startActivity(intent);
+				}
+			},params);
 			break;
 		case R.id.user_gift_right:
 			/* 积分抽奖  */
-			startActivity(new Intent(IndexActivity.this, LuckPanActivity.class));
+			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请登录");return;}
+			params.put("uid", BaseApp.getModel().getUserid());
+			params.put("points", BaseApp.getModel().getIntegral());
+			HttpUtils.getDrawUrl(new HttpErrorHandler() {
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					String url = json.getJSONObject(UrlContants.jsonData).getString("url");
+					Intent intent = new Intent().setClass(IndexActivity.this, CreditActivity.class);
+		            intent.putExtra("navColor", "#25b6ed");//配置导航条的背景颜色，请用#ffffff长格式。
+		            intent.putExtra("titleColor", "#ffffff");//配置导航条标题的颜色，请用#ffffff长格式。
+		            intent.putExtra("url", url);//配置自动登陆地址，每次需服务端动态生成。
+					startActivity(intent);
+				}
+			},params);
+			//startActivity(new Intent(IndexActivity.this, LuckPanActivity.class));
 			break;
 		case R.id.tv_index_order:
 			/* 猜你喜欢更多  */
@@ -124,6 +152,7 @@ public class IndexActivity extends BaseActivity {
 		
 		viewPager = (AutoScrollViewPager) findViewById(R.id.index_slider);//轮播图
 		index_list = (AutoListView)findViewById(R.id.index_list);//猜你喜欢
+		index_list.setOnItemClickListener(this);
 		im_b1canyin = (LinearLayout)findViewById(R.id.im_b1canyin);//餐饮
 		im_b1jiudian = (LinearLayout)findViewById(R.id.im_b1jiudian);//酒店
 		im_b1shangpu = (LinearLayout)findViewById(R.id.im_b1shangpu);//商铺
@@ -169,12 +198,14 @@ public class IndexActivity extends BaseActivity {
 		@Override
 		public void onRecevieSuccess(JSONObject json) {
 	        JSONArray jsonArray = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
-	        List<GuessLike> list=JSONArray.parseArray(jsonArray.toString(), GuessLike.class);
-			index_list.setAdapter(new CommonAdapter<GuessLike>(IndexActivity.this, R.layout.ui_item_like, list) {
+	        datalist=JSONArray.parseArray(jsonArray.toString(), GuessLike.class);
+			index_list.setAdapter(new CommonAdapter<GuessLike>(IndexActivity.this, R.layout.ui_item_like, datalist) {
 				@Override
 				public void convert(ViewHolder holder, GuessLike like) {
 					holder.setText(R.id.product_title, like.getTitle())
-					.setText(R.id.product_content, StringUtil.isEmpty(like.getIntro())?"该商品暂无说明":like.getIntro());
+						.setImageUrl(R.id.product_image, like.getImgsrc(), 10f)
+						.setText(R.id.product_distance, like.getKm()+"km")
+						.setText(R.id.product_content, StringUtil.isEmpty(like.getIntro())?"该商品暂无说明":like.getIntro());
 					TextView ptext = holder.getView(R.id.product_price);
 					ptext.setText(Html.fromHtml("<big><big><font color=#25B6ED>"+like.getPrice()+"</font></big></big>元"));
 				}
@@ -264,5 +295,12 @@ public class IndexActivity extends BaseActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		CommonUtils.exitkey(keyCode, this);
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View convertView, int position, long checkId) {
+		GuessLike guesslike = datalist.get(position);
+		startActivity(new Intent(this, GroupBuyDetailActivity.class)
+			.putExtra("shopId", guesslike.getTid()).putExtra("goodId", guesslike.getId()));
 	}
 }

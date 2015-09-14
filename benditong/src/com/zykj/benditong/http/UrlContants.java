@@ -10,6 +10,8 @@ public class UrlContants {
 
     public static final String BASE_URL = "http://121.42.194.222/api.php?";
 
+    public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
+
     public static final String BASEURL = BASE_URL+"%s";
 
     public static final String jsonData = "datas";
@@ -48,12 +50,26 @@ public class UrlContants {
     
     public static final String GETAREA = "c=public&a=getArea";//获取城市列表
     
-    public static final String SUBMIT = "c=info&a=postOrder";//获取城市列表
+    public static final String SUBMIT = "c=info&a=postOrder";//提交餐饮、酒店
     
+    public static final String GETGOODS = "c=info&a=getGoods";//获取产品详情
+
+    public static final String GOODSCOMMENTSLIST = "c=info&a=getGoodsCommentsList&type=shop";//获取产品评论列表
+    
+    public static final String SUBMITSHOPORDER = "c=info&a=postShopOrder";//提交团购
+    
+    public static final String GETLOGINURL = "c=points&a=getLoginUrl";//积分商城
+    
+    public static final String GETDRAWURL = "c=points&a=getDrawUrl";//幸运大抽奖
+    
+    public static final String USERSIGN = "c=sign&a=signIn";//是否签到
+    
+    public static final String POSTTIXIANLIST = "c=user&a=posttixian";//是否签到
+
     public static String getUrl(String token){
         if(token==null || token.equals("")){
             return BASE_URL;
         }
-      return  String.format(BASEURL,token);
+        return  String.format(BASEURL,token);
     }
 }

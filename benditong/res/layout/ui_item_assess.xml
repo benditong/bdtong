@@ -27,19 +27,26 @@
 		<RatingBar 
     		android:id="@+id/res_assess_star"
             android:numStars="5"
+			android:stepSize="0.1"
             android:rating="2"
             android:isIndicator="true"
             style="@style/mRatingbar"
 	      	android:layout_width="wrap_content"
 	      	android:layout_height="@dimen/thirty"/>
     </LinearLayout>
+	<GridView 
+	    android:id="@+id/grid_images"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:numColumns="4">
+	</GridView>
     <TextView 
 		android:id="@+id/res_assess_content"
         android:layout_marginTop="@dimen/five"
      	android:layout_width="match_parent"
      	android:layout_height="wrap_content"
 		android:textSize="@dimen/t_fourteen"
-		android:textColor="@color/dgrey"
+		android:textColor="@color/edit_hint"
      	android:text="@string/index_product_content"/>
     <TextView 
     	android:id="@+id/res_assess_time"
@@ -47,6 +54,6 @@
      	android:layout_width="wrap_content"
      	android:layout_height="wrap_content"
 		android:textSize="@dimen/t_fourteen"
-		android:textColor="@color/dgrey"
+		android:textColor="@color/edit_hint"
      	android:text="@string/res_assess_time"/>
 </LinearLayout>

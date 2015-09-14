@@ -14,7 +14,7 @@
     <!-- GPS定位权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 百度地地图 -->
+    <!-- 高德地图 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
@@ -24,7 +24,8 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <!-- 百度地地图 -->
+	<uses-permission  android:name="android.permission.CHANGE_CONFIGURATION" />
+    <!-- 短信验证 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
@@ -107,6 +108,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
+            android:name=".activity.ShopDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
             android:name=".activity.AppAboutActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
@@ -183,6 +190,34 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.SimpleNaviActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.GroupBuyDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.GroupBuyInputActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.UserWalletActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.UserPayOutActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <!-- 【短信验证】 -->
         <activity
@@ -190,17 +225,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
-        <!-- 【百度地图】 -->
-        <service
-            android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote" >
-            <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2" >
-                </action>
-            </intent-filter>
-        </service>
         
         <!-- 【兑吧】 -->
         <activity android:name=".activity.CreditActivity">
@@ -209,9 +233,9 @@
 		        android:value=".activity.IndexActivity" />
         </activity>
 
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="oRQkvOZfV9Sahy4peNMaycMt" />
+         <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="abd4c6c5fe1c2bc17219f92f40d4b589"/>
     </application>
 
 </manifest>

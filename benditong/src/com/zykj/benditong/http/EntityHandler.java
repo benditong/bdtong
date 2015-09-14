@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.zykj.benditong.view.MyRequestDailog;
 
 /**
  * Created by ss on 15-4-17.
@@ -36,9 +35,7 @@ public abstract class EntityHandler<T> extends HttpErrorHandler{
     }
 
 	@Override
-	public void onRecevieFailed(String status, JSONObject json) {
-		MyRequestDailog.closeDialog();
-	}
+	public void onRecevieFailed(String status, JSONObject json) {}
 
     public abstract void  onReadSuccess(List<T> list);
 }

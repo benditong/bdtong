@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/content_background_color" >
 
-	<com.zykj.xishuashua.view.MyCommonTitle
+	<com.zykj.benditong.view.MyCommonTitle
         android:id="@+id/aci_mytitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -30,9 +30,11 @@
 				android:layout_weight="1"
 				android:text="@string/alipay_allow"/>
             <TextView 
+                android:id="@+id/user_money"
                 android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
                 android:src="@drawable/user_right"
+                android:textColor="@color/theme_color"
 				android:text="@string/alipay_money"/>
 	    </LinearLayout>
 	    <View 
@@ -42,6 +44,7 @@
 			android:layout_marginLeft="@dimen/ten"
 			android:layout_marginRight="@dimen/ten"/>
 	    <LinearLayout 
+	        android:id="@+id/pay_out"
 	        android:layout_width="fill_parent"
 			android:layout_height="@dimen/forty"
 	        android:orientation="horizontal"

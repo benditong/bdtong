@@ -15,7 +15,7 @@
             android:id="@+id/rl_me_top"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:background="@color/theme_color">
             
             <com.zykj.benditong.view.RoundImageView
@@ -47,6 +47,26 @@
                 android:layout_centerInParent="true"
                 android:textSize="@dimen/t_sixteen"
                 android:textColor="@color/white"/>
+            <LinearLayout 
+                android:id="@+id/user_sign"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+		      	android:layout_alignParentRight="true"
+		      	android:layout_marginRight="5dp"
+	            android:orientation="horizontal">
+                <ImageView 
+		            android:layout_width="20dp"
+		            android:layout_height="20dp"
+		            android:contentDescription="@string/app_name"
+		            android:src="@drawable/sign"/>
+	            <TextView 
+	                android:id="@+id/user_sign_text"
+		            android:layout_width="wrap_content"
+		            android:layout_height="30dp"
+		            android:layout_marginTop="2dp"
+		            android:text="签到"
+		            android:textColor="@color/white"/>
+            </LinearLayout>
         </RelativeLayout>
 
         <LinearLayout

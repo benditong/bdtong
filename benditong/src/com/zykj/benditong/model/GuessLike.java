@@ -9,16 +9,25 @@ public class GuessLike implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;
+	private String tid;
 	private String title;
 	private String imgsrc;
 	private String price;
 	private String intro;
+	private String avg;
+	private String km;
 	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getTid() {
+		return tid;
+	}
+	public void setTid(String tid) {
+		this.tid = tid;
 	}
 	public String getTitle() {
 		return title;
@@ -43,5 +52,17 @@ public class GuessLike implements Serializable{
 	}
 	public void setIntro(String intro) {
 		this.intro = intro;
+	}
+	public String getAvg() {
+		return avg;
+	}
+	public void setAvg(String avg) {
+		this.avg = avg;
+	}
+	public String getKm() {
+		return km;
+	}
+	public void setKm(String km) {
+		this.km = km;
 	}
 }

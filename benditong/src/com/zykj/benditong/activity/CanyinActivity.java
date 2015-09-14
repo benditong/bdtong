@@ -37,7 +37,7 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
  */
 public class CanyinActivity extends BaseActivity implements IXListViewListener, OnItemClickListener{
 	
-	private static int NUM=5;//perpage默认每页显示10条信息
+	private static int NUM=10;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
 	private int orderby=1;//排序
 	private String tid="";//分类
@@ -204,7 +204,9 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 
 	@Override
 	public void onItemClick(AdapterView<?> convertView, View view, int position, long id) {
-		startActivity(new Intent(CanyinActivity.this, CanyinDetailActivity.class).putExtra("restaurant", restaurants.get(position-1)));
+		String type = restaurants.get(position-1).getType();
+		startActivity(new Intent(CanyinActivity.this, "shop".equals(type)?ShopDetailActivity.class:CanyinDetailActivity.class)
+			.putExtra("restaurant", restaurants.get(position-1)));
 	}
 
 	@Override

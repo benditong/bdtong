@@ -10,10 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
+import com.zykj.benditong.http.HttpErrorHandler;
+import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
@@ -24,8 +29,8 @@ public class UserActivity extends BaseActivity {
 	private RelativeLayout rl_me_top;
 	private Button login_out;
 	private RoundImageView rv_me_avatar;
-	private TextView tv_me_mobile,user_login,user_money,user_integral;
-	private LinearLayout user_store,app_about,app_explain,reset_password,app_version;
+	private TextView tv_me_mobile,user_login,user_money,user_integral,user_sign_text;
+	private LinearLayout user_store,app_about,app_explain,reset_password,app_version,user_sign,user_left,user_right;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +49,13 @@ public class UserActivity extends BaseActivity {
 		rv_me_avatar = (RoundImageView)findViewById(R.id.rv_me_avatar);//用户头像
 		tv_me_mobile = (TextView)findViewById(R.id.tv_me_mobile);//用户手机
 		user_login = (TextView)findViewById(R.id.user_login);//用户登录
+		user_sign = (LinearLayout)findViewById(R.id.user_sign);//是否签到
+		user_sign_text = (TextView)findViewById(R.id.user_sign_text);//是否签到
 		
 		user_money = (TextView)findViewById(R.id.user_money);//我的钱包
+		user_left = (LinearLayout)findViewById(R.id.user_left);//我的钱包
 		user_integral = (TextView)findViewById(R.id.user_integral);//积分
+		user_right = (LinearLayout)findViewById(R.id.user_right);//我的钱包
 
 		user_store = (LinearLayout)findViewById(R.id.user_store);//我的收藏
 		app_about = (LinearLayout)findViewById(R.id.app_about);//关于我们
@@ -64,7 +73,7 @@ public class UserActivity extends BaseActivity {
 		imgParms.width = Tools.M_SCREEN_WIDTH * 2 / 11;
 		imgParms.height = Tools.M_SCREEN_WIDTH * 2 / 11;
 		
-		setListener(user_login, user_money, user_integral, user_store, app_about, app_explain, reset_password, app_version, login_out);
+		setListener(user_login, rv_me_avatar, tv_me_mobile, user_sign, user_left, user_right, user_store, app_about, app_explain, reset_password, app_version, login_out);
 	}
 	
 	/**
@@ -76,16 +85,21 @@ public class UserActivity extends BaseActivity {
 			rv_me_avatar.setVisibility(View.VISIBLE);
 			user_login.setVisibility(View.GONE);
 			login_out.setVisibility(View.VISIBLE);
-			rl_me_top.setOnClickListener(this);
+			user_sign.setVisibility(View.VISIBLE);
+//			rv_me_avatar.setOnClickListener(this);
 			String avatar = BaseApp.getModel().getAvatar();
 			tv_me_mobile.setText(StringUtil.isEmpty(BaseApp.getModel().getMobile())?BaseApp.getModel().getUsername():BaseApp.getModel().getMobile());//默认账户
 			ImageLoader.getInstance().displayImage(avatar, rv_me_avatar);//用户头像
+			user_money.setText(String.format("￥%.2f", Float.valueOf(BaseApp.getModel().getMoney())));//用户余额
+			user_integral.setText(BaseApp.getModel().getIntegral());//用户资产
+			user_sign_text.setText("ok".equals(BaseApp.getModel().getSign())?"已签到":"签到");
 		}else{
 			tv_me_mobile.setVisibility(View.GONE);
 			rv_me_avatar.setVisibility(View.GONE);
 			user_login.setVisibility(View.VISIBLE);
 			login_out.setVisibility(View.GONE);
-			rl_me_top.setOnClickListener(null);
+			user_sign.setVisibility(View.GONE);
+//			rv_me_avatar.setOnClickListener(null);
 			
 			user_money.setText("￥0.00");//用户余额
 			user_integral.setText("0");//用户资产
@@ -105,6 +119,14 @@ public class UserActivity extends BaseActivity {
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
+	
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		user_money.setText("￥"+StringUtil.toString(BaseApp.getModel().getMoney(), "0.00"));//用户余额
+		user_integral.setText(StringUtil.toString(BaseApp.getModel().getIntegral(), "0"));//用户资产
+	}
 
 	@Override
 	public void onClick(View view) {
@@ -114,16 +136,47 @@ public class UserActivity extends BaseActivity {
 			/* 用户登录 */
 			startActivityForResult(new Intent(this, UserLoginActivity.class), 11);
 			break;
-		case R.id.rl_me_top:
+		case R.id.rv_me_avatar:
 			/* 用户信息 */
 			isLogin();
 			startActivityForResult(new Intent(this,UserInfoActivity.class), 11);
 			break;
-		case R.id.user_money:
+		case R.id.tv_me_mobile:
+			/* 用户信息 */
 			isLogin();
+			startActivityForResult(new Intent(this,UserInfoActivity.class), 11);
 			break;
-		case R.id.user_integral:
+		case R.id.user_sign:
+			if("ok".equals(BaseApp.getModel().getSign())){Tools.toast(this, "今天已经签到");return;}
+			RequestParams params = new RequestParams();
+			params.put("uid", BaseApp.getModel().getUserid());
+			HttpUtils.usersign(new HttpErrorHandler() {
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					user_sign_text.setText("已签到");
+				}
+			}, params);
+			break;
+		case R.id.user_left:
 			isLogin();
+			startActivity(new Intent(this, UserWalletActivity.class));
+			break;
+		case R.id.user_right:
+			isLogin();
+			RequestParams urlparams = new RequestParams();
+			urlparams.put("uid", BaseApp.getModel().getUserid());
+			urlparams.put("points", BaseApp.getModel().getIntegral());
+			HttpUtils.getLoginUrl(new HttpErrorHandler() {
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					String url = json.getJSONObject(UrlContants.jsonData).getString("url");
+					Intent intent = new Intent().setClass(UserActivity.this, CreditActivity.class);
+		            intent.putExtra("navColor", "#25b6ed");//配置导航条的背景颜色，请用#ffffff长格式。
+		            intent.putExtra("titleColor", "#ffffff");//配置导航条标题的颜色，请用#ffffff长格式。
+		            intent.putExtra("url", url);//配置自动登陆地址，每次需服务端动态生成。
+					startActivity(intent);
+				}
+			}, urlparams);
 			break;
 		case R.id.user_store:
 			isLogin();

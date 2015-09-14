@@ -18,11 +18,12 @@ public class ReserveAdapter extends CommonAdapter<Order> {
 	@Override
 	public void convert(ViewHolder holder,final Order order) {
 		String state = order.getState();
-		holder.setImageUrl(R.id.order_img, StringUtil.toString(order.getGoodsimg()), 10f)
-			.setText(R.id.restaurant_name, StringUtil.toString(order.getGoodsname()))
-			.setText(R.id.restaurant_time, "￥"+StringUtil.toString(order.getAddtime()))
-			.setText(R.id.reserve_time, StringUtil.toString(order.getIntime()));
-		holder.getView(R.id.order_delete).setVisibility("2".equals(state)?View.GONE:View.VISIBLE);
-		holder.getView(R.id.order_assess).setVisibility(("1".equals(state) || "3".equals(state))?View.GONE:View.VISIBLE);
+		holder.setImageUrl(R.id.order_img, StringUtil.toString(order.getGoodsimg()), 15f)//图片
+			.setText(R.id.restaurant_name, StringUtil.toString(order.getTitle()))//餐厅名
+			.setText(R.id.restaurant_time, "￥"+StringUtil.toString(order.getIntime()))//用餐时间
+			.setText(R.id.reserve_time, StringUtil.toString(order.getAddtime()));//预定时间
+		//state订单状态：0未付款1已付款,未消费2已消费3已退款4订单已取消
+		holder.getView(R.id.order_delete).setVisibility("0234".contains(state)?View.VISIBLE:View.GONE);
+		holder.getView(R.id.order_assess).setVisibility("234".contains(state)?View.VISIBLE:View.GONE);
 	}
 }

@@ -25,7 +25,7 @@ public class PurchaseAdapter extends CommonAdapter<Order> {
 		holder.setText(R.id.res_name, StringUtil.toString(order.getTitle())).setText(R.id.order_state, "0".equals(state)?"未付款":"1".equals(state)?
 				"未消费":"2".equals(state)?"已消费":"3".equals(state)?"已退款":"订单取消")//0未付款1已付款,未消费2已消费3已退款4订单已取消
 			.setImageUrl(R.id.order_img, StringUtil.toString(order.getGoodsimg()), 10f)
-			.setText(R.id.product_name, StringUtil.toString(order.getGoodsname()))
+			.setText(R.id.product_name, StringUtil.toString(order.getTitle()))
 			.setText(R.id.product_price, "￥"+StringUtil.toString(order.getInprice()))
 			.setText(R.id.product_content, StringUtil.toString(order.getName()))
 			.setText(R.id.product_num, "x"+StringUtil.toString(order.getInnum()))

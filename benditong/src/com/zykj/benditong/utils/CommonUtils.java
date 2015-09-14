@@ -95,41 +95,33 @@ public class CommonUtils {
 	public static void exitkey(int keyCode, Context context) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {// 返回按钮
 			AlertDialog.Builder builder = new AlertDialog.Builder(context);
-			builder.setTitle("提示")
-					.setMessage("您确定退出当前应用")
-					.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.dismiss();
-						}
-					})
-					.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							try {
-								// 判断是否存在临时创建的文件
-								File temp_file = new File(Environment
-										.getExternalStorageDirectory() + File.separator + "heyi_dir");
-								Tools.Log("文件是否存在：" + temp_file.exists());
-								if (temp_file.exists()) {
-									File[] file_detail = temp_file.listFiles();
-									for (File file_del : file_detail) {
-										file_del.delete();
-									}
-									temp_file.delete();
-								}
-
-							} catch (Exception e) {
-
+			builder.setTitle("提示").setMessage("您确定退出当前应用").setNegativeButton("取消", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			}).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					try {
+						// 判断是否存在临时创建的文件
+						File temp_file = new File(Environment.getExternalStorageDirectory() + File.separator + "heyi_dir");
+						Tools.Log("文件是否存在：" + temp_file.exists());
+						if (temp_file.exists()) {
+							File[] file_detail = temp_file.listFiles();
+							for (File file_del : file_detail) {
+								file_del.delete();
 							}
-							System.exit(0);
+							temp_file.delete();
 						}
-					})
-					.setOnCancelListener(
-							new DialogInterface.OnCancelListener() {
-								public void onCancel(DialogInterface dialog) {
-									dialog.dismiss();
-								}
+					} catch (Exception e) {
+					}
+					System.exit(0);
+				}
+			}).setOnCancelListener(new DialogInterface.OnCancelListener() {
+				public void onCancel(DialogInterface dialog) {
+					dialog.dismiss();
+				}
 
-							}).show();
+			}).show();
 		}
 	}
 	

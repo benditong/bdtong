@@ -60,8 +60,8 @@ public class ReserveDetailActivity extends BaseActivity{
 		public void onRecevieSuccess(JSONObject json) {
 			final Order order = JSONObject.parseObject(json.getString(UrlContants.jsonData), Order.class);
 			order_num.setText("订单编号："+order.getId());
-			ImageLoader.getInstance().displayImage(order.getImgsrc()+order.getGoodsimg(), order_img);
-			order_name.setText(order.getGoodsname());
+			ImageLoader.getInstance().displayImage(order.getGoodsimg(), order_img);
+			order_name.setText(order.getTitle());
 			order_time.setText("用餐时间："+order.getIntime());
 			order_pnum.setText("用餐人数："+order.getInnum()+"人");
 			order_price.setText("预计消费："+order.getInprice()+"元");

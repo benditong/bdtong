@@ -66,7 +66,6 @@ public class UserLoginActivity extends BaseActivity{
 	        params.put("mob", username);
 	        params.put("pass", password);
 	        HttpUtils.login(new HttpErrorHandler() {
-	        	
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					JSONObject data = json.getJSONObject(UrlContants.jsonData);
@@ -74,10 +73,11 @@ public class UserLoginActivity extends BaseActivity{
 					BaseApp.getModel().setAvatar(avatar.replace("app.do", UrlContants.SERVERIP));//头像
 					BaseApp.getModel().setMobile(StringUtil.toStringOfObject(data.getString("mobile")));//手机号
 					BaseApp.getModel().setMoney(StringUtil.toStringOfObject(data.getString("account")));//我的钱包
-					BaseApp.getModel().setIntegral(StringUtil.toStringOfObject(data.getString("coins")));//积分
+					BaseApp.getModel().setIntegral(StringUtil.toStringOfObject(data.getString("points")));//积分
 					BaseApp.getModel().setPassword(password);//登录密码
 					BaseApp.getModel().setUserid(StringUtil.toStringOfObject(data.getString("id")));//用户Id
 					BaseApp.getModel().setUsername(StringUtil.toStringOfObject(data.getString("username")));//真实姓名
+					BaseApp.getModel().setSign(StringUtil.toStringOfObject(data.getString("sign")));//是否签到
 			        submitDeviceToken(data.getString("id"));
 				}
 				@Override

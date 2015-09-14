@@ -9,6 +9,7 @@ import com.zykj.benditong.R;
 import com.zykj.benditong.fragment.PurchaseFragment;
 import com.zykj.benditong.fragment.ReserveFragment;
 import com.zykj.benditong.utils.CommonUtils;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.SegmentView;
 import com.zykj.benditong.view.SegmentView.onSegmentViewClickListener;
 
@@ -25,6 +26,9 @@ public class OrderActivity extends FragmentActivity implements onSegmentViewClic
 		
 		initView();
 		initFragment();
+		if(!CommonUtils.CheckLogin()){
+			Tools.toast(this, "请先登录");
+		}
 	}
 	
 	/**

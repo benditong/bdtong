@@ -62,7 +62,6 @@
 		        android:background="@drawable/bg_null_black"
 		        android:textColor="@color/black"
 		        android:gravity="center"
-		        android:layout_marginRight="@dimen/ten"
 		        android:text="@string/order_delete"/>
 		    <Button 
 		        android:id="@+id/order_assess"
@@ -71,6 +70,7 @@
 		        android:background="@drawable/bg_null_orange"
 		        android:textColor="@color/theme_orange"
 		        android:gravity="center"
+		        android:layout_marginLeft="@dimen/ten"
 		        android:text="@string/order_assess"/>
 	    </LinearLayout>
     </LinearLayout>

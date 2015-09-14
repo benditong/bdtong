@@ -4,9 +4,10 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/eight"
-    android:background="@color/white" >
+    android:background="@drawable/devide_gray_bt" >
     
     <ImageView 
+        android:id="@+id/product_image"
         android:layout_width="@dimen/one_hundred"
         android:layout_height="@dimen/ninety"
         android:src="@drawable/icon_image_default"
@@ -43,7 +44,7 @@
 	        android:id="@+id/product_content"
             android:text="@string/index_product_content"
             android:textColor="@color/text_light"
-            android:maxLines="2"
+	        android:singleLine="true"
             android:textSize="@dimen/t_sixteen"
             android:paddingTop="@dimen/five"
             android:layout_width="wrap_content"

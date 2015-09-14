@@ -57,6 +57,6 @@
 	        android:layout_height="match_parent"
 	        android:padding="@dimen/ten"
 	        android:contentDescription="@string/app_name"
-	        android:src="@drawable/my_store_normal"/>
+	        android:src="@drawable/my_share_normal"/>
 	</LinearLayout>
 </RelativeLayout>

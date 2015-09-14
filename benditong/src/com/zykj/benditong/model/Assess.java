@@ -2,6 +2,7 @@ package com.zykj.benditong.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 public class Assess implements Serializable{
 	
@@ -15,7 +16,7 @@ public class Assess implements Serializable{
 	private String addtime;
 	private String name;
 	private String avatar;
-	private List<String> imglist;
+	private List<Map<String, String>> imglist;
 	
 	public String getId() {
 		return id;
@@ -53,10 +54,10 @@ public class Assess implements Serializable{
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
-	public List<String> getImglist() {
+	public List<Map<String, String>> getImglist() {
 		return imglist;
 	}
-	public void setImglist(List<String> imglist) {
+	public void setImglist(List<Map<String, String>> imglist) {
 		this.imglist = imglist;
 	}
 }

@@ -28,6 +28,7 @@ public class AppModel {
     private String integral;//红包个数
     private String latitude;//经度
     private String longitude;//纬度
+    private String sign;
 
     private static SharedPreferenceUtils utils;
     
@@ -69,6 +70,10 @@ public class AppModel {
 
         if(utils.getLongitude() != null){
             model.longitude= utils.getLongitude();
+        }
+
+        if(utils.getSign() != null){
+            model.sign= utils.getSign();
         }
 
         return model;
@@ -134,6 +139,12 @@ public class AppModel {
 	}
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+	public String getSign() {
+		return sign;
+	}
+	public void setSign(String sign) {
+		this.sign = sign;
 	}
 	public void clear(){
 		this.setUsername("");

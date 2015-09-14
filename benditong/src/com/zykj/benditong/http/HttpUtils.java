@@ -70,7 +70,7 @@ public class HttpUtils {
         client.get(UrlContants.getUrl(UrlContants.GETGOODLIST)+"&tid="+tid, handler);
     }
     
-    /*获取餐厅、酒店、商铺商品*/
+    /*获取餐厅、酒店、商铺评论列表*/
     public static void getCommentsList(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.COMMENTLIST), params, handler);
     }
@@ -99,8 +99,43 @@ public class HttpUtils {
     	client.post(UrlContants.getUrl(UrlContants.GETAREA), handler);
     }
 
-    /*获取城市列表*/
+    /*提交餐饮、酒店*/
     public static void submit(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.SUBMIT), params, handler);
+    }
+
+    /*获取产品详情*/
+    public static void getGoods(AsyncHttpResponseHandler handler, String goodId){
+    	client.get(UrlContants.getUrl(UrlContants.GETGOODS)+"&id="+goodId, handler);
+    }
+
+    /*获取产品评论列表*/
+    public static void getGoodsCommentsList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GOODSCOMMENTSLIST), params, handler);
+    }
+
+    /*提交团购*/
+    public static void submitShopOrder(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMITSHOPORDER), params, handler);
+    }
+
+    /*积分商场*/
+    public static void getLoginUrl(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETLOGINURL), params, handler);
+    }
+
+    /*积分商场*/
+    public static void getDrawUrl(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETDRAWURL), params, handler);
+    }
+
+    /*是否签到*/
+    public static void usersign(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.USERSIGN), params, handler);
+    }
+
+    /*申请提现*/
+    public static void posttixian(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.POSTTIXIANLIST), params, handler);
     }
 }
