@@ -32,13 +32,13 @@
         android:background="#FCFBF9" >
 
         <TextView
-            android:id="@+id/about_us"
+            android:id="@+id/tv_instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明" />
+            android:text="@string/instructions"/>
     </ScrollView>
 
     <LinearLayout
@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/t_ten"
             android:text="http://55tuantuan.com"
+            android:autoLink="all"
             android:textSize="@dimen/eighteen" />
     </LinearLayout>
 
@@ -109,15 +110,22 @@
                 android:text="400-105-5555"
                 android:textSize="@dimen/eighteen" />
 
-            <ImageButton
-                android:id="@+id/imag_buton_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="90dp"
-                android:background="#FFF"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                android:src="@drawable/phone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <ImageButton
+                    android:id="@+id/imag_buton_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFF"
+                    android:layout_marginRight="20dp"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/phone" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

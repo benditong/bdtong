@@ -16,6 +16,7 @@ import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 
 public class CarpoolNeederActivity extends BaseActivity {
@@ -27,7 +28,7 @@ public class CarpoolNeederActivity extends BaseActivity {
 			editText_name, editText_phone;
 	private Button btn_submit;
 	private ImageButton imageButton;
-	
+	private String mobileCode;
 	private Map<String, String> submit_data;
 
 	
@@ -61,7 +62,7 @@ public class CarpoolNeederActivity extends BaseActivity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.btn_back:
-			startActivity(new Intent(this, CarpoolMainActivity.class));
+			finish();
 			break;
 
 		case R.id.btn_carpool_submit:
@@ -72,6 +73,7 @@ public class CarpoolNeederActivity extends BaseActivity {
 	}
 
 	private void submitCarpoolInfo() {
+		mobileCode=editText_phone.getText().toString().trim();
 		if(editText_orign.getText().length()<=0){
 			Tools.toast(this, "出发地不能为空");
 			return;
@@ -96,10 +98,10 @@ public class CarpoolNeederActivity extends BaseActivity {
 			Tools.toast(this, "姓名不能为空");
 			return;
 		}
-		if(editText_phone.getText().toString().length()<=0){
-			Tools.toast(this, "联系电话不能为空");
-			return;
-		}
+	    if(!TextUtil.isMobile(mobileCode)){
+        	Tools.toast(CarpoolNeederActivity.this, "手机号格式不对");
+        	return;
+        }
 		addData();
 	}
 	private void addData() {

@@ -79,10 +79,11 @@
   <string name="user_carpool_departure_time_1">出发时间</string> 
   <string name="user_carpool_remain_seats_1">剩余座位</string> 
   <string name="user_carpool_car_model">车&#160;&#160;&#160;&#160;&#160;&#160;型</string> 
-  <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;名</string> 
+  <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string> 
   <string name="user_carpool_phone">联系电话</string> 
   <string name="user_carpool_submit">提交信息</string> 
-  <string name="user_carpool_number">剩余座位</string> 
+  <string name="user_carpool_remain_seats">剩余座位</string> 
+  <string name="user_carpool_number">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string> 
   <string name="user_carpool_cost">预计费用</string> 
   <string name="user_carpool_origin_2">出&#160;发&#160;地:</string> 
   <string name="user_carpool_destination_2">目&#160;的&#160;地:</string> 
@@ -92,6 +93,15 @@
   <string name="user_sign_up_number_default">1</string> 
   <string name="user_carpool_unit_price">单价:</string> 
   <string name="user_carpool_sign_up">立即报名</string> 
+  <string name="orign">请输入出发地</string> 
+  <string name="destination">请输入目的地</string> 
+  <string name="starttime">请输入出发时间</string> 
+  <string name="persons">请输入人数</string> 
+  <string name="name">请输入姓名</string> 
+  <string name="mobile">联系电话</string> 
+  <string name="seats">请输入剩余座位</string> 
+  <string name="type">请输入车型</string> 
+  <string name="cost">请输入费用</string> 
     
     <!-- 订单 -->
     <string name="order_tab1">未付款</string>
@@ -194,4 +204,6 @@
     <string name="message">恭喜你，从发布者名称那里获得了红包类型多少元</string>
     <string name="power_on">智能开启</string>   
     <string name="no_data">没有找到符合条件的数据</string> 
+    <string name="instructions"><p>\t\t应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明</p></string> 
+    <string name="about"><p>\t\t公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介</p></string> 
 </resources>

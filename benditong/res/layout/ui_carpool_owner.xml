@@ -46,12 +46,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_origin_1"
-                android:textColor="@color/text_light" />
+                android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_origin"
                 style="@style/carpool_textview" 
-                android:inputType="text"/>"
+                android:inputType="text"
+                android:hint="@string/orign"/>"
         </LinearLayout>
 
         <LinearLayout
@@ -67,12 +68,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_destination_1"
-                android:textColor="@color/text_light" />
+                android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_destination"
                 style="@style/carpool_textview"
-                android:inputType="text" >
+                android:inputType="text" 
+                android:hint="@string/destination">
             </EditText>
         </LinearLayout>
 
@@ -89,12 +91,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_departure_time_1"
-                android:textColor="@color/text_light" />
+                android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_departure_time"
                 style="@style/carpool_textview"
-                android:inputType="datetime" >
+                android:inputType="datetime" 
+                android:hint="@string/starttime">
             </EditText>
         </LinearLayout>
 
@@ -111,12 +114,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_remain_seats_1"
-                android:textColor="@color/text_light" />
+                 android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_remain_seats"
                 style="@style/carpool_textview"
-                android:inputType="number" >
+                android:inputType="number" 
+                android:hint="@string/seats">
             </EditText>
         </LinearLayout>
 
@@ -133,12 +137,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_car_model"
-                android:textColor="@color/text_light" />
+                android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_car_model"
                 style="@style/carpool_textview"
-                android:inputType="text" >
+                android:inputType="text" 
+                android:hint="@string/type">
             </EditText>
         </LinearLayout>
 
@@ -155,12 +160,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_name"
-                android:textColor="@color/text_light" />
+                android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_name"
                 style="@style/carpool_textview" 
-                android:inputType="text">
+                android:inputType="text"
+                android:hint="@string/name">
             </EditText>
         </LinearLayout>
 
@@ -177,12 +183,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10sp"
                 android:text="@string/user_carpool_phone"
-                android:textColor="@color/text_light" />
+                android:textColor="@color/text_dgrey"/>
 
             <EditText
                 android:id="@+id/user_phone"
                 style="@style/carpool_textview"
-                android:inputType="number" >
+                android:inputType="number" 
+                android:hint="@string/mobile">
             </EditText>
         </LinearLayout>
 

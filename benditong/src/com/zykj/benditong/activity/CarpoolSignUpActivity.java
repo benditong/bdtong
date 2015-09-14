@@ -16,15 +16,18 @@ import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Car;
+import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 
 public class CarpoolSignUpActivity extends BaseActivity {
 	/**
 	 * 报名提交信息
 	 */
-	private TextView textView_orign, textView_destination,tv_price,
-			textView_depart_time, textView_persons, textView_cost;
+	private String tid;
+	private TextView textView_orign, textView_destination,
+			textView_depart_time, textView_remain_seats, textView_cost;
 	private EditText editText_sign_persons, editText_name, editText_phone;
+	private String mobileCode;
 	private ImageButton imageButton;
 	private Button btn_submit;
 	private Car car;
@@ -34,8 +37,8 @@ public class CarpoolSignUpActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.ui_carpool_sign_up);
-		car =  (Car) getIntent().getSerializableExtra("car");
-
+		car = (Car) getIntent().getSerializableExtra("car");
+		tid = "1";
 		initView();
 	}
 
@@ -43,27 +46,16 @@ public class CarpoolSignUpActivity extends BaseActivity {
 		textView_orign = (TextView) findViewById(R.id.textView_orign);
 		textView_destination = (TextView) findViewById(R.id.textView_destination);
 		textView_depart_time = (TextView) findViewById(R.id.textView_departure_time);
-		textView_persons = (TextView) findViewById(R.id.textView_remain_seats);
+		textView_remain_seats = (TextView) findViewById(R.id.textView_remain_seats);
 		editText_sign_persons = (EditText) findViewById(R.id.user_sign_up_num);
-		textView_cost = (TextView) findViewById(R.id.textView_cost);
-		//tv_price=(TextView) findViewById(R.id.textView_price_2);
 		editText_name = (EditText) findViewById(R.id.user_name);
 		editText_phone = (EditText) findViewById(R.id.user_mobile);
 		imageButton = (ImageButton) findViewById(R.id.btn_back);
 		btn_submit = (Button) findViewById(R.id.btn_carpool_submit);
-
-//		int sum=0,a=0,b=0;
-//		String str1=editText_sign_persons.getText().toString().trim();
-//		String str2=tv_price.getText().toString().trim();
-//		a=Integer.parseInt(str1);
-//		b=Integer.parseInt(str2);
-//		sum=a*b;
-		//sum=String.
 		textView_orign.setText(car.getFrom_address());
 		textView_destination.setText(car.getTo_address());
 		textView_depart_time.setText(car.getStarttime());
-		textView_persons.setText(car.getSeat());
-		textView_cost.setText(car.getPrice());
+		textView_remain_seats.setText(car.getSeat());
 
 		setListener(imageButton, btn_submit);
 	}
@@ -72,7 +64,7 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.btn_back:
-			startActivity(new Intent(this, CarpoolMainActivity.class));
+			finish();
 			break;
 		case R.id.btn_carpool_submit:
 			submitRegistInfo();
@@ -82,16 +74,22 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	}
 
 	private void submitRegistInfo() {
+		mobileCode=editText_phone.getText().toString().trim();
 		if (editText_sign_persons.getText().toString().trim().length() <= 0) {
-			Tools.toastMessage(CarpoolSignUpActivity.this, "报名人数至少为一人");
+			Tools.toastMessage(CarpoolSignUpActivity.this, "报名人数不能为空");
 		}
 		if (editText_name.getText().toString().trim().length() <= 0) {
 			Tools.toast(this, "联系人不能为空");
 		}
-		if (editText_phone.getText().toString().trim().length() <= 0) {
-			Tools.toast(this, "联系电话不能为空");
+		if (!TextUtil.isMobile(mobileCode)) {
+			Tools.toast(CarpoolSignUpActivity.this, "手机格式不正确");
 		}
-		addData();
+	
+		if(Integer.parseInt(editText_sign_persons.getText().toString())>Integer.parseInt(textView_remain_seats.getText().toString())){
+			Tools.toastMessage(CarpoolSignUpActivity.this, "你预定的座位已超出");
+		}else {
+			addData();
+		}
 	}
 
 	/**
@@ -99,24 +97,42 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	 */
 	private void addData() {
 		RequestParams params = new RequestParams();
-		params.put("orderSeat", editText_sign_persons.getText().toString());
-		params.put("name", editText_name.getText().toString());
-		params.put("mobile", editText_phone.getText().toString());
+		params.put("tid", car.getId());
+		params.put("seat", editText_sign_persons.getText().toString().trim());
+		//Float tatal=(float) (Integer.parseInt(car.getPrice().toString())*Integer.parseInt(editText_sign_persons.getText().toString()));
+		//textView_cost.setText(String.format("￥%.2f",  tatal));
+		params.put("name", editText_name.getText().toString().trim());
+		params.put("mobile", editText_phone.getText().toString().trim());
 		/**
 		 * 获取拼车信息详情并且报名
 		 */
-//		HttpUtils.getInfo(new HttpErrorHandler() {
-//
-//			@Override
-//			public void onRecevieSuccess(JSONObject json) {
-//				Tools.toastMessage(CarpoolSignUpActivity.this, "报名成功");
-//			}
-//
-//			@Override
-//			public void onRecevieFailed(String status, JSONObject json) {
-//				super.onRecevieFailed(status, json);
-//				Tools.toastMessage(CarpoolSignUpActivity.this, "报名失败");
-//			}
-//		}, params);
+		HttpUtils.postcaroder(new HttpErrorHandler() {
+
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				Tools.toastMessage(CarpoolSignUpActivity.this, "报名成功");
+				//textView_persons.setText("Integer.parseInt(textView_persons.getText().toString())-(Integer.parseInt(editText_sign_persons.getText().toString())");
+				//upData();
+//				int orderSeats=Integer.parseInt(editText_sign_persons.getText().toString().trim());
+//				int remainSeats=Integer.parseInt(textView_remain_seats.getText().toString().trim());
+//				remainSeats-=orderSeats;
+//				Intent intent=new Intent(CarpoolSignUpActivity.this, CarpoolMainActivity.class);
+//				intent.putExtra("remain", String.valueOf(remainSeats)) ;
+//				startActivity(intent);
+//				finish();
+			}
+
+			@Override
+			public void onRecevieFailed(String status, JSONObject json) {
+				super.onRecevieFailed(status, json);
+				Tools.toastMessage(CarpoolSignUpActivity.this, "报名失败");
+			}
+		}, params);
 	}
+
+//	protected void upData() {
+//		int orderSeats=Integer.parseInt(editText_sign_persons.getText().toString().trim());
+//		int remainSeats=Integer.parseInt(textView_remain_seats.getText().toString().trim());
+//		textView_remain_seats.setText(String.valueOf(remainSeats-=orderSeats));
+//	}
 }

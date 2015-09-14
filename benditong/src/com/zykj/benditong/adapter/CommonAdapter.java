@@ -2,6 +2,8 @@ package com.zykj.benditong.adapter;
 
 import java.util.List;
 
+import com.zykj.benditong.model.Car;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,5 +49,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
 	}
 
 	public abstract void convert(ViewHolder holder, T t);
+
+
 
 }
