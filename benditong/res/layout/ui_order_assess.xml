@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/content_background_color" >
+
+	<com.zykj.benditong.view.MyCommonTitle
+        android:id="@+id/aci_mytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+	<LinearLayout 
+	    android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+        <TextView 
+    		android:id="@+id/restaurant_name"
+    		android:text="@string/all_assess"
+    		android:paddingLeft="@dimen/ten"
+    		android:textColor="@color/text_dgrey"
+    		android:textSize="@dimen/t_eighteen"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+		<RatingBar
+       		android:numStars="5"
+          	android:rating="1"
+           	android:stepSize="0.1"
+    		android:layout_marginLeft="@dimen/thirty"
+        	android:id="@+id/restaurant_star"
+          	style="@style/mRatingbar"
+       		android:layout_width="wrap_content"
+		 	android:layout_height="@dimen/twenty_eight"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+	    <EditText 
+			android:id="@+id/comment_content"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:lines="4"
+			android:layout_marginLeft="@dimen/ten"
+			android:layout_marginRight="@dimen/ten"
+			android:layout_marginBottom="@dimen/ten"
+			android:gravity="top"
+			android:padding="@dimen/five"
+			style="@style/edit_text"
+			android:hint="@string/write_hint"
+			android:background="@drawable/bg_null_grey"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/ten"
+		android:padding="@dimen/ten"
+        android:background="@color/white">
+	    <GridView 
+	        android:id="@+id/noScrollgridview"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:horizontalSpacing="3dp"        
+	        android:numColumns="5"
+	        android:scrollbars="none"
+	        android:verticalSpacing="5dp" />
+	</LinearLayout>
+	<View 
+        android:layout_width="match_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1"/>
+	<View 
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/edit_background"/>
+    <Button 
+        android:id="@+id/reserve_go"
+        android:layout_width="fill_parent"
+		android:layout_height="@dimen/forty"
+        android:gravity="center"
+        android:background="@drawable/bg_round_yellow"
+        android:layout_margin="@dimen/ten"
+        android:textColor="@color/white"
+     	android:textSize="@dimen/t_eighteen"
+        android:text="@string/submit_assess"/>
+</LinearLayout>
