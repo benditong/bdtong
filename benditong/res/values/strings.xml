@@ -70,6 +70,9 @@
     <string name="title_two">使用时间：</string>
     <string name="title_three">使用规则：</string>
     <string name="buy_assess">宝贝评价</string>
+    <string name="all_assess">整体评价</string>
+    <string name="write_hint">您的意见很重要！来点评一下吧···</string>
+    <string name="submit_assess">提交评价</string>
     
     <!--  拼车信息   --> 
   <string name="user_carpool_need">我要拼车</string> 

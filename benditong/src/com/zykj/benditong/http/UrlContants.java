@@ -18,6 +18,8 @@ public class UrlContants {
 
     public static final String ERROR = "{\"code\":400,\"message\":\"请求失败\",\"datas\":null}";
 
+    public static final String ZERODATA = "{\"code\":200,\"message\":\"没有数据\",\"datas\":\"\"}";
+
     public static final String GETADSLIST = "c=public&a=getAdsList&type=slideFocus";//轮播图
     
     public static final String GETORDERLIST = "c=info&a=getOrderList";//获取订单
@@ -67,6 +69,12 @@ public class UrlContants {
     public static final String USERSIGN = "c=sign&a=signIn";//是否签到
     
     public static final String POSTTIXIANLIST = "c=user&a=posttixian";//是否签到
+    
+    public static final String UPDATEORDER = "c=info&a=updateorder";//是否签到
+    
+    public static final String POSTCOMMENTS = "c=info&a=postComments";//提交评论
+    
+    public static final String DELORDER = "c=info&a=delOrder";//删除订单
 
     public static String getUrl(String token){
         if(token==null || token.equals("")){

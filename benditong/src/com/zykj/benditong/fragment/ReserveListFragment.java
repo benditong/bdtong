@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
@@ -28,22 +29,21 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class ReserveListFragment extends Fragment implements IXListViewListener, OnItemClickListener{
 	
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int PERPAGE=10;//perpage默认每页显示10条信息
 	
-	private int nowpage=1;//当前显示的页面 
+	private int nowpage=1;//当前显示的页面
 	private int mType=0;
 	
     private XListView mListView;
 	private ReserveAdapter adapter;
 	private List<Order> orders = new ArrayList<Order>();
-	private EntityHandler<Order> mNetHandler;
 	private Handler mHandler = new Handler();//异步加载或刷新
 	
 	public static ReserveListFragment getInstance(int type){
 		ReserveListFragment fragment=new ReserveListFragment();
 		Bundle bundle=new Bundle();
 		bundle.putInt("type", type);
-		fragment.setArguments(bundle);
+		fragment.setArguments(bundle); 
 		return fragment;
 	}
 	
@@ -64,7 +64,7 @@ public class ReserveListFragment extends Fragment implements IXListViewListener,
 		Bundle arguments = getArguments();
 		mType=arguments.getInt("type");
 		
-        adapter = new ReserveAdapter(getActivity(), R.layout.ui_item_reserve, orders);
+        adapter = new ReserveAdapter(getActivity(), R.layout.ui_item_reserve, orders, mType);
         mListView.setAdapter(adapter);
 		mListView.setOnItemClickListener(this);
         requestData();
@@ -76,33 +76,36 @@ public class ReserveListFragment extends Fragment implements IXListViewListener,
 		params.put("uid", StringUtil.toString(BaseApp.getModel().getUserid(), ""));//当前用户id
 		params.put("nowpage", nowpage);//当前第几页
 		params.put("perpage", PERPAGE);//每页显示的数量
-		HttpUtils.getOrderList(creatResponseHandler(),params);
+		HttpUtils.getOrderList(res_getOrderList,params);
 	}
 	
-	private EntityHandler<Order> creatResponseHandler(){
-		if(mNetHandler==null){
-			mNetHandler=new EntityHandler<Order>(Order.class) {
-				@Override
-				public void onReadSuccess(List<Order> list) {
-					MyRequestDailog.closeDialog();
-					if(nowpage == 1){orders.clear();}
-					orders.addAll(list);
-					adapter.notifyDataSetChanged();
-				}
-			};
-		};
-		return mNetHandler;
-	}
+	private AsyncHttpResponseHandler res_getOrderList=new EntityHandler<Order>(Order.class) {
+		@Override
+		public void onReadSuccess(List<Order> list) {
+			MyRequestDailog.closeDialog();
+			if(nowpage == 1){orders.clear();}
+			orders.addAll(list);
+			adapter.notifyDataSetChanged();
+		}
+	};
 	
 	/**
-	 * listview 点击事件 
+	 * listview 点击事件
 	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Order order = orders.get(position-1);
 		Intent intent=new Intent(getActivity(), ReserveDetailActivity.class);
 		intent.putExtra("order", order);
+		intent.putExtra("type", mType);
 		getActivity().startActivity(intent);
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		nowpage = 1;
+		requestData();
 	}
 
 	@Override

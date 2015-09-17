@@ -21,7 +21,7 @@
             android:id="@+id/order_num"
 	        android:layout_width="fill_parent"
 	        android:layout_height="@dimen/forty_five"
-		 	android:textSize="@dimen/t_twelve"
+		 	android:textSize="@dimen/t_fourteen"
 	        android:gravity="center_vertical"
 	        android:text="@string/order_num"/>
 	    
@@ -38,8 +38,8 @@
 	        android:paddingBottom="@dimen/fifteen">
 		    <ImageView 
 		        android:id="@+id/order_img"
-		        android:layout_width="@dimen/sixty"
-		        android:layout_height="@dimen/sixty"
+		        android:layout_width="@dimen/eighty"
+		        android:layout_height="@dimen/eighty"
 		        android:src="@drawable/icon_image_default"
 		        android:scaleType="fitXY"
 		        android:contentDescription="@string/app_name"/>
@@ -51,36 +51,36 @@
 		        <TextView 
 			        android:id="@+id/order_name"
 		            android:text="@string/index_product_title"
-		            android:textSize="@dimen/t_twelve"
+		            android:textSize="@dimen/t_sixteen"
 		            android:layout_width="fill_parent"
 		            android:layout_height="match_parent"
 		            android:singleLine="true"/>
 		        <TextView 
 			        android:id="@+id/order_time"
 		            android:text="@string/order4"
-		            android:textSize="@dimen/t_ten"
-			       	android:textColor="@color/text_light"
+		            android:textSize="@dimen/t_fourteen"
+			       	android:textColor="@color/text_dgrey"
 		            android:layout_width="fill_parent"
 		            android:layout_marginTop="@dimen/six"
-		            android:layout_height="@dimen/thirteen"
+		            android:layout_height="wrap_content"
 		            android:gravity="center_vertical"
 		            android:singleLine="true"/>
 		        <TextView 
 			        android:id="@+id/order_pnum"
 		            android:text="@string/order5"
-		            android:textSize="@dimen/t_ten"
-			       	android:textColor="@color/text_light"
+		            android:textSize="@dimen/t_fourteen"
+			       	android:textColor="@color/text_dgrey"
 		            android:layout_width="fill_parent"
-		            android:layout_height="@dimen/thirteen"
+		            android:layout_height="wrap_content"
 		            android:gravity="center_vertical"
 		            android:singleLine="true"/>
 		        <TextView 
 			        android:id="@+id/order_price"
 		            android:text="@string/order6"
-		            android:textSize="@dimen/t_ten"
-			       	android:textColor="@color/text_light"
+		            android:textSize="@dimen/t_fourteen"
+			       	android:textColor="@color/text_dgrey"
 		            android:layout_width="fill_parent"
-		            android:layout_height="@dimen/thirteen"
+		            android:layout_height="wrap_content"
 		            android:gravity="center_vertical"
 		            android:singleLine="true"/>
 		    </LinearLayout>
@@ -100,15 +100,15 @@
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
-		       	android:textSize="@dimen/t_twelve"
-			  	android:textColor="@color/text_light"
+		      	android:textSize="@dimen/t_sixteen"
+			  	android:textColor="@color/text_dgrey"
 		        android:gravity="center_vertical"
 		        android:text="@string/order1"/>
 	        <TextView 
 	            android:id="@+id/order_people"
 	        	android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
-		       	android:textSize="@dimen/t_twelve"
+		      	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 			  	android:textColor="@color/black"
 		        android:text="@string/order_people"/>
@@ -128,15 +128,15 @@
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
-		       	android:textSize="@dimen/t_twelve"
-			  	android:textColor="@color/text_light"
+		      	android:textSize="@dimen/t_sixteen"
+			  	android:textColor="@color/text_dgrey"
 		        android:gravity="center_vertical"
 		        android:text="@string/order2"/>
 	        <TextView 
 	            android:id="@+id/order_mobile"
 	        	android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
-		       	android:textSize="@dimen/t_twelve"
+		      	android:textSize="@dimen/t_sixteen"
 		        android:gravity="center_vertical"
 			  	android:textColor="@color/black"
 		        android:text="@string/user_mobile"/>
@@ -156,8 +156,8 @@
 		        android:layout_width="0.0dip"
 		        android:layout_height="match_parent"
 		        android:layout_weight="1"
-		       	android:textSize="@dimen/t_twelve"
-			  	android:textColor="@color/text_light"
+		      	android:textSize="@dimen/t_sixteen"
+			  	android:textColor="@color/text_dgrey"
 		        android:gravity="center_vertical"
 		        android:text="@string/order3"/>
 	        <TextView 
@@ -165,7 +165,7 @@
 	        	android:layout_width="wrap_content"
 		        android:layout_height="match_parent"
 		        android:gravity="center_vertical"
-		       	android:textSize="@dimen/t_twelve"
+		      	android:textSize="@dimen/t_sixteen"
 			  	android:textColor="@color/black"
 		        android:text="@string/order_date"/>
 	    </LinearLayout>
@@ -182,6 +182,7 @@
         android:background="@color/dgrey"/>
     
     <LinearLayout 
+        android:id="@+id/aci_bottom"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/fifty"
         android:orientation="horizontal"
@@ -191,22 +192,22 @@
 	        android:layout_height="match_parent"
 	        android:layout_weight="1"/>
 	    <Button 
-	        android:id="@+id/order_cancel"
+	        android:id="@+id/order_delete"
 	        android:layout_width="@dimen/eighty"
 	        android:layout_height="@dimen/thirty"
 	        android:background="@drawable/bg_null_black"
 	        android:textColor="@color/black"
 	        android:gravity="center"
 	        android:layout_marginRight="@dimen/ten"
-	        android:text="@string/order_cancel"/>
+	        android:text="@string/order_delete"/>
 	    <Button 
-	        android:id="@+id/order_pay"
+	        android:id="@+id/order_assess"
 	        android:layout_width="@dimen/eighty"
 	        android:layout_height="@dimen/thirty"
 	        android:background="@drawable/bg_null_orange"
 	        android:textColor="@color/theme_orange"
 	        android:gravity="center"
 	        android:layout_marginRight="@dimen/ten"
-	        android:text="@string/order_pay"/>
+	        android:text="@string/order_assess"/>
     </LinearLayout>
 </LinearLayout>

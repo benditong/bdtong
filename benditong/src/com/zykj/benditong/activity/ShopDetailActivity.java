@@ -186,7 +186,7 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 			break;
 		case R.id.res_assess_more:
 			/** 更多评价 */
-			startActivity(new Intent(ShopDetailActivity.this,AssessActivity.class)
+			startActivity(new Intent(ShopDetailActivity.this,AssessListActivity.class)
 				.putExtra("type", restaurant.getType()).putExtra("pid", restaurant.getId()));
 			break;
 		default:

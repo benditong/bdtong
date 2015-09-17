@@ -1,13 +1,13 @@
 package com.zykj.benditong.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.Spanned;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -96,6 +96,12 @@ public class ViewHolder {
 	public ViewHolder setImageView(int viewId, int resId){
 		ImageView view = getView(viewId);
 		view.setImageResource(resId);
+		return this;
+	}
+	
+	public ViewHolder setImageView(int viewId, Bitmap bitmap){
+		ImageView view = getView(viewId);
+		view.setImageBitmap(bitmap);
 		return this;
 	}
 	

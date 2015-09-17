@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +13,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.activity.PurchaseDetailActivity;
 import com.zykj.benditong.adapter.PurchaseAdapter;
-import com.zykj.benditong.http.HttpErrorHandler;
+import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
-import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Order;
 import com.zykj.benditong.view.MyRequestDailog;
 import com.zykj.benditong.view.XListView;
@@ -36,7 +36,7 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
     private XListView mListView;
 	private PurchaseAdapter adapter;
 	private List<Order> orders = new ArrayList<Order>();
-	private HttpErrorHandler mNetHandler;
+	private Handler mHandler = new Handler();//异步加载或刷新
 	
 	public static PurchaseListFragment getInstance(int state){
 		PurchaseListFragment fragment=new PurchaseListFragment();
@@ -71,55 +71,71 @@ public class PurchaseListFragment extends Fragment implements IXListViewListener
 
 	private void requestData() {
 		RequestParams params = new RequestParams();
-		params.put("type", "group");
-		params.put("uid", "3");//BaseApp.getModel().getUserid();
-		params.put("state", state);
-		params.put("nowpage", nowpage);
-		params.put("perpage", PERPAGE);
-		HttpUtils.getOrderList(creatResponseHandler(),params);
+		params.put("type", "shop");//restaurant订餐hotel订酒店shop团购
+		params.put("uid", BaseApp.getModel().getUserid());//BaseApp.getModel().getUserid();
+		params.put("state", state);//0未付款1已付款,未消费2已消费3已退款4订单已取消
+		params.put("nowpage", nowpage);//当前第几页
+		params.put("perpage", PERPAGE);//每页条数
+		HttpUtils.getOrderList(res_getOrderList,params);
 	}
 	
-	//下拉刷新 重建
-	@Override
-	public void onRefresh() {
-		nowpage = 1;
-		requestData();
-		mListView.stopRefresh();
-	}
-	
-	//上拉加载分页
-	@Override
-	public void onLoadMore() {
-		nowpage += 1;
-		requestData();
-		mListView.stopLoadMore();
-	}
-	private HttpErrorHandler creatResponseHandler(){
-		if(mNetHandler==null){
-			mNetHandler=new HttpErrorHandler() {
-				@Override
-				public void onRecevieSuccess(JSONObject json) {
-					MyRequestDailog.closeDialog();
-			        JSONArray jsonArray = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
-			        List<Order> list=JSONArray.parseArray(jsonArray.toString(), Order.class);
-					if(nowpage == 1){orders.clear();}
-					orders.addAll(list);
-					adapter.notifyDataSetChanged();
-				}
-			};
-		};
-		return mNetHandler;
-	}
+	private AsyncHttpResponseHandler res_getOrderList = new EntityHandler<Order>(Order.class){
+		@Override
+		public void onReadSuccess(List<Order> list) {
+			MyRequestDailog.closeDialog();
+			if(nowpage == 1){orders.clear();}
+			orders.addAll(list);
+			adapter.notifyDataSetChanged();
+		}
+	};
 	
 	/**
 	 * listview 点击事件 
 	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		String orderId = orders.get(position-1).getId();
 		Intent intent=new Intent(getActivity(), PurchaseDetailActivity.class);
-		intent.putExtra("orderid", orderId);
+		intent.putExtra("order", orders.get(position-1));
 		getActivity().startActivity(intent);
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		nowpage = 1;
+		requestData();
+	}
+
+	@Override
+	public void onRefresh() {
+		/**下拉刷新 重建*/
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				nowpage = 1;
+				requestData();
+				onLoad();
+			}
+		}, 1000);
+	}
+
+	@Override
+	public void onLoadMore() {
+		/**上拉加载分页*/
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				nowpage += 1;
+				requestData();
+				onLoad();
+			}
+		}, 1000);
+	}
+
+	private void onLoad() {
+		mListView.stopRefresh();
+		mListView.stopLoadMore();
+		mListView.setRefreshTime("刚刚");
 	}
 }
 

@@ -1,18 +1,21 @@
 package com.zykj.benditong.activity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
-import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Order;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
@@ -20,9 +23,10 @@ import com.zykj.benditong.view.MyCommonTitle;
 public class ReserveDetailActivity extends BaseActivity{
 
 	private MyCommonTitle myCommonTitle;
-	private String orderid;
+	private Order order;
+	private int type;
 	private TextView order_num,order_name,order_time,order_pnum,order_price,order_people,
-	order_mobile,order_date,order_cancel,order_pay;
+	order_mobile,order_date,order_delete,order_assess;
 	private ImageView order_img;
 	
 	@Override
@@ -30,7 +34,9 @@ public class ReserveDetailActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		initView(R.layout.ui_order_reserve_detail);
 		
-		orderid = getIntent().getStringExtra("orderid");
+		order = (Order)getIntent().getSerializableExtra("order");
+		type = getIntent().getIntExtra("type", 0);
+//		orderid = getIntent().getStringExtra("orderid");
 		initView();
 		requestData();
 	}
@@ -48,55 +54,62 @@ public class ReserveDetailActivity extends BaseActivity{
 		order_people = (TextView)findViewById(R.id.order_people);
 		order_mobile = (TextView)findViewById(R.id.order_mobile);
 		order_date = (TextView)findViewById(R.id.order_date);
-		order_cancel = (TextView)findViewById(R.id.order_cancel);
-		order_pay = (TextView)findViewById(R.id.order_pay);
+		order_delete = (TextView)findViewById(R.id.order_delete);
+		order_assess = (TextView)findViewById(R.id.order_assess);
 	}
 	private void requestData(){
-		HttpUtils.getOrder(res_getOrder, orderid);
+//		HttpUtils.getOrder(res_getOrder, orderid);
+		order_num.setText("订单编号："+order.getOid());
+		ImageLoader.getInstance().displayImage(order.getGoodsimg(), order_img);//图片
+		order_name.setText(order.getTitle());
+		order_time.setText((0 == type ?"用餐时间：":"入住时间：")+order.getIntime());
+		order_pnum.setText((0 == type ?"用餐人数：":"入住人数：")+order.getInnum()+"人");
+		order_price.setText("预计消费："+order.getInprice()+"元");
+		order_people.setText(order.getName());
+		order_mobile.setText(order.getMobile());
+		order_date.setText(order.getAddtime());
+		//state订单状态：0未付款1已付款,未消费2已消费3已退款4订单已取消       5删除订单  6已评价
+		order_delete.setVisibility("0".contains(order.getState())?View.VISIBLE:View.GONE);
+		order_assess.setVisibility("1234".contains(order.getState())?View.VISIBLE:View.GONE);
+		
+		setListener(order_delete, order_assess);
+		if("1".equals(order.getIscomment())){
+			order_assess.setOnClickListener(null);
+			order_assess.setBackgroundResource(R.drawable.bg_null_grey);
+			order_assess.setText("已评价");
+			order_assess.setTextColor(ReserveDetailActivity.this.getResources().getColor(R.color.grey));
+		}
 	}
-	
-	private HttpErrorHandler res_getOrder = new HttpErrorHandler() {
-		@Override
-		public void onRecevieSuccess(JSONObject json) {
-			final Order order = JSONObject.parseObject(json.getString(UrlContants.jsonData), Order.class);
-			order_num.setText("订单编号："+order.getId());
-			ImageLoader.getInstance().displayImage(order.getGoodsimg(), order_img);
-			order_name.setText(order.getTitle());
-			order_time.setText("用餐时间："+order.getIntime());
-			order_pnum.setText("用餐人数："+order.getInnum()+"人");
-			order_price.setText("预计消费："+order.getInprice()+"元");
-			order_people.setText(order.getName());
-			order_mobile.setText(order.getMobile());
-			order_date.setText(order.getInnum());
-			order_cancel.setText("3".equals(order.getState())?"删除订单":"取消订单");
-			order_pay.setText("1".equals(order.getState())?"付款":"评价");
-			order_cancel.setVisibility("2".equals(order.getState())?View.GONE:View.VISIBLE);
-			order_cancel.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					if("3".equals(order.getState()) || "0".equals(order.getState())){
-						Tools.toast(ReserveDetailActivity.this, "删除订单");
-					}else{
-						Tools.toast(ReserveDetailActivity.this, "取消订单");
-					}
-				}
-			});
-			order_pay.setVisibility(("1".equals(order.getState()) || "3".equals(order.getState()))?View.GONE:View.VISIBLE);
-			order_pay.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					if("0".equals(order.getState()) || "0".equals(order.getState())){
-						Tools.toast(ReserveDetailActivity.this, "付款");
-					}else{
-						Tools.toast(ReserveDetailActivity.this, "评价");
-					}
-				}
-			});;
-		}
 
-		@Override
-		public void onRecevieFailed(String status, JSONObject json) {
-			Tools.toast(ReserveDetailActivity.this, "没有此条信息或者信息还未审核!");
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+		case R.id.order_delete:
+			/**删除订单*/
+			new AlertDialog.Builder(this).setTitle("取消订单").setMessage("您确定要删除订单吗?")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int position) {
+    				RequestParams params = new RequestParams();
+    				params.put("id", order.getId());
+    				HttpUtils.delOrder(new HttpErrorHandler() {
+    					@Override
+    					public void onRecevieSuccess(JSONObject json) {
+    						setResult(Activity.RESULT_OK);
+    						finish();
+    						Tools.toast(ReserveDetailActivity.this, "订单删除成功");
+    					}
+    				}, params);
+                }
+            }).setNegativeButton("取消",null).show();
+			break;
+		case R.id.order_assess:
+			/**评价*/
+			startActivity(new Intent(ReserveDetailActivity.this, AssessActivity.class)
+							.putExtra("order", order).putExtra("type", type));
+			break;
+		default:
+			break;
 		}
-	};
+	}
 }

@@ -186,7 +186,7 @@ public class CanyinDetailActivity extends BaseActivity {
 			break;
 		case R.id.res_assess_more:
 			/** 更多评价 */
-			startActivity(new Intent(CanyinDetailActivity.this,AssessActivity.class)
+			startActivity(new Intent(CanyinDetailActivity.this,AssessListActivity.class)
 				.putExtra("type", restaurant.getType()).putExtra("pid", restaurant.getId()));
 			break;
 		case R.id.reserve_go:

@@ -143,4 +143,19 @@ public class HttpUtils {
     public static void posttixian(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.POSTTIXIANLIST), params, handler);
     }
+
+    /*更新状态*/
+    public static void updateorder(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.UPDATEORDER), params, handler);
+    }
+
+    /*提交评论*/
+    public static void postComments(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.POSTCOMMENTS), params, handler);
+    }
+
+    /*提交评论*/
+    public static void delOrder(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.DELORDER), params, handler);
+    }
 }

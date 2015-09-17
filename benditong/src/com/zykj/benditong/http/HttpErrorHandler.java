@@ -3,6 +3,7 @@ package com.zykj.benditong.http;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /**
@@ -14,12 +15,16 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
     public void onJsonSuccess(JSONObject json) {
        String status= json.getString("code");
        String msg=  json.getString("message");
-        if(TextUtils.isEmpty(status) || !status.equals("200")){
+        if(TextUtils.isEmpty(status)){
             if(!TextUtils.isEmpty(msg)){
             Log.e(TAG,msg);}
             onRecevieFailed(status,json);
         }else{
-            onRecevieSuccess(json);
+        	if(!status.equals("200")){
+        		onRecevieSuccess(JSON.parseObject(UrlContants.ZERODATA));
+        	}else{
+                onRecevieSuccess(json);
+        	}
         }
     }
 

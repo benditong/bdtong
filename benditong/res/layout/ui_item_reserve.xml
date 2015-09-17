@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:descendantFocusability="blocksDescendants"
     android:padding="@dimen/eight"
-    android:background="@color/white" >
+    android:background="@drawable/devide_gray_bt" >
     
     <ImageView 
         android:id="@+id/order_img"
@@ -31,7 +31,7 @@
         <TextView 
 	        android:id="@+id/restaurant_time"
             android:text="@string/restaurant_time"
-            android:textColor="@color/text_light"
+            android:textColor="@color/text_dgrey"
             android:textSize="@dimen/t_sixteen"
             android:paddingTop="@dimen/five"
             android:singleLine="true"
@@ -40,7 +40,7 @@
         <TextView 
 	        android:id="@+id/reserve_time"
             android:text="@string/reserve_time"
-            android:textColor="@color/text_light"
+            android:textColor="@color/text_dgrey"
             android:textSize="@dimen/t_sixteen"
             android:paddingTop="@dimen/five"
             android:singleLine="true"
