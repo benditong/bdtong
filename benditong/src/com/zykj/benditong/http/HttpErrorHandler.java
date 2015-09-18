@@ -1,5 +1,7 @@
 package com.zykj.benditong.http;
 
+import org.apache.http.Header;
+
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -27,6 +29,11 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
         	}
         }
     }
+
+	@Override
+	public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable throwable) {
+        onRecevieFailed("400", JSON.parseObject(UrlContants.ZERODATA));
+	}
 
     public abstract void onRecevieSuccess(JSONObject json);
 

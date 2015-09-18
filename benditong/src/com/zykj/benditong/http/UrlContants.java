@@ -72,9 +72,11 @@ public class UrlContants {
     
     public static final String UPDATEORDER = "c=info&a=updateorder";//是否签到
     
-    public static final String POSTCOMMENTS = "c=info&a=postComments";//提交评论
+    public static final String POSTCOMMENTS = "c=info&a=postComments_noup";//提交评论
     
     public static final String DELORDER = "c=info&a=delOrder";//删除订单
+    
+    public static final String UPLOADONE = "c=public&a=upload_one";//图片单张上传
 
     public static String getUrl(String token){
         if(token==null || token.equals("")){

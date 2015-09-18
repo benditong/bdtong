@@ -34,12 +34,14 @@
 	      	android:layout_width="wrap_content"
 	      	android:layout_height="@dimen/thirty"/>
     </LinearLayout>
-	<GridView 
-	    android:id="@+id/grid_images"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:numColumns="4">
-	</GridView>
+    <GridView 
+        android:id="@+id/grid_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="5dp"        
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp" />
     <TextView 
 		android:id="@+id/res_assess_content"
         android:layout_marginTop="@dimen/five"

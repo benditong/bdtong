@@ -147,7 +147,10 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 					public boolean setViewValue(View view, Object data, String textRepresentation) { 
 						if (view instanceof ImageView && data != null) {
 		                    ImageView iv = (ImageView) view;
-		                    ImageLoader.getInstance().displayImage(UrlContants.IMAGE_URL+data.toString(), iv);
+		                    LayoutParams pageParms = iv.getLayoutParams();
+		    				pageParms.width = 80;
+		    				pageParms.height = 80;
+		    				ImageUtil.displayImage2Circle(iv, UrlContants.IMAGE_URL+data.toString(), 5f, null);
 		                    return true;
 		                }else{
 			                return false;

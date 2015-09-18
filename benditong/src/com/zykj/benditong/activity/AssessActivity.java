@@ -38,23 +38,26 @@ import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Order;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyRequestDailog;
 import com.zykj.benditong.view.UIDialog;
 
 public class AssessActivity extends BaseActivity{
 
 	private Order order;
 	private int type;
+	private int index;
 	private MyCommonTitle myCommonTitle;
 	private RatingBar restaurant_star;
 	private EditText comment_content;
 	private GridView noScrollgridview;
 	private List<Bitmap> images = new ArrayList<Bitmap>();
 	private List<File> files = new ArrayList<File>();
-	private File imgsrc[];
+	private String imgs="";
 	private CommonAdapter<Bitmap> adapter;
 	private String timeString;//上传头像的字段
 	
@@ -63,7 +66,7 @@ public class AssessActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		initView(R.layout.ui_order_assess);
 		order = (Order)getIntent().getSerializableExtra("order");
-		type = getIntent().getIntExtra("type", 0);
+		type = getIntent().getIntExtra("type", 3);
 		
 		initView();
 		requestData();
@@ -156,20 +159,15 @@ public class AssessActivity extends BaseActivity{
 				return;
 			}
 			try {
-				//c=public&a=upload_one
-				RequestParams params = new RequestParams();
-				params.put("type", 0 == type ?"restaurant":"hotel");//restaurant评价餐厅hotel评价酒店shop评价商铺
-				params.put("uid", BaseApp.getModel().getUserid());//必须，会员ID编号
-				params.put("tid", order.getTid());//必须，餐厅，酒店或者商铺ID编号
-				params.put("oid", order.getId());//必须，订单ID编号
-				params.put("golds", restaurant_star.getRating()+"");//必须，评分
-				params.put("content", comment_content.getText().toString().trim());//必须，评价内容
-				imgsrc = new File[files.size()];
-				for (int i = 1; i <= files.size(); i++) {
-					params.put("imgsrc"+i, files.get(i-1));//上传图片
+				MyRequestDailog.showDialog(this, "");
+				index = 0;imgs = "";
+				if(files.size() < 1){
+					submitComments();
+				}else{
+					RequestParams params = new RequestParams();
+					params.put("imgsrc", files.get(index));
+					HttpUtils.uploadone(res_uploadone, params);//上传图片
 				}
-				params.put("pid", "");//商铺必须，团购商品ID编号
-				HttpUtils.postComments(res_postComments, params);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -179,12 +177,39 @@ public class AssessActivity extends BaseActivity{
 		}
 	}
 	
-	private AsyncHttpResponseHandler res_ploadone = new HttpErrorHandler() {
+	private AsyncHttpResponseHandler res_uploadone = new HttpErrorHandler() {
 		@Override
 		public void onRecevieSuccess(JSONObject json) {
-			
+			try {
+				String imgsrc = json.getJSONObject(UrlContants.jsonData).getJSONObject("imgsrc").getString("imgsrc");
+				imgs += "&imgsrc[]="+imgsrc;
+				index++;
+				if(index < files.size()){
+					RequestParams params = new RequestParams();
+					params.put("imgsrc", files.get(index));
+					HttpUtils.uploadone(res_uploadone, params);
+				}else{
+					submitComments();
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 	};
+	
+	private void submitComments(){
+		String mType = type == 3 ? "shop" : type == 0 ? "restaurant" : "hotel";
+		String parameter = "";
+		parameter += "&type="+mType;
+		parameter += "&uid="+BaseApp.getModel().getUserid();
+		parameter += "&tid="+order.getTid();
+		parameter += "&oid="+order.getId();
+		parameter += "&golds="+restaurant_star.getRating();
+		parameter += "&content="+comment_content.getText().toString().trim();
+		parameter += "&pid="+(StringUtil.toString(order.getPid(), ""));
+		parameter += imgs;
+		HttpUtils.postComments(res_postComments, parameter.toString());
+	}
 	
 	/**
 	 * 请求提交评论
@@ -192,6 +217,7 @@ public class AssessActivity extends BaseActivity{
 	private AsyncHttpResponseHandler res_postComments = new HttpErrorHandler() {
 		@Override
 		public void onRecevieSuccess(JSONObject json) {
+			MyRequestDailog.closeDialog();
 			Tools.toast(AssessActivity.this, json.getString("message"));
 		}
 		@Override

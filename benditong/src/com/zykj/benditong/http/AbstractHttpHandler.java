@@ -27,12 +27,6 @@ public abstract class AbstractHttpHandler extends AsyncHttpResponseHandler{
             onJsonSuccess(JSONObject.parseObject(UrlContants.ERROR));
         } 
     }
-
-	@Override
-	public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable throwable) {
-		MyRequestDailog.closeDialog();
-        onJsonSuccess(JSONObject.parseObject(UrlContants.ERROR));
-	}
     
 	public abstract void onJsonSuccess(JSONObject json);
 
