@@ -97,7 +97,6 @@ public class HttpUtils {
     public static void postcaroder(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.POSTCARORDER), params, handler);
     }
-    
 
     /*获取城市列表*/
     public static void getArea(AsyncHttpResponseHandler handler){
@@ -113,7 +112,24 @@ public class HttpUtils {
     public static void getGoods(AsyncHttpResponseHandler handler, String goodId){
     	client.get(UrlContants.getUrl(UrlContants.GETGOODS)+"&id="+goodId, handler);
     }
+    
+    
+    /* 添加收藏的餐饮、酒店    */
+    public static void addCollection(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.ADDCOLLECTION), params, handler);
+    }
+    
+    /*获取收藏列表*/
+    public static void getCollectionList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETCOLLECTIONLIST), params, handler);
+    }
+    
+    /*获取收藏详情？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？*/
+    public static void getCollectionInfo(AsyncHttpResponseHandler handler, String collectionId){
+    	client.get(UrlContants.getUrl(UrlContants.GETCOLLECTIONINFO), handler);
+    }
 
+    
     /*获取产品评论列表*/
     public static void getGoodsCommentsList(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.GOODSCOMMENTSLIST), params, handler);
@@ -123,6 +139,7 @@ public class HttpUtils {
     public static void submitShopOrder(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.SUBMITSHOPORDER), params, handler);
     }
+    
 
     /*积分商场*/
     public static void getLoginUrl(AsyncHttpResponseHandler handler, RequestParams params){

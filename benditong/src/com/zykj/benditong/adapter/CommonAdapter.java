@@ -2,7 +2,10 @@ package com.zykj.benditong.adapter;
 
 import java.util.List;
 
+import com.zykj.benditong.fragment.StoreFragment;
 import com.zykj.benditong.model.Car;
+import com.zykj.benditong.model.Good;
+import com.zykj.benditong.model.Order;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -22,6 +25,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
 		this.resource = resource;
 		this.mInflater = LayoutInflater.from(context);
 		this.mDatas = datas;
+	}
+
+	public CommonAdapter(StoreFragment storeFragment, int resource,
+			List<Good> goods) {
+	
 	}
 
 	@Override

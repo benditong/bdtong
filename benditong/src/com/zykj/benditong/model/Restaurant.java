@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Restaurant implements Serializable{
 
 	/**
-	 * 餐厅
+	 * 餐厅/酒店/商铺
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;

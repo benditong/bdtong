@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -28,14 +27,14 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class CarpoolMainActivity extends BaseActivity implements
 		IXListViewListener, OnItemClickListener {
-	private static int PERPAGE = 5;// perpage默认每页显示5条信息
+	private static int PERPAGE = 3;// perpage默认每页显示5条信息
 	private int nowpage = 1;// 当前显示的页面
 	private Button btn_carpoolNeeder, btn_carpoolOwner;
 	private ImageButton btn_carpoolBack;
 	private XListView car_listView;
 	private Handler mHandler;
-	//private CommonAdapter<Car> adapter;
-	private CarpoolAdapter adapter;
+//	private CommonAdapter<Car> adapter;
+	CarpoolAdapter adapter;
 	private List<Car> cars = new ArrayList<Car>();
 
 	@Override
@@ -74,7 +73,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 ////						});
 //			}
 //		};
-		//car_listView.setAdapter(adapter);
+		car_listView.setAdapter(adapter);
 		//car_listView.setOnItemClickListener(this);
 
 	}

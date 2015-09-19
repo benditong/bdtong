@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/devide_gray_bt"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:padding="@dimen/eight" >
+
+    <ImageView
+        android:id="@+id/collection_img"
+        android:layout_width="@dimen/one_hundred"
+        android:layout_height="@dimen/ninety"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_image_default" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/eight"
+        android:layout_marginTop="@dimen/ten"
+        android:layout_weight="0.68"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/collection_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/twenty_five"
+            android:singleLine="true"
+            android:text="@string/collection_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/t_eighteen" />
+
+        <TextView
+            android:id="@+id/collection_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/five"
+            android:singleLine="true"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="right"
+            android:text="@string/collection_time"
+            android:textColor="@color/text_dgrey"
+            android:textSize="@dimen/t_sixteen" />
+
+    </LinearLayout>
+
+</LinearLayout>

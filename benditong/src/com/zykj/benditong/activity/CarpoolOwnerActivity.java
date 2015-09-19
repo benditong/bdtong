@@ -75,28 +75,21 @@ public class CarpoolOwnerActivity extends BaseActivity {
 		mobileCode=editText_phone.getText().toString().trim();
 		if (editText_orign.getText().length() <= 0) {
 			Tools.toast(this, "出发地不能为空");
-		}
-		if (editText_destination.getText().length() <= 0) {
+		}else if(editText_destination.getText().length() <= 0) {
 			Tools.toast(this, "目的地不能为空");
-		}
-		if(editText_depart_time.getText().toString().length()<=0){
+		}else if(editText_depart_time.getText().toString().length()<=0){
 			Tools.toast(this, "出发时间不能为空");
-			return;
-		}
-		if (editText_seats.getText().toString().length() <= 0) {
+		}else if(editText_seats.getText().toString().length() <= 0) {
 			Tools.toast(this, "剩余座位不能为空");
-		}
-		if (editText_model.getText().length() <= 0) {
+		}else if(editText_model.getText().length() <= 0) {
 			Tools.toast(this, "车型不能为空");
-		}
-		if (editText_name.getText().length() <= 0) {
+		}else if(editText_name.getText().length() <= 0) {
 			Tools.toast(this, "联系人不能为空");
-		}
-        if(!TextUtil.isMobile(mobileCode)){
+		}else if(!TextUtil.isMobile(mobileCode)){
         	Tools.toast(CarpoolOwnerActivity.this, "手机号格式不对");
-        	return;
-        }
-		addData();
+        }else {
+        	addData();
+		}
 	}
 
 	private void addData() {

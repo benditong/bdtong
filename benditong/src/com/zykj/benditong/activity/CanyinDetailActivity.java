@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.GridView;
@@ -23,10 +24,12 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.EntityHandler;
+import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Assess;
@@ -39,7 +42,7 @@ import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.AutoListView;
 import com.zykj.benditong.view.MyShareAndStoreTitle;
 
-public class CanyinDetailActivity extends BaseActivity {
+public class CanyinDetailActivity extends BaseActivity implements OnClickListener{
 	
 	private Restaurant restaurant;
 	private MyShareAndStoreTitle myCommonTitle;
@@ -169,6 +172,7 @@ public class CanyinDetailActivity extends BaseActivity {
 		HttpUtils.getgoodslist(res_getgoodslist, restaurant.getId());
 	}
 
+
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
@@ -194,7 +198,27 @@ public class CanyinDetailActivity extends BaseActivity {
 			startActivity(new Intent(CanyinDetailActivity.this, CanyinInputActivity.class)
 				.putExtra("type", restaurant.getType()).putExtra("id", restaurant.getId()));
 			break;
-		default:
+		case R.id.aci_shared_btn:
+			
+			
+			
+			break;
+		case R.id.aci_store_btn:
+			RequestParams params=new RequestParams();
+			params.put("uid", BaseApp.getModel().getUserid());
+			params.put("type", restaurant.getType());
+			params.put("pid", restaurant.getId());
+			HttpUtils.addCollection(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
+				}
+				@Override
+				public void onRecevieFailed(String status, JSONObject json) {
+					Tools.toast(CanyinDetailActivity.this, "添加收藏失败");
+				}
+			}, params);
 			break;
 		}
 	}

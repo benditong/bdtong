@@ -19,11 +19,10 @@ public class UserStoreActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_user_store);
-		
 		initView();
 		requestData();
-	}
 	
+	}
 	/**
 	 * 初始化页面
 	 */
@@ -32,8 +31,8 @@ public class UserStoreActivity extends FragmentActivity {
 		myCommonTitle.setTitle("我的收藏");
     	tab_store = (RadioGroup)findViewById(R.id.tab_order);
 
-    	storeFragment1 = StoreFragment.getInstance(0);//收藏的产品
-    	storeFragment2 = StoreFragment.getInstance(1);//收藏的店铺
+    	storeFragment1 = StoreFragment.getInstance(1);//收藏的产品
+    	storeFragment2 = StoreFragment.getInstance(2);//收藏的店铺
 
     	tab_store.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -50,6 +49,7 @@ public class UserStoreActivity extends FragmentActivity {
 	 * 加载数据
 	 */
 	private void requestData(){
+		getSupportFragmentManager().beginTransaction().add(R.id.reserve_framelayout, storeFragment1)
+		.add(R.id.reserve_framelayout, storeFragment2).show(storeFragment1).hide(storeFragment2).commit();
 	}
-	
 }

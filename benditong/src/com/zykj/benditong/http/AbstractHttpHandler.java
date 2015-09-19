@@ -17,7 +17,6 @@ public abstract class AbstractHttpHandler extends AsyncHttpResponseHandler{
 
     @Override
     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-		MyRequestDailog.closeDialog();
         try {
             String responseString=new String(responseBody, HTTP.UTF_8);
             JSONObject json = (JSONObject) JSON.parse(responseString);
