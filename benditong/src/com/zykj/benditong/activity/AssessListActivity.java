@@ -6,6 +6,7 @@ import java.util.List;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
@@ -13,7 +14,6 @@ import android.widget.SimpleAdapter.ViewBinder;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
@@ -22,6 +22,7 @@ import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Assess;
+import com.zykj.benditong.utils.ImageUtil;
 import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
@@ -58,7 +59,10 @@ public class AssessListActivity extends BaseActivity implements IXListViewListen
 					public boolean setViewValue(View view, Object data, String textRepresentation) { 
 						if (view instanceof ImageView && data != null) {
 		                    ImageView iv = (ImageView) view;
-		                    ImageLoader.getInstance().displayImage(UrlContants.IMAGE_URL+data.toString(), iv);
+		                    LayoutParams pageParms = iv.getLayoutParams();
+		    				pageParms.width = 80;
+		    				pageParms.height = 80;
+		    				ImageUtil.displayImage2Circle(iv, UrlContants.IMAGE_URL+data.toString(), 5f, null);
 		                    return true;
 		                }else{
 			                return false;

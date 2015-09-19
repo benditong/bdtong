@@ -62,18 +62,19 @@ public class ReserveAdapter extends CommonAdapter<Order> {
 	            }).setNegativeButton("取消",null).show();
 			}
 		});
-		if("0".equals(order.getIscomment())){
+//		if("0".equals(order.getIscomment())){
 			order_assess.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					mContext.startActivity(new Intent(mContext, AssessActivity.class).putExtra("order", order));
+					mContext.startActivity(new Intent(mContext, AssessActivity.class)
+								.putExtra("order", order).putExtra("type", type));
 				}
 			});
-		}else{
-			order_assess.setOnClickListener(null);
-			order_assess.setBackgroundResource(R.drawable.bg_null_grey);
-			order_assess.setText("已评价");
-			order_assess.setTextColor(mContext.getResources().getColor(R.color.grey));
-		}
+//		}else{
+//			order_assess.setOnClickListener(null);
+//			order_assess.setBackgroundResource(R.drawable.bg_null_grey);
+//			order_assess.setText("已评价");
+//			order_assess.setTextColor(mContext.getResources().getColor(R.color.grey));
+//		}
 	}
 }

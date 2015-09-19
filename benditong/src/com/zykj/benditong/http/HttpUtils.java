@@ -167,12 +167,17 @@ public class HttpUtils {
     }
 
     /*提交评论*/
-    public static void postComments(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.POSTCOMMENTS), params, handler);
+    public static void postComments(AsyncHttpResponseHandler handler, String params){
+    	client.get(UrlContants.getUrl(UrlContants.POSTCOMMENTS)+params, handler);
     }
 
-    /*提交评论*/
+    /*删除订单*/
     public static void delOrder(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.DELORDER), params, handler);
+    }
+    
+    /*单张图片上传*/
+    public static void uploadone(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.UPLOADONE), params, handler);
     }
 }

@@ -105,11 +105,22 @@ public class ReserveDetailActivity extends BaseActivity{
 			break;
 		case R.id.order_assess:
 			/**评价*/
-			startActivity(new Intent(ReserveDetailActivity.this, AssessActivity.class)
-							.putExtra("order", order).putExtra("type", type));
+			startActivityForResult(new Intent(ReserveDetailActivity.this, AssessActivity.class)
+							.putExtra("order", order).putExtra("type", type), 1);
 			break;
 		default:
 			break;
+		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == 1 && resultCode == Activity.RESULT_OK){
+			order_assess.setOnClickListener(null);
+			order_assess.setBackgroundResource(R.drawable.bg_null_grey);
+			order_assess.setText("已评价");
+			order_assess.setTextColor(getResources().getColor(R.color.grey));
 		}
 	}
 }

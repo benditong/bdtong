@@ -11,6 +11,7 @@ public class Order implements Serializable {
 	private String id;// 订单Id
 	private String oid;// 订单编号
 	private String tid;// 当单产品Id
+	private String pid;// 当单产品Id
 	private int type;//商家类型0-restaurant,1-hotel,2-shop
 	private String name;// 姓名
 	private String mobile;// 联系电话
@@ -47,6 +48,14 @@ public class Order implements Serializable {
 
 	public void setTid(String tid) {
 		this.tid = tid;
+	}
+
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
 	}
 
 	public int getType() {

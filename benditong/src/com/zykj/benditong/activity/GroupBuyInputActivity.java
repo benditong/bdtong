@@ -1,5 +1,6 @@
 package com.zykj.benditong.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyRequestDailog;
 
 public class GroupBuyInputActivity extends BaseActivity{
 
@@ -72,6 +74,8 @@ public class GroupBuyInputActivity extends BaseActivity{
 			good_all_price.setText(String.format("%.2f元", num * Float.valueOf(inprice)));
 			break;
 		case R.id.reserve_go:
+			MyRequestDailog.showDialog(this, "");
+			final int goodsnum = num;
 			RequestParams params = new RequestParams();
 			params.put("type", "shop");
 			params.put("tid", tid);
@@ -84,7 +88,10 @@ public class GroupBuyInputActivity extends BaseActivity{
 			HttpUtils.submitShopOrder(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
-					Tools.toast(GroupBuyInputActivity.this, "提交成功!");
+					MyRequestDailog.closeDialog();
+					Tools.toast(GroupBuyInputActivity.this, "预定成功!");
+					startActivity(new Intent(GroupBuyInputActivity.this, PayActivity.class)
+							.putExtra("order_name", "").putExtra("order_price", goodsnum * Float.valueOf(inprice)));
 					finish();
 				}
 				@Override
