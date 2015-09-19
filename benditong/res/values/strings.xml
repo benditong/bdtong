@@ -2,7 +2,7 @@
 <resources>
 
     <!-- 常用公用字符串 -->
-    <string name="app_name">本地通</string>
+    <string name="app_name">滴滴快讯</string>
     <string name="map_common">普通地图</string>
     <string name="map_site">卫星地图</string>
     <string name="map_traffic">实时交通(off)</string>

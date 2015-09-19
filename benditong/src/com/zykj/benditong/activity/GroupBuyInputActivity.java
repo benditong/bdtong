@@ -14,6 +14,8 @@ import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
+import com.zykj.benditong.model.Order;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.MyRequestDailog;
@@ -75,7 +77,6 @@ public class GroupBuyInputActivity extends BaseActivity{
 			break;
 		case R.id.reserve_go:
 			MyRequestDailog.showDialog(this, "");
-			final int goodsnum = num;
 			RequestParams params = new RequestParams();
 			params.put("type", "shop");
 			params.put("tid", tid);
@@ -90,8 +91,9 @@ public class GroupBuyInputActivity extends BaseActivity{
 				public void onRecevieSuccess(JSONObject json) {
 					MyRequestDailog.closeDialog();
 					Tools.toast(GroupBuyInputActivity.this, "预定成功!");
-					startActivity(new Intent(GroupBuyInputActivity.this, PayActivity.class)
-							.putExtra("order_name", "").putExtra("order_price", goodsnum * Float.valueOf(inprice)));
+					Order order = JSONObject.parseObject(json.getString(UrlContants.jsonData), Order.class);
+					order.setTitle(goodname);
+					startActivity(new Intent(GroupBuyInputActivity.this, PayActivity.class).putExtra("order", order));
 					finish();
 				}
 				@Override

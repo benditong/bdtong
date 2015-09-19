@@ -11,6 +11,8 @@ public class UrlContants {
     public static final String BASE_URL = "http://121.42.194.222/api.php?";
 
     public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
+    
+    public static final String ORDERPAY = "http://121.42.194.222/pingxx/api/pay.php";//支付
 
     public static final String BASEURL = BASE_URL+"%s";
 

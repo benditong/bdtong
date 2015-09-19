@@ -31,6 +31,7 @@ import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Assess;
 import com.zykj.benditong.model.Good;
 import com.zykj.benditong.utils.CommonUtils;
+import com.zykj.benditong.utils.ImageUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.AutoListView;
 import com.zykj.benditong.view.MyShareAndStoreTitle;
@@ -113,7 +114,10 @@ public class GroupBuyDetailActivity extends BaseActivity {
 						public boolean setViewValue(View view, Object data, String textRepresentation) { 
 							if (view instanceof ImageView && data != null) {
 			                    ImageView iv = (ImageView) view;
-			                    ImageLoader.getInstance().displayImage(UrlContants.IMAGE_URL+data.toString(), iv);
+			                    LayoutParams pageParms = iv.getLayoutParams();
+			    				pageParms.width = 80;
+			    				pageParms.height = 80;
+			    				ImageUtil.displayImage2Circle(iv, UrlContants.IMAGE_URL+data.toString(), 5f, null);
 			                    return true;
 			                }else{
 				                return false;

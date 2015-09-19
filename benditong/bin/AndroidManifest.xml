@@ -37,7 +37,7 @@
     <application
         android:name="com.zykj.benditong.BaseApp"
         android:allowBackup="true"
-        android:icon="@drawable/app_logo"
+        android:icon="@drawable/ico_app"
         android:label="@string/app_name"
         android:theme="@style/com.cheng.theme.app" >
         <activity

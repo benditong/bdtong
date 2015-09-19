@@ -120,7 +120,10 @@ public class CanyinDetailActivity extends BaseActivity {
 					public boolean setViewValue(View view, Object data, String textRepresentation) { 
 						if (view instanceof ImageView && data != null) {
 		                    ImageView iv = (ImageView) view;
-		                    ImageLoader.getInstance().displayImage(UrlContants.IMAGE_URL+data.toString(), iv);
+		                    LayoutParams pageParms = iv.getLayoutParams();
+		    				pageParms.width = 80;
+		    				pageParms.height = 80;
+		    				ImageUtil.displayImage2Circle(iv, UrlContants.IMAGE_URL+data.toString(), 5f, null);
 		                    return true;
 		                }else{
 			                return false;
@@ -128,19 +131,28 @@ public class CanyinDetailActivity extends BaseActivity {
 					}  
 			   	}); 
 				grid_images.setAdapter(adapt);
+			}else{
+				closeComments();
 			}
 		}
 		@Override
 		public void onRecevieFailed(String status, JSONObject json) {
-			res_assess_img.setVisibility(View.INVISIBLE);
-			res_assess_name.setVisibility(View.INVISIBLE);
-			res_assess_star.setVisibility(View.INVISIBLE);
-			grid_images.setVisibility(View.GONE);
-			res_assess_content.setText("暂无评价");
-			res_assess_time.setVisibility(View.INVISIBLE);
-			res_assess_more.setOnClickListener(null);
+			closeComments();
 		}
 	};
+	
+	/**
+	 * 暂无评价
+	 */
+	private void closeComments(){
+		res_assess_img.setVisibility(View.INVISIBLE);
+		res_assess_name.setVisibility(View.INVISIBLE);
+		res_assess_star.setVisibility(View.INVISIBLE);
+		grid_images.setVisibility(View.GONE);
+		res_assess_content.setText("暂无评价");
+		res_assess_time.setVisibility(View.INVISIBLE);
+		res_assess_more.setOnClickListener(null);
+	}
 
 	/**
 	 * 请求餐厅、酒店、商铺商品
