@@ -64,11 +64,9 @@ public class CarpoolNeederActivity extends BaseActivity {
 		case R.id.btn_back:
 			finish();
 			break;
-
 		case R.id.btn_carpool_submit:
 			submitCarpoolInfo();
 			break;
-
 		}
 	}
 
@@ -77,32 +75,27 @@ public class CarpoolNeederActivity extends BaseActivity {
 		if(editText_orign.getText().length()<=0){
 			Tools.toast(this, "出发地不能为空");
 			return;
-		}
-		if(editText_destination.getText().length()<=0){
+		}else if(editText_destination.getText().length()<=0){
 			Tools.toast(this, "目的地不能为空");
 			return;
-		}
-		if(editText_depart_time.getText().toString().length()<=0){
+		}else if(editText_depart_time.getText().toString().length()<=0){
 			Tools.toast(this, "出发时间不能为空");
 			return;
-		}
-		if(editText_persons.getText().toString().length()<=0){
+		}else if(editText_persons.getText().toString().length()<=0){
 			Tools.toast(this, "人数不能为空");
 			return;
-		}
-		if(editText_cost.getText().toString().length()<=0){
+		}else if(editText_cost.getText().toString().length()<=0){
 			Tools.toast(this, "预计费用不能为空");
 			return;
-		}
-		if(editText_name.getText().length()<=0){
+		}else if(editText_name.getText().length()<=0){
 			Tools.toast(this, "姓名不能为空");
 			return;
-		}
-	    if(!TextUtil.isMobile(mobileCode)){
+		}else if(!TextUtil.isMobile(mobileCode)){
         	Tools.toast(CarpoolNeederActivity.this, "手机号格式不对");
         	return;
-        }
-		addData();
+        }else {
+        	addData();
+		}
 	}
 	private void addData() {
 		// TODO Auto-generated method stub

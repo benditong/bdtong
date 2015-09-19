@@ -183,8 +183,8 @@ public class UserActivity extends BaseActivity {
 			if (CommonUtils.CheckLogin()) {
 				startActivity(new Intent(this, UserStoreActivity.class));
 			}else {
-				startActivity(new Intent(this, UserLoginActivity.class));
-				startActivityForResult(intent, 11);
+				//startActivity(new Intent(this, UserLoginActivity.class));
+				startActivityForResult(new Intent(this, UserLoginActivity.class), 11);
 			}
 			break;
 		case R.id.app_about:

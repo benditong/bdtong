@@ -23,6 +23,7 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.zykj.benditong.R;
+import com.zykj.benditong.http.HttpErrorHandler;
 
 public class XListView extends ListView implements OnScrollListener {
 
@@ -374,4 +375,6 @@ public class XListView extends ListView implements OnScrollListener {
 
 		public void onLoadMore();
 	}
+
+	
 }

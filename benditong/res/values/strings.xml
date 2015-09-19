@@ -184,6 +184,8 @@
     <string name="store_pro">收藏的产品</string>
     <string name="store_res">收藏的店铺</string>
     <string name="record_address">山东 临沂 2015&#8211;06&#8211;30</string>
+    <string name="collection_name">店铺名称店铺名称</string>
+    <string name="collection_time">2015-07-16 收藏</string>
     
     <!-- 设置 -->
     <string name="setting_about">公司简介</string>

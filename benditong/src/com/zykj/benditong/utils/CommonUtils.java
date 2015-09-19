@@ -235,7 +235,7 @@ public class CommonUtils {
 		// 根据屏幕密度来指定选择器字体的大小
 		int textSize = 0;
 
-		textSize = 12;
+		textSize = 28;
 
 		wv_day.TEXT_SIZE = textSize;
 		wv_hours.TEXT_SIZE = textSize;

@@ -77,15 +77,12 @@ public class CarpoolSignUpActivity extends BaseActivity {
 		mobileCode=editText_phone.getText().toString().trim();
 		if (editText_sign_persons.getText().toString().trim().length() <= 0) {
 			Tools.toastMessage(CarpoolSignUpActivity.this, "报名人数不能为空");
-		}
-		if (editText_name.getText().toString().trim().length() <= 0) {
+		}else if (editText_name.getText().toString().trim().length() <= 0) {
 			Tools.toast(this, "联系人不能为空");
 		}
-		if (!TextUtil.isMobile(mobileCode)) {
+		else if(!TextUtil.isMobile(mobileCode)) {
 			Tools.toast(CarpoolSignUpActivity.this, "手机格式不正确");
-		}
-	
-		if(Integer.parseInt(editText_sign_persons.getText().toString())>Integer.parseInt(textView_remain_seats.getText().toString())){
+		}else if(Integer.parseInt(editText_sign_persons.getText().toString())>Integer.parseInt(textView_remain_seats.getText().toString())){
 			Tools.toastMessage(CarpoolSignUpActivity.this, "你预定的座位已超出");
 		}else {
 			addData();
@@ -111,6 +108,7 @@ public class CarpoolSignUpActivity extends BaseActivity {
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
 				Tools.toastMessage(CarpoolSignUpActivity.this, "报名成功");
+				finish();
 				//textView_persons.setText("Integer.parseInt(textView_persons.getText().toString())-(Integer.parseInt(editText_sign_persons.getText().toString())");
 				//upData();
 //				int orderSeats=Integer.parseInt(editText_sign_persons.getText().toString().trim());
@@ -119,9 +117,7 @@ public class CarpoolSignUpActivity extends BaseActivity {
 //				Intent intent=new Intent(CarpoolSignUpActivity.this, CarpoolMainActivity.class);
 //				intent.putExtra("remain", String.valueOf(remainSeats)) ;
 //				startActivity(intent);
-//				finish();
 			}
-
 			@Override
 			public void onRecevieFailed(String status, JSONObject json) {
 				super.onRecevieFailed(status, json);
@@ -129,10 +125,4 @@ public class CarpoolSignUpActivity extends BaseActivity {
 			}
 		}, params);
 	}
-
-//	protected void upData() {
-//		int orderSeats=Integer.parseInt(editText_sign_persons.getText().toString().trim());
-//		int remainSeats=Integer.parseInt(textView_remain_seats.getText().toString().trim());
-//		textView_remain_seats.setText(String.valueOf(remainSeats-=orderSeats));
-//	}
 }

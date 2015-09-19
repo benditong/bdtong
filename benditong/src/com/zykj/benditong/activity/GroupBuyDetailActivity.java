@@ -21,6 +21,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
@@ -156,6 +157,23 @@ public class GroupBuyDetailActivity extends BaseActivity {
 				.putExtra("tid", shopId).putExtra("pid", good.getId())
 				.putExtra("inprice", good.getPrice()).putExtra("goodname", good.getTitle()));
 			break;
+		case R.id.aci_store_btn:
+			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请先登录！");return;}
+			RequestParams params=new RequestParams();
+			params.put("uid", BaseApp.getModel().getUserid());
+			params.put("type", good.getType());
+			params.put("pid", good.getId());
+			HttpUtils.addCollection(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(GroupBuyDetailActivity.this, "添加收藏成功");
+				}
+				@Override
+				public void onRecevieFailed(String status, JSONObject json) {
+					Tools.toast(GroupBuyDetailActivity.this, "添加收藏成功");
+				}
+			}, params);
 		default:
 			break;
 		}
