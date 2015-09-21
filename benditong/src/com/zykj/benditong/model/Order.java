@@ -22,6 +22,7 @@ public class Order implements Serializable {
 	private String state;// 订单状态：0未付款1已付款,未消费2已消费3已退款4订单已取消
 	private String title;// 餐厅，酒店，团购店铺的名称
 	private String goodsimg;// 团购商品图片
+	private String goodsname;// 订单名称
 	private String iscomment;// 订单是否有评论 1：有， 0：没有
 	private String commentnum;// 评论数
 	private String golds;//评星
@@ -136,6 +137,14 @@ public class Order implements Serializable {
 
 	public void setGoodsimg(String goodsimg) {
 		this.goodsimg = goodsimg;
+	}
+
+	public String getGoodsname() {
+		return goodsname;
+	}
+
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname;
 	}
 
 	public String getIscomment() {

@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.zykj.benditong.view.MyRequestDailog;
 
 /**
  * Created by ss on 15-4-14.
@@ -17,22 +18,19 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
     public void onJsonSuccess(JSONObject json) {
        String status= json.getString("code");
        String msg=  json.getString("message");
-        if(TextUtils.isEmpty(status)){
+        if(TextUtils.isEmpty(status) || !status.equals("200")){
             if(!TextUtils.isEmpty(msg)){
             Log.e(TAG,msg);}
             onRecevieFailed(status,json);
         }else{
-        	if(!status.equals("200")){
-        		onRecevieSuccess(JSON.parseObject(UrlContants.ZERODATA));
-        	}else{
-                onRecevieSuccess(json);
-        	}
+         	onRecevieSuccess(json);
         }
     }
 
 	@Override
 	public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable throwable) {
-        onRecevieFailed("400", JSON.parseObject(UrlContants.ZERODATA));
+        onRecevieFailed("400", JSON.parseObject(UrlContants.ERROR));
+		MyRequestDailog.closeDialog();
 	}
 
     public abstract void onRecevieSuccess(JSONObject json);

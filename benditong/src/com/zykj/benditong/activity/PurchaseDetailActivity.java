@@ -2,7 +2,6 @@ package com.zykj.benditong.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.pingplusplus.android.PaymentActivity;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
@@ -108,17 +106,7 @@ public class PurchaseDetailActivity extends BaseActivity{
 				startActivityForResult(new Intent(this, AssessActivity.class)
 							.putExtra("order", order).putExtra("type", 3), 1);//评价
 			}else{
-//				Intent intent = new Intent();
-//				String packageName = getPackageName();
-//				ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
-//				intent.setComponent(componentName);
-//				intent.putExtra(PaymentActivity.EXTRA_CHARGE, charge);
-//				startActivityForResult(intent, REQUEST_CODE_PAYMENT);
-				
-				
-				
-				//startActivity(new Intent(mContext, AssessActivity.class).putExtra("order", order));//付款
-				Tools.toast(this, "付款");
+				startActivityForResult(new Intent(this, PayActivity.class).putExtra("order", order), 2);
 			}
 			break;
 		default:

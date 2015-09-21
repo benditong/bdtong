@@ -8,7 +8,6 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.zykj.benditong.view.MyRequestDailog;
 
 /**
  * Created by ss on 15-4-14.

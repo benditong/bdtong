@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.R;
 import com.zykj.benditong.activity.AssessActivity;
+import com.zykj.benditong.activity.PayActivity;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Order;
@@ -33,9 +34,9 @@ public class PurchaseAdapter extends CommonAdapter<Order> {
 		holder.setText(R.id.res_name, StringUtil.toString(order.getTitle())).setText(R.id.order_state, "0".equals(state)?"未付款":"1".equals(state)?
 				"未消费":"2".equals(state)?"已消费":"3".equals(state)?"已退款":"订单取消")//0未付款1已付款,未消费2已消费3已退款4订单已取消
 			.setImageUrl(R.id.order_img, StringUtil.toString(order.getGoodsimg()), 10f)
-			.setText(R.id.product_name, StringUtil.toString(order.getTitle()))
+			.setText(R.id.product_name, StringUtil.toString(order.getGoodsname()))
 			.setText(R.id.product_price, "￥"+StringUtil.toString(order.getInprice()))
-			.setText(R.id.product_content, StringUtil.toString(order.getName()))
+			.setText(R.id.product_content, StringUtil.toString(order.getName(), ""))
 			.setText(R.id.product_num, "x"+StringUtil.toString(order.getInnum()));
 		final TextView order_cancel = holder.getView(R.id.order_cancel);//删除订单
 		TextView order_pay = holder.getView(R.id.order_pay);//评价
@@ -86,8 +87,7 @@ public class PurchaseAdapter extends CommonAdapter<Order> {
 				if("2".equals(order.getState())){
 					mContext.startActivity(new Intent(mContext, AssessActivity.class).putExtra("order", order));
 				}else{
-					//mContext.startActivity(new Intent(mContext, AssessActivity.class).putExtra("order", order));
-					Tools.toast(mContext, "付款");
+					mContext.startActivity(new Intent(mContext, PayActivity.class).putExtra("order", order));
 				}
 			}
 		});

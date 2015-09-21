@@ -3,6 +3,7 @@ package com.zykj.benditong.activity;
 import static cn.smssdk.framework.utils.R.getStringRes;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -15,7 +16,6 @@ import cn.smssdk.SMSSDK;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
-import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
@@ -23,16 +23,18 @@ import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyRequestDailog;
 
 public class UserRegisterActivity extends BaseActivity{
 	
 	private MyCommonTitle myCommonTitle;
 	private EditText uu_username,phone_code,uu_password;
-	private String username;
+	private String username, password;
 	private String type;
+	private Button identifying_code;
 
-	private static String APPKEY = "93073e1ab3a8";
-	private static String APPSECRET = "e1ae8ab56cc63e61be4e4c16159af622";
+	private static String APPKEY = "a3936d65dbca";//93073e1ab3a8
+	private static String APPSECRET = "8f01dfc260f81666795c55b520ba9f38";//e1ae8ab56cc63e61be4e4c16159af622
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -63,14 +65,13 @@ public class UserRegisterActivity extends BaseActivity{
 		myCommonTitle.setTitle("forget".equals(type)?"重置密码":"注册");
 		
 		uu_username = (EditText)findViewById(R.id.uu_username);//手机号
-		phone_code = (EditText)findViewById(R.id.phone_code);//手机号
-		Button identifying_code = (Button)findViewById(R.id.identifying_code);//发送验证码
+		phone_code = (EditText)findViewById(R.id.phone_code);//验证码
+		identifying_code = (Button)findViewById(R.id.identifying_code);//发送验证码
 		uu_password = (EditText)findViewById(R.id.uu_password);//密码
-		uu_password.setFocusable(false);
 		Button app_register_in = (Button)findViewById(R.id.app_register_in);//注册
 		app_register_in.setText("forget".equals(type)?"重置密码":"注册");
 		
-		setListener(identifying_code, uu_password, app_register_in);
+		setListener(identifying_code, app_register_in);
 	}
 
 	@Override
@@ -83,61 +84,26 @@ public class UserRegisterActivity extends BaseActivity{
 	        	return;
 	        }
 			/*发送手机验证码*/
+	        identifying_code.setOnClickListener(null);
+	        new MyCount(60000, 1000).start();//一分钟倒计时
 			SMSSDK.getVerificationCode("86",username);
 			break;
-		case R.id.uu_password:
+		case R.id.app_register_in:
+			/*注册、重置*/
 	        String code=phone_code.getText().toString().trim();
+	        password=uu_password.getText().toString().trim();
 	        if(!TextUtil.isCode(code,4)){
 	        	Tools.toast(UserRegisterActivity.this, "验证码格式不对");
 	        	return;
 	        }
-			SMSSDK.submitVerificationCode("86", username, phone_code.getText().toString().trim());
-			break;
-		case R.id.app_register_in:
-			/*注册、重置*/
-	        final String password=uu_password.getText().toString().trim();
 	        if(StringUtil.isEmpty(password)){
 	            Tools.toast(this, "密码不能为空");return;
 	        }
 			if (!TextUtil.isPasswordLengthLegal(password)){
 				Tools.toast(this, "密码长度合法性校验6-20位任意字符");return;
 			}
-			RequestParams params = new RequestParams();
-			if ("forget".equals(type)) {
-				params.put("mob", username);
-				params.put("password", password);
-				HttpUtils.login(new HttpErrorHandler() {
-					@Override
-					public void onRecevieSuccess(JSONObject json) {
-						Tools.toast(UserRegisterActivity.this, "修改成功");
-						finish();
-					}
-					@Override
-					public void onRecevieFailed(String status, JSONObject json) {
-						Tools.toast(UserRegisterActivity.this, json.getString("message"));
-					}
-				}, params);
-				
-			} else {
-				params.put("mob", username);
-				params.put("pass", password);
-				HttpUtils.login(new HttpErrorHandler() {
-					@Override
-					public void onRecevieSuccess(JSONObject json) {
-						JSONObject data = json.getJSONObject("data");
-						Tools.toast(UserRegisterActivity.this, json.getString("result_text"));
-						BaseApp.getModel().setMobile(username);
-						BaseApp.getModel().setUsername(username);
-						BaseApp.getModel().setPassword(password);
-						BaseApp.getModel().setUserid(data.getString(""));
-						finish();
-					}
-					@Override
-					public void onRecevieFailed(String status, JSONObject json) {
-						Tools.toast(UserRegisterActivity.this, json.getString("message"));
-					}
-				}, params);
-			}
+			MyRequestDailog.showDialog(this, "");
+			SMSSDK.submitVerificationCode("86", username, phone_code.getText().toString().trim());
 			break;
 		}
 	}
@@ -161,8 +127,9 @@ public class UserRegisterActivity extends BaseActivity{
 			if (result == SMSSDK.RESULT_COMPLETE) {
 				//短信注册成功后，返回MainActivity,然后提示新好友
 				if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功
-					Tools.toast(UserRegisterActivity.this, "提交验证码成功");
-					uu_password.setFocusable(true);
+					//Tools.toast(UserRegisterActivity.this, "提交验证码成功");
+					registerNewUser();
+					//uu_password.setFocusable(true);
 				} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
 					Tools.toast(UserRegisterActivity.this, "验证码已经发送");
 				}
@@ -175,5 +142,64 @@ public class UserRegisterActivity extends BaseActivity{
 				}
 			}
 		}
-	};
+
+		private void registerNewUser() {
+			RequestParams params = new RequestParams();
+			if ("forget".equals(type)) {
+				params.put("mob", username);
+				params.put("password", password);
+				HttpUtils.login(new HttpErrorHandler() {
+					@Override
+					public void onRecevieSuccess(JSONObject json) {
+						MyRequestDailog.closeDialog();
+						Tools.toast(UserRegisterActivity.this, "修改成功");
+						finish();
+					}
+					@Override
+					public void onRecevieFailed(String status, JSONObject json) {
+						Tools.toast(UserRegisterActivity.this, json.getString("message"));
+					}
+				}, params);
+				
+			} else {
+				params.put("mob", username);
+				params.put("pass", password);
+				HttpUtils.login(new HttpErrorHandler() {
+					@Override
+					public void onRecevieSuccess(JSONObject json) {
+						MyRequestDailog.closeDialog();
+//						JSONObject data = json.getJSONObject("data");
+						Tools.toast(UserRegisterActivity.this, json.getString("result_text"));
+//						BaseApp.getModel().setMobile(username);
+//						BaseApp.getModel().setUsername(username);
+//						BaseApp.getModel().setPassword(password);
+//						BaseApp.getModel().setUserid(data.getString(""));
+						finish();
+					}
+					@Override
+					public void onRecevieFailed(String status, JSONObject json) {
+						Tools.toast(UserRegisterActivity.this, json.getString("message"));
+					}
+				}, params);
+			}
+		}
+	};    
+	
+	/* 定义一个倒计时的内部类 */
+    class MyCount extends CountDownTimer {
+        public MyCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+ 
+        @Override
+        public void onFinish() {
+        	identifying_code.setText("点击获取验证码");
+        	identifying_code.setOnClickListener(UserRegisterActivity.this);
+        }
+ 
+        @Override
+        public void onTick(long millisUntilFinished) {
+        	identifying_code.setText(millisUntilFinished / 1000 + "秒");
+        }
+    }
 }

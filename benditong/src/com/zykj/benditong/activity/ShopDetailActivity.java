@@ -158,19 +158,28 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 					}  
 			   	}); 
 				grid_images.setAdapter(adapt);
+			}else{
+				closeComments();
 			}
 		}
 		@Override
 		public void onRecevieFailed(String status, JSONObject json) {
-			res_assess_img.setVisibility(View.INVISIBLE);
-			res_assess_name.setVisibility(View.INVISIBLE);
-			res_assess_star.setVisibility(View.INVISIBLE);
-			grid_images.setVisibility(View.GONE);
-			res_assess_content.setText("暂无评价");
-			res_assess_time.setVisibility(View.INVISIBLE);
-			res_assess_more.setOnClickListener(null);
+			closeComments();
 		}
 	};
+	
+	/**
+	 * 暂无评价
+	 */
+	private void closeComments(){
+		res_assess_img.setVisibility(View.INVISIBLE);
+		res_assess_name.setVisibility(View.INVISIBLE);
+		res_assess_star.setVisibility(View.INVISIBLE);
+		grid_images.setVisibility(View.GONE);
+		res_assess_content.setText("暂无评价");
+		res_assess_time.setVisibility(View.INVISIBLE);
+		res_assess_more.setOnClickListener(null);
+	}
 
 	@Override
 	public void onClick(View view) {

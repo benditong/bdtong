@@ -185,4 +185,9 @@ public class HttpUtils {
     public static void uploadone(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.UPLOADONE), params, handler);
     }
+    
+    /*支付*/
+    public static void orderPay(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.ORDERPAY, params, handler);
+    }
 }

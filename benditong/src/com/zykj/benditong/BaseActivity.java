@@ -1,7 +1,5 @@
 package com.zykj.benditong;
 
-import com.zykj.benditong.utils.Tools;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,7 +10,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
+
+import com.zykj.benditong.utils.Tools;
 
 
 public abstract class BaseActivity extends Activity implements

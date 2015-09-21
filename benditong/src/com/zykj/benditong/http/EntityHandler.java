@@ -35,7 +35,9 @@ public abstract class EntityHandler<T> extends HttpErrorHandler{
     }
 
 	@Override
-	public void onRecevieFailed(String status, JSONObject json) {}
+	public void onRecevieFailed(String status, JSONObject json) {
+        onReadSuccess(new ArrayList<T>());
+	}
 
     public abstract void  onReadSuccess(List<T> list);
 }

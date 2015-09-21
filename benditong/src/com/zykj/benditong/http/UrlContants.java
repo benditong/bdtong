@@ -11,6 +11,8 @@ public class UrlContants {
     public static final String BASE_URL = "http://121.42.194.222/api.php?";
 
     public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
+    
+    public static final String ORDERPAY = "http://121.42.194.222/pingxx/api/pay.php";//支付
 
     public static final String BASEURL = BASE_URL+"%s";
 
@@ -85,7 +87,10 @@ public class UrlContants {
     public static final String GETCOLLECTIONINFO= "c=info&a=getCollectionInfo";//获取收藏详情
     
     public static final String UPLOADONE = "c=public&a=upload_one";//图片单张上传
+<<<<<<< HEAD
     
+=======
+>>>>>>> 7037239ce6ec9a6253058f7273c05058044fb5e5
 
     public static String getUrl(String token){
         if(token==null || token.equals("")){

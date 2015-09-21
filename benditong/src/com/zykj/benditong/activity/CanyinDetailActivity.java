@@ -16,8 +16,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.SimpleAdapter.ViewBinder;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.amap.api.navi.AMapNavi;
@@ -125,7 +125,10 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 					public boolean setViewValue(View view, Object data, String textRepresentation) { 
 						if (view instanceof ImageView && data != null) {
 		                    ImageView iv = (ImageView) view;
-		                    ImageLoader.getInstance().displayImage(UrlContants.IMAGE_URL+data.toString(), iv);
+		                    LayoutParams pageParms = iv.getLayoutParams();
+		    				pageParms.width = 80;
+		    				pageParms.height = 80;
+		    				ImageUtil.displayImage2Circle(iv, UrlContants.IMAGE_URL+data.toString(), 5f, null);
 		                    return true;
 		                }else{
 			                return false;
@@ -133,19 +136,28 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 					}  
 			   	}); 
 				grid_images.setAdapter(adapt);
+			}else{
+				closeComments();
 			}
 		}
 		@Override
 		public void onRecevieFailed(String status, JSONObject json) {
-			res_assess_img.setVisibility(View.INVISIBLE);
-			res_assess_name.setVisibility(View.INVISIBLE);
-			res_assess_star.setVisibility(View.INVISIBLE);
-			grid_images.setVisibility(View.GONE);
-			res_assess_content.setText("暂无评价");
-			res_assess_time.setVisibility(View.INVISIBLE);
-			res_assess_more.setOnClickListener(null);
+			closeComments();
 		}
 	};
+	
+	/**
+	 * 暂无评价
+	 */
+	private void closeComments(){
+		res_assess_img.setVisibility(View.INVISIBLE);
+		res_assess_name.setVisibility(View.INVISIBLE);
+		res_assess_star.setVisibility(View.INVISIBLE);
+		grid_images.setVisibility(View.GONE);
+		res_assess_content.setText("暂无评价");
+		res_assess_time.setVisibility(View.INVISIBLE);
+		res_assess_more.setOnClickListener(null);
+	}
 
 	/**
 	 * 请求餐厅、酒店、商铺商品
@@ -201,9 +213,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				.putExtra("type", restaurant.getType()).putExtra("id", restaurant.getId()));
 			break;
 		case R.id.aci_shared_btn:
-			
-			
-			
+			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
 		case R.id.aci_store_btn:
 			
