@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.SimpleAdapter.ViewBinder;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.amap.api.navi.AMapNavi;
@@ -211,9 +211,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				.putExtra("type", restaurant.getType()).putExtra("id", restaurant.getId()));
 			break;
 		case R.id.aci_shared_btn:
-			
-			
-			
+			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
 		case R.id.aci_store_btn:
 			RequestParams params=new RequestParams();
