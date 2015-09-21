@@ -87,10 +87,7 @@ public class UrlContants {
     public static final String GETCOLLECTIONINFO= "c=info&a=getCollectionInfo";//获取收藏详情
     
     public static final String UPLOADONE = "c=public&a=upload_one";//图片单张上传
-<<<<<<< HEAD
-    
-=======
->>>>>>> 7037239ce6ec9a6253058f7273c05058044fb5e5
+
 
     public static String getUrl(String token){
         if(token==null || token.equals("")){
