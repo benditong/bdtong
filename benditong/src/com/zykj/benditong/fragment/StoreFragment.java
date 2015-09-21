@@ -2,15 +2,21 @@ package com.zykj.benditong.fragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
-
+import android.widget.ListView;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -25,14 +31,17 @@ import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Good;
 import com.zykj.benditong.model.Restaurant;
+import com.zykj.benditong.swiptodelete.SwipeDismissListViewTouchListener;
 import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.Tools;
+import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class StoreFragment extends Fragment implements IXListViewListener, OnItemClickListener{
-	
+	private boolean ischecked;
 	private static int PERPAGE=2;//perpage默认每页显示10条信息
-	
+	private MyCommonTitle myCommonTitle;
 	private int nowpage=1;//当前显示的页面 
 	private int mType=1;
 	private Good good;
@@ -49,9 +58,10 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 		fragment.setArguments(bundle);
 		return fragment;
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mListView = new XListView(getActivity(), null);
         mListView.setLayoutParams(params);
@@ -102,9 +112,29 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 			mListView.setAdapter(goodAdapter);
 			mListView.setOnItemClickListener(StoreFragment.this);
 			goodAdapter.notifyDataSetChanged();
+			
+			//ListView listView =(ListView) getView();
+//			SwipeDismissListViewTouchListener touchListener=
+//					new SwipeDismissListViewTouchListener(mListView, 
+//							new SwipeDismissListViewTouchListener.DismissCallbacks(){
+//						@Override
+//						public boolean canDismiss(int position) {
+//							return true;
+//						}
+//
+//						@Override
+//						public void onDismiss(ListView listView,
+//								int[] reverseSortedPositions) {
+//						for (int position:reverseSortedPositions) {
+//							
+//								goods.remove(goodAdapter.getItem(position));
+//							}
+//						goodAdapter.notifyDataSetChanged();
+//						}
+//					});
+//			((View) goods).setOnTouchListener(touchListener);
 		}
 	};
-	
 	
 	//下拉刷新 重建
 	@Override
@@ -126,6 +156,7 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
 		if("type".equals(mType)){
 			Intent intent =new Intent(getActivity(), GroupBuyDetailActivity.class);
 			intent.putExtra("id", StringUtil.toString(good.getId()));
@@ -138,8 +169,7 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 			startActivity(intent);
 		
 		}
-
-
 	}
+
 }
 

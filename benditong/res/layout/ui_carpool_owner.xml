@@ -201,13 +201,14 @@
             <Button
                 android:id="@+id/btn_carpool_submit"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="50dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="20dp"
                 android:background="#ffc600"
-                android:text="@string/user_carpool_submit" />
+                android:text="@string/user_carpool_submit" 
+                android:textColor="#FFF" />
         </LinearLayout>
     </LinearLayout>
 

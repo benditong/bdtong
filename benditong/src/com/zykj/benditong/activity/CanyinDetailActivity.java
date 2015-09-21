@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
@@ -88,6 +89,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 		restaurant_list = (AutoListView)findViewById(R.id.restaurant_list);
 		restaurant_list.setFocusable(false);
 		reserve_go = (Button)findViewById(R.id.reserve_go);
+		//btn_store=(ImageButton) findViewById(R.id.aci_store_btn);
 		
 		LayoutParams pageParms = aci_header.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
@@ -204,6 +206,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 			
 			break;
 		case R.id.aci_store_btn:
+			
 			RequestParams params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
 			params.put("type", restaurant.getType());
@@ -212,6 +215,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
+					//btn_store.setImageResource(R.drawable.my_store_select);
 					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
 				}
 				@Override

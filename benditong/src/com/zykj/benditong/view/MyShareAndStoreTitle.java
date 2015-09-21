@@ -62,4 +62,9 @@ public class MyShareAndStoreTitle extends RelativeLayout {
 			titleBack.setVisibility(View.INVISIBLE);
 		}
 	}
+
+	public void childDrawableStateChanged(int myStoreSelect) {
+		// TODO Auto-generated method stub
+		
+	}
 }
