@@ -173,6 +173,6 @@
 	        android:layout_marginRight="@dimen/twenty"
 	        android:textColor="@color/white"
 	     	android:textSize="@dimen/t_eighteen"
-	        android:text="@string/reserve_go"/>
+	        android:text="@string/reserve_go2"/>
 	</LinearLayout>
 </LinearLayout>

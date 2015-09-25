@@ -60,7 +60,8 @@
     <string name="res_assess_name">还**吹</string>
     <string name="res_assess_time">2015&#8211;06&#8211;17 14:00</string>
     <string name="res_assess_more">查看更多评价</string>
-    <string name="reserve_go">立即预定</string>
+    <string name="reserve_go">立即抢购</string>
+    <string name="reserve_go2">立即预定</string>
     <string name="good_price">88元</string>
     
     <!-- 团购详情 -->
