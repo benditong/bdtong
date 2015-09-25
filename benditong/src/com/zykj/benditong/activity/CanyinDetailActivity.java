@@ -50,7 +50,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 	private RelativeLayout aci_header;
 	private TextView restaurant_name,res_address,res_title,res_introduct/*,res_assess_num*/,res_assess_name,res_assess_content,res_assess_time,res_assess_more;
 	private RatingBar restaurant_star,res_assess_star;
-	private ImageView restaurant_img,res_phone,res_assess_img,header_background;
+	private ImageView restaurant_img,res_phone,res_assess_img,header_background,img_store;
 	private AutoListView  restaurant_list;
 	private GridView grid_images;
 	private Button reserve_go;
@@ -89,7 +89,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 		restaurant_list = (AutoListView)findViewById(R.id.restaurant_list);
 		restaurant_list.setFocusable(false);
 		reserve_go = (Button)findViewById(R.id.reserve_go);
-		//btn_store=(ImageButton) findViewById(R.id.aci_store_btn);
+		img_store=(ImageView) findViewById(R.id.aci_store_btn);
 		
 		LayoutParams pageParms = aci_header.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
@@ -227,6 +227,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				public void onRecevieSuccess(JSONObject json) {
 					//btn_store.setImageResource(R.drawable.my_store_select);
 					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
+					img_store.setImageResource(R.drawable.my_store_select);
 				}
 				@Override
 				public void onRecevieFailed(String status, JSONObject json) {

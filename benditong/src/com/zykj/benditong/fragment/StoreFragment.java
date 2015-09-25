@@ -159,12 +159,11 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 
 		if("type".equals(mType)){
 			Intent intent =new Intent(getActivity(), GroupBuyDetailActivity.class);
-			intent.putExtra("id", StringUtil.toString(good.getId()));
-			
+			intent.putExtra("goodId", StringUtil.toString(good.getId()));
 			startActivity(intent);
 		}else {
 			Intent intent =new Intent(getActivity(),ShopDetailActivity.class);
-			intent.putExtra("id", StringUtil.toString(restaurant.getId()));
+			intent.putExtra("restaurant", StringUtil.toString(restaurant.getId()));
 			
 			startActivity(intent);
 		

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.zykj.benditong.R;
 import com.zykj.benditong.activity.CarpoolSignUpActivity;
 import com.zykj.benditong.model.Car;
+import com.zykj.benditong.utils.Tools;
 
 public class CarpoolAdapter extends BaseAdapter {
 	
@@ -75,19 +76,27 @@ public class CarpoolAdapter extends BaseAdapter {
 		holder.tv_orign.setText((dataList).get(position).getFrom_address());
 		holder.tv_destination.setText((dataList).get(position).getTo_address());
 		holder.tv_departure_time.setText((dataList).get(position).getStarttime());
-		holder.tv_remain_seats.setText((dataList).get(position).getSeat());
+		holder.tv_remain_seats.setText((dataList).get(position).getRemain());
 		holder.tv_price.setText((dataList).get(position).getPrice());
-		
-		holder.btn_sign_up.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent=new Intent(context, CarpoolSignUpActivity.class);
-				intent.putExtra("car", (dataList).get(position));
-				intent.putExtra("tid", (dataList).get(position).getId());
-				context.startActivity(intent.putExtra("car", dataList.get(position)));
-			}
-		});
-
+		if(Integer.parseInt(dataList.get(position).getRemain())<=0){
+			holder.btn_sign_up.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Tools.toast(context, "该车已无座，请选择其他");
+				}
+			});
+		}else {
+			holder.btn_sign_up.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent=new Intent(context, CarpoolSignUpActivity.class);
+					intent.putExtra("car", (dataList).get(position));
+					intent.putExtra("tid", (dataList).get(position).getId());
+					context.startActivity(intent.putExtra("car", dataList.get(position)));
+				}
+			});
+		}
 		return convertView;
 	}
 
