@@ -22,6 +22,7 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
             if(!TextUtils.isEmpty(msg)){
             Log.e(TAG,msg);}
             onRecevieFailed(status,json);
+    		MyRequestDailog.closeDialog();
         }else{
          	onRecevieSuccess(json);
         }

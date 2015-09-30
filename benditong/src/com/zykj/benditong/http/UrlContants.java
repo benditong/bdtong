@@ -29,6 +29,10 @@ public class UrlContants {
     public static final String GETORDER = "c=info&a=getOrder";//获取订单详情
 
     public static final String LOGIN = "c=user&a=login";//登录
+
+    public static final String REGISTER = "c=user&a=reg";//注册
+
+    public static final String RESETPASSWORD = "c=user&a=resetPassword";//重置密码
     
     public static final String LIKELIST =  "c=info&a=getLikeList";//猜你喜欢
     

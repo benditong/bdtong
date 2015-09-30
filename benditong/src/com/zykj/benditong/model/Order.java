@@ -12,7 +12,7 @@ public class Order implements Serializable {
 	private String oid;// 订单编号
 	private String tid;// 当单产品Id
 	private String pid;// 当单产品Id
-	private int type;//商家类型0-restaurant,1-hotel,2-shop
+	private String type;//商家类型0-restaurant,1-hotel,2-shop
 	private String name;// 姓名
 	private String mobile;// 联系电话
 	private String inprice;// 预计消费
@@ -59,11 +59,11 @@ public class Order implements Serializable {
 		this.pid = pid;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

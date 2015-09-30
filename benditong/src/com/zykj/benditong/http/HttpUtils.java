@@ -45,6 +45,16 @@ public class HttpUtils {
         client.post(UrlContants.getUrl(UrlContants.LOGIN), params, handler);
     }
     
+    /*用户注册*/
+    public static void register(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.REGISTER), params, handler);
+    }
+    
+    /*重置密码*/
+    public static void resetPassword(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.RESETPASSWORD), params, handler);
+    }
+    
     /*猜你喜欢*/
     public static void getLikeList(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.LIKELIST), params, handler);

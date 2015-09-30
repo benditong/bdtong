@@ -144,6 +144,9 @@ public class PayActivity extends BaseActivity {
     			MyRequestDailog.closeDialog();
     			String result = data.getExtras().getString("pay_result");
                 Tools.toast(this, result.equals("success")?"支付成功":"支付失败");
+                if(result.equals("success")){
+                	finish();
+                }
     			/* 处理返回值
     			 * "success" - payment succeed
     			 * "fail"    - payment failed
