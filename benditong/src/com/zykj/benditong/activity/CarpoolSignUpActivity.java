@@ -55,7 +55,7 @@ public class CarpoolSignUpActivity extends BaseActivity {
 		textView_orign.setText(car.getFrom_address());
 		textView_destination.setText(car.getTo_address());
 		textView_depart_time.setText(car.getStarttime());
-		textView_remain_seats.setText(car.getSeat());
+		textView_remain_seats.setText(car.getRemain());
 
 		setListener(imageButton, btn_submit);
 	}

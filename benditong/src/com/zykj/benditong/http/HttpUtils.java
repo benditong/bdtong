@@ -134,6 +134,11 @@ public class HttpUtils {
     	client.post(UrlContants.getUrl(UrlContants.GETCOLLECTIONLIST), params, handler);
     }
     
+    /*删除收藏列表*/
+    public static void deleteCollectionList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.DELETECOLLECTIONLIST), params, handler);
+    }
+    
     /*获取收藏详情？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？*/
     public static void getCollectionInfo(AsyncHttpResponseHandler handler, String collectionId){
     	client.get(UrlContants.getUrl(UrlContants.GETCOLLECTIONINFO), handler);

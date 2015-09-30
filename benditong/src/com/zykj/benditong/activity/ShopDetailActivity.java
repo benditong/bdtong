@@ -25,15 +25,18 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.EntityHandler;
+import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Assess;
 import com.zykj.benditong.model.Good;
 import com.zykj.benditong.model.Restaurant;
+import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.ImageUtil;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
@@ -63,7 +66,7 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 	
 	private void initView(){
 		myCommonTitle = (MyShareAndStoreTitle)findViewById(R.id.aci_mytitle);
-		myCommonTitle.setLisener(this, null);
+		myCommonTitle.setLisener(this, this);
 		myCommonTitle.setTitle("商铺详情");
 
 		aci_header = (RelativeLayout)findViewById(R.id.aci_header);
@@ -200,6 +203,27 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 			/** 更多评价 */
 			startActivity(new Intent(ShopDetailActivity.this,AssessListActivity.class)
 				.putExtra("type", restaurant.getType()).putExtra("pid", restaurant.getId()));
+			break;
+		case R.id.aci_store_btn:
+			RequestParams params=new RequestParams();
+			params.put("uid", BaseApp.getModel().getUserid());
+			params.put("type", restaurant.getType());
+			params.put("pid", restaurant.getId());
+			HttpUtils.addCollection(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					//btn_store.setImageResource(R.drawable.my_store_select);
+					Tools.toast(ShopDetailActivity.this, "添加收藏成功");
+				}
+				@Override
+				public void onRecevieFailed(String status, JSONObject json) {
+					Tools.toast(ShopDetailActivity.this, "添加收藏失败");
+				}
+			}, params);
+			break;
+		case R.id.aci_shared_btn:
+			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
 		default:
 			break;

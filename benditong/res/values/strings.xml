@@ -34,6 +34,10 @@
     <string name="index_hotel">酒店</string>
     <string name="index_shops">商铺</string>
     <string name="index_cars">拼车</string>
+    <string name="index_bianmin">便民</string>
+    <string name="index_zhaopin">招聘</string>
+    <string name="index_fangchan">房产</string>
+    <string name="index_gongqiu">供求</string>
     <string name="integral_mall">积分商城</string>
     <string name="preferential_good">感恩特惠商品</string>
     <string name="integral_luck">积分抽奖</string>
@@ -60,7 +64,8 @@
     <string name="res_assess_name">还**吹</string>
     <string name="res_assess_time">2015&#8211;06&#8211;17 14:00</string>
     <string name="res_assess_more">查看更多评价</string>
-    <string name="reserve_go">立即预定</string>
+    <string name="reserve_go">立即抢购</string>
+    <string name="reserve_go2">立即预定</string>
     <string name="good_price">88元</string>
     
     <!-- 团购详情 -->
@@ -183,10 +188,42 @@
     <!-- 收藏 -->
     <string name="store_pro">收藏的产品</string>
     <string name="store_res">收藏的店铺</string>
+    <string name="store_delete">删除</string>
     <string name="record_address">山东 临沂 2015&#8211;06&#8211;30</string>
     <string name="collection_name">店铺名称店铺名称</string>
     <string name="collection_time">2015-07-16 收藏</string>
     
+        <!-- 便民 -->
+    <string name="zixun">资讯</string>
+    <string name="gouwu">购物</string>
+    <string name="shenghuo">生活</string>
+    <string name="chaxun">查询</string>
+    <string name="index_baidu">百度</string>
+    <string name="index_sina">新浪</string>
+    <string name="index_tencent">腾讯</string>
+    <string name="index_suhoo">搜狐</string>
+    <string name="index_ifeng">凤凰</string>
+    <string name="index_taobao">淘宝</string>
+    <string name="index_jingdong">京东</string>
+    <string name="index_tianmao">天猫</string>
+    <string name="index_1haodian">1号店</string>
+    <string name="index_weipinhui">唯品会</string>
+    <string name="index_ganji">赶集</string>
+    <string name="index_youyuan">有缘网</string>
+    <string name="index_suhoodv">搜狐视频</string>
+    <string name="index_game">游戏</string>
+    <string name="index_bookreader">电子书</string>
+    <string name="index_gowhere">去哪儿</string>
+    <string name="index_12306">火车票</string>
+    <string name="index_weizhang">汽车违章</string>
+    <string name="index_kuaidi">快递</string>
+    <string name="index_caipiao">彩票开奖</string>
+    
+        <!-- 招聘 -->
+    <string name="zp_all">全部</string>
+    <string name="zp_jianzhi">兼职</string>
+    <string name="zp_sell">销售</string>
+    <string name="zp_zonghe">综合</string>
     <!-- 设置 -->
     <string name="setting_about">公司简介</string>
     <string name="setting_reading">应用说明</string>

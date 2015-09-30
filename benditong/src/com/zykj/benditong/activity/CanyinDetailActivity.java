@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
@@ -49,7 +50,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 	private RelativeLayout aci_header;
 	private TextView restaurant_name,res_address,res_title,res_introduct/*,res_assess_num*/,res_assess_name,res_assess_content,res_assess_time,res_assess_more;
 	private RatingBar restaurant_star,res_assess_star;
-	private ImageView restaurant_img,res_phone,res_assess_img,header_background;
+	private ImageView restaurant_img,res_phone,res_assess_img,header_background,img_store;
 	private AutoListView  restaurant_list;
 	private GridView grid_images;
 	private Button reserve_go;
@@ -88,6 +89,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 		restaurant_list = (AutoListView)findViewById(R.id.restaurant_list);
 		restaurant_list.setFocusable(false);
 		reserve_go = (Button)findViewById(R.id.reserve_go);
+		img_store=(ImageView) findViewById(R.id.aci_store_btn);
 		
 		LayoutParams pageParms = aci_header.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
@@ -214,6 +216,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
 		case R.id.aci_store_btn:
+			
 			RequestParams params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
 			params.put("type", restaurant.getType());
@@ -223,6 +226,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
+					img_store.setImageResource(R.drawable.my_store_select);
 				}
 				@Override
 				public void onRecevieFailed(String status, JSONObject json) {

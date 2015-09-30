@@ -37,12 +37,16 @@
                     android:gravity="center"
                     android:orientation="horizontal"/>
 		    </RelativeLayout>
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="@dimen/two_hundred"
+		        android:background="@color/white"
+		        android:orientation="vertical">
 		    <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/one_hundred"
                 android:background="@color/white"
                 android:orientation="horizontal"
-                android:layout_marginTop="@dimen/ten"
                 android:weightSum="4" >
                 <LinearLayout
                  	android:id="@+id/im_b1canyin"
@@ -124,7 +128,93 @@
                         android:text="@string/index_cars"/>
                 </LinearLayout>
             </LinearLayout>
-            
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/one_hundred"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="4" >
+                <LinearLayout
+                 	android:id="@+id/im_b1bianmin"
+                    android:layout_width="0.0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/b1_bianmin" />
+                    <TextView 
+                        android:layout_width="55sp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/index_bianmin"/>
+                </LinearLayout>
+
+                <LinearLayout
+                  	android:id="@+id/im_b1zhaopin"
+                    android:layout_width="0.0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/b1_zhaopin" />
+                     <TextView 
+                        android:layout_width="55sp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/index_zhaopin"/>
+                </LinearLayout>
+
+                <LinearLayout
+                	android:id="@+id/im_b1fangchan"
+                    android:layout_width="0.0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/b1_fangchan" />
+                    <TextView 
+                        android:layout_width="55sp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/index_fangchan"/>
+                </LinearLayout>
+
+                <LinearLayout
+                  	android:id="@+id/im_b1gongqiu"
+                    android:layout_width="0.0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/b1_gongqiu" />
+                    <TextView 
+                        android:layout_width="55sp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/index_gongqiu"/>
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
 	        <LinearLayout
 	            android:layout_width="match_parent"
 	            android:layout_height="70dp"

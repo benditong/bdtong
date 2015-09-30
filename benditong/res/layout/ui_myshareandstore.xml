@@ -3,61 +3,72 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/fifty"
     android:background="@color/theme_color" >
+
     <ImageView
         android:id="@+id/aci_back_btn"
         android:layout_width="@dimen/fifty"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:padding="@dimen/fifteen"
-        android:src="@drawable/common_title_back"/>
-    <LinearLayout 
+        android:src="@drawable/common_title_back" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-	    <TextView
-	        android:id="@+id/aci_title_tv"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/title"
-	        style="@style/ui_titletext" />
-	    <TextView 
-	        android:id="@+id/aci_subtitle_tv"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="@dimen/four"
-	        android:text="@string/title"
-	        android:textSize="@dimen/t_fourteen"
-	        android:visibility="gone"
-	        style="@style/ui_titletext" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/aci_title_tv"
+            style="@style/ui_titletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title" />
+
+        <TextView
+            android:id="@+id/aci_subtitle_tv"
+            style="@style/ui_titletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/four"
+            android:text="@string/title"
+            android:textSize="@dimen/t_fourteen"
+            android:visibility="gone" />
     </LinearLayout>
-    <LinearLayout 
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
-        android:orientation="horizontal">
-	    <ImageView
-	        android:id="@+id/aci_shared_btn"
-	        android:visibility="gone"
-	        android:layout_width="@dimen/fifty"
-	        android:layout_height="match_parent"
-	        android:paddingTop="@dimen/twelve"
-	        android:paddingBottom="@dimen/twelve"
-	        android:contentDescription="@string/app_name"
-	        android:src="@drawable/my_share_normal"/>
-	    <View 
-	        android:layout_width="@dimen/one"
-	        android:layout_height="match_parent"/>
-	    <ImageView
-	        android:id="@+id/aci_store_btn"
-	        android:visibility="gone"
-	        android:layout_width="@dimen/fifty"
-	        android:layout_height="match_parent"
-	        android:paddingRight="@dimen/ten"
-	        android:paddingTop="@dimen/twelve"
-	        android:paddingBottom="@dimen/twelve"
-	        android:contentDescription="@string/app_name"
-	        android:src="@drawable/my_store_normal"/>
-	</LinearLayout>
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/aci_shared_btn"
+            android:layout_width="@dimen/twenty_five"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:paddingBottom="@dimen/eight"
+            android:paddingTop="@dimen/eight"
+            android:src="@drawable/my_share_normal"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="@dimen/one"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/aci_store_btn"
+            android:layout_width="@dimen/twenty_five"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_marginRight="@dimen/ten"
+            android:contentDescription="@string/app_name"
+            android:paddingBottom="@dimen/eight"
+            android:paddingTop="@dimen/eight"
+            android:src="@drawable/my_store_normal"
+            android:visibility="gone" />
+    </LinearLayout>
+
 </RelativeLayout>

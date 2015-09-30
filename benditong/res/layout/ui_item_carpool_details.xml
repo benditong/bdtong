@@ -21,7 +21,6 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/image_orign"
         android:text="@string/user_carpool_origin_2"
-        android:textSize="12sp"
         android:textColor="@color/text_light" />
 
     <TextView
@@ -31,8 +30,7 @@
         android:layout_alignTop="@id/image_orign"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_orign_1"
-        android:text="济南市**路**建筑"
-        android:textSize="12sp" />
+        android:text=""/>
 
     <ImageView
         android:id="@+id/image_destination"
@@ -51,7 +49,6 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/image_destination"
         android:text="@string/user_carpool_destination_2"
-        android:textSize="12sp"
         android:textColor="@color/text_light" />
 
     <TextView
@@ -61,8 +58,7 @@
         android:layout_alignTop="@id/image_destination"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_destination_1"
-        android:text="青岛市**路**建筑"
-        android:textSize="12sp" />
+        android:text=""/>
 
     <ImageView
         android:id="@+id/image_carpool_time"
@@ -81,7 +77,6 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/image_carpool_time"
         android:text="@string/user_carpool_departure_time_2"
-        android:textSize="12sp" 
         android:textColor="@color/text_light"/>
 
     <TextView
@@ -91,8 +86,7 @@
         android:layout_alignTop="@id/image_carpool_time"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_departure_time_1"
-        android:text="2015-06-17   7:00"
-        android:textSize="12sp" />
+        android:text=""/>
 
     <ImageView
         android:id="@+id/image_carpool_remain_seats"
@@ -111,7 +105,6 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/image_carpool_remain_seats"
         android:text="@string/user_carpool_remain_seats_2"
-        android:textSize="12sp" 
         android:textColor="@color/text_light"/>
 
     <TextView
@@ -121,8 +114,7 @@
         android:layout_alignTop="@id/image_carpool_remain_seats"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_remain_seats_1"
-        android:text="16位"
-        android:textSize="12sp" />
+        android:text=""/>
 
     <TextView
         android:id="@+id/textView_price_1"
@@ -142,8 +134,7 @@
         android:layout_alignTop="@id/image_carpool_remain_seats"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_price_1"
-        android:text="￥200"
-        android:textSize="12sp" />
+        android:text=""/>
 
     <Button
         android:id="@+id/btn_carpool_sign_up"
@@ -151,9 +142,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:focusable="false"
+        android:layout_alignTop="@+id/textView_orign_2"
         android:background="@drawable/carpool_sign_up_button_bg"
+        android:focusable="false"
         android:paddingBottom="3dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"

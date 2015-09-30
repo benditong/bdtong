@@ -3,9 +3,13 @@ package com.zykj.benditong.activity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.security.auth.PrivateCredentialPermission;
+
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import com.alibaba.fastjson.JSONObject;
 import com.amap.api.location.AMapLocation;
@@ -23,13 +27,23 @@ import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 
 public class Welcome extends BaseActivity {
-	
+	private ViewFlipper flipper;
+	private  int[] resId={R.drawable.pic_1,R.drawable.pic_2,R.drawable.pic_3,R.drawable.pic_4};
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//在使用SDK各组件之前初始化context信息，传入ApplicationContext
         //注意该方法要再setContentView方法之前实现
 		initView(R.layout.ui_welcome);
-
+//		flipper=(ViewFlipper) findViewById(R.id.flipper);
+//		for(int i=0;i<resId.length;i++){
+//			flipper.addView(getImageView(resId[i]));
+//		}
+//		flipper.setInAnimation(this,R.anim.popshow_anim);
+//		flipper.setOutAnimation(this,R.anim.pophidden_anim);
+//		flipper.setFlipInterval(500);
+//		flipper.startFlipping();
+		
+		
 		mLocationManger=LocationManagerProxy.getInstance(this);
 		//进行一次定位
 		mLocationManger.requestLocationData(LocationProviderProxy.AMapNetwork, -1, 15, mLocationListener);
@@ -121,4 +135,10 @@ public class Welcome extends BaseActivity {
 			}
 		}
 	};
+	private ImageView getImageView(int resId)
+	{
+		ImageView image =new ImageView(this);
+		image.setBackgroundResource(resId);
+		return image;
+	}
 }
