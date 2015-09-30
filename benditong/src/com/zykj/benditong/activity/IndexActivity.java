@@ -123,8 +123,7 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 			break;
 		case R.id.im_b1gongqiu:
 			/* 供求 */
-			startActivity(new Intent(IndexActivity.this,
-					CarpoolMainActivity.class));
+			//startActivity(new Intent(IndexActivity.this, SupplyDemandActivity.class));
 			break;
 		case R.id.user_gift_left:
 			/* 积分商城 */

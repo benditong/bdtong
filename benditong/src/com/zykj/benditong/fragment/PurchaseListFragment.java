@@ -28,7 +28,7 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class PurchaseListFragment extends Fragment implements IXListViewListener, OnItemClickListener{
 	
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int PERPAGE=10;//perpage默认每页显示10条信息
 	
 	private int nowpage=1;//当前显示的页面 
 	private int state=0;//订单状态：0未付款1已付款,未消费2已消费3已退款4订单已取消

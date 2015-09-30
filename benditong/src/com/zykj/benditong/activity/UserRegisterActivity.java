@@ -148,15 +148,17 @@ public class UserRegisterActivity extends BaseActivity{
 			if ("forget".equals(type)) {
 				params.put("mob", username);
 				params.put("password", password);
-				HttpUtils.login(new HttpErrorHandler() {
+				HttpUtils.resetPassword(new HttpErrorHandler() {
 					@Override
 					public void onRecevieSuccess(JSONObject json) {
 						MyRequestDailog.closeDialog();
-						Tools.toast(UserRegisterActivity.this, "修改成功");
+						Tools.toast(UserRegisterActivity.this, json.getString("message"));
+//						Tools.toast(UserRegisterActivity.this, "密码重置成功");
 						finish();
 					}
 					@Override
 					public void onRecevieFailed(String status, JSONObject json) {
+						MyRequestDailog.closeDialog();
 						Tools.toast(UserRegisterActivity.this, json.getString("message"));
 					}
 				}, params);
@@ -164,16 +166,11 @@ public class UserRegisterActivity extends BaseActivity{
 			} else {
 				params.put("mob", username);
 				params.put("pass", password);
-				HttpUtils.login(new HttpErrorHandler() {
+				HttpUtils.register(new HttpErrorHandler() {
 					@Override
 					public void onRecevieSuccess(JSONObject json) {
 						MyRequestDailog.closeDialog();
-//						JSONObject data = json.getJSONObject("data");
-						Tools.toast(UserRegisterActivity.this, json.getString("result_text"));
-//						BaseApp.getModel().setMobile(username);
-//						BaseApp.getModel().setUsername(username);
-//						BaseApp.getModel().setPassword(password);
-//						BaseApp.getModel().setUserid(data.getString(""));
+						Tools.toast(UserRegisterActivity.this, json.getString("message"));
 						finish();
 					}
 					@Override

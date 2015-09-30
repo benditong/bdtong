@@ -31,7 +31,6 @@ public class ReserveAdapter extends CommonAdapter<Order> {
 
 	@Override
 	public void convert(ViewHolder holder,final Order order) {
-		order.setType(type);//0-restaurant,1-hotel,2-shop
 		holder.setImageUrl(R.id.order_img, StringUtil.toString(order.getGoodsimg()), 15f)//图片
 			.setText(R.id.restaurant_name, StringUtil.toString(order.getTitle()))//餐厅名
 			.setText(R.id.restaurant_time, (0 == type ?"用餐时间：":"入住时间：")+StringUtil.toString(order.getIntime()))//用餐时间
@@ -62,7 +61,7 @@ public class ReserveAdapter extends CommonAdapter<Order> {
 	            }).setNegativeButton("取消",null).show();
 			}
 		});
-//		if("0".equals(order.getIscomment())){
+		if("0".equals(order.getIscomment())){
 			order_assess.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
@@ -70,11 +69,11 @@ public class ReserveAdapter extends CommonAdapter<Order> {
 								.putExtra("order", order).putExtra("type", type));
 				}
 			});
-//		}else{
-//			order_assess.setOnClickListener(null);
-//			order_assess.setBackgroundResource(R.drawable.bg_null_grey);
-//			order_assess.setText("已评价");
-//			order_assess.setTextColor(mContext.getResources().getColor(R.color.grey));
-//		}
+		}else{
+			order_assess.setOnClickListener(null);
+			order_assess.setBackgroundResource(R.drawable.bg_null_grey);
+			order_assess.setText("已评价");
+			order_assess.setTextColor(mContext.getResources().getColor(R.color.grey));
+		}
 	}
 }

@@ -56,6 +56,8 @@ public class MyRequestDailog extends Dialog {
 			m_dialog.setCancelable(false);
 			m_dialog.show();
 		}else{
+			m_dialog.dismiss();
+			m_dialog = new MyRequestDailog(context, msg);
 			m_dialog.setCancelable(false);
 			m_dialog.show();
 		}
