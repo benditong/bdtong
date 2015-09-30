@@ -225,7 +225,6 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
-					//btn_store.setImageResource(R.drawable.my_store_select);
 					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
 					img_store.setImageResource(R.drawable.my_store_select);
 				}
