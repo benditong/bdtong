@@ -96,10 +96,10 @@ public class ZhaoPinFragment extends Fragment implements IXListViewListener,
 					@Override
 					public void convert(ViewHolder holder, ZhaoPin zhaoPin) {
 						holder.setText(R.id.zp_zhiwei_name, StringUtil.toString(zhaoPin.getId()))
-						.setText(R.id.zp_zhiwei_name, StringUtil.toString(zhaoPin.getPay()))
-						.setText(R.id.zp_zhiwei_name, StringUtil.toString(zhaoPin.getNum()))
-						.setText(R.id.zp_zhiwei_name, StringUtil.toString(zhaoPin.getAddtime()))
-						.setText(R.id.zp_zhiwei_name, StringUtil.toString(zhaoPin.getConame()));
+						.setText(R.id.zp_item_salary, StringUtil.toString(zhaoPin.getPay()))
+						.setText(R.id.zp_item_persons, StringUtil.toString(zhaoPin.getNum()))
+						.setText(R.id.zp_publish_time, StringUtil.toString(zhaoPin.getAddtime()))
+						.setText(R.id.zp_item_comp_name, StringUtil.toString(zhaoPin.getConame()));
 					}
 				};
 				mListView.setAdapter(zhaopinAdapter);

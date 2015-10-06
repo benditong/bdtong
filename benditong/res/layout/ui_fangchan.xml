@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.zykj.benditong.view.MyCommonTitle       
+        android:id="@+id/aci_mytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/tab_fangchan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/thirty"
+        android:layout_marginTop="@dimen/five"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/fangchan_tab1"
+            style="@style/my_radiobutton"
+            android:checked="true"
+            android:text="@string/fc_entire_rent" />
+
+        <RadioButton
+            android:id="@+id/fangchan_tab2"
+            style="@style/my_radiobutton"
+            android:text="@string/fc_joint_rent" />
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fangchan_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
+
+</LinearLayout>

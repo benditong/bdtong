@@ -33,13 +33,9 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
 
 	@Override
 	public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable throwable) {
-        try {
-			String responseString=new String(responseBody, HTTP.UTF_8);
-	        onRecevieFailed("400", JSON.parseObject(UrlContants.ERROR));
-			MyRequestDailog.closeDialog();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+        //String responseString=new String(responseBody, HTTP.UTF_8);
+		onRecevieFailed("400", JSON.parseObject(UrlContants.ERROR));
+		MyRequestDailog.closeDialog();
 	}
 
     public abstract void onRecevieSuccess(JSONObject json);

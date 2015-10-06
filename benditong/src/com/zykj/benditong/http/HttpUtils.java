@@ -143,7 +143,18 @@ public class HttpUtils {
     public static void GetZhaoPinInfo(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.GETZHAOPININFO), params, handler);
     }
-    
+    /*获取房产列表*/
+    public static void getFangChanList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETFANGCHANLIST), params, handler);
+    }
+    /*发布房产信息*/
+    public static void submitFangChanInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMITFANGCHANINFO), params, handler);
+    }
+    /*获取房产详情*/
+    public static void getFangChanInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETFANGCHANINFO), params, handler);
+    }
     /* 添加收藏的餐饮、酒店    */
     public static void addCollection(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.ADDCOLLECTION), params, handler);
