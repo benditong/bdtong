@@ -392,6 +392,7 @@ containing a value of this type.
         public static final int classic_platform_corners_bg=0x7f020025;
         public static final int common_title_back=0x7f020026;
         public static final int delete_holder_bg=0x7f020027;
+<<<<<<< HEAD
         public static final int devide_blue_bt=0x7f020028;
         public static final int devide_gray_bt=0x7f020029;
         public static final int dingwei=0x7f02002a;
@@ -505,10 +506,129 @@ containing a value of this type.
         public static final int wheel_val=0x7f020096;
         public static final int xlistview_arrow=0x7f020097;
         public static final int zp_pic_phone=0x7f020098;
+=======
+        public static final int demand_tab_color=0x7f020028;
+        public static final int demand_tab_left=0x7f020029;
+        public static final int demand_tab_right=0x7f02002a;
+        public static final int devide_blue_bt=0x7f02002b;
+        public static final int devide_gray_bt=0x7f02002c;
+        public static final int dingwei=0x7f02002d;
+        public static final int expand_tab_selector=0x7f02002e;
+        public static final int f011=0x7f02002f;
+        public static final int f012=0x7f020030;
+        public static final int f013=0x7f020031;
+        public static final int f014=0x7f020032;
+        public static final int f015=0x7f020033;
+        public static final int f016=0x7f020034;
+        public static final int feature_point=0x7f020035;
+        public static final int feature_point_cur=0x7f020036;
+        public static final int ic_launcher=0x7f020037;
+        public static final int ico_app=0x7f020038;
+        public static final int ico_restaurant=0x7f020039;
+        public static final int ico_search=0x7f02003a;
+        public static final int icon_image_default=0x7f02003b;
+        public static final int img_publish=0x7f02003c;
+        public static final int index_jf_left=0x7f02003d;
+        public static final int index_jf_right=0x7f02003e;
+        public static final int item_bottom_gray=0x7f02003f;
+        public static final int layout_bg=0x7f020040;
+        public static final int load_img=0x7f020041;
+        public static final int logo_qq=0x7f020042;
+        public static final int logo_qzone=0x7f020043;
+        public static final int logo_wechat=0x7f020044;
+        public static final int logo_wechatmoments=0x7f020045;
+        public static final int mobile=0x7f020046;
+        public static final int my_share_normal=0x7f020047;
+        public static final int my_store_normal=0x7f020048;
+        public static final int my_store_select=0x7f020049;
+        public static final int order_jia=0x7f02004a;
+        public static final int order_jian=0x7f02004b;
+        public static final int p1_12306=0x7f02004c;
+        public static final int p1_1haodian=0x7f02004d;
+        public static final int p1_baidu=0x7f02004e;
+        public static final int p1_bookreader=0x7f02004f;
+        public static final int p1_caipiao=0x7f020050;
+        public static final int p1_game=0x7f020051;
+        public static final int p1_ganji=0x7f020052;
+        public static final int p1_gowhere=0x7f020053;
+        public static final int p1_ifeng=0x7f020054;
+        public static final int p1_jingdong=0x7f020055;
+        public static final int p1_kuaidi100=0x7f020056;
+        public static final int p1_sina=0x7f020057;
+        public static final int p1_suhoo=0x7f020058;
+        public static final int p1_suhoodv=0x7f020059;
+        public static final int p1_sun=0x7f02005a;
+        public static final int p1_taobao=0x7f02005b;
+        public static final int p1_tencent=0x7f02005c;
+        public static final int p1_tianmao=0x7f02005d;
+        public static final int p1_weipinhui=0x7f02005e;
+        public static final int p1_weizhangchaxun=0x7f02005f;
+        public static final int p1_youyuan=0x7f020060;
+        public static final int pay_alipay=0x7f020061;
+        public static final int pay_weixin=0x7f020062;
+        public static final int phone=0x7f020063;
+        public static final int pic_11=0x7f020064;
+        public static final int pic_21=0x7f020065;
+        public static final int pic_31=0x7f020066;
+        public static final int pic_41=0x7f020067;
+        public static final int pic_51=0x7f020068;
+        public static final int publish_button_bg=0x7f020069;
+        public static final int ratingbar_empty=0x7f02006a;
+        public static final int ratingbar_full=0x7f02006b;
+        public static final int reset_password=0x7f02006c;
+        public static final int select_store_user=0x7f02006d;
+        public static final int selected_false=0x7f02006e;
+        public static final int selected_state=0x7f02006f;
+        public static final int selected_true=0x7f020070;
+        public static final int shape_background=0x7f020071;
+        public static final int shape_background_grey=0x7f020072;
+        public static final int shape_corner_down=0x7f020073;
+        public static final int sign=0x7f020074;
+        public static final int skyblue_actionbar_back_btn=0x7f020075;
+        public static final int skyblue_actionbar_ok_btn=0x7f020076;
+        public static final int skyblue_editpage_bg=0x7f020077;
+        public static final int skyblue_editpage_close=0x7f020078;
+        public static final int skyblue_editpage_divider=0x7f020079;
+        public static final int skyblue_editpage_image_bg=0x7f02007a;
+        public static final int skyblue_editpage_image_remove=0x7f02007b;
+        public static final int skyblue_platform_checked=0x7f02007c;
+        public static final int skyblue_platform_list_item=0x7f02007d;
+        public static final int skyblue_platform_list_item_selected=0x7f02007e;
+        public static final int skyblue_platform_list_selector=0x7f02007f;
+        public static final int ssdk_recomm_def_app_image=0x7f020080;
+        public static final int ssdk_recomm_friends_share_msg=0x7f020081;
+        public static final int star_rating_full=0x7f020082;
+        public static final int start=0x7f020083;
+        public static final int stop=0x7f020084;
+        public static final int tab_bg_top=0x7f020085;
+        public static final int tab_dw_index=0x7f020086;
+        public static final int tab_dw_order=0x7f020087;
+        public static final int tab_dw_user=0x7f020088;
+        public static final int tab_font_color=0x7f020089;
+        public static final int tab_index_normal=0x7f02008a;
+        public static final int tab_index_select=0x7f02008b;
+        public static final int tab_order_bg=0x7f02008c;
+        public static final int tab_order_normal=0x7f02008d;
+        public static final int tab_order_select=0x7f02008e;
+        public static final int tab_seg_color=0x7f02008f;
+        public static final int tab_seg_left=0x7f020090;
+        public static final int tab_seg_right=0x7f020091;
+        public static final int tab_user_normal=0x7f020092;
+        public static final int tab_user_select=0x7f020093;
+        public static final int upload_image=0x7f020094;
+        public static final int user_head_img=0x7f020095;
+        public static final int user_right=0x7f020096;
+        public static final int user_store=0x7f020097;
+        public static final int wheel_bg=0x7f020098;
+        public static final int wheel_val=0x7f020099;
+        public static final int xlistview_arrow=0x7f02009a;
+        public static final int zp_pic_phone=0x7f02009b;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
     }
     public static final class id {
         public static final int about_us=0x7f090002;
         public static final int aci_back_btn=0x7f09004b;
+<<<<<<< HEAD
         public static final int aci_bottom=0x7f0900f1;
         public static final int aci_edit_btn=0x7f0900db;
         public static final int aci_header=0x7f090051;
@@ -527,6 +647,26 @@ containing a value of this type.
         public static final int app_version=0x7f090107;
         public static final int assess_image=0x7f0900f8;
         public static final int assess_list=0x7f090087;
+=======
+        public static final int aci_bottom=0x7f0900f4;
+        public static final int aci_edit_btn=0x7f0900de;
+        public static final int aci_header=0x7f090051;
+        public static final int aci_mytitle=0x7f090000;
+        public static final int aci_shared_btn=0x7f0900df;
+        public static final int aci_store_btn=0x7f0900e2;
+        public static final int aci_subtitle_tv=0x7f0900dd;
+        public static final int aci_title_tv=0x7f0900dc;
+        public static final int actionbarLayout=0x7f090015;
+        public static final int add_name=0x7f09010d;
+        public static final int address=0x7f0900e1;
+        public static final int advert_listview=0x7f090110;
+        public static final int app_about=0x7f090107;
+        public static final int app_explain=0x7f090108;
+        public static final int app_register_in=0x7f090119;
+        public static final int app_version=0x7f09010a;
+        public static final int assess_image=0x7f0900fb;
+        public static final int assess_list=0x7f09008e;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int atDescTextView=0x7f090021;
         public static final int atLayout=0x7f09001c;
         public static final int atTextView=0x7f090020;
@@ -534,7 +674,11 @@ containing a value of this type.
         public static final int btn_back=0x7f090069;
         public static final int btn_carpool_need=0x7f090065;
         public static final int btn_carpool_owner=0x7f090066;
+<<<<<<< HEAD
         public static final int btn_carpool_sign_up=0x7f0900b6;
+=======
+        public static final int btn_carpool_sign_up=0x7f0900bd;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int btn_carpool_submit=0x7f090071;
         public static final int btn_datetime_cancel=0x7f090035;
         public static final int btn_datetime_sure=0x7f090034;
@@ -543,14 +687,34 @@ containing a value of this type.
         public static final int carpool_main_back=0x7f090067;
         public static final int checkedImageView=0x7f090029;
         public static final int closeImageView=0x7f090019;
+<<<<<<< HEAD
         public static final int collection_img=0x7f0900b7;
         public static final int collection_name=0x7f0900b8;
         public static final int collection_time=0x7f0900b9;
         public static final int comment_content=0x7f0900e2;
         public static final int container=0x7f09008d;
+=======
+        public static final int collection_img=0x7f0900be;
+        public static final int collection_name=0x7f0900bf;
+        public static final int collection_time=0x7f0900c0;
+        public static final int comment_content=0x7f0900e5;
+        public static final int container=0x7f090094;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int datePicker1=0x7f090036;
         public static final int day=0x7f090031;
         public static final int delete=0x7f090007;
+        public static final int demand_call=0x7f0900c1;
+        public static final int demand_caller=0x7f09007f;
+        public static final int demand_content=0x7f090086;
+        public static final int demand_image=0x7f09007d;
+        public static final int demand_info=0x7f090081;
+        public static final int demand_mobile=0x7f090085;
+        public static final int demand_person=0x7f090084;
+        public static final int demand_submit=0x7f090082;
+        public static final int demand_tel=0x7f090080;
+        public static final int demand_time=0x7f090083;
+        public static final int demand_title=0x7f09007e;
+        public static final int demand_type=0x7f09007c;
         public static final int dialog_load=0x7f09000e;
         public static final int dialog_modif_1=0x7f09000b;
         public static final int dialog_modif_2=0x7f09000c;
@@ -558,6 +722,7 @@ containing a value of this type.
         public static final int dialog_text=0x7f09000f;
         public static final int divider=0x7f09001a;
         public static final int expandtab_view=0x7f09004f;
+<<<<<<< HEAD
         public static final int fangchan_framelayout=0x7f09007f;
         public static final int fangchan_img=0x7f0900ba;
         public static final int fangchan_tab1=0x7f09007d;
@@ -567,6 +732,9 @@ containing a value of this type.
         public static final int fc_price=0x7f0900bc;
         public static final int fc_title=0x7f0900bb;
         public static final int forgetpwd=0x7f090111;
+=======
+        public static final int forgetpwd=0x7f090114;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int form1=0x7f09005e;
         public static final int form2=0x7f090060;
         public static final int friends_display=0x7f09007a;
@@ -575,6 +743,7 @@ containing a value of this type.
         public static final int friends_item_header_text=0x7f090012;
         public static final int friends_list_header_text=0x7f090010;
         public static final int friends_myletterlistview=0x7f09007b;
+<<<<<<< HEAD
         public static final int gallery_point_linear=0x7f09008f;
         public static final int gift_money=0x7f090099;
         public static final int gift_num=0x7f09009b;
@@ -588,10 +757,26 @@ containing a value of this type.
         public static final int good_sell_num=0x7f090082;
         public static final int gridView=0x7f090026;
         public static final int grid_images=0x7f0900a3;
+=======
+        public static final int gallery_point_linear=0x7f090096;
+        public static final int gift_money=0x7f0900a0;
+        public static final int gift_num=0x7f0900a2;
+        public static final int good_all_price=0x7f090093;
+        public static final int good_assess=0x7f09008a;
+        public static final int good_img=0x7f0900ad;
+        public static final int good_name=0x7f09008f;
+        public static final int good_num=0x7f090091;
+        public static final int good_old_price=0x7f090088;
+        public static final int good_price=0x7f090087;
+        public static final int good_sell_num=0x7f090089;
+        public static final int gridView=0x7f090026;
+        public static final int grid_images=0x7f0900aa;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int hScrollView=0x7f09001e;
         public static final int header_background=0x7f090052;
         public static final int holder=0x7f090006;
         public static final int hour=0x7f090032;
+<<<<<<< HEAD
         public static final int id_luckpan=0x7f0900d7;
         public static final int id_strat_btn=0x7f0900d8;
         public static final int identifying_code=0x7f090115;
@@ -603,6 +788,19 @@ containing a value of this type.
         public static final int im_b1pinche=0x7f090093;
         public static final int im_b1shangpu=0x7f090092;
         public static final int im_b1zhaopin=0x7f090095;
+=======
+        public static final int id_luckpan=0x7f0900da;
+        public static final int id_strat_btn=0x7f0900db;
+        public static final int identifying_code=0x7f090118;
+        public static final int im_b1bianmin=0x7f09009b;
+        public static final int im_b1canyin=0x7f090097;
+        public static final int im_b1fangchan=0x7f09009d;
+        public static final int im_b1gongqiu=0x7f09009e;
+        public static final int im_b1jiudian=0x7f090098;
+        public static final int im_b1pinche=0x7f09009a;
+        public static final int im_b1shangpu=0x7f090099;
+        public static final int im_b1zhaopin=0x7f09009c;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int im_p1_12306=0x7f09003d;
         public static final int im_p1_1haodian=0x7f090044;
         public static final int im_p1_bookreader=0x7f09004a;
@@ -627,6 +825,7 @@ containing a value of this type.
         public static final int imag_buton_phone=0x7f090004;
         public static final int imageRemoveBtn=0x7f090023;
         public static final int imageView=0x7f090022;
+<<<<<<< HEAD
         public static final int image_carpool_remain_seats=0x7f0900b1;
         public static final int image_carpool_time=0x7f0900ae;
         public static final int image_destination=0x7f0900ab;
@@ -640,10 +839,26 @@ containing a value of this type.
         public static final int loadMoreButton=0x7f090014;
         public static final int login_in=0x7f090110;
         public static final int login_out=0x7f090108;
+=======
+        public static final int image_carpool_remain_seats=0x7f0900b8;
+        public static final int image_carpool_time=0x7f0900b5;
+        public static final int image_destination=0x7f0900b2;
+        public static final int image_orign=0x7f0900af;
+        public static final int imagesLinearLayout=0x7f09001f;
+        public static final int index_list=0x7f0900a4;
+        public static final int index_slider=0x7f090095;
+        public static final int layout_address=0x7f09010e;
+        public static final int layout_age=0x7f09010c;
+        public static final int listView=0x7f090137;
+        public static final int loadMoreButton=0x7f090014;
+        public static final int login_in=0x7f090113;
+        public static final int login_out=0x7f09010b;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int logoImageView=0x7f090027;
         public static final int mainRelLayout=0x7f090016;
         public static final int map_container=0x7f090008;
         public static final int mins=0x7f090033;
+<<<<<<< HEAD
         public static final int mobile_number=0x7f09010c;
         public static final int month=0x7f090030;
         public static final int nameTextView=0x7f090028;
@@ -724,10 +939,92 @@ containing a value of this type.
         public static final int simplenavimap=0x7f090009;
         public static final int tab_fangchan=0x7f09007c;
         public static final int tab_order=0x7f0900e4;
+=======
+        public static final int mobile_number=0x7f09010f;
+        public static final int month=0x7f090030;
+        public static final int nameTextView=0x7f090028;
+        public static final int noScrollgridview=0x7f0900e6;
+        public static final int okImageView=0x7f090025;
+        public static final int order_assess=0x7f0900d1;
+        public static final int order_cancel=0x7f0900cd;
+        public static final int order_date=0x7f0900ee;
+        public static final int order_delete=0x7f0900d0;
+        public static final int order_framelayout=0x7f0900e4;
+        public static final int order_img=0x7f0900c9;
+        public static final int order_jia=0x7f090092;
+        public static final int order_jian=0x7f090090;
+        public static final int order_mobile=0x7f090064;
+        public static final int order_name=0x7f090063;
+        public static final int order_num=0x7f0900ed;
+        public static final int order_pay=0x7f090062;
+        public static final int order_people=0x7f090061;
+        public static final int order_pnum=0x7f0900f2;
+        public static final int order_price=0x7f0900f3;
+        public static final int order_seg=0x7f0900e3;
+        public static final int order_state=0x7f0900c8;
+        public static final int order_tab1=0x7f0900e8;
+        public static final int order_tab2=0x7f0900e9;
+        public static final int order_tab3=0x7f0900ea;
+        public static final int order_tab4=0x7f0900eb;
+        public static final int order_time=0x7f09005f;
+        public static final int order_viewpager=0x7f0900ec;
+        public static final int pay_alipay=0x7f0900f7;
+        public static final int pay_button=0x7f090116;
+        public static final int pay_out=0x7f09011a;
+        public static final int pay_price=0x7f0900f6;
+        public static final int pay_weixin=0x7f0900f9;
+        public static final int phone=0x7f090003;
+        public static final int phone_code=0x7f090117;
+        public static final int product_content=0x7f0900c5;
+        public static final int product_distance=0x7f0900c4;
+        public static final int product_image=0x7f0900c2;
+        public static final int product_name=0x7f0900ca;
+        public static final int product_num=0x7f0900cb;
+        public static final int product_price=0x7f0900c6;
+        public static final int product_title=0x7f0900c3;
+        public static final int relayout_details=0x7f0900ae;
+        public static final int res_address=0x7f090056;
+        public static final int res_assess_content=0x7f0900ab;
+        public static final int res_assess_img=0x7f0900a7;
+        public static final int res_assess_more=0x7f09005b;
+        public static final int res_assess_name=0x7f0900a8;
+        public static final int res_assess_num=0x7f09005a;
+        public static final int res_assess_star=0x7f0900a9;
+        public static final int res_assess_time=0x7f0900ac;
+        public static final int res_introduct=0x7f090059;
+        public static final int res_name=0x7f0900c7;
+        public static final int res_phone=0x7f090057;
+        public static final int res_title=0x7f090058;
+        public static final int reserve_framelayout=0x7f0900f1;
+        public static final int reserve_go=0x7f09005d;
+        public static final int reserve_tab1=0x7f0900ef;
+        public static final int reserve_tab2=0x7f0900f0;
+        public static final int reserve_time=0x7f0900cf;
+        public static final int reset_password=0x7f090109;
+        public static final int restaurant_address=0x7f0900d4;
+        public static final int restaurant_id=0x7f0900d2;
+        public static final int restaurant_img=0x7f090055;
+        public static final int restaurant_list=0x7f09005c;
+        public static final int restaurant_name=0x7f090053;
+        public static final int restaurant_score=0x7f0900d3;
+        public static final int restaurant_star=0x7f090054;
+        public static final int restaurant_time=0x7f0900ce;
+        public static final int rl_ditu=0x7f0900e0;
+        public static final int rl_me_top=0x7f0900fc;
+        public static final int rl_sousuokuang=0x7f09004c;
+        public static final int rv_me_avatar=0x7f0900fd;
+        public static final int search_delete=0x7f09004d;
+        public static final int search_input=0x7f09004e;
+        public static final int sel_alipay=0x7f0900f8;
+        public static final int sel_weixin=0x7f0900fa;
+        public static final int simplenavimap=0x7f090009;
+        public static final int tab_order=0x7f0900e7;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int tab_radio1=0x7f09002b;
         public static final int tab_radio2=0x7f09002c;
         public static final int tab_radio3=0x7f09002d;
         public static final int tab_rgroup=0x7f09002a;
+<<<<<<< HEAD
         public static final int tab_zhaopin=0x7f090118;
         public static final int textCounterTextView=0x7f09001d;
         public static final int textEditText=0x7f09001b;
@@ -755,10 +1052,40 @@ containing a value of this type.
         public static final int tv_index_order=0x7f09009c;
         public static final int tv_instructions=0x7f09000a;
         public static final int tv_me_mobile=0x7f0900fb;
+=======
+        public static final int tab_zhaopin=0x7f09011b;
+        public static final int textCounterTextView=0x7f09001d;
+        public static final int textEditText=0x7f09001b;
+        public static final int textView_departure_time=0x7f090076;
+        public static final int textView_departure_time_1=0x7f0900b6;
+        public static final int textView_departure_time_2=0x7f0900b7;
+        public static final int textView_destination=0x7f090075;
+        public static final int textView_destination_1=0x7f0900b3;
+        public static final int textView_destination_2=0x7f0900b4;
+        public static final int textView_orign=0x7f090074;
+        public static final int textView_orign_1=0x7f0900b0;
+        public static final int textView_orign_2=0x7f0900b1;
+        public static final int textView_price_1=0x7f0900bb;
+        public static final int textView_price_2=0x7f0900bc;
+        public static final int textView_remain_seats=0x7f090077;
+        public static final int textView_remain_seats_1=0x7f0900b9;
+        public static final int textView_remain_seats_2=0x7f0900ba;
+        public static final int timePicker1=0x7f09002e;
+        public static final int titleEditText=0x7f090018;
+        public static final int titleLayout=0x7f090017;
+        public static final int title_one=0x7f09008b;
+        public static final int title_three=0x7f09008d;
+        public static final int title_two=0x7f09008c;
+        public static final int total_price=0x7f0900cc;
+        public static final int tv_index_order=0x7f0900a3;
+        public static final int tv_instructions=0x7f09000a;
+        public static final int tv_me_mobile=0x7f0900fe;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int user_car_cost=0x7f09006e;
         public static final int user_car_model=0x7f090073;
         public static final int user_departure_time=0x7f09006c;
         public static final int user_destination=0x7f09006b;
+<<<<<<< HEAD
         public static final int user_gift_left=0x7f090098;
         public static final int user_gift_right=0x7f09009a;
         public static final int user_integral=0x7f090102;
@@ -825,6 +1152,74 @@ containing a value of this type.
         public static final int zp_salary=0x7f09012a;
         public static final int zp_zhiwei_name=0x7f0900d2;
         public static final int zp_zhiweisort=0x7f09012c;
+=======
+        public static final int user_gift_left=0x7f09009f;
+        public static final int user_gift_right=0x7f0900a1;
+        public static final int user_integral=0x7f090105;
+        public static final int user_left=0x7f090102;
+        public static final int user_login=0x7f0900ff;
+        public static final int user_mobile=0x7f090079;
+        public static final int user_money=0x7f090103;
+        public static final int user_name=0x7f09006f;
+        public static final int user_origin=0x7f09006a;
+        public static final int user_payout=0x7f090115;
+        public static final int user_persons=0x7f09006d;
+        public static final int user_phone=0x7f090070;
+        public static final int user_remain_seats=0x7f090072;
+        public static final int user_right=0x7f090104;
+        public static final int user_sign=0x7f090100;
+        public static final int user_sign_text=0x7f090101;
+        public static final int user_sign_up_num=0x7f090078;
+        public static final int user_store=0x7f090106;
+        public static final int user_wellet=0x7f0900f5;
+        public static final int uu_password=0x7f090112;
+        public static final int uu_username=0x7f090111;
+        public static final int viewGroup=0x7f0900a6;
+        public static final int viewPager=0x7f0900a5;
+        public static final int view_content=0x7f090005;
+        public static final int xlistview_footer_content=0x7f090138;
+        public static final int xlistview_footer_hint_textview=0x7f09013a;
+        public static final int xlistview_footer_progressbar=0x7f090139;
+        public static final int xlistview_header_arrow=0x7f09013f;
+        public static final int xlistview_header_content=0x7f09013b;
+        public static final int xlistview_header_hint_textview=0x7f09013d;
+        public static final int xlistview_header_progressbar=0x7f090140;
+        public static final int xlistview_header_text=0x7f09013c;
+        public static final int xlistview_header_time=0x7f09013e;
+        public static final int year=0x7f09002f;
+        public static final int zhaopin_framelayout=0x7f090120;
+        public static final int zhaopin_tab1=0x7f09011c;
+        public static final int zhaopin_tab2=0x7f09011d;
+        public static final int zhaopin_tab3=0x7f09011e;
+        public static final int zhaopin_tab4=0x7f09011f;
+        public static final int zp_company_about=0x7f090135;
+        public static final int zp_company_address=0x7f090134;
+        public static final int zp_company_name=0x7f090133;
+        public static final int zp_contacts=0x7f090131;
+        public static final int zp_description=0x7f090130;
+        public static final int zp_details_comp_about=0x7f090128;
+        public static final int zp_details_comp_address=0x7f090125;
+        public static final int zp_details_comp_name=0x7f090124;
+        public static final int zp_details_contacts=0x7f090129;
+        public static final int zp_details_mobile=0x7f09012a;
+        public static final int zp_details_persons=0x7f090126;
+        public static final int zp_details_phone=0x7f09012b;
+        public static final int zp_details_position=0x7f090121;
+        public static final int zp_details_publish_time=0x7f090122;
+        public static final int zp_details_require=0x7f090127;
+        public static final int zp_details_salary=0x7f090123;
+        public static final int zp_item_comp_name=0x7f0900d9;
+        public static final int zp_item_persons=0x7f0900d7;
+        public static final int zp_item_salary=0x7f0900d6;
+        public static final int zp_mobile=0x7f090132;
+        public static final int zp_persons=0x7f09012e;
+        public static final int zp_position=0x7f09012c;
+        public static final int zp_publish=0x7f090136;
+        public static final int zp_publish_time=0x7f0900d8;
+        public static final int zp_salary=0x7f09012d;
+        public static final int zp_zhiwei_name=0x7f0900d5;
+        public static final int zp_zhiweisort=0x7f09012f;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
     }
     public static final class layout {
         public static final int about_us=0x7f030000;
@@ -856,6 +1251,7 @@ containing a value of this type.
         public static final int ui_carpool_owner=0x7f03001a;
         public static final int ui_carpool_sign_up=0x7f03001b;
         public static final int ui_citylist=0x7f03001c;
+<<<<<<< HEAD
         public static final int ui_fangchan=0x7f03001d;
         public static final int ui_groupbuy_detail=0x7f03001e;
         public static final int ui_groupbuy_input=0x7f03001f;
@@ -906,27 +1302,80 @@ containing a value of this type.
     public static final class string {
         public static final int about=0x7f070161;
         public static final int add_name=0x7f0700fd;
+=======
+        public static final int ui_demand_add=0x7f03001d;
+        public static final int ui_demand_detail=0x7f03001e;
+        public static final int ui_groupbuy_detail=0x7f03001f;
+        public static final int ui_groupbuy_input=0x7f030020;
+        public static final int ui_index_activity=0x7f030021;
+        public static final int ui_intro=0x7f030022;
+        public static final int ui_item_assess=0x7f030023;
+        public static final int ui_item_canyin=0x7f030024;
+        public static final int ui_item_carpool_details=0x7f030025;
+        public static final int ui_item_collection=0x7f030026;
+        public static final int ui_item_demand=0x7f030027;
+        public static final int ui_item_like=0x7f030028;
+        public static final int ui_item_purchase=0x7f030029;
+        public static final int ui_item_reserve=0x7f03002a;
+        public static final int ui_item_restaurant=0x7f03002b;
+        public static final int ui_item_shop=0x7f03002c;
+        public static final int ui_item_shopping_cart=0x7f03002d;
+        public static final int ui_item_zhaopin=0x7f03002e;
+        public static final int ui_luckpan=0x7f03002f;
+        public static final int ui_mycommontitle=0x7f030030;
+        public static final int ui_mysearchtitle=0x7f030031;
+        public static final int ui_myshareandstore=0x7f030032;
+        public static final int ui_order_activity=0x7f030033;
+        public static final int ui_order_assess=0x7f030034;
+        public static final int ui_order_purchase=0x7f030035;
+        public static final int ui_order_purchase_detail=0x7f030036;
+        public static final int ui_order_reserve=0x7f030037;
+        public static final int ui_order_reserve_detail=0x7f030038;
+        public static final int ui_pay_activity=0x7f030039;
+        public static final int ui_shop_detail=0x7f03003a;
+        public static final int ui_simple_image=0x7f03003b;
+        public static final int ui_user_activity=0x7f03003c;
+        public static final int ui_user_info=0x7f03003d;
+        public static final int ui_user_list=0x7f03003e;
+        public static final int ui_user_login=0x7f03003f;
+        public static final int ui_user_payout=0x7f030040;
+        public static final int ui_user_register=0x7f030041;
+        public static final int ui_user_reset_pwd=0x7f030042;
+        public static final int ui_user_store=0x7f030043;
+        public static final int ui_user_wallet=0x7f030044;
+        public static final int ui_welcome=0x7f030045;
+        public static final int ui_zhaopin=0x7f030046;
+        public static final int ui_zhaopin_details=0x7f030047;
+        public static final int ui_zhaopin_publish=0x7f030048;
+        public static final int view_distance=0x7f030049;
+        public static final int xlistview_footer=0x7f03004a;
+        public static final int xlistview_header=0x7f03004b;
+    }
+    public static final class string {
+        public static final int about=0x7f070161;
+        public static final int add_name=0x7f070103;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int address=0x7f070075;
         public static final int aks_version=0x7f07006d;
         public static final int alipay=0x7f070061;
         /**  我的钱包 
          */
-        public static final int alipay_allow=0x7f070100;
-        public static final int alipay_allow_hint=0x7f070104;
-        public static final int alipay_allow_money=0x7f070103;
-        public static final int alipay_allow_out=0x7f070102;
-        public static final int alipay_allow_sure=0x7f070105;
+        public static final int alipay_allow=0x7f070106;
+        public static final int alipay_allow_hint=0x7f07010a;
+        public static final int alipay_allow_money=0x7f070109;
+        public static final int alipay_allow_out=0x7f070108;
+        public static final int alipay_allow_sure=0x7f07010b;
         public static final int alipay_client_inavailable=0x7f070031;
-        public static final int alipay_money=0x7f070101;
+        public static final int alipay_money=0x7f070107;
         public static final int all_assess=0x7f0700a2;
-        public static final int app_about=0x7f0700f3;
-        public static final int app_explain=0x7f0700f4;
+        public static final int app_about=0x7f0700f9;
+        public static final int app_explain=0x7f0700fa;
         /**  常用公用字符串 
          */
         public static final int app_name=0x7f070069;
         public static final int app_search=0x7f070077;
-        public static final int app_version=0x7f0700f6;
-        public static final int app_version_default=0x7f0700f7;
+        public static final int app_version=0x7f0700fc;
+        public static final int app_version_default=0x7f0700fd;
         public static final int assess_gray=0x7f0700dc;
         public static final int assess_orange=0x7f0700db;
         public static final int baidutieba=0x7f07005e;
@@ -935,9 +1384,15 @@ containing a value of this type.
         public static final int buy_assess=0x7f0700a1;
         public static final int buy_info=0x7f07009d;
         public static final int cancel=0x7f070001;
+<<<<<<< HEAD
         public static final int chaxun=0x7f07010f;
         public static final int collection_name=0x7f07010a;
         public static final int collection_time=0x7f07010b;
+=======
+        public static final int chaxun=0x7f070115;
+        public static final int collection_name=0x7f070110;
+        public static final int collection_time=0x7f070111;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int comment_content=0x7f070158;
         public static final int comment_name=0x7f070157;
         public static final int comment_time=0x7f070159;
@@ -945,10 +1400,16 @@ containing a value of this type.
         /**  供求 
          */
         public static final int demand_call=0x7f0700de;
+        public static final int demand_caller=0x7f0700e5;
         public static final int demand_content=0x7f0700e2;
+        public static final int demand_info=0x7f0700e7;
         public static final int demand_mobile=0x7f0700e1;
         public static final int demand_person=0x7f0700e0;
+        public static final int demand_submit=0x7f0700e8;
+        public static final int demand_tel=0x7f0700e6;
         public static final int demand_time=0x7f0700df;
+        public static final int demand_title=0x7f0700e4;
+        public static final int demand_type=0x7f0700e3;
         public static final int destination=0x7f0700bb;
         public static final int douban=0x7f070041;
         public static final int dropbox=0x7f07004b;
@@ -967,7 +1428,7 @@ containing a value of this type.
         public static final int fc_title=0x7f07014b;
         public static final int finish=0x7f070002;
         public static final int flickr=0x7f070049;
-        public static final int forgetpwd=0x7f0700ea;
+        public static final int forgetpwd=0x7f0700f0;
         public static final int foursquare=0x7f070046;
         /**  团购详情 
          */
@@ -975,6 +1436,7 @@ containing a value of this type.
         public static final int good_price=0x7f07009b;
         public static final int google_plus_client_inavailable=0x7f070026;
         public static final int googleplus=0x7f070045;
+<<<<<<< HEAD
         public static final int gouwu=0x7f07010d;
         public static final int hint_code=0x7f0700e8;
         public static final int hint_password=0x7f0700e9;
@@ -984,20 +1446,31 @@ containing a value of this type.
         public static final int index_12306=0x7f070120;
         public static final int index_1haodian=0x7f070118;
         public static final int index_baidu=0x7f070110;
+=======
+        public static final int gouwu=0x7f070113;
+        public static final int hint_code=0x7f0700ee;
+        public static final int hint_password=0x7f0700ef;
+        public static final int hint_username=0x7f0700ed;
+        public static final int hot_comment=0x7f070156;
+        public static final int identifying_code=0x7f0700f3;
+        public static final int index_12306=0x7f070126;
+        public static final int index_1haodian=0x7f07011e;
+        public static final int index_baidu=0x7f070116;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int index_bianmin=0x7f070081;
-        public static final int index_bookreader=0x7f07011e;
-        public static final int index_caipiao=0x7f070123;
+        public static final int index_bookreader=0x7f070124;
+        public static final int index_caipiao=0x7f070129;
         public static final int index_cars=0x7f070080;
         public static final int index_fangchan=0x7f070083;
         public static final int index_foods=0x7f07007d;
-        public static final int index_game=0x7f07011d;
-        public static final int index_ganji=0x7f07011a;
+        public static final int index_game=0x7f070123;
+        public static final int index_ganji=0x7f070120;
         public static final int index_gongqiu=0x7f070084;
-        public static final int index_gowhere=0x7f07011f;
+        public static final int index_gowhere=0x7f070125;
         public static final int index_hotel=0x7f07007e;
-        public static final int index_ifeng=0x7f070114;
-        public static final int index_jingdong=0x7f070116;
-        public static final int index_kuaidi=0x7f070122;
+        public static final int index_ifeng=0x7f07011a;
+        public static final int index_jingdong=0x7f07011c;
+        public static final int index_kuaidi=0x7f070128;
         /**  首页 
          */
         public static final int index_like=0x7f07007b;
@@ -1010,15 +1483,15 @@ containing a value of this type.
          */
         public static final int index_product_title=0x7f070088;
         public static final int index_shops=0x7f07007f;
-        public static final int index_sina=0x7f070111;
-        public static final int index_suhoo=0x7f070113;
-        public static final int index_suhoodv=0x7f07011c;
-        public static final int index_taobao=0x7f070115;
-        public static final int index_tencent=0x7f070112;
-        public static final int index_tianmao=0x7f070117;
-        public static final int index_weipinhui=0x7f070119;
-        public static final int index_weizhang=0x7f070121;
-        public static final int index_youyuan=0x7f07011b;
+        public static final int index_sina=0x7f070117;
+        public static final int index_suhoo=0x7f070119;
+        public static final int index_suhoodv=0x7f070122;
+        public static final int index_taobao=0x7f07011b;
+        public static final int index_tencent=0x7f070118;
+        public static final int index_tianmao=0x7f07011d;
+        public static final int index_weipinhui=0x7f07011f;
+        public static final int index_weizhang=0x7f070127;
+        public static final int index_youyuan=0x7f070121;
         public static final int index_zhaopin=0x7f070082;
         public static final int instagram=0x7f07004d;
         public static final int instagram_client_inavailable=0x7f070029;
@@ -1048,9 +1521,15 @@ containing a value of this type.
         /**  其他 
          */
         public static final int load_data=0x7f07015b;
+<<<<<<< HEAD
         public static final int login_in=0x7f0700eb;
         public static final int login_out=0x7f0700f9;
         public static final int login_register=0x7f0700f8;
+=======
+        public static final int login_in=0x7f0700f1;
+        public static final int login_out=0x7f0700ff;
+        public static final int login_register=0x7f0700fe;
+>>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
         public static final int map_common=0x7f07006a;
         public static final int map_site=0x7f07006b;
         public static final int map_traffic=0x7f07006c;
@@ -1062,10 +1541,10 @@ containing a value of this type.
         public static final int mingdao=0x7f070050;
         public static final int mingdao_share_content=0x7f070065;
         public static final int mobile=0x7f0700bf;
-        public static final int mobile_number=0x7f0700ff;
+        public static final int mobile_number=0x7f070105;
         public static final int multi_share=0x7f070006;
-        public static final int my_integral=0x7f0700f1;
-        public static final int my_money=0x7f0700f0;
+        public static final int my_integral=0x7f0700f7;
+        public static final int my_money=0x7f0700f6;
         public static final int name=0x7f0700be;
         public static final int neteasemicroblog=0x7f070040;
         public static final int no_data=0x7f07015f;
@@ -1093,7 +1572,7 @@ containing a value of this type.
         public static final int order_tab4=0x7f0700c6;
         public static final int order_time=0x7f0700cd;
         public static final int orign=0x7f0700ba;
-        public static final int password=0x7f0700e6;
+        public static final int password=0x7f0700ec;
         public static final int persons=0x7f0700bd;
         public static final int pinterest=0x7f070048;
         public static final int pinterest_client_inavailable=0x7f070028;
@@ -1106,9 +1585,9 @@ containing a value of this type.
         public static final int qq=0x7f070047;
         public static final int qq_client_inavailable=0x7f070027;
         public static final int qzone=0x7f070034;
-        public static final int record_address=0x7f070109;
+        public static final int record_address=0x7f07010f;
         public static final int refreshing=0x7f07000e;
-        public static final int register_in=0x7f0700ec;
+        public static final int register_in=0x7f0700f2;
         public static final int release_to_refresh=0x7f07000d;
         public static final int renren=0x7f07003a;
         public static final int res_assess=0x7f070095;
@@ -1124,7 +1603,7 @@ containing a value of this type.
         public static final int reserve_tab1=0x7f0700c7;
         public static final int reserve_tab2=0x7f0700c8;
         public static final int reserve_time=0x7f07008f;
-        public static final int reset_password=0x7f0700f5;
+        public static final int reset_password=0x7f0700fb;
         public static final int restaurant_address=0x7f070093;
         /**  餐饮 
          */
@@ -1153,7 +1632,7 @@ containing a value of this type.
         public static final int share_to_qzone=0x7f070063;
         public static final int share_to_qzone_default=0x7f070067;
         public static final int sharing=0x7f070003;
-        public static final int shenghuo=0x7f07010e;
+        public static final int shenghuo=0x7f070114;
         public static final int shortmessage=0x7f07003d;
         public static final int sinaweibo=0x7f070032;
         public static final int sohumicroblog=0x7f07003e;
@@ -1176,12 +1655,12 @@ containing a value of this type.
         public static final int ssdk_recomm_view_count=0x7f070014;
         public static final int ssdk_recomm_webpage_def_title=0x7f07001f;
         public static final int starttime=0x7f0700bc;
-        public static final int store_delete=0x7f070108;
+        public static final int store_delete=0x7f07010e;
         /**  收藏 
          */
-        public static final int store_pro=0x7f070106;
-        public static final int store_res=0x7f070107;
-        public static final int submit=0x7f0700fa;
+        public static final int store_pro=0x7f07010c;
+        public static final int store_res=0x7f07010d;
+        public static final int submit=0x7f070100;
         public static final int submit_assess=0x7f0700a4;
         /**  tab 
          */
@@ -1202,7 +1681,7 @@ containing a value of this type.
         public static final int use_login_button=0x7f070068;
         /**  用户信息 
          */
-        public static final int user_avatar=0x7f0700fb;
+        public static final int user_avatar=0x7f070101;
         public static final int user_carpool_car_model=0x7f0700ab;
         public static final int user_carpool_cost=0x7f0700b1;
         public static final int user_carpool_departure_time_1=0x7f0700a9;
@@ -1224,20 +1703,20 @@ containing a value of this type.
         public static final int user_carpool_sign_up=0x7f0700b9;
         public static final int user_carpool_submit=0x7f0700ae;
         public static final int user_carpool_unit_price=0x7f0700b8;
-        public static final int user_integral=0x7f0700ef;
-        public static final int user_login=0x7f0700e4;
-        public static final int user_mob=0x7f0700fe;
+        public static final int user_integral=0x7f0700f5;
+        public static final int user_login=0x7f0700ea;
+        public static final int user_mob=0x7f070104;
         /**  钱包 
          */
-        public static final int user_mobile=0x7f0700e3;
-        public static final int user_money=0x7f0700ee;
-        public static final int user_name=0x7f0700fc;
+        public static final int user_mobile=0x7f0700e9;
+        public static final int user_money=0x7f0700f4;
+        public static final int user_name=0x7f070102;
         public static final int user_sign_up_number=0x7f0700b6;
         public static final int user_sign_up_number_default=0x7f0700b7;
-        public static final int user_store=0x7f0700f2;
+        public static final int user_store=0x7f0700f8;
         /**  登录 
          */
-        public static final int username=0x7f0700e5;
+        public static final int username=0x7f0700eb;
         public static final int vkontakte=0x7f07004c;
         public static final int website=0x7f070023;
         public static final int wechat=0x7f070035;
@@ -1264,46 +1743,46 @@ containing a value of this type.
         public static final int youdao=0x7f070042;
         /**  便民 
          */
-        public static final int zixun=0x7f07010c;
+        public static final int zixun=0x7f070112;
         /**  招聘 
          */
-        public static final int zp_all=0x7f070124;
-        public static final int zp_comp_about=0x7f070140;
-        public static final int zp_comp_about2=0x7f070141;
-        public static final int zp_comp_address=0x7f07013d;
-        public static final int zp_comp_address2=0x7f07013e;
-        public static final int zp_comp_address_hint=0x7f07013f;
-        public static final int zp_comp_name=0x7f07013b;
-        public static final int zp_comp_name2=0x7f07013c;
-        public static final int zp_contacts=0x7f070133;
-        public static final int zp_contacts2=0x7f070134;
-        public static final int zp_contacts_hint=0x7f070136;
-        public static final int zp_contacts_name=0x7f070135;
-        public static final int zp_item_date=0x7f07012f;
-        public static final int zp_item_persons=0x7f07012d;
-        public static final int zp_item_persons2=0x7f07012e;
-        public static final int zp_item_salary=0x7f07012a;
-        public static final int zp_jianzhi=0x7f070125;
-        public static final int zp_mobile=0x7f070137;
-        public static final int zp_mobile2=0x7f070138;
-        public static final int zp_mobile_hint=0x7f07013a;
-        public static final int zp_mobilecode=0x7f070139;
-        public static final int zp_person=0x7f070132;
-        public static final int zp_person_hint=0x7f070131;
-        public static final int zp_persons=0x7f07012c;
-        public static final int zp_persons2=0x7f070130;
-        public static final int zp_position_require=0x7f070143;
-        public static final int zp_publish=0x7f070145;
-        public static final int zp_publish_time=0x7f070146;
-        public static final int zp_publish_time2=0x7f070147;
-        public static final int zp_salary=0x7f070129;
-        public static final int zp_salary2=0x7f07012b;
-        public static final int zp_sell=0x7f070126;
-        public static final int zp_zhiweidescrip=0x7f070144;
-        public static final int zp_zhiweidescrip_hint=0x7f070148;
-        public static final int zp_zhiweiname=0x7f070128;
-        public static final int zp_zhiweisort=0x7f070142;
-        public static final int zp_zonghe=0x7f070127;
+        public static final int zp_all=0x7f07012a;
+        public static final int zp_comp_about=0x7f070146;
+        public static final int zp_comp_about2=0x7f070147;
+        public static final int zp_comp_address=0x7f070143;
+        public static final int zp_comp_address2=0x7f070144;
+        public static final int zp_comp_address_hint=0x7f070145;
+        public static final int zp_comp_name=0x7f070141;
+        public static final int zp_comp_name2=0x7f070142;
+        public static final int zp_contacts=0x7f070139;
+        public static final int zp_contacts2=0x7f07013a;
+        public static final int zp_contacts_hint=0x7f07013c;
+        public static final int zp_contacts_name=0x7f07013b;
+        public static final int zp_item_date=0x7f070135;
+        public static final int zp_item_persons=0x7f070133;
+        public static final int zp_item_persons2=0x7f070134;
+        public static final int zp_item_salary=0x7f070130;
+        public static final int zp_jianzhi=0x7f07012b;
+        public static final int zp_mobile=0x7f07013d;
+        public static final int zp_mobile2=0x7f07013e;
+        public static final int zp_mobile_hint=0x7f070140;
+        public static final int zp_mobilecode=0x7f07013f;
+        public static final int zp_person=0x7f070138;
+        public static final int zp_person_hint=0x7f070137;
+        public static final int zp_persons=0x7f070132;
+        public static final int zp_persons2=0x7f070136;
+        public static final int zp_position_require=0x7f070149;
+        public static final int zp_publish=0x7f07014b;
+        public static final int zp_publish_time=0x7f07014c;
+        public static final int zp_publish_time2=0x7f07014d;
+        public static final int zp_salary=0x7f07012f;
+        public static final int zp_salary2=0x7f070131;
+        public static final int zp_sell=0x7f07012c;
+        public static final int zp_zhiweidescrip=0x7f07014a;
+        public static final int zp_zhiweidescrip_hint=0x7f07014e;
+        public static final int zp_zhiweiname=0x7f07012e;
+        public static final int zp_zhiweisort=0x7f070148;
+        public static final int zp_zonghe=0x7f07012d;
     }
     public static final class style {
         /** 
