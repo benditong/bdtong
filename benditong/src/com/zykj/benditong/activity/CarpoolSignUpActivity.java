@@ -70,9 +70,7 @@ public class CarpoolSignUpActivity extends BaseActivity {
 			submitRegistInfo();
 			break;
 		}
-
 	}
-
 	private void submitRegistInfo() {
 		mobileCode=editText_phone.getText().toString().trim();
 		if (editText_sign_persons.getText().toString().trim().length() <= 0) {

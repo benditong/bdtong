@@ -123,6 +123,26 @@ public class HttpUtils {
     	client.get(UrlContants.getUrl(UrlContants.GETGOODS)+"&id="+goodId, handler);
     }
     
+    /*获取便民列表*/
+    public static void getBianMinList(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.GETBIANMINLIST), params, handler);
+        }
+    /*获取招聘类别*/
+    public static void getZhaoPinCategory(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETZHAOPINCATEGORY), params, handler);
+    }
+    /*获取招聘列表*/
+    public static void getZhaoPinList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETZHAOPINLIST), params, handler);
+    }
+    /*发布招聘信息*/
+    public static void SubmitZhaoPinInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMITZHAOPININFO), params, handler);
+    }
+    /*获取招聘详情*/
+    public static void GetZhaoPinInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETZHAOPININFO), params, handler);
+    }
     
     /* 添加收藏的餐饮、酒店    */
     public static void addCollection(AsyncHttpResponseHandler handler, RequestParams params){

@@ -9,15 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" 
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@color/content_background_color"
             android:orientation="vertical" >
 
@@ -56,9 +55,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/ten"
-                        android:hint="@string/zp_zhiweiname"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                        android:background="@color/white"
+                        android:hint="@string/zp_zhiweiname" />
                 </LinearLayout>
 
                 <View
@@ -90,6 +89,7 @@
                         android:background="@color/content_background_color" />
 
                     <EditText
+                        android:id="@+id/zp_salary"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/ten"
@@ -100,8 +100,8 @@
                         android:layout_width="@dimen/ten"
                         android:layout_height="@dimen/fifteen"
                         android:layout_marginRight="@dimen/ten"
-                        android:src="@drawable/user_right" 
-                        android:contentDescription="@string/app_name"/>
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/user_right" />
                 </LinearLayout>
 
                 <View
@@ -179,6 +179,7 @@
                         android:background="@color/content_background_color" />
 
                     <EditText
+                        android:id="@+id/zp_zhiweisort"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/ten"
@@ -189,8 +190,8 @@
                         android:layout_width="@dimen/ten"
                         android:layout_height="@dimen/fifteen"
                         android:layout_marginRight="@dimen/ten"
-                        android:src="@drawable/user_right" 
-                        android:contentDescription="@string/app_name"/>
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/user_right" />
                 </LinearLayout>
 
                 <View
@@ -220,8 +221,8 @@
                     android:layout_width="1dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="@dimen/ten"
+                    android:layout_marginTop="5dp"
                     android:background="@color/content_background_color" />
 
                 <EditText
@@ -358,8 +359,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/ten"
                         android:layout_weight="3"
-                        android:hint="@string/zp_comp_name"
                         android:background="@color/white"
+                        android:hint="@string/zp_comp_name"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -426,8 +427,8 @@
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="@dimen/ten"
+                        android:layout_marginTop="5dp"
                         android:background="@color/content_background_color" />
 
                     <EditText
@@ -436,30 +437,30 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/ten"
                         android:layout_weight="1"
-                        android:hint="@string/zp_comp_about"
                         android:background="@color/white"
+                        android:hint="@string/zp_comp_about"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/forty"
-            android:background="@color/white"
-            android:gravity="center" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/forty_five"
+        android:background="@color/white"
+        android:gravity="center" >
 
-            <Button
-                android:id="@+id/zp_publish"
-                android:layout_width="@dimen/ninety"
-                android:layout_height="@dimen/thirty"
-                android:layout_gravity="center"
-                android:background="@drawable/bg_round_blue"
-                android:paddingLeft="@dimen/ten"
-                android:paddingRight="@dimen/ten"
-                android:text="@string/zp_publish" 
-                android:textColor="@color/white"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/zp_publish"
+            android:layout_width="@dimen/ninety"
+            android:layout_height="@dimen/thirty"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_round_blue"
+            android:paddingLeft="@dimen/ten"
+            android:paddingRight="@dimen/ten"
+            android:text="@string/zp_publish"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </LinearLayout>

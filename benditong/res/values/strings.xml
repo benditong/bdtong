@@ -233,8 +233,12 @@
     <string name="zp_zonghe">综合</string>
     <string name="zp_zhiweiname">职位名称</string>
     <string name="zp_salary">薪资区间</string>
+    <string name="zp_item_salary">薪资:</string>
     <string name="zp_salary2">2000-3000元</string>
     <string name="zp_persons">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
+    <string name="zp_item_persons">人数:</string>
+    <string name="zp_item_persons2">2人</string>
+    <string name="zp_item_date">09-22</string>
     <string name="zp_persons2">招聘人数:</string>
     <string name="zp_person_hint">数字填写，不能是0和负数</string>
     <string name="zp_person">人</string>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.view.MyCommonTitle;
@@ -22,7 +23,8 @@ public class BianMinActivity extends BaseActivity {
 
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("便民");
-
+		//RequestParams params = new RequestParams();
+		
 		initView();
 	}
 
@@ -32,16 +34,4 @@ public class BianMinActivity extends BaseActivity {
 		setListener(baiduLayout);
 	}
 
-	@Override
-	public void onClick(View view) {
-		super.onClick(view);
-		switch (view.getId()) {
-		case R.id.im_p1baidu:
-
-			break;
-
-		default:
-			break;
-		}
-	}
 }

@@ -63,6 +63,16 @@ public class UrlContants {
     public static final String SUBMIT = "c=info&a=postOrder";//提交餐饮、酒店
     
     public static final String GETGOODS = "c=info&a=getGoods";//获取产品详情
+    
+    public static final String GETBIANMINLIST = "c=services&a=getList";//获取招聘类别
+    
+    public static final String GETZHAOPINCATEGORY = "c=hr&a=getCategory";//获取招聘类别
+    
+    public static final String GETZHAOPINLIST = "c=hr&a=getList";//获取招聘列表
+    
+    public static final String SUBMITZHAOPININFO = "c=hr&a=postInfo";//发布招聘信息
+   
+    public static final String GETZHAOPININFO = "c=hr&a=getInfo";//获取招聘详情
 
     public static final String GOODSCOMMENTSLIST = "c=info&a=getGoodsCommentsList&type=shop";//获取产品评论列表
     
