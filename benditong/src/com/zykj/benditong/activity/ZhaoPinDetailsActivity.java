@@ -1,105 +1,75 @@
 package com.zykj.benditong.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
-import com.zykj.benditong.fragment.ZhaoPinFragment;
+import com.zykj.benditong.model.Car;
+import com.zykj.benditong.model.ZhaoPin;
 import com.zykj.benditong.view.MyCommonTitle;
 
-public class ZhaoPinDetailsActivity extends FragmentActivity implements
-		OnClickListener {
+public class ZhaoPinDetailsActivity extends BaseActivity {
+	private String tid;
 	private MyCommonTitle myCommonTitle;
-	private ImageView img_publish;
-	private ZhaoPinFragment[] fragments;
-	private RadioGroup tab_zhaopin;
-	private RadioButton zhaopin_tab1, zhaopin_tab2, zhaopin_tab3, zhaopin_tab4;
-	private ZhaoPinFragment zhaopinFragment1, zhaopinFragment2,
-			zhaopinFragment3, zhaopinFragment4;
+	private TextView tv_position, tv_publish_time, tv_salary, tv_comp_name,
+			tv_comp_address, tv_persons, tv_require, tv_comp_about,
+			tv_contacts, tv_mobile;
+	private ImageView img_phone;
+	private ZhaoPin zhaoPin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ui_zhaopin);
-
+		setContentView(R.layout.ui_zhaopin_details);
+		zhaoPin = (ZhaoPin) getIntent().getSerializableExtra("zhaoPin");
+		tid = "1";
 		initView();
-		requestData();
 	}
 
 	private void initView() {
+
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
-		myCommonTitle.setLisener(null, this);
-		myCommonTitle.setTitle("招聘");
-		img_publish = (ImageView) findViewById(R.id.aci_shared_btn);
-		img_publish.setImageResource(R.drawable.img_publish);
-
-		tab_zhaopin = (RadioGroup) findViewById(R.id.tab_zhaopin);
-
-		zhaopinFragment1 = ZhaoPinFragment.getInstance(0);// 全部
-		zhaopinFragment2 = ZhaoPinFragment.getInstance(1);// 兼职
-		zhaopinFragment3 = ZhaoPinFragment.getInstance(2);// 销售
-		zhaopinFragment4 = ZhaoPinFragment.getInstance(3);// 综合
-
-		tab_zhaopin.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		myCommonTitle.setTitle("招聘详情");
+		
+		tv_position = (TextView) findViewById(R.id.zp_details_position);
+		tv_publish_time = (TextView) findViewById(R.id.zp_details_publish_time);
+		tv_salary = (TextView) findViewById(R.id.zp_details_salary);
+		tv_comp_name = (TextView) findViewById(R.id.zp_details_comp_name);
+		tv_comp_address = (TextView) findViewById(R.id.zp_details_comp_address);
+		tv_persons = (TextView) findViewById(R.id.zp_details_persons);
+		tv_require = (TextView) findViewById(R.id.zp_details_require);
+		tv_comp_about = (TextView) findViewById(R.id.zp_details_comp_about);
+		tv_contacts = (TextView) findViewById(R.id.zp_details_contacts);
+		tv_mobile = (TextView) findViewById(R.id.zp_details_mobile);
+		
+		tv_position.setText(zhaoPin.getTitle());
+		tv_publish_time.setText(zhaoPin.getAddtime());
+		tv_salary.setText(zhaoPin.getPay());
+		tv_comp_name.setText(zhaoPin.getConame());
+		tv_comp_address.setText(zhaoPin.getCoaddress());
+		tv_persons.setText(zhaoPin.getNum());
+		tv_require.setText(zhaoPin.getIntro());
+		tv_comp_about.setText(zhaoPin.getConintro());
+		tv_contacts.setText(zhaoPin.getName());
+		tv_mobile.setText(zhaoPin.getMobile());
+		
+		img_phone = (ImageView) findViewById(R.id.zp_details_phone);
+		img_phone.setOnTouchListener(new OnTouchListener() {
+			
 			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				if (checkedId == R.id.zhaopin_tab1) {
-					getSupportFragmentManager().beginTransaction()
-							.show(zhaopinFragment1).hide(zhaopinFragment2)
-							.hide(zhaopinFragment3).hide(zhaopinFragment4)
-							.commit();
-				}
-				if (checkedId == R.id.zhaopin_tab2) {
-					getSupportFragmentManager().beginTransaction()
-							.show(zhaopinFragment2).hide(zhaopinFragment1)
-							.hide(zhaopinFragment3).hide(zhaopinFragment4)
-							.commit();
-				}
-				if (checkedId == R.id.zhaopin_tab3) {
-					getSupportFragmentManager().beginTransaction()
-							.show(zhaopinFragment3).hide(zhaopinFragment2)
-							.hide(zhaopinFragment1).hide(zhaopinFragment4)
-							.commit();
-				}
-				if (checkedId == R.id.zhaopin_tab4) {
-					getSupportFragmentManager().beginTransaction()
-							.show(zhaopinFragment4).hide(zhaopinFragment2)
-							.hide(zhaopinFragment3).hide(zhaopinFragment1)
-							.commit();
-				}
+			public boolean onTouch(View v, MotionEvent event) {
+				Intent intent=new Intent(Intent.ACTION_CALL,Uri.parse("tel"+tv_mobile.getText().toString().trim()));
+				ZhaoPinDetailsActivity.this.startActivity(intent);
+				
+				return true;
 			}
 		});
-	}
-
-	private void requestData() {
-		getSupportFragmentManager().beginTransaction()
-				.add(R.id.zhaopin_framelayout, zhaopinFragment1)
-				.add(R.id.zhaopin_framelayout, zhaopinFragment2)
-				.add(R.id.zhaopin_framelayout, zhaopinFragment3)
-				.add(R.id.zhaopin_framelayout, zhaopinFragment4)
-				.show(zhaopinFragment1).hide(zhaopinFragment2)
-				.hide(zhaopinFragment3).hide(zhaopinFragment4).commit();
-
-	}
-
-	@Override
-	public void onClick(View vieww) {
-		// TODO Auto-generated method stub
-		switch (vieww.getId()) {
-		case R.id.aci_shared_btn:
-			startActivity(new Intent(ZhaoPinDetailsActivity.this,
-					ZhaoPinPublishActivity.class));
-			break;
-
-		default:
-			break;
-		}
 	}
 }

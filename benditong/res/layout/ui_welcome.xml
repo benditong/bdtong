@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/theme_color"
-    android:gravity="center"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    
-         <TextView 
+    <!--
+         android:background="@color/theme_color"
+    android:gravity="center"
+    android:orientation="vertical"
+    -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pic_51" 
+        android:contentDescription="@string/app_name"/>
+
+    <!--
+              <TextView 
         android:layout_width="@dimen/fifty"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="@dimen/fifty"/>
-   
-
-<!--     <ViewFlipper
-        android:id="@+id/flipper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ViewFlipper> -->
+    -->
 
 </LinearLayout>

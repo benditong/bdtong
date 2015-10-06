@@ -26,7 +26,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="15dp"
-                    android:background="@drawable/carpool_main_button_bg"
+                    android:background="@color/content_background_color"
                     android:text="@string/user_carpool_need"
                     android:textColor="#25b6ed" />
             </LinearLayout>

@@ -49,7 +49,6 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
     private XListView mListView;
 	private List<Good> goods = new ArrayList<Good>();
 	private CommonAdapter<Good> goodAdapter;
-	//private EntityHandler<Order> mNetHandler;
 	
 	public static StoreFragment getInstance(int type){
 		StoreFragment fragment=new StoreFragment();

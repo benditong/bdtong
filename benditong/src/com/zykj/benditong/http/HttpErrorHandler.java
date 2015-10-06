@@ -1,6 +1,9 @@
 package com.zykj.benditong.http;
 
+import java.io.UnsupportedEncodingException;
+
 import org.apache.http.Header;
+import org.apache.http.protocol.HTTP;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,8 +33,13 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
 
 	@Override
 	public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable throwable) {
-        onRecevieFailed("400", JSON.parseObject(UrlContants.ERROR));
-		MyRequestDailog.closeDialog();
+        try {
+			String responseString=new String(responseBody, HTTP.UTF_8);
+	        onRecevieFailed("400", JSON.parseObject(UrlContants.ERROR));
+			MyRequestDailog.closeDialog();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 
     public abstract void onRecevieSuccess(JSONObject json);

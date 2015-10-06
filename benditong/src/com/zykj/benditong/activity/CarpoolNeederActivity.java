@@ -34,7 +34,6 @@ public class CarpoolNeederActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.ui_carpool_needer);
 		initView();
@@ -42,7 +41,6 @@ public class CarpoolNeederActivity extends BaseActivity {
 	}
 	
 	private void initView() {
-		// TODO Auto-generated method stub
 		editText_orign = (EditText) findViewById(R.id.user_origin);
 		editText_destination = (EditText) findViewById(R.id.user_destination);
 		editText_depart_time = (EditText) findViewById(R.id.user_departure_time);
@@ -98,7 +96,6 @@ public class CarpoolNeederActivity extends BaseActivity {
 		}
 	}
 	private void addData() {
-		// TODO Auto-generated method stub
 		RequestParams params=new RequestParams();
 		params.put("from_address", editText_orign.getText().toString());
 		params.put("to_address", editText_destination.getText().toString());
@@ -122,5 +119,4 @@ public class CarpoolNeederActivity extends BaseActivity {
 			}
 		},params);
 	}
-
 }

@@ -28,21 +28,11 @@ import com.zykj.benditong.utils.Tools;
 
 public class Welcome extends BaseActivity {
 	private ViewFlipper flipper;
-	private  int[] resId={R.drawable.pic_1,R.drawable.pic_2,R.drawable.pic_3,R.drawable.pic_4};
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//在使用SDK各组件之前初始化context信息，传入ApplicationContext
         //注意该方法要再setContentView方法之前实现
 		initView(R.layout.ui_welcome);
-//		flipper=(ViewFlipper) findViewById(R.id.flipper);
-//		for(int i=0;i<resId.length;i++){
-//			flipper.addView(getImageView(resId[i]));
-//		}
-//		flipper.setInAnimation(this,R.anim.popshow_anim);
-//		flipper.setOutAnimation(this,R.anim.pophidden_anim);
-//		flipper.setFlipInterval(500);
-//		flipper.startFlipping();
-		
 		
 		mLocationManger=LocationManagerProxy.getInstance(this);
 		//进行一次定位
@@ -62,12 +52,12 @@ public class Welcome extends BaseActivity {
 				if (is_intro.length() > 0 && version == save_version_int) {// 已经进行过指引,且版本号符合
 					should_intro = false;
 				} else {
-					should_intro = false;//true
+					should_intro = true;//true
 				}
 
 				if (should_intro) {
-//					Intent intent = new Intent(Welcome.this, IntroActivity.class);
-//					startActivity(intent);
+					Intent intent = new Intent(Welcome.this, IntroActivity.class);
+					startActivity(intent);
 				} else {
 					Intent intent = new Intent(Welcome.this, MainActivity.class);
 					startActivity(intent);
