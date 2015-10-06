@@ -146,6 +146,12 @@
     <string name="demand_person">联系人：叶良辰</string>
     <string name="demand_mobile">联系电话：13325095533</string>
     <string name="demand_content">文字描述</string>
+	<string name="demand_type">信息分类</string>
+	<string name="demand_title">标&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;题</string>
+	<string name="demand_caller">联&#160;&#160;系&#160;&#160;人</string>
+	<string name="demand_tel">联系电话</string>
+	<string name="demand_info">信息描述</string>
+	<string name="demand_submit">发布信息</string>
     
     <!-- 钱包 -->
     <string name="user_mobile">183****5566</string>

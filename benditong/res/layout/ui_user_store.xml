@@ -13,7 +13,7 @@
 	    android:id="@+id/tab_order"
 	    android:layout_marginTop="@dimen/five"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/thirty"
+        android:layout_height="@dimen/forty"
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <RadioButton

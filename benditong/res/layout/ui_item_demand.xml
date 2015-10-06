@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/eight"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/devide_gray_bt" >
+    
+    <ImageView 
+        android:id="@+id/demand_image"
+        android:layout_width="@dimen/one_hundred"
+        android:layout_height="@dimen/eighty_five"
+        android:src="@drawable/icon_image_default"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/app_name"/>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/one_hundred"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/eight">
+        <TextView 
+	        android:id="@+id/demand_title"
+            android:text="@string/index_product_content"
+	      	android:textColor="@color/black"
+	        android:singleLine="true"
+            android:textSize="@dimen/t_eighteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView 
+	        android:id="@+id/demand_content"
+            android:text="@string/index_product_content"
+            android:textColor="@color/text_light"
+            android:textSize="@dimen/t_fourteen"
+            android:maxLines="2"
+            android:layout_width="wrap_content"
+            android:layout_height="0.0dip"
+            android:layout_weight="1"/>
+        <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="@dimen/thirty"
+	        android:layout_marginBottom="@dimen/eight"
+	        android:orientation="horizontal">
+	        <View 
+		        android:layout_width="0.0dip"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"/>
+		    <Button 
+		        android:id="@+id/demand_call"
+		        android:layout_width="@dimen/ninety"
+		        android:layout_height="@dimen/twenty_five"
+		        android:background="@drawable/bg_round_yellow"
+		        android:textColor="@color/white"
+		        android:textSize="@dimen/t_sixteen"
+		        android:gravity="center"
+		        android:text="@string/demand_call"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
