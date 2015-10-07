@@ -150,7 +150,7 @@
 			        android:layout_height="wrap_content"
 			        android:background="@null"
 			        android:singleLine="true"
-			        android:maxLength="10"
+			        android:inputType="phone"
 					style="@style/edit_text"/>
 			</LinearLayout>
 		    

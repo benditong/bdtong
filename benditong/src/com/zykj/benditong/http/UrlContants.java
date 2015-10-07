@@ -64,7 +64,7 @@ public class UrlContants {
     
     public static final String GETGOODS = "c=info&a=getGoods";//获取产品详情
     
-    public static final String GETBIANMINLIST = "c=services&a=getList";//获取招聘类别
+    public static final String GETBIANMINLIST = "c=services&a=getList";//获取便民列表
     
     public static final String GETZHAOPINCATEGORY = "c=hr&a=getCategory";//获取招聘类别
     
@@ -74,11 +74,17 @@ public class UrlContants {
    
     public static final String GETZHAOPININFO = "c=hr&a=getInfo";//获取招聘详情
     
-    public static final String GETFANGCHANLIST = "c=house&a=getList";//获取房产列表
+    public static final String GETHOUSELIST = "c=house&a=getList";//获取房产列表
     
-    public static final String SUBMITFANGCHANINFO = "c=house&a=postInfo";//发布房产信息
+    public static final String SUBMITHOUSEINFO = "c=house&a=postInfo";//发布房产信息
     
-    public static final String GETFANGCHANINFO = "c=house&a=getInfo";//获取房产详情
+    public static final String GETHOUSEINFO = "c=house&a=getInfo";//获取房产详情
+    
+    public static final String SUBMITSUPPLYDEMANDINFO = "c=house&a=postInfo";//发布供求信息
+    
+    public static final String GETSUPPLYDEMANDLIST = "c=offer&a=getList";//获取供求列表
+    
+    public static final String GETSUPPLYDEMANDINFO = "c=offer&a=getInfo";//获取供求详情
 
     public static final String GOODSCOMMENTSLIST = "c=info&a=getGoodsCommentsList&type=shop";//获取产品评论列表
     

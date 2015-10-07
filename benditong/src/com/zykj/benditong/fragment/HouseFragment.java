@@ -10,17 +10,20 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.R;
+import com.zykj.benditong.activity.HouseDetailActivity;
+import com.zykj.benditong.activity.ZhaoPinDetailsActivity;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
-import com.zykj.benditong.model.FangChan;
+import com.zykj.benditong.model.House;
 import com.zykj.benditong.model.ZhaoPin;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
 
 import android.R.integer;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -30,19 +33,19 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class FangChanFragment extends Fragment implements IXListViewListener,
+public class HouseFragment extends Fragment implements IXListViewListener,
 		OnItemClickListener {
 	private static int PERPAGE = 2;// perpager默认每页显示的条数
 	private int nowpage = 1;// 当前显示的页面
-	private int mType = 0;
+	private int mType = 1;
 	private XListView mListView;
-	private FangChan fangChan;
-	private List<FangChan> fangChans = new ArrayList<FangChan>();
-	private CommonAdapter<FangChan> fangChanAdapter;
+	private House house;
+	private List<House> houses = new ArrayList<House>();
+	private CommonAdapter<House> houseAdapter;
 	private Handler mHandler = new Handler();// 异步加载或刷新
 
-	public static FangChanFragment getInstance(int type) {
-		FangChanFragment fangChanFragment = new FangChanFragment();
+	public static HouseFragment getInstance(int type) {
+		HouseFragment fangChanFragment = new HouseFragment();
 		Bundle bundle = new Bundle();
 		bundle.putInt("type", type);
 		fangChanFragment.setArguments(bundle);
@@ -82,49 +85,42 @@ public class FangChanFragment extends Fragment implements IXListViewListener,
 		params.put("nowpage", nowpage);
 		params.put("perpage", PERPAGE);
 
-		HttpUtils.getFangChanList(getFangChanList, params);
+		HttpUtils.getHouseList(getHouseList, params);
 	}
 
-	private AsyncHttpResponseHandler getFangChanList = new HttpErrorHandler() {
+	private AsyncHttpResponseHandler getHouseList = new HttpErrorHandler() {
 
 		@Override
 		public void onRecevieSuccess(JSONObject json) {
 			JSONObject jsonObject = json.getJSONObject("datas");
 			String strArray = jsonObject.getString("list");
-			List<FangChan> list = JSONArray
-					.parseArray(strArray, FangChan.class);
+			List<House> list = JSONArray
+					.parseArray(strArray, House.class);
 			if (nowpage == 1) {
-				fangChans.clear();
-				fangChans.addAll(list);
-
-				fangChanAdapter = new CommonAdapter<FangChan>(getActivity(),
-						R.layout.ui_item_fangchan, fangChans) {
-
+				houses.clear();
+				houses.addAll(list);
+				houseAdapter = new CommonAdapter<House>(getActivity(),R.layout.ui_item_house, houses) {
 					@Override
-					public void convert(ViewHolder holder, FangChan fangChan) {
-						holder.setText(R.id.fc_title,
-								StringUtil.toString(fangChan.getPlot()))
-								.setText(
-										R.id.fc_price,
-										StringUtil.toString(fangChan.getPrice()))
-								.setText(
-										R.id.fc_address,
-										StringUtil.toString(fangChan
-												.getPlotaddress()))
-								.setText(
-										R.id.fc_addtime,
-										StringUtil.toString(fangChan
-												.getAddtime()));
+					public void convert(ViewHolder holder, House house) {
+						holder.setText(R.id.fc_title,StringUtil.toString(house.getPlot()))
+								.setText(R.id.fc_price,StringUtil.toString(house.getPrice()))
+								.setText(R.id.fc_address,StringUtil.toString(house.getPlotaddress()))
+								.setText(R.id.fc_addtime,StringUtil.toString(house.getAddtime()));
 					}
 				};
+				mListView.setAdapter(houseAdapter);
+				mListView.setOnItemClickListener(HouseFragment.this);
+				houseAdapter.notifyDataSetChanged();
 			}
 		}
-
 	};
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-
+	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+        //点击进入详情
+		Intent intent=new Intent(getActivity(), HouseDetailActivity.class);
+		intent.putExtra("house", houses.get(position-1));
+		startActivity(intent.putExtra("house", houses.get(position - 1)));
 		
 	}
 
@@ -140,7 +136,6 @@ public class FangChanFragment extends Fragment implements IXListViewListener,
 			}
 		}, 1000);
 	}
-
 	@Override
 	public void onLoadMore() {
 		mHandler.postDelayed(new  Runnable() {

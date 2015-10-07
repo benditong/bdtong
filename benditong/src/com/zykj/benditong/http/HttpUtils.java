@@ -144,16 +144,28 @@ public class HttpUtils {
     	client.post(UrlContants.getUrl(UrlContants.GETZHAOPININFO), params, handler);
     }
     /*获取房产列表*/
-    public static void getFangChanList(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETFANGCHANLIST), params, handler);
+    public static void getHouseList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETHOUSELIST), params, handler);
     }
     /*发布房产信息*/
-    public static void submitFangChanInfo(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.SUBMITFANGCHANINFO), params, handler);
+    public static void submitHouseInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMITHOUSEINFO), params, handler);
     }
     /*获取房产详情*/
-    public static void getFangChanInfo(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETFANGCHANINFO), params, handler);
+    public static void getHouseInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETHOUSEINFO), params, handler);
+    }
+    /*获取供求列表*/
+    public static void getSupplyDemandList(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETSUPPLYDEMANDLIST), params, handler);
+    }
+    /*发布供求信息*/
+    public static void submitSupplyDemandInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SUBMITSUPPLYDEMANDINFO), params, handler);
+    }
+    /*获取供求详情*/
+    public static void getSupplyDemandInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.GETSUPPLYDEMANDINFO), params, handler);
     }
     /* 添加收藏的餐饮、酒店    */
     public static void addCollection(AsyncHttpResponseHandler handler, RequestParams params){

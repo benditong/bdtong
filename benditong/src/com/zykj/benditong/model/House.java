@@ -2,7 +2,7 @@ package com.zykj.benditong.model;
 
 import java.io.Serializable;
 
-public class FangChan implements Serializable {
+public class House implements Serializable {
 	/**
 	 * 房产
 	 */

@@ -146,17 +146,14 @@
     <string name="demand_person">联系人：叶良辰</string>
     <string name="demand_mobile">联系电话：13325095533</string>
     <string name="demand_content">文字描述</string>
-<<<<<<< HEAD
 
-=======
 	<string name="demand_type">信息分类</string>
 	<string name="demand_title">标&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;题</string>
 	<string name="demand_caller">联&#160;&#160;系&#160;&#160;人</string>
 	<string name="demand_tel">联系电话</string>
 	<string name="demand_info">信息描述</string>
 	<string name="demand_submit">发布信息</string>
-    
->>>>>>> bc7bbb886dd6545199bc4a0a591a70e1df07f7bc
+
     <!-- 钱包 -->
     <string name="user_mobile">183****5566</string>
     <string name="user_login">登录/注册</string>
@@ -213,6 +210,11 @@
     <string name="gouwu">购物</string>
     <string name="shenghuo">生活</string>
     <string name="chaxun">查询</string>
+    <string name="info_temperature">20°</string>
+    <string name="info_weather">多云</string>
+    <string name="info_city">临沂</string>
+    <string name="info_wind">微风\t\t小于3级</string>
+    
     <string name="index_baidu">百度</string>
     <string name="index_sina">新浪</string>
     <string name="index_tencent">腾讯</string>
@@ -280,6 +282,18 @@
     <string name="fc_price">1200元/月</string>
     <string name="fc_address">西直门外大街21号</string>
     <string name="fc_addtime">今天</string>
+    <string name="house_intro">房源简介</string>
+    <string name="rent_type">租住方式</string>
+    <string name="house_room">庁&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;室</string>
+    <string name="house_square">面&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;积</string>
+    <string name="house_decoration">内部装修</string>
+    <string name="house_rent">整/合租</string>
+    <string name="house_floor">楼层</string>
+    <string name="house_infloor">所在层数</string>
+    <string name="house_totalfloor">总楼层数</string>
+    <string name="house_name">小区名称</string>
+    <string name="house_address">小区地址</string>
+    <string name="house_price">价&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;格</string>
 
     <!-- 设置 -->
     <string name="setting_about">公司简介</string>

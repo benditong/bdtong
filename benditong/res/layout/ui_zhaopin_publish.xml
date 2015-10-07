@@ -88,7 +88,14 @@
                         android:layout_marginTop="5dp"
                         android:background="@color/content_background_color" />
 
-                    <EditText
+                    <Spinner 
+                        android:id="@+id/zp_salary_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_marginLeft="@dimen/ten"
+                        />
+      <!--               <EditText
                         android:id="@+id/zp_salary"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -101,7 +108,7 @@
                         android:layout_height="@dimen/fifteen"
                         android:layout_marginRight="@dimen/ten"
                         android:contentDescription="@string/app_name"
-                        android:src="@drawable/user_right" />
+                        android:src="@drawable/user_right" /> -->
                 </LinearLayout>
 
                 <View

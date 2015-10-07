@@ -9,25 +9,23 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
-import com.zykj.benditong.fragment.FangChanFragment;
-import com.zykj.benditong.fragment.ZhaoPinFragment;
+import com.zykj.benditong.fragment.HouseFragment;
 import com.zykj.benditong.view.MyCommonTitle;
 
-public class FangChanActivity extends FragmentActivity implements
+public class HouseActivity extends FragmentActivity implements
 		OnClickListener {
 	private MyCommonTitle myCommonTitle;
 	private ImageView img_publish;
-	private FangChanFragment[] fragments;
+	private HouseFragment[] fragments;
 	private RadioGroup tab_fangChan;
 	private RadioButton fangChan_tab1, fangChan_tab2;
-	private ZhaoPinFragment fangChanFragment1, fangChanFragment2;
-
+	private HouseFragment fangChanFragment1, fangChanFragment2;
+	private int checkedId = R.id.fangchan_tab1;//当前Fragment
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ui_fangchan);
+		setContentView(R.layout.ui_house);
 
 		initView();
 		requestData();
@@ -42,8 +40,8 @@ public class FangChanActivity extends FragmentActivity implements
 
 		tab_fangChan = (RadioGroup) findViewById(R.id.tab_fangchan);
 
-		fangChanFragment1 = ZhaoPinFragment.getInstance(0);// 整租房
-		fangChanFragment2 = ZhaoPinFragment.getInstance(1);// 合租房
+		fangChanFragment1 = HouseFragment.getInstance(1);// 合租房
+		fangChanFragment2 = HouseFragment.getInstance(2);// 整租房
 
 		tab_fangChan.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
@@ -72,15 +70,10 @@ public class FangChanActivity extends FragmentActivity implements
 
 	@Override
 	public void onClick(View vieww) {
-		// TODO Auto-generated method stub
-		switch (vieww.getId()) {
-		case R.id.aci_shared_btn:
-			startActivity(new Intent(FangChanActivity.this,
-					FangChanPublishActivity.class));
-			break;
-
-		default:
-			break;
+		if (checkedId == R.id.fangchan_tab1){
+			startActivity(new Intent(this, HouseAddActivity.class).putExtra("type", 1));//发布合租
+		} else if (checkedId == R.id.fangchan_tab2) {
+			startActivity(new Intent(this, HouseAddActivity.class).putExtra("type", 2));//发布整租
 		}
 	}
 }

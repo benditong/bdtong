@@ -1,10 +1,16 @@
 package com.zykj.benditong.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
@@ -18,12 +24,15 @@ import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
 
-public class ZhaoPinPublishActivity extends BaseActivity {
+public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelectedListener {
 	private MyCommonTitle myCommonTitle;
 	private EditText ed_position, ed_persons, ed_salary, ed_position_sort,
 			ed_description, ed_contacts, ed_mobile, ed_comp_name,
 			ed_comp_address, ed_comp_about;
 	private Button btn_publish;
+	private Spinner salaSpinner;
+	private List<String> list;
+	private ArrayAdapter<String> adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +45,7 @@ public class ZhaoPinPublishActivity extends BaseActivity {
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("招聘发布");
 		ed_position = (EditText) findViewById(R.id.zp_position);
-		ed_salary=(EditText) findViewById(R.id.zp_salary);
+		salaSpinner=(Spinner) findViewById(R.id.zp_salary_select);
 		ed_persons = (EditText) findViewById(R.id.zp_persons);
 		ed_position_sort=(EditText) findViewById(R.id.zp_zhiweisort);
 		ed_description = (EditText) findViewById(R.id.zp_description);
@@ -45,6 +54,19 @@ public class ZhaoPinPublishActivity extends BaseActivity {
 		ed_comp_name = (EditText) findViewById(R.id.zp_company_name);
 		ed_comp_address = (EditText) findViewById(R.id.zp_company_address);
 		ed_comp_about = (EditText) findViewById(R.id.zp_company_about);
+
+		list = new ArrayList<String>();
+		list.add("0-1999");
+		list.add("2000-2999");
+		list.add("3000-3999");
+		list.add("4000-4999");
+		list.add("5000以上");
+		adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		salaSpinner.setAdapter(adapter);
+		salaSpinner.setOnItemSelectedListener(ZhaoPinPublishActivity.this);
+
 
 		btn_publish = (Button) findViewById(R.id.zp_publish);
 		setListener(btn_publish);
@@ -58,7 +80,7 @@ public class ZhaoPinPublishActivity extends BaseActivity {
 			if(StringUtil.isEmpty(ed_position.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位不能为空");return;
 			}
-			if(StringUtil.isEmpty(ed_salary.getText().toString().trim())){
+			if(StringUtil.isEmpty(salaSpinner.toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "薪资区间不能为空");return;
 			}
 			if(StringUtil.isEmpty(ed_persons.getText().toString().trim())){
@@ -99,7 +121,7 @@ public class ZhaoPinPublishActivity extends BaseActivity {
 		RequestParams params=new RequestParams();
 	
 		params.put("title", ed_position.getText().toString().trim());
-		params.put("pay", ed_salary.getText().toString().trim());//薪资区间
+		params.put("pay", salaSpinner.toString().trim());//薪资区间
 		params.put("num", ed_persons.getText().toString().trim());
 		params.put("tid", ed_position_sort.getText().toString().trim());//职位类别
 		params.put("intro", ed_description.getText().toString().trim());
@@ -122,5 +144,18 @@ public class ZhaoPinPublishActivity extends BaseActivity {
 				Tools.toast(ZhaoPinPublishActivity.this, "招聘信息发布失败");
 			}
 		}, params);
+	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		//salaSpinner= (String)arg0.getItemAtPosition(arg2);
+		
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

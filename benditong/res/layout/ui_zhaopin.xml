@@ -12,9 +12,9 @@
     <RadioGroup
         android:id="@+id/tab_zhaopin"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/thirty"
+        android:layout_height="@dimen/forty"
         android:layout_marginTop="@dimen/five"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:orientation="horizontal" >
 
         <RadioButton

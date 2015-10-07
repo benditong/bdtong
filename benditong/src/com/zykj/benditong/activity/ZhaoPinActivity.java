@@ -42,10 +42,10 @@ public class ZhaoPinActivity extends FragmentActivity implements
 
 		tab_zhaopin = (RadioGroup) findViewById(R.id.tab_zhaopin);
 
-		zhaopinFragment1 = ZhaoPinFragment.getInstance(0);// 全部
-		zhaopinFragment2 = ZhaoPinFragment.getInstance(1);// 兼职
-		zhaopinFragment3 = ZhaoPinFragment.getInstance(2);// 销售
-		zhaopinFragment4 = ZhaoPinFragment.getInstance(3);// 综合
+		zhaopinFragment1 = ZhaoPinFragment.getInstance(1);// 全部
+		zhaopinFragment2 = ZhaoPinFragment.getInstance(2);// 兼职
+		zhaopinFragment3 = ZhaoPinFragment.getInstance(3);// 销售
+		zhaopinFragment4 = ZhaoPinFragment.getInstance(4);// 综合
 
 		tab_zhaopin.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override

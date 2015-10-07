@@ -12,21 +12,21 @@
     <RadioGroup
         android:id="@+id/tab_fangchan"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/thirty"
+        android:layout_height="@dimen/forty"
         android:layout_marginTop="@dimen/five"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:orientation="horizontal" >
 
         <RadioButton
             android:id="@+id/fangchan_tab1"
             style="@style/my_radiobutton"
             android:checked="true"
-            android:text="@string/fc_entire_rent" />
+            android:text="@string/fc_joint_rent" />
 
         <RadioButton
             android:id="@+id/fangchan_tab2"
             style="@style/my_radiobutton"
-            android:text="@string/fc_joint_rent" />
+            android:text="@string/fc_entire_rent" />
 
     </RadioGroup>
 

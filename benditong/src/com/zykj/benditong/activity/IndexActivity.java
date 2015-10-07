@@ -119,7 +119,7 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 		case R.id.im_b1fangchan:
 			/* 房產 */
 			startActivity(new Intent(IndexActivity.this,
-					FangChanActivity.class));
+					HouseActivity.class));
 			break;
 		case R.id.im_b1gongqiu:
 			/* 供求 */
