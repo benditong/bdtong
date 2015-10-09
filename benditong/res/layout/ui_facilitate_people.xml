@@ -23,12 +23,12 @@
                 android:id="@+id/ll_find_top"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_marginRight="@dimen/ten"
                 android:layout_marginTop="10dp"
                 android:background="#FFF"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:layout_marginLeft="@dimen/ten"
-                android:layout_marginRight="@dimen/ten"
                 android:padding="@dimen/ten" >
 
                 <TextView
@@ -74,78 +74,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/zixun"
-                    android:textColor="@color/grey"
-                    android:textSize="20sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
 
                 <GridView
-                    android:id="@+id/gv_find_zixun"
+                    android:id="@+id/gv_bianmin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:horizontalSpacing="8dp"
-                    android:numColumns="5" >
-                </GridView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/gouwu"
-                    android:textColor="@color/grey"
-                    android:textSize="20sp" />
-
-                <GridView
-                    android:id="@+id/gv_find_gouwu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:horizontalSpacing="8dp"
-                    android:numColumns="5" >
-                </GridView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/shenghuo"
-                    android:textColor="@color/grey"
-                    android:textSize="20sp" />
-
-                <GridView
-                    android:id="@+id/gv_find_shenghuo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:horizontalSpacing="8dp"
-                    android:numColumns="5" >
-                </GridView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/chaxun"
-                    android:textColor="@color/grey"
-                    android:textSize="20sp" />
-
-                <GridView
-                    android:id="@+id/gv_find_chaxun"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:horizontalSpacing="8dp"
-                    android:numColumns="5" >
-                </GridView>
+                    android:numColumns="4"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

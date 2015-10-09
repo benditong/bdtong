@@ -65,9 +65,7 @@ public class ZhaoPinDetailsActivity extends BaseActivity {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				Intent intent=new Intent(Intent.ACTION_CALL,Uri.parse("tel"+tv_mobile.getText().toString().trim()));
-				ZhaoPinDetailsActivity.this.startActivity(intent);
-				
+				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+tv_mobile.getText().toString().trim())));
 				return true;
 			}
 		});

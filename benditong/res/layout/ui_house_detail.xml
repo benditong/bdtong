@@ -42,19 +42,17 @@
                         android:id="@+id/house_title"
                         android:layout_width="match_parent"
                         android:layout_height="0.0dip"
-                        android:layout_marginTop="@dimen/five"
                         android:layout_marginLeft="@dimen/ten"
                         android:layout_weight="1"
-                        android:gravity="top"
                         android:paddingRight="@dimen/ten"
                         android:text="@string/restaurant_name"
-                        android:textSize="@dimen/t_eighteen" />
+                        android:textSize="@dimen/t_twenty" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="@dimen/eight" >
+                        android:padding="@dimen/five" >
 
                         <TextView
                             android:id="@+id/house_price"
@@ -112,7 +110,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/house_decoration" />
+                            android:text="" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -152,12 +150,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="小区地址：" />
+                            android:text="@string/house_address2" />
 
                         <TextView
                             android:id="@+id/house_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/ten"
                             android:text="" />
                     </LinearLayout>
                 </LinearLayout>
@@ -202,7 +201,7 @@
                             android:layout_height="wrap_content"
                             android:background="@color/white"
                             android:paddingLeft="@dimen/ten"
-                            android:text="@string/zp_contacts"/>
+                            android:text="@string/zp_contacts2"/>
 
                         <TextView
                             android:id="@+id/house_contacts"
@@ -237,9 +236,9 @@
                             android:paddingLeft="@dimen/ten"/>
 
                         <ImageView
-                            android:id="@+id/zp_details_phone"
-                            android:layout_width="@dimen/fifteen"
-                            android:layout_height="@dimen/fifteen"
+                            android:id="@+id/house_details_phone"
+                            android:layout_width="@dimen/twenty"
+                            android:layout_height="@dimen/twenty"
                             android:layout_marginLeft="@dimen/twenty"
                             android:src="@drawable/zp_pic_phone" />
                     </LinearLayout>

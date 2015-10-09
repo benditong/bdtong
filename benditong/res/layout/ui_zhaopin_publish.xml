@@ -88,14 +88,14 @@
                         android:layout_marginTop="5dp"
                         android:background="@color/content_background_color" />
 
-                    <Spinner 
+                    <Spinner
                         android:id="@+id/zp_salary_select"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
                         android:layout_marginLeft="@dimen/ten"
-                        />
-      <!--               <EditText
+                        android:background="@color/white" />
+
+                   <!--  <EditText
                         android:id="@+id/zp_salary"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -448,26 +448,32 @@
                         android:hint="@string/zp_comp_about"
                         android:textSize="12sp" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/content_background_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_five"
+                android:layout_marginTop="@dimen/forty"
+                android:background="@color/white"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/zp_publish"
+                    android:layout_width="@dimen/two_hundred"
+                    android:layout_height="@dimen/thirty_five"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_round_blue"
+                    android:paddingLeft="@dimen/ten"
+                    android:paddingRight="@dimen/ten"
+                    android:text="@string/zp_publish"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty_five"
-        android:background="@color/white"
-        android:gravity="center" >
-
-        <Button
-            android:id="@+id/zp_publish"
-            android:layout_width="@dimen/ninety"
-            android:layout_height="@dimen/thirty"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_round_blue"
-            android:paddingLeft="@dimen/ten"
-            android:paddingRight="@dimen/ten"
-            android:text="@string/zp_publish"
-            android:textColor="@color/white" />
-    </LinearLayout>
 
 </LinearLayout>

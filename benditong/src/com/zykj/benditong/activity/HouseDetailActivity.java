@@ -3,7 +3,9 @@ package com.zykj.benditong.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +24,7 @@ public class HouseDetailActivity extends BaseActivity {
 	private TextView house_title, house_price, house_time, house_room,
 			house_square, house_floor, house_contacts, house_plot, house_rent,
 			house_intro, house_address, house_decoration, house_mobile;
-	private ImageView house_image;
+	private ImageView house_image,house_img_mobile;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,41 +54,38 @@ public class HouseDetailActivity extends BaseActivity {
 		house_address = (TextView) findViewById(R.id.house_address);
 		house_decoration = (TextView) findViewById(R.id.house_decoration);
 		house_mobile = (TextView) findViewById(R.id.house_mobile);
-
+		/**
+		 * 打电话
+		 */
+		house_img_mobile=(ImageView) findViewById(R.id.house_details_phone);
+		house_img_mobile.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+house_mobile.getText().toString().trim())));
+				return true;
+			}
+		});
 		house_image.setMinimumHeight(Tools.M_SCREEN_WIDTH * 2 / 5);
 
-		setListener(house_mobile);
 		initializationDate();
 	}
-
+/**
+ * 给详情页面的控件传值
+ */
 	private void initializationDate() {
-		ImageLoader.getInstance().displayImage(
-				StringUtil.toString(house.getImgsrc(), "http://"), house_image);
+		ImageLoader.getInstance().displayImage(StringUtil.toString(house.getImgsrc(), "http://"), house_image);
 		house_title.setText(house.getTitle());
-		house_price.setText(house.getPrice());
+		house_price.setText(house.getPrice()+"元/月");
 		house_time.setText(house.getAddtime());
 		house_room.setText(house.getTingshi());
-		house_square.setText(house.getArea());
-		house_floor.setText(house.getFloor());
+		house_square.setText(house.getArea()+"m²");
+		house_floor.setText(house.getFloor()+"层");
 		house_plot.setText(house.getPlot());
-		house_rent.setText(house.getType());
+		house_rent.setText("1".equals(StringUtil.toString(house.getType()))?"合租":"整租");
 		house_intro.setText(house.getIntro());
 		house_address.setText(house.getPlotaddress());
-//		house_decoration.setText(house.get)
 		house_contacts.setText(house.getName());
 		house_mobile.setText(house.getMobile());
-	}
-
-	@Override
-	public void onClick(View view) {
-		switch (view.getId()) {
-		case R.id.res_address:
-			/** 导航 */
-			startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
-					+ house.getMobile())));
-			break;
-		default:
-			break;
-		}
 	}
 }

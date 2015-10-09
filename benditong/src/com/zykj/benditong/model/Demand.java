@@ -13,23 +13,17 @@ public class Demand implements Serializable{
 	private String title;//标题
 	private String type;//0供求 1求购
 	private String imgsrc;//图片
-	private String person;//联系人
+	private String contacts;//联系人
 	private String mobile;//联系电话
-	private String construct;//信息描述
+	private String intro;//信息描述
+	private String addtime;
 	
-	/**
-	 * @param title 标题
-	 * @param person 联系人
-	 * @param mobile 联系电话
-	 * @param construct 信息描述
-	 */
-	public Demand(String title, String person, String mobile, String construct){
-		this.title = title;
-		this.person = person;
-		this.mobile = mobile;
-		this.construct = construct;
+	public String getAddtime() {
+		return addtime;
 	}
-	
+	public void setAddtime(String addtime) {
+		this.addtime = addtime;
+	}
 	public String getId() {
 		return id;
 	}
@@ -54,11 +48,11 @@ public class Demand implements Serializable{
 	public void setImgsrc(String imgsrc) {
 		this.imgsrc = imgsrc;
 	}
-	public String getPerson() {
-		return person;
+	public String getContacts() {
+		return contacts;
 	}
-	public void setPerson(String person) {
-		this.person = person;
+	public void setContacts(String contacts) {
+		this.contacts = contacts;
 	}
 	public String getMobile() {
 		return mobile;
@@ -66,10 +60,11 @@ public class Demand implements Serializable{
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public String getConstruct() {
-		return construct;
+	public String getIntro() {
+		return intro;
 	}
-	public void setConstruct(String construct) {
-		this.construct = construct;
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
+
 }

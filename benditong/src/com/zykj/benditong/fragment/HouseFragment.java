@@ -120,7 +120,7 @@ public class HouseFragment extends Fragment implements IXListViewListener,
         //点击进入详情
 		Intent intent=new Intent(getActivity(), HouseDetailActivity.class);
 		intent.putExtra("house", houses.get(position-1));
-		startActivity(intent.putExtra("house", houses.get(position - 1)));
+		startActivity(intent);
 		
 	}
 

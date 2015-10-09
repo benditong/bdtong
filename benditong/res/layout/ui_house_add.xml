@@ -100,6 +100,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:maxLength="10"
+                    android:inputType="number"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -176,7 +177,8 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:maxLength="10"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:inputType="number" />
             </LinearLayout>
 
             <View
@@ -214,6 +216,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:maxLength="10"
+                    android:inputType="number"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -252,6 +255,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:maxLength="10"
+                     android:inputType="number"
                     android:singleLine="true" />
             </LinearLayout>
 

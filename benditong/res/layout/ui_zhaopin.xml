@@ -9,36 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <RadioGroup
-        android:id="@+id/tab_zhaopin"
+    <com.zykj.benditong.view.HorizontalListView
+        android:id="@+id/zp_hlistView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/forty"
-        android:layout_marginTop="@dimen/five"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/zhaopin_tab1"
-            style="@style/my_radiobutton"
-            android:checked="true"
-            android:text="@string/zp_all" />
-
-        <RadioButton
-            android:id="@+id/zhaopin_tab2"
-            style="@style/my_radiobutton"
-            android:text="@string/zp_jianzhi" />
-
-        <RadioButton
-            android:id="@+id/zhaopin_tab3"
-            style="@style/my_radiobutton"
-            android:text="@string/zp_sell" />
-
-        <RadioButton
-            android:id="@+id/zhaopin_tab4"
-            style="@style/my_radiobutton"
-            android:text="@string/zp_zonghe" />
-
-    </RadioGroup>
+        android:layout_height="@dimen/forty"/>
 
     <FrameLayout
         android:id="@+id/zhaopin_framelayout"

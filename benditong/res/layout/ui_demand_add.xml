@@ -2,208 +2,230 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:background="@color/content_background_color"
+    android:background="@color/content_background_color"
     android:orientation="vertical" >
 
-	<com.zykj.benditong.view.MyCommonTitle
-	    android:id="@+id/aci_mytitle"
+    <com.zykj.benditong.view.MyCommonTitle
+        android:id="@+id/aci_mytitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-	<ScrollView 
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-		<LinearLayout 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical">
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:layout_marginTop="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="horizontal">
-			    <TextView 
-			        android:layout_width="wrap_content"
-			        android:layout_height="@dimen/forty"
-			        android:text="@string/demand_type"
-			        android:gravity="center_vertical"
-			        android:textSize="@dimen/t_sixteen"
-			        android:textColor="@color/theme_color"/>
-			    <View 
-			        android:layout_width="0.5dp"
-			        android:layout_height="match_parent"
-			        android:layout_marginLeft="@dimen/twelve"
-			        android:layout_marginRight="@dimen/twenty"
-			        android:background="@color/grey"/>
-				<com.zykj.benditong.view.SegmentView
-				    android:id="@+id/demand_type"
-				    android:layout_gravity="center_vertical"
-			        android:layout_width="200dp"
-			        android:layout_height="40dp"/> 
-			</LinearLayout>
-		
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:layout_marginTop="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="horizontal">
-			    <ImageView 
-				    android:id="@+id/demand_image"
-			        android:layout_width="@dimen/ninety"
-			        android:layout_height="@dimen/ninety"
-			        android:contentDescription="@string/app_name"
-			        android:src="@drawable/upload_image"/>
-			</LinearLayout>
-		
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:layout_marginTop="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="horizontal">
-			    <TextView 
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:text="@string/demand_title"
-			        android:gravity="center_vertical"
-			        android:textSize="@dimen/t_sixteen"
-			        android:textColor="@color/theme_color"/>
-			    <View 
-			        android:layout_width="0.5dp"
-			        android:layout_height="match_parent"
-			        android:layout_marginLeft="@dimen/twelve"
-			        android:layout_marginRight="@dimen/twelve"
-			        android:background="@color/grey"/>
-			    <EditText 
-				    android:id="@+id/demand_title"
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:background="@null"
-			        android:singleLine="true"
-			        android:maxLength="10"
-					style="@style/edit_text"/>
-			</LinearLayout>
-		
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:layout_marginTop="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="horizontal">
-			    <TextView 
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:text="@string/demand_caller"
-			        android:gravity="center_vertical"
-			        android:textSize="@dimen/t_sixteen"
-			        android:textColor="@color/theme_color"/>
-			    <View 
-			        android:layout_width="0.5dp"
-			        android:layout_height="match_parent"
-			        android:layout_marginLeft="@dimen/twelve"
-			        android:layout_marginRight="@dimen/twelve"
-			        android:background="@color/grey"/>
-			    <EditText 
-				    android:id="@+id/demand_caller"
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:background="@null"
-			        android:singleLine="true"
-			        android:maxLength="10"
-					style="@style/edit_text"/>
-			</LinearLayout>
-			
-		    <View 
-		        android:layout_width="match_parent"
-		        android:layout_height="0.5dp"
-		        android:layout_marginLeft="@dimen/ten"
-		        android:layout_marginRight="@dimen/ten"
-		        android:background="@color/grey"/>
-		    
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="horizontal">
-			    <TextView 
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:text="@string/demand_tel"
-			        android:gravity="center_vertical"
-			        android:textSize="@dimen/t_sixteen"
-			        android:textColor="@color/theme_color"/>
-			    <View 
-			        android:layout_width="0.5dp"
-			        android:layout_height="match_parent"
-			        android:layout_marginLeft="@dimen/twelve"
-			        android:layout_marginRight="@dimen/twelve"
-			        android:background="@color/grey"/>
-			    <EditText 
-				    android:id="@+id/demand_tel"
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:background="@null"
-			        android:singleLine="true"
-			        android:inputType="phone"
-					style="@style/edit_text"/>
-			</LinearLayout>
-		    
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:layout_marginTop="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="horizontal">
-			    <TextView 
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:text="@string/demand_info"
-			        android:layout_gravity="center_vertical"
-			        android:textSize="@dimen/t_sixteen"
-			        android:textColor="@color/theme_color"/>
-			    <View 
-			        android:layout_width="0.5dp"
-			        android:layout_height="match_parent"
-			        android:layout_marginLeft="@dimen/twelve"
-			        android:layout_marginRight="@dimen/twelve"
-			        android:background="@color/grey"/>
-			    <EditText 
-					android:id="@+id/demand_info"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:lines="3"
-					android:gravity="top"
-					style="@style/edit_text"/>
-			</LinearLayout>
-			
-		    <View 
-		        android:layout_width="wrap_content"
-		        android:layout_height="0.0dip"
-		        android:layout_weight="1"/>
-		    
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:padding="@dimen/ten"
-		        android:background="@color/white"
-		        android:orientation="vertical">
-			    <Button 
-			        android:id="@+id/demand_submit"
-			        android:layout_width="200dp"
-			        android:layout_height="35dp"
-			        android:layout_gravity="center_horizontal"
-			        android:text="@string/demand_submit"
-			        android:textSize="@dimen/t_sixteen"
-			        android:textColor="@color/white"
-			        android:background="@drawable/bg_round_blue"/>
-			</LinearLayout>
-		</LinearLayout>
-	</ScrollView>
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/forty"
+                    android:gravity="center_vertical"
+                    android:text="@string/demand_type"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/t_sixteen" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twenty"
+                    android:background="@color/grey" />
+
+                <com.zykj.benditong.view.SegmentView
+                    android:id="@+id/demand_type"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
+
+                <ImageView
+                    android:id="@+id/demand_image"
+                    android:layout_width="@dimen/ninety"
+                    android:layout_height="@dimen/ninety"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/upload_image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/demand_title"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/t_sixteen" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:background="@color/grey" />
+
+                <EditText
+                    android:id="@+id/demand_title"
+                    style="@style/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/demand_caller"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/t_sixteen" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:background="@color/grey" />
+
+                <EditText
+                    android:id="@+id/demand_caller"
+                    style="@style/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_marginRight="@dimen/ten"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/demand_tel"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/t_sixteen" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:background="@color/grey" />
+
+                <EditText
+                    android:id="@+id/demand_tel"
+                    style="@style/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="phone"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/demand_info"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/t_sixteen" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:background="@color/grey" />
+
+                <EditText
+                    android:id="@+id/demand_info"
+                    style="@style/edit_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:lines="3" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0.0dip"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/forty"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/ten" >
+
+                <Button
+                    android:id="@+id/demand_submit"
+                    android:layout_width="200dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_round_blue"
+                    android:text="@string/demand_submit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/t_sixteen" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

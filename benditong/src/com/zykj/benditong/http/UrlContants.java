@@ -80,7 +80,7 @@ public class UrlContants {
     
     public static final String GETHOUSEINFO = "c=house&a=getInfo";//获取房产详情
     
-    public static final String SUBMITSUPPLYDEMANDINFO = "c=house&a=postInfo";//发布供求信息
+    public static final String SUBMITSUPPLYDEMANDINFO = "c=offer&a=postInfo";//发布供求信息
     
     public static final String GETSUPPLYDEMANDLIST = "c=offer&a=getList";//获取供求列表
     

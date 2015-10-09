@@ -3,6 +3,7 @@ package com.zykj.benditong.http;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.zykj.benditong.model.Demand;
 
 
 
@@ -124,8 +125,8 @@ public class HttpUtils {
     }
     
     /*获取便民列表*/
-    public static void getBianMinList(AsyncHttpResponseHandler handler, RequestParams params){
-        client.post(UrlContants.getUrl(UrlContants.GETBIANMINLIST), params, handler);
+    public static void getBianMinList(AsyncHttpResponseHandler handler){
+        client.post(UrlContants.getUrl(UrlContants.GETBIANMINLIST), handler);
         }
     /*获取招聘类别*/
     public static void getZhaoPinCategory(AsyncHttpResponseHandler handler, RequestParams params){
@@ -164,8 +165,8 @@ public class HttpUtils {
     	client.post(UrlContants.getUrl(UrlContants.SUBMITSUPPLYDEMANDINFO), params, handler);
     }
     /*获取供求详情*/
-    public static void getSupplyDemandInfo(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETSUPPLYDEMANDINFO), params, handler);
+    public static void getSupplyDemandInfo(AsyncHttpResponseHandler handler, String demandId){
+    	client.post(UrlContants.getUrl(UrlContants.GETSUPPLYDEMANDINFO)+"&id="+demandId, handler);
     }
     /* 添加收藏的餐饮、酒店    */
     public static void addCollection(AsyncHttpResponseHandler handler, RequestParams params){

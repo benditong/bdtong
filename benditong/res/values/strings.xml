@@ -82,20 +82,20 @@
     <!-- 拼车信息 -->
     <string name="user_carpool_need">我要拼车</string>
     <string name="user_carpool_owner">我是车主</string>
-    <string name="user_carpool_origin_1">出 &#160;发 &#160;地</string>
-    <string name="user_carpool_destination_1">目 &#160;的 &#160;地</string>
+    <string name="user_carpool_origin_1">出 &#160;&#160;发 &#160;&#160;地</string>
+    <string name="user_carpool_destination_1">目 &#160;&#160;的 &#160;&#160;地</string>
     <string name="user_carpool_departure_time_1">出发时间</string>
     <string name="user_carpool_remain_seats_1">剩余座位</string>
-    <string name="user_carpool_car_model">车&#160;&#160;&#160;&#160;&#160;&#160;型</string>
+    <string name="user_carpool_car_model">车&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;型</string>
     <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string>
     <string name="user_carpool_phone">联系电话</string>
     <string name="user_carpool_submit">提交信息</string>
     <string name="user_carpool_remain_seats">剩余座位</string>
     <string name="user_carpool_number">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
     <string name="user_carpool_cost">预计费用</string>
-    <string name="user_carpool_origin_2">出&#160;发&#160;地:</string>
-    <string name="user_carpool_destination_2">目&#160;的&#160;地:</string>
-    <string name="user_carpool_departure_time_2">时&#160;间&#160;段:</string>
+    <string name="user_carpool_origin_2">出&#160;&#160;发&#160;&#160;地:</string>
+    <string name="user_carpool_destination_2">目&#160;&#160;的&#160;&#160;地:</string>
+    <string name="user_carpool_departure_time_2">时&#160;&#160;间&#160;&#160;段:</string>
     <string name="user_carpool_remain_seats_2">剩余座位:</string>
     <string name="user_sign_up_number">报名人数:</string>
     <string name="user_sign_up_number_default">1</string>
@@ -293,6 +293,7 @@
     <string name="house_totalfloor">总楼层数</string>
     <string name="house_name">小区名称</string>
     <string name="house_address">小区地址</string>
+    <string name="house_address2">小区地址:</string>
     <string name="house_price">价&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;格</string>
 
     <!-- 设置 -->

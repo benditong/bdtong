@@ -265,7 +265,6 @@ public class HouseAddActivity extends BaseActivity implements
 		params.put("plot", house_plot.getText().toString().trim());
 		params.put("plotaddress", house_address.getText().toString().trim());
 		params.put("intro", house_intro.getText().toString().trim());
-
 		params.put("name", house_contacts.getText().toString().trim());
 		params.put("mobile", house_mobile.getText().toString().trim());
 
