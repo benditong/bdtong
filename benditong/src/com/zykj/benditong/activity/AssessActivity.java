@@ -27,7 +27,6 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.RatingBar;
 import android.widget.Toast;
-
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;

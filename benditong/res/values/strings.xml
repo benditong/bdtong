@@ -7,26 +7,26 @@
     <string name="map_site">卫星地图</string>
     <string name="map_traffic">实时交通(off)</string>
     <string name="aks_version">版本号</string>
-    
+
     <!-- 按钮上字符串 -->
-	<string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>
     <string name="xlistview_header_hint_loading">正在加载&#8230;</string>
     <string name="xlistview_header_last_time">上次更新时间：</string>
     <string name="xlistview_footer_hint_normal">查看更多</string>
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
-    
+
     <!-- 主题 -->
     <string name="title">标题</string>
     <string name="address">临沂</string>
     <string name="edit">Edit</string>
     <string name="app_search">请出入关键词搜索</string>
-    
+
     <!-- tab -->
     <string name="tab_index">首页</string>
     <string name="tab_order">订单</string>
     <string name="tab_seting">我的</string>
-    
+
     <!-- 首页 -->
     <string name="index_like">猜你喜欢</string>
     <string name="index_like_more">更多></string>
@@ -41,15 +41,15 @@
     <string name="integral_mall">积分商城</string>
     <string name="preferential_good">感恩特惠商品</string>
     <string name="integral_luck">积分抽奖</string>
-    
+
     <!-- 猜你喜欢 -->
     <string name="index_product_title">产品名称</string>
     <string name="index_product_content">内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介&#8230;</string>
     <string name="index_product_distance">&lt;500m</string>
     <string name="index_product_price">88元</string>
     <string name="index_product_other">● ● ●</string>
-    
-    <!-- 餐饮-->
+
+    <!-- 餐饮 -->
     <string name="restaurant_name">餐厅名称餐厅名称</string>
     <string name="restaurant_time">用餐时间：2015&#8211;06&#8211;17 14:00&#8211;16:00</string>
     <string name="reserve_time">预定时间：2015&#8211;06&#8211;16 14:30</string>
@@ -57,7 +57,7 @@
     <string name="order_assess">评价</string>
     <string name="restaurant_score">评价：4.5分</string>
     <string name="restaurant_address">地址：餐厅地址餐厅地址餐厅地址餐厅地</string>
-    
+
     <!-- 餐饮详情 -->
     <string name="res_introduct">餐厅简介：</string>
     <string name="res_assess">评价列表</string>
@@ -67,7 +67,7 @@
     <string name="reserve_go">立即抢购</string>
     <string name="reserve_go2">立即预定</string>
     <string name="good_price">88元</string>
-    
+
     <!-- 团购详情 -->
     <string name="good_assess">122评价></string>
     <string name="buy_info">购买须知</string>
@@ -78,39 +78,39 @@
     <string name="all_assess">整体评价</string>
     <string name="write_hint">您的意见很重要！来点评一下吧···</string>
     <string name="submit_assess">提交评价</string>
-    
-    <!--  拼车信息   --> 
-  <string name="user_carpool_need">我要拼车</string> 
-  <string name="user_carpool_owner">我是车主</string> 
-  <string name="user_carpool_origin_1">出 &#160;发 &#160;地</string> 
-  <string name="user_carpool_destination_1">目 &#160;的 &#160;地</string> 
-  <string name="user_carpool_departure_time_1">出发时间</string> 
-  <string name="user_carpool_remain_seats_1">剩余座位</string> 
-  <string name="user_carpool_car_model">车&#160;&#160;&#160;&#160;&#160;&#160;型</string> 
-  <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string> 
-  <string name="user_carpool_phone">联系电话</string> 
-  <string name="user_carpool_submit">提交信息</string> 
-  <string name="user_carpool_remain_seats">剩余座位</string> 
-  <string name="user_carpool_number">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string> 
-  <string name="user_carpool_cost">预计费用</string> 
-  <string name="user_carpool_origin_2">出&#160;发&#160;地:</string> 
-  <string name="user_carpool_destination_2">目&#160;的&#160;地:</string> 
-  <string name="user_carpool_departure_time_2">时&#160;间&#160;段:</string> 
-  <string name="user_carpool_remain_seats_2">剩余座位:</string> 
-  <string name="user_sign_up_number">报名人数:</string> 
-  <string name="user_sign_up_number_default">1</string> 
-  <string name="user_carpool_unit_price">单价:</string> 
-  <string name="user_carpool_sign_up">立即报名</string> 
-  <string name="orign">请输入出发地</string> 
-  <string name="destination">请输入目的地</string> 
-  <string name="starttime">请输入出发时间</string> 
-  <string name="persons">请输入人数</string> 
-  <string name="name">请输入姓名</string> 
-  <string name="mobile">联系电话</string> 
-  <string name="seats">请输入剩余座位</string> 
-  <string name="type">请输入车型</string> 
-  <string name="cost">请输入费用</string> 
-    
+
+    <!-- 拼车信息 -->
+    <string name="user_carpool_need">我要拼车</string>
+    <string name="user_carpool_owner">我是车主</string>
+    <string name="user_carpool_origin_1">出 &#160;&#160;发 &#160;&#160;地</string>
+    <string name="user_carpool_destination_1">目 &#160;&#160;的 &#160;&#160;地</string>
+    <string name="user_carpool_departure_time_1">出发时间</string>
+    <string name="user_carpool_remain_seats_1">剩余座位</string>
+    <string name="user_carpool_car_model">车&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;型</string>
+    <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string>
+    <string name="user_carpool_phone">联系电话</string>
+    <string name="user_carpool_submit">提交信息</string>
+    <string name="user_carpool_remain_seats">剩余座位</string>
+    <string name="user_carpool_number">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
+    <string name="user_carpool_cost">预计费用</string>
+    <string name="user_carpool_origin_2">出&#160;&#160;发&#160;&#160;地:</string>
+    <string name="user_carpool_destination_2">目&#160;&#160;的&#160;&#160;地:</string>
+    <string name="user_carpool_departure_time_2">时&#160;&#160;间&#160;&#160;段:</string>
+    <string name="user_carpool_remain_seats_2">剩余座位:</string>
+    <string name="user_sign_up_number">报名人数:</string>
+    <string name="user_sign_up_number_default">1</string>
+    <string name="user_carpool_unit_price">单价:</string>
+    <string name="user_carpool_sign_up">立即报名</string>
+    <string name="orign">请输入出发地</string>
+    <string name="destination">请输入目的地</string>
+    <string name="starttime">请输入出发时间</string>
+    <string name="persons">请输入人数</string>
+    <string name="name">请输入姓名</string>
+    <string name="mobile">联系电话</string>
+    <string name="seats">请输入剩余座位</string>
+    <string name="type">请输入车型</string>
+    <string name="cost">请输入费用</string>
+
     <!-- 订单 -->
     <string name="order_tab1">未付款</string>
     <string name="order_tab2">未消费</string>
@@ -139,24 +139,25 @@
     <string name="assess_orange">评价</string>
     <string name="assess_gray">已评价</string>
     <string name="order_del">删除订单</string>
-    
+
     <!-- 供求 -->
     <string name="demand_call">一键拨号</string>
     <string name="demand_time">发布时间：09&#8211;22 08:00</string>
     <string name="demand_person">联系人：叶良辰</string>
     <string name="demand_mobile">联系电话：13325095533</string>
     <string name="demand_content">文字描述</string>
+
 	<string name="demand_type">信息分类</string>
 	<string name="demand_title">标&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;题</string>
 	<string name="demand_caller">联&#160;&#160;系&#160;&#160;人</string>
 	<string name="demand_tel">联系电话</string>
 	<string name="demand_info">信息描述</string>
 	<string name="demand_submit">发布信息</string>
-    
+
     <!-- 钱包 -->
     <string name="user_mobile">183****5566</string>
     <string name="user_login">登录/注册</string>
-    
+
     <!-- 登录 -->
     <string name="username">账号</string>
     <string name="password">密码</string>
@@ -164,7 +165,6 @@
     <string name="hint_code">验证码</string>
     <string name="hint_password">请填写密码</string>
     <string name="forgetpwd"><u>忘记密码?</u></string>
-    
     <string name="login_in">登录</string>
     <string name="register_in">注册</string>
     <string name="identifying_code">点击获取验证码</string>
@@ -180,16 +180,15 @@
     <string name="app_version_default">已是最新版本</string>
     <string name="login_register">没有账号?</string>
     <string name="login_out">退出登录</string>
-    <string name="submit">提交</string> 
-    
-    
+    <string name="submit">提交</string>
+
     <!-- 用户信息 -->
     <string name="user_avatar">头像</string>
     <string name="user_name">昵称</string>
     <string name="add_name">添加昵称</string>
     <string name="user_mob">手机号</string>
     <string name="mobile_number">150****8533</string>
-    
+
     <!-- 我的钱包 -->
     <string name="alipay_allow">钱包余额</string>
     <string name="alipay_money">56.00元</string>
@@ -197,7 +196,7 @@
     <string name="alipay_allow_money">转出金额</string>
     <string name="alipay_allow_hint">请输入转出金额</string>
     <string name="alipay_allow_sure">确认转出</string>
-    
+
     <!-- 收藏 -->
     <string name="store_pro">收藏的产品</string>
     <string name="store_res">收藏的店铺</string>
@@ -205,12 +204,17 @@
     <string name="record_address">山东 临沂 2015&#8211;06&#8211;30</string>
     <string name="collection_name">店铺名称店铺名称</string>
     <string name="collection_time">2015-07-16 收藏</string>
-    
-        <!-- 便民 -->
+
+    <!-- 便民 -->
     <string name="zixun">资讯</string>
     <string name="gouwu">购物</string>
     <string name="shenghuo">生活</string>
     <string name="chaxun">查询</string>
+    <string name="info_temperature">20°</string>
+    <string name="info_weather">多云</string>
+    <string name="info_city">临沂</string>
+    <string name="info_wind">微风\t\t小于3级</string>
+    
     <string name="index_baidu">百度</string>
     <string name="index_sina">新浪</string>
     <string name="index_tencent">腾讯</string>
@@ -231,8 +235,8 @@
     <string name="index_weizhang">汽车违章</string>
     <string name="index_kuaidi">快递</string>
     <string name="index_caipiao">彩票开奖</string>
-    
-        <!-- 招聘 -->
+
+    <!-- 招聘 -->
     <string name="zp_all">全部</string>
     <string name="zp_jianzhi">兼职</string>
     <string name="zp_sell">销售</string>
@@ -270,13 +274,35 @@
     <string name="zp_publish_time">发布时间:</string>
     <string name="zp_publish_time2">2105-09-22&#160;&#160;14:08</string>
     <string name="zp_zhiweidescrip_hint">10-180字，如岗位职责，任职资格，工作时间等，不能填写电话，qq号和特殊字符</string>
+
+    <!-- 房产 -->
+    <string name="fc_entire_rent">整租房</string>
+    <string name="fc_joint_rent">合租房</string>
+    <string name="fc_title">名称名称</string>
+    <string name="fc_price">1200元/月</string>
+    <string name="fc_address">西直门外大街21号</string>
+    <string name="fc_addtime">今天</string>
+    <string name="house_intro">房源简介</string>
+    <string name="rent_type">租住方式</string>
+    <string name="house_room">庁&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;室</string>
+    <string name="house_square">面&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;积</string>
+    <string name="house_decoration">内部装修</string>
+    <string name="house_rent">整/合租</string>
+    <string name="house_floor">楼层</string>
+    <string name="house_infloor">所在层数</string>
+    <string name="house_totalfloor">总楼层数</string>
+    <string name="house_name">小区名称</string>
+    <string name="house_address">小区地址</string>
+    <string name="house_address2">小区地址:</string>
+    <string name="house_price">价&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;格</string>
+
     <!-- 设置 -->
     <string name="setting_about">公司简介</string>
     <string name="setting_reading">应用说明</string>
     <string name="setting_league">申请加盟</string>
     <string name="setting_push">推送设置</string>
     <string name="setting_sound">消息音提示</string>
-    
+
     <!-- 消息详情 -->
     <string name="message_title">好像，累的时候转身你就在</string>
     <string name="message_number">(2030)</string>
@@ -285,13 +311,14 @@
     <string name="comment_content">评论内容评论内容评论内容</string>
     <string name="comment_time">2小时前</string>
     <string name="write_comment">写评论</string>
-    
+
     <!-- 其他 -->
     <string name="load_data">正在加载,请稍候&#8230;</string>
     <string name="links">网站链接：www.yuming.com</string>
     <string name="message">恭喜你，从发布者名称那里获得了红包类型多少元</string>
-    <string name="power_on">智能开启</string>   
-    <string name="no_data">没有找到符合条件的数据</string> 
-    <string name="instructions"><p>\t\t应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明</p></string> 
-    <string name="about"><p>\t\t公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介</p></string> 
+    <string name="power_on">智能开启</string>
+    <string name="no_data">没有找到符合条件的数据</string>
+    <string name="instructions"><p>\t\t应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明应用说明</p></string>
+    <string name="about"><p>\t\t公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介</p></string>
+
 </resources>

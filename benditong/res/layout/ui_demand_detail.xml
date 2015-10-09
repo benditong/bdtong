@@ -1,96 +1,155 @@
-<LinearLayout 
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@color/content_background_color"
-	android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_background_color"
+    android:orientation="vertical" >
 
-	<com.zykj.benditong.view.MyShareAndStoreTitle
+    <com.zykj.benditong.view.MyShareAndStoreTitle
         android:id="@+id/aci_mytitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-	<ScrollView 
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0.0dip"
-        android:layout_weight="1">
-        <LinearLayout 
-            android:orientation="vertical"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content">
-	        <ImageView 
-	            android:id="@+id/demand_image"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:contentDescription="@string/app_name"
-		        android:scaleType="fitXY"
-		        android:src="@drawable/icon_image_default"/>
-			<LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:orientation="vertical">
-			    <LinearLayout 
-			        android:layout_width="match_parent"
-			        android:layout_height="@dimen/sixty"
-			        android:padding="@dimen/ten"
-			        android:background="@color/white"
-			        android:orientation="vertical">
-			        <TextView 
-			            android:id="@+id/demand_title"
-			            android:layout_width="match_parent"
-			            android:layout_height="0.0dip"
-			            android:layout_weight="1"
-			            android:gravity="top"
-			    		android:textSize="@dimen/t_eighteen"
-			            android:paddingRight="@dimen/ten"
-			            android:text="@string/restaurant_name"/>
-			        <TextView 
-			            android:id="@+id/demand_time"
-			            android:layout_width="match_parent"
-			            android:layout_height="wrap_content"
-			    		android:textSize="@dimen/t_ten"
-			            android:gravity="center_vertical"
-			            android:paddingRight="@dimen/ten"
-			            android:text="@string/demand_time"/>
-			    </LinearLayout>
-			    <LinearLayout 
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:layout_marginTop="@dimen/ten"
-			        android:padding="@dimen/ten"
-			        android:background="@color/white"
-			        android:orientation="vertical">
-			        <TextView 
-			            android:id="@+id/demand_person"
-			            android:layout_width="match_parent"
-			            android:layout_height="@dimen/thirty"
-			    		android:textSize="@dimen/t_sixteen"
-			            android:gravity="center_vertical"
-			            android:paddingRight="@dimen/ten"
-			            android:text="@string/demand_person"/>
-			        <TextView 
-			            android:id="@+id/demand_mobile"
-			            android:layout_width="match_parent"
-			            android:layout_height="@dimen/thirty"
-			    		android:textSize="@dimen/t_sixteen"
-			            android:gravity="center_vertical"
-			            android:paddingRight="@dimen/ten"
-			            android:text="@string/demand_mobile"/>
-			    </LinearLayout>
-			    <LinearLayout 
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:layout_marginTop="@dimen/ten"
-			        android:padding="@dimen/ten"
-			        android:background="@color/white"
-			        android:orientation="vertical">
-			        <TextView 
-			        	android:id="@+id/demand_content"
-				        android:layout_width="match_parent"
-				        android:layout_height="wrap_content"
-			    		android:textSize="@dimen/t_sixteen"
-				        android:text="@string/demand_content"/>
-			    </LinearLayout>
-			</LinearLayout>
-		</LinearLayout>
-	</ScrollView>
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/demand_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_image_default" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sixty"
+                    android:background="@color/white"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/demand_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.0dip"
+                        android:layout_marginTop="@dimen/ten"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/ten"
+                        android:gravity="top"
+                        android:paddingRight="@dimen/ten"
+                        android:text="@string/restaurant_name"
+                        android:textSize="@dimen/t_eighteen" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/five"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="@dimen/ten"
+                            android:text="@string/zp_publish_time"
+                            android:textSize="@dimen/t_ten" />
+
+                        <TextView
+                            android:id="@+id/demang_addtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/ten"
+                            android:gravity="center_vertical"
+                            android:text="@string/zp_publish_time2"
+                            android:textSize="@dimen/t_ten" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ten"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/ten" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zp_contacts2" />
+
+                        <TextView
+                            android:id="@+id/demand_contacts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/ten"
+                            android:gravity="center_vertical"
+                            android:text="@string/zp_contacts2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ten"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zp_mobile2" />
+
+                        <TextView
+                            android:id="@+id/demand_mobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/ten"
+                            android:gravity="center_vertical"
+                            android:text="@string/zp_contacts2" />
+
+                        <ImageView
+                            android:id="@+id/demand_img_mobile"
+                            android:layout_width="@dimen/twenty"
+                            android:layout_height="@dimen/twenty"
+                            android:layout_marginLeft="@dimen/twenty"
+                            android:src="@drawable/zp_pic_phone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ten"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/ten" >
+
+                    <TextView
+                        android:id="@+id/demand_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/demand_content"
+                        android:textSize="@dimen/t_sixteen" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

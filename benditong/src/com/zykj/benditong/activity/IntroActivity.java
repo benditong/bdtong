@@ -34,8 +34,8 @@ public class IntroActivity extends BaseActivity implements OnPageChangeListener 
 	public void initView(int viewId) {
 		super.initView(viewId);
 
-		imgIdArray = new int[] { R.drawable.pic_11,
-				R.drawable.pic_21, R.drawable.pic_31,R.drawable.pic_41};
+		imgIdArray = new int[] { R.drawable.pic_1,
+				R.drawable.pic_2, R.drawable.pic_3,R.drawable.pic_4};
 
 //		ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);
 		viewPager = (ViewPager) findViewById(R.id.viewPager);

@@ -273,14 +273,15 @@
                     android:id="@+id/zp_details_mobile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/ten"
                     android:hint="@string/zp_mobilecode"
                     android:paddingLeft="@dimen/ten"
                     android:textSize="12sp" />
                 <ImageView 
                     android:id="@+id/zp_details_phone"
-                    android:layout_width="@dimen/fifteen"
-                    android:layout_height="@dimen/fifteen"
+                    android:layout_width="@dimen/twenty"
+                    android:layout_height="@dimen/twenty"
                     android:layout_marginLeft="@dimen/twenty"
                     android:src="@drawable/zp_pic_phone"/>
             </LinearLayout>

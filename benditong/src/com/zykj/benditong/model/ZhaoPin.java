@@ -8,7 +8,7 @@ public class ZhaoPin implements Serializable{
  */
 	private static final long serialVersionUID = 1L;
 	
-	private String id;// 职位名称
+	private String id;
 	private String title;// 职位名称
 	private String pay;// 薪资区间
 	private String num;// 人数
