@@ -90,10 +90,10 @@ public class HttpUtils {
     	client.post(UrlContants.getUrl(UrlContants.GETCARLIST), params, handler);
     }
    
-    /*获取默认的拼车详情信息*/
-    public static void getInfo(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.CARINFO), params, handler);
-    }
+//    /*获取默认的拼车详情信息*/
+//    public static void getInfo(AsyncHttpResponseHandler handler, RequestParams params){
+//    	client.post(UrlContants.getUrl(UrlContants.CARINFO), params, handler);
+//    }
     /*获取默认的车主 拼车信息*/
     public static void offerCar(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.OFFERCAR), params, handler);
@@ -219,5 +219,15 @@ public class HttpUtils {
     /*支付*/
     public static void orderPay(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.ORDERPAY, params, handler);
+    }
+    
+    /*获取酒店详情*/
+    public static void getShopInfo(AsyncHttpResponseHandler handler, String shopid){
+    	client.get(UrlContants.getUrl(UrlContants.SHOPDETAIL)+"&id="+shopid, handler);
+    }
+    
+    /*删除收藏*/
+    public static void delCollectionInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.DELCOLLECTIONINFO, params, handler);
     }
 }

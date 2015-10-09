@@ -20,6 +20,7 @@ import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
+import com.zykj.benditong.R.layout;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;

@@ -23,6 +23,7 @@ public class Good implements Serializable{
 	private String lasts;
 	private String usetime;
 	private String guize;
+	private String pid;
 	
 	public String getId() {
 		return id;
@@ -113,5 +114,11 @@ public class Good implements Serializable{
 	}
 	public void setGuize(String guize) {
 		this.guize = guize;
+	}
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
 	}
 }

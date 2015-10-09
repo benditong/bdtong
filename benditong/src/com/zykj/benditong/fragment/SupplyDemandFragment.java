@@ -17,7 +17,6 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.zykj.benditong.R;
 import com.zykj.benditong.activity.DemandDetailActivity;
-import com.zykj.benditong.activity.GroupBuyDetailActivity;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.model.Demand;
