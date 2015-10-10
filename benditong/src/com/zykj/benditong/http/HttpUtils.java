@@ -3,7 +3,6 @@ package com.zykj.benditong.http;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.zykj.benditong.model.Demand;
 
 
 
