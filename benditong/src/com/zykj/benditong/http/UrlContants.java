@@ -46,9 +46,9 @@ public class UrlContants {
     
     public static final String COMMENTLIST = "c=info&a=getCommentsList";//获取评价列表
     
-   // public static final String CARLIST = "c=car&a=getlist";//获取列表
+//    public static final String CARLIST = "c=car&a=getlist";//获取列表
     
-    public static final String CARINFO = "c=info&a=getinfo";//获取列表
+//    public static final String CARINFO = "c=car&a=getinfo";//获取列表
     
     public static final String NEEDCAR = "c=car&a=needcar";//我要拼车
     
@@ -114,6 +114,9 @@ public class UrlContants {
     
     public static final String UPLOADONE = "c=public&a=upload_one";//图片单张上传
 
+    public static final String SHOPDETAIL = "c=info&a=getinfo";//获取酒店详情
+
+    public static final String DELCOLLECTIONINFO = "c=info&a=delCollectionInfo";//获取酒店详情
 
     public static String getUrl(String token){
         if(token==null || token.equals("")){

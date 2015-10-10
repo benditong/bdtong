@@ -1,6 +1,8 @@
 package com.zykj.benditong.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 public class Demand implements Serializable{
 	
@@ -10,20 +12,15 @@ public class Demand implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;
-	private String title;//标题
 	private String type;//0供求 1求购
-	private String imgsrc;//图片
-	private String contacts;//联系人
+	private String title;//标题
+	private String name;//联系人
 	private String mobile;//联系电话
 	private String intro;//信息描述
-	private String addtime;
+	private String addtime;//添加时间
+	private List<Map<String, String>> imglist;//图片
+//	private String contacts;//联系人
 	
-	public String getAddtime() {
-		return addtime;
-	}
-	public void setAddtime(String addtime) {
-		this.addtime = addtime;
-	}
 	public String getId() {
 		return id;
 	}
@@ -42,17 +39,11 @@ public class Demand implements Serializable{
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getImgsrc() {
-		return imgsrc;
+	public String getName() {
+		return name;
 	}
-	public void setImgsrc(String imgsrc) {
-		this.imgsrc = imgsrc;
-	}
-	public String getContacts() {
-		return contacts;
-	}
-	public void setContacts(String contacts) {
-		this.contacts = contacts;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getMobile() {
 		return mobile;
@@ -66,5 +57,16 @@ public class Demand implements Serializable{
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-
+	public String getAddtime() {
+		return addtime;
+	}
+	public void setAddtime(String addtime) {
+		this.addtime = addtime;
+	}
+	public List<Map<String, String>> getImglist() {
+		return imglist;
+	}
+	public void setImglist(List<Map<String, String>> imglist) {
+		this.imglist = imglist;
+	}
 }

@@ -5,9 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import android.content.Intent;
@@ -23,16 +21,18 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
-import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyRequestDailog;
 import com.zykj.benditong.view.SegmentView;
 import com.zykj.benditong.view.SegmentView.onSegmentViewClickListener;
 import com.zykj.benditong.view.UIDialog;
@@ -46,6 +46,7 @@ public class DemandAddActivity extends BaseActivity implements onSegmentViewClic
 	private Button demand_submit;
 	private int type;
 	private File file;
+	private String title, caller, tel, info;
 
 	private String timeString;//上传头像的字段
 	
@@ -79,7 +80,7 @@ public class DemandAddActivity extends BaseActivity implements onSegmentViewClic
 		demand_info = (EditText)findViewById(R.id.demand_info);//信息描述
 		demand_submit = (Button)findViewById(R.id.demand_submit);//提交
 		
-		setListener(demand_submit);
+		setListener(demand_image, demand_submit);
 	}
 
 	/**
@@ -101,49 +102,30 @@ public class DemandAddActivity extends BaseActivity implements onSegmentViewClic
 			UIDialog.ForThreeBtn(this, new String[]{"拍照", "从相册中选取", "取消"}, this);
 			break;
 		case R.id.demand_submit:
-			String title = StringUtil.toString(demand_title.getText());
-			String caller = StringUtil.toString(demand_caller.getText());
-			String tel = StringUtil.toString(demand_tel.getText());
-			String info = StringUtil.toString(demand_info.getText());
-//			if(file == null){
-//				Tools.toast(this, "请上传图片!");
-//			}else 
+			title = StringUtil.toString(demand_title.getText());
+			caller = StringUtil.toString(demand_caller.getText());
+			tel = StringUtil.toString(demand_tel.getText());
+			info = StringUtil.toString(demand_info.getText());
 			if(StringUtil.isEmpty(title)){
 				Tools.toast(this, "标题不能为空!");
+			}else if(file == null){
+				Tools.toast(this, "请上传图片!");
 			}else if(StringUtil.isEmpty(caller)){
 				Tools.toast(this, "联系人不能为空!");
 			}else if(TextUtil.isPhone(tel)){
 				Tools.toast(this, "手机号格式不对!");
 			}else if(StringUtil.isEmpty(info)){
 				Tools.toast(this, "描述不能为空!");
-			}	
-				RequestParams params = new RequestParams();
-				params.put("type", type+1);
-//				try {
-//					//params.put("file", file);
-//				} catch (FileNotFoundException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-				params.put("title", title);
-				params.put("name", caller);
-				params.put("mobile", tel);
-				params.put("intro", info);
-			
-				HttpUtils.submitSupplyDemandInfo(new HttpErrorHandler() {
-					
-					@Override
-					public void onRecevieSuccess(JSONObject json) {
-						Tools.toast(DemandAddActivity.this, "信息发布成功");
-						finish();
-					}
-					@Override
-					public void onRecevieFailed(String status,
-							JSONObject json) {
-						super.onRecevieFailed(status, json);
-						Tools.toast(DemandAddActivity.this, "信息发布失败");
-					}
-				}, params);
+			}else{
+				try {
+					MyRequestDailog.showDialog(this, "");
+					RequestParams params = new RequestParams();
+					params.put("imgsrc", file);
+					HttpUtils.uploadone(res_uploadone, params);//上传图片
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+			}
 			break;
 		case R.id.dialog_modif_1:
 			/*拍照*/
@@ -171,6 +153,27 @@ public class DemandAddActivity extends BaseActivity implements onSegmentViewClic
 			break;
 		}
 	}
+	
+	private AsyncHttpResponseHandler res_uploadone = new HttpErrorHandler() {
+		@Override
+		public void onRecevieSuccess(JSONObject json) {
+			String imgsrc = json.getJSONObject(UrlContants.jsonData).getJSONObject("imgsrc").getString("imgsrc");
+			RequestParams params = new RequestParams();
+			params.put("type", type+1);
+			params.put("imgsrc[]", imgsrc);
+			params.put("title", title);
+			params.put("name", caller);
+			params.put("mobile", tel);
+			params.put("intro", info);
+			HttpUtils.submitSupplyDemandInfo(new HttpErrorHandler() {
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(DemandAddActivity.this, "信息发布成功");
+					finish();
+				}
+			}, params);
+		}
+	};
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {

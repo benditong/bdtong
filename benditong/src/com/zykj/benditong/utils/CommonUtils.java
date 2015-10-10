@@ -149,7 +149,6 @@ public class CommonUtils {
 		 oks.setSite(title);
 		 // siteUrl是分享此内容的网站地址，仅在QQ空间使用
 		 oks.setSiteUrl(url);
-
 		// 启动分享GUI
 		 oks.show(context);
 	}

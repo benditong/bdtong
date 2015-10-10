@@ -1,8 +1,5 @@
 package com.zykj.benditong.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,18 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
-import com.zykj.benditong.adapter.CommonAdapter;
-import com.zykj.benditong.http.HttpErrorHandler;
-import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Demand;
-import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyShareAndStoreTitle;
 
@@ -32,8 +23,6 @@ public class DemandDetailActivity extends BaseActivity {
 	private TextView demand_title, demand_time, demand_contacts, demand_mobile,
 			demand_content;
 	private ImageView demand_image, demand_img_mobile;
-	private CommonAdapter<Demand> demandAdapter;
-	private List<Demand> demands = new ArrayList<Demand>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +30,13 @@ public class DemandDetailActivity extends BaseActivity {
 		initView(R.layout.ui_demand_detail);
 		demand = (Demand) getIntent().getSerializableExtra("demand");
 		initView();
-		//requestData();
 	}
 
 	private void initView() {
 		myCommonTitle = (MyShareAndStoreTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setLisener(null, this);
 		myCommonTitle.setTitle("信息详情");
-
+		
 		demand_image = (ImageView) findViewById(R.id.demand_image);
 		demand_title = (TextView) findViewById(R.id.demand_title);
 		demand_time = (TextView) findViewById(R.id.demang_addtime);
@@ -63,18 +51,23 @@ public class DemandDetailActivity extends BaseActivity {
 		initializationDate();
 	}
 
-	 private void initializationDate(){
-	 ImageLoader.getInstance().displayImage(StringUtil.toString(demand.getImgsrc(), "http://"), demand_image);
-	 demand_title.setText(demand.getTitle());
-	 demand_time.setText(demand.getAddtime());
-	 demand_contacts.setText(demand.getContacts());
-	 demand_mobile.setText(demand.getMobile());
-	 demand_content.setText(demand.getIntro());
-	 }
+	private void initializationDate(){
+		ImageLoader.getInstance().displayImage(demand.getImglist().size() > 0 ? UrlContants.IMAGE_URL 
+				+ demand.getImglist().get(0).get("imgsrc"):"http://", demand_image);
+		demand_title.setText(demand.getTitle());
+		demand_time.setText(demand.getAddtime());
+		demand_contacts.setText(demand.getName());
+		demand_mobile.setText(demand.getMobile());
+		demand_content.setText(demand.getIntro());
+	}
 
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
+		case R.id.aci_store_btn:
+			/** 收藏 */
+			CommonUtils.showShare(this, "滴滴快讯", demand.getTitle(), "http://www.pgyer.com/ZttO");
+			break;
 		case R.id.demand_img_mobile:
 			/** 打电话 */
 			startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
