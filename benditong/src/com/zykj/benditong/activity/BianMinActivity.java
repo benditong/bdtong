@@ -24,6 +24,7 @@ import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.BianMin;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
@@ -55,7 +56,6 @@ public class BianMinActivity extends BaseActivity implements
 		tv_city = (TextView) findViewById(R.id.info_city);// 城市
 		tv_wind = (TextView) findViewById(R.id.info_wind);// 风力
 		gv_bianmin = (GridView) findViewById(R.id.gv_bianmin);
-
 		requestData();
 	}
 
@@ -118,8 +118,8 @@ public class BianMinActivity extends BaseActivity implements
 						holder.setText(R.id.bm_item_name,
 								StringUtil.toString(bianmin.getTitle()))
 								.setImageUrl(R.id.bm_item_imag,
-										StringUtil.toString(bianmin.getImgsrc(), ""),
-										50f);
+										bianmin.getImglist().size() > 0 ? UrlContants.IMAGE_URL 
+												+ bianmin.getImglist().get(0).get("imgsrc"):"http://", 10f);
 					}
 				};
 				gv_bianmin.setAdapter(bianminAdapter);

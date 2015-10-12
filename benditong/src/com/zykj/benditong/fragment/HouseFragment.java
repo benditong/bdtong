@@ -28,7 +28,7 @@ import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class HouseFragment extends Fragment implements IXListViewListener,OnItemClickListener {
-	private static int PERPAGE = 2;// perpager默认每页显示的条数
+	private static int PERPAGE = 10;// perpager默认每页显示的条数
 	private int nowpage = 1;// 当前显示的页面
 	private int mType = 1;//1合租 2整租
 	private XListView mListView;
@@ -145,5 +145,11 @@ public class HouseFragment extends Fragment implements IXListViewListener,OnItem
 		mListView.stopRefresh();
 		mListView.stopLoadMore();
 		mListView.setRefreshTime("刚刚");
+	}
+/**
+ * 添加完毕后自动刷新列表
+ */
+	public void reflush() {
+		requestData();
 	}
 }

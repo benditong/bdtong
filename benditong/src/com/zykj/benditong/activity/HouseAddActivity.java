@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -297,6 +298,7 @@ public class HouseAddActivity extends BaseActivity implements
 			public void onRecevieSuccess(JSONObject json) {
 				MyRequestDailog.closeDialog();
 				Tools.toast(HouseAddActivity.this, "房源发布成功");
+				setResult(Activity.RESULT_OK);
 				finish();
 			}
 			@Override

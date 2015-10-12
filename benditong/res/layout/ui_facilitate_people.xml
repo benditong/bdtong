@@ -25,7 +25,6 @@
                 android:layout_height="55dp"
                 android:layout_marginLeft="@dimen/ten"
                 android:layout_marginRight="@dimen/ten"
-                android:layout_marginTop="10dp"
                 android:background="#FFF"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -36,14 +35,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/info_temperature"
-                    android:textSize="30sp" />
+                    android:textSize="28sp" />
 
                 <TextView
                     android:id="@+id/info_weather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/info_weather"
-                    android:textSize="24sp" />
+                    android:textSize="22sp" />
 
                 <View
                     android:layout_width="1dp"
@@ -62,13 +61,15 @@
                         android:id="@+id/info_city"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/info_city" />
+                        android:text="@string/info_city" 
+                        android:textSize="@dimen/t_twelve"/>
 
                     <TextView
                         android:id="@+id/info_wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/info_wind" />
+                        android:text="@string/info_wind" 
+                        android:textSize="@dimen/t_twelve"/>
                 </LinearLayout>
             </LinearLayout>
 

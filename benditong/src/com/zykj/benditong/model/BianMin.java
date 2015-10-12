@@ -1,6 +1,8 @@
 package com.zykj.benditong.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 public class BianMin implements Serializable {
 
@@ -12,6 +14,14 @@ public class BianMin implements Serializable {
 	private String imgsrc;// 信息LOGO
 	private String url;// 信息链接地址
 	private String addtime;// 信息发布日期
+	private List<Map<String, String>> imglist;//图片
+	public List<Map<String, String>> getImglist() {
+		return imglist;
+	}
+
+	public void setImglist(List<Map<String, String>> imglist) {
+		this.imglist = imglist;
+	}
 
 	public String getId() {
 		return id;
