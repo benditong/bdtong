@@ -118,8 +118,7 @@ public class BianMinActivity extends BaseActivity implements
 						holder.setText(R.id.bm_item_name,
 								StringUtil.toString(bianmin.getTitle()))
 								.setImageUrl(R.id.bm_item_imag,
-										bianmin.getImglist().size() > 0 ? UrlContants.IMAGE_URL 
-												+ bianmin.getImglist().get(0).get("imgsrc"):"http://", 10f);
+										StringUtil.toString(UrlContants.IMAGE_URL+bianmin.getImgsrc(), ""));
 					}
 				};
 				gv_bianmin.setAdapter(bianminAdapter);
