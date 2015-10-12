@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:horizontalSpacing="3dp"
-                    android:numColumns="5"
+                    android:numColumns="4"
                     android:scrollbars="none"
                     android:padding="@dimen/five"/>
             </LinearLayout>

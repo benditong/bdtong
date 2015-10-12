@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="@dimen/ten" >
+    android:padding="@dimen/ten"
+    android:background="@color/white" >
 
     <ImageView
         android:id="@+id/fangchan_img"

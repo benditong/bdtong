@@ -1,18 +1,32 @@
 package com.zykj.benditong.activity;
 
+import java.util.List;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnTouchListener;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
+import com.zykj.benditong.adapter.RecyclingPagerAdapter;
+import com.zykj.benditong.http.EntityHandler;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.House;
+import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
@@ -24,7 +38,9 @@ public class HouseDetailActivity extends BaseActivity {
 	private TextView house_title, house_price, house_time, house_room,
 			house_square, house_floor, house_contacts, house_plot, house_rent,
 			house_intro, house_address, house_decoration, house_mobile;
-	private ImageView house_image,house_img_mobile;
+	private ImageView house_img_mobile;
+	private AutoScrollViewPager house_image;
+	private int now_pos = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +56,7 @@ public class HouseDetailActivity extends BaseActivity {
 		// myCommonTitle.setLisener(null, this);
 		myCommonTitle.setTitle("房产详情");
 
-		house_image = (ImageView) findViewById(R.id.house_image);
+		house_image = (AutoScrollViewPager) findViewById(R.id.house_image);//轮播图
 		house_title = (TextView) findViewById(R.id.house_title);
 		house_price = (TextView) findViewById(R.id.house_price);
 		house_time = (TextView) findViewById(R.id.house_submit_time);
@@ -54,27 +70,47 @@ public class HouseDetailActivity extends BaseActivity {
 		house_address = (TextView) findViewById(R.id.house_address);
 		house_decoration = (TextView) findViewById(R.id.house_decoration);
 		house_mobile = (TextView) findViewById(R.id.house_mobile);
+
+		LayoutParams pageParms = house_image.getLayoutParams();
+		pageParms.width = Tools.M_SCREEN_WIDTH;
+		pageParms.height = Tools.M_SCREEN_WIDTH*10/27;
+		
+		house_image.setInterval(2000);
+		house_image.startAutoScroll();
+		
+		house_image.setOnPageChangeListener(new OnPageChangeListener() {
+			public void onPageSelected(int arg0) {
+				// 回调view
+				uihandler.obtainMessage(0, arg0).sendToTarget();
+			}
+			public void onPageScrolled(int arg0, float arg1, int arg2) {}
+			public void onPageScrollStateChanged(int arg0) {}
+		});
 		/**
 		 * 打电话
 		 */
-		house_img_mobile=(ImageView) findViewById(R.id.house_details_phone);
-		house_img_mobile.setOnTouchListener(new OnTouchListener() {
-			
+		findViewById(R.id.house_details_phone).setOnClickListener(new OnClickListener() {
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public void onClick(View arg0) {
 				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+house_mobile.getText().toString().trim())));
-				return true;
 			}
 		});
-		house_image.setMinimumHeight(Tools.M_SCREEN_WIDTH * 2 / 5);
-
 		initializationDate();
 	}
-/**
- * 给详情页面的控件传值
- */
+
+	// 轮播图
+	private AsyncHttpResponseHandler res_getAdsList = new EntityHandler<String>(
+			String.class) {
+		@Override
+		public void onReadSuccess(final List<String> imageList) {
+		}
+	};
+	
+	/**
+	 * 给详情页面的控件传值
+	 */
 	private void initializationDate() {
-		ImageLoader.getInstance().displayImage(StringUtil.toString(house.getImgsrc(), "http://"), house_image);
+//		ImageLoader.getInstance().displayImage(StringUtil.toString(house.getImgsrc(), "http://"), house_image);
 		house_title.setText(house.getTitle());
 		house_price.setText(house.getPrice()+"元/月");
 		house_time.setText(house.getAddtime());
@@ -87,5 +123,69 @@ public class HouseDetailActivity extends BaseActivity {
 		house_address.setText(house.getPlotaddress());
 		house_contacts.setText(house.getName());
 		house_mobile.setText(house.getMobile());
+		// 设置轮播
+		house_image.setAdapter(new RecyclingPagerAdapter() {
+			@Override
+			public int getCount() {
+				return house.getImglist().size();
+			}
+			@Override
+			public View getView(int position, View convertView, ViewGroup container) {
+				ImageView imageView;
+				if (convertView == null) {
+					convertView = imageView = new ImageView(HouseDetailActivity.this);
+					imageView.setScaleType(ScaleType.FIT_XY);
+				} else {
+					imageView = (ImageView)convertView;
+				}
+				String imgUrl = house.getImglist().get(position).get("imgsrc");
+				CommonUtils.showPic(StringUtil.isEmpty(imgUrl)?"":UrlContants.IMAGE_URL+imgUrl, imageView);
+				return convertView;
+			}
+		});
+	}
+
+	Handler uihandler = new Handler() {
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			switch (msg.what) {
+			case 0:// 滚动的回调
+				changePointView((Integer) msg.obj);
+				break;
+			}
+		}
+	};	
+	
+	/**
+	 * 轮播图自动播放
+	 * @param cur 当前显示的图片
+	 */
+	public void changePointView(int cur) {
+		LinearLayout pointLinear = (LinearLayout) findViewById(R.id.gallery_point_linear);
+		View view = pointLinear.getChildAt(now_pos);
+		View curView = pointLinear.getChildAt(cur);
+		if (view != null && curView != null) {
+			ImageView pointView = (ImageView) view;
+			ImageView curPointView = (ImageView) curView;
+			pointView.setBackgroundResource(R.drawable.feature_point);
+			curPointView.setBackgroundResource(R.drawable.feature_point_cur);
+			now_pos = cur;
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (house_image != null) {
+			house_image.startAutoScroll();
+		}
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if (house_image != null) {
+			house_image.stopAutoScroll();
+		}
 	}
 }

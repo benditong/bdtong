@@ -97,17 +97,6 @@ public class SupplyDemandFragment extends Fragment implements IXListViewListener
 	}
 	
 	/**
-	 * 加载完成
-	 */
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		super.onViewCreated(view, savedInstanceState);
-		Bundle argument = getArguments();
-		mType = argument.getInt("type");
-		requestData();
-	}
-	
-	/**
 	 * 请求供应列表
 	 */
 	private void requestData() {

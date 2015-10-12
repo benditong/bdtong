@@ -22,14 +22,14 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
@@ -37,13 +37,15 @@ import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyRequestDailog;
 import com.zykj.benditong.view.SegmentView;
-import com.zykj.benditong.view.UIDialog;
 import com.zykj.benditong.view.SegmentView.onSegmentViewClickListener;
+import com.zykj.benditong.view.UIDialog;
 
 public class HouseAddActivity extends BaseActivity implements
 		onSegmentViewClickListener {
@@ -60,7 +62,7 @@ public class HouseAddActivity extends BaseActivity implements
 	private String imgs = "";
 	private String timeString;// 上传头像的字段
 	private int type;
-	private File file;
+	private int index;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,6 @@ public class HouseAddActivity extends BaseActivity implements
 	}
 
 	private void initView() {
-
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("房产发布");
 		/**
@@ -101,9 +102,7 @@ public class HouseAddActivity extends BaseActivity implements
 		images.add(BitmapFactory.decodeResource(getResources(), R.drawable.add_photo));
 		house_image = (GridView) findViewById(R.id.fc_add_house_image);
 		house_image.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		adapter = new CommonAdapter<Bitmap>(this, R.layout.ui_simple_image,
-				images) {
-
+		adapter = new CommonAdapter<Bitmap>(this, R.layout.ui_simple_image, images) {
 			@Override
 			public void convert(ViewHolder holder, Bitmap bitmap) {
 				LayoutParams pageParms = holder.getView(R.id.assess_image).getLayoutParams();
@@ -116,10 +115,10 @@ public class HouseAddActivity extends BaseActivity implements
 		house_image.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View convertView, int position, long checkedid) {
 				if (position == 0) {
-					if(files.size() < 4){
+					if(files.size() < 5){
 						UIDialog.ForThreeBtn(HouseAddActivity.this, new String[]{"拍照", "从相册中选取", "取消"}, HouseAddActivity.this);
 					}else{
-						Tools.toast(HouseAddActivity.this, "最多上传四张图片");
+						Tools.toast(HouseAddActivity.this, "最多上传五张图片");
 					}
 				}
 			}
@@ -193,7 +192,7 @@ public class HouseAddActivity extends BaseActivity implements
 			/**
 			 * 设置控件的输入条件
 			 */
-			if (file == null) {
+			if (files.size() <= 0) {
 				Tools.toast(this, "请上传图片");
 			} else if (StringUtil.isEmpty(house_title.getText().toString()
 					.trim())) {
@@ -238,50 +237,74 @@ public class HouseAddActivity extends BaseActivity implements
 			} else if (!TextUtil.isMobile(house_mobile.getText().toString()
 					.trim())) {
 				Tools.toast(this, "手机格式不正确");
+			} else {
+				try {
+					MyRequestDailog.showDialog(this, "");
+					index = 0;imgs = "";
+					RequestParams params = new RequestParams();
+					params.put("imgsrc", files.get(index));
+					HttpUtils.uploadone(res_uploadone, params);//上传图片
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
 			}
-			submitData();
 			break;
 		default:
 			break;
 		}
 	}
+	
+	/**
+	 * 单张图片上传
+	 */
+	private AsyncHttpResponseHandler res_uploadone = new HttpErrorHandler() {
+		@Override
+		public void onRecevieSuccess(JSONObject json) {
+			try {
+				String imgsrc = json.getJSONObject(UrlContants.jsonData).getJSONObject("imgsrc").getString("imgsrc");
+				imgs += "&imgsrc[]="+imgsrc;
+				index++;
+				if(index < files.size()){
+					RequestParams params = new RequestParams();
+					params.put("imgsrc", files.get(index));
+					HttpUtils.uploadone(res_uploadone, params);
+				}else{
+					submitData();
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	};
 
 	private void submitData() {
-		RequestParams params = new RequestParams();
-
-		params.put("type", type + 1);// 租住方式 1合租 2整租
-		try {
-			params.put("file", file);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		params.put("title", house_title.getText().toString().trim());
-		params.put("price", house_price.getText().toString().trim());
-		params.put("tingshi", house_room.getText().toString().trim());
-		params.put("area", house_square.getText().toString().trim());
-		params.put("floor", house_infloor.getText().toString().trim());
-		params.put("allfloor", house_totalfloor.getText().toString().trim());
-		params.put("plot", house_plot.getText().toString().trim());
-		params.put("plotaddress", house_address.getText().toString().trim());
-		params.put("intro", house_intro.getText().toString().trim());
-		params.put("name", house_contacts.getText().toString().trim());
-		params.put("mobile", house_mobile.getText().toString().trim());
-
+		String parameter = "";
+		parameter += "&title="+house_title.getText().toString().trim();//标题
+		parameter += "&price="+house_price.getText().toString().trim();//价格
+		parameter += "&tingshi="+house_room.getText().toString().trim();//厅室
+		parameter += "&area="+house_square.getText().toString().trim();//面积
+		parameter += "&floor="+house_infloor.getText().toString().trim();//所在楼层
+		parameter += "&allfloor="+house_totalfloor.getText().toString().trim();//总楼层数
+		parameter += "&plot="+house_plot.getText().toString().trim();//小区名称
+		parameter += "&plotaddress="+house_address.getText().toString().trim();//小区地址
+		parameter += "&intro="+house_intro.getText().toString().trim();//房源简介
+		parameter += "&type="+(type + 1);//租住方式：合租房：1，整租房：2
+		parameter += "&name="+house_contacts.getText().toString().trim();//联系人
+		parameter += "&mobile="+house_mobile.getText().toString().trim();//联系电话
+		parameter += imgs;//图片地址，上传好的图片路径
 		HttpUtils.submitHouseInfo(new HttpErrorHandler() {
-
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
+				MyRequestDailog.closeDialog();
 				Tools.toast(HouseAddActivity.this, "房源发布成功");
 				finish();
 			}
-
 			@Override
 			public void onRecevieFailed(String status, JSONObject json) {
 				super.onRecevieFailed(status, json);
 				Tools.toast(HouseAddActivity.this, "房源发布失败");
 			}
-		}, params);
+		}, parameter.toString());
 	}
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {

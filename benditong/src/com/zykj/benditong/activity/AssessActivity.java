@@ -70,11 +70,11 @@ public class AssessActivity extends BaseActivity{
 		initView();
 		requestData();
 	}
-
+	
 	private void initView() {
 		myCommonTitle = (MyCommonTitle)findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("提交评价");
-
+		
 		images.add(BitmapFactory.decodeResource(getResources(), R.drawable.add_photo));
 		restaurant_star = (RatingBar) findViewById(R.id.restaurant_star);
 		comment_content = (EditText) findViewById(R.id.comment_content);

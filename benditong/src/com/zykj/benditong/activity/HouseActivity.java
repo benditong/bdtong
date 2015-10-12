@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+
 import com.zykj.benditong.R;
 import com.zykj.benditong.fragment.HouseFragment;
 import com.zykj.benditong.view.MyCommonTitle;
@@ -17,9 +17,7 @@ public class HouseActivity extends FragmentActivity implements
 		OnClickListener {
 	private MyCommonTitle myCommonTitle;
 	private ImageView img_publish;
-	private HouseFragment[] fragments;
 	private RadioGroup tab_fangChan;
-	private RadioButton fangChan_tab1, fangChan_tab2;
 	private HouseFragment fangChanFragment1, fangChanFragment2;
 	private int checkedId = R.id.fangchan_tab1;//当前Fragment
 	@Override
@@ -31,6 +29,9 @@ public class HouseActivity extends FragmentActivity implements
 		requestData();
 	}
 
+	/**
+	 * 加载页面
+	 */
 	private void initView() {
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setLisener(null, this);
@@ -39,7 +40,6 @@ public class HouseActivity extends FragmentActivity implements
 		img_publish.setImageResource(R.drawable.img_publish);
 
 		tab_fangChan = (RadioGroup) findViewById(R.id.tab_fangchan);
-
 		fangChanFragment1 = HouseFragment.getInstance(1);// 合租房
 		fangChanFragment2 = HouseFragment.getInstance(2);// 整租房
 

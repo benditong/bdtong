@@ -1,6 +1,8 @@
 package com.zykj.benditong.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 public class House implements Serializable {
 	/**
@@ -21,8 +23,8 @@ public class House implements Serializable {
 	private String type;// 租住方式：合租房：1，整租房：2
 	private String name;// 联系人
 	private String mobile;// 联系电话
-	private String imgsrc;// 图片
 	private String addtime;
+	private List<Map<String, String>> imglist;//图片
 
 	public String getId() {
 		return id;
@@ -128,14 +130,6 @@ public class House implements Serializable {
 		this.mobile = mobile;
 	}
 
-	public String getImgsrc() {
-		return imgsrc;
-	}
-
-	public void setImgsrc(String imgsrc) {
-		this.imgsrc = imgsrc;
-	}
-
 	public String getAddtime() {
 		return addtime;
 	}
@@ -144,4 +138,11 @@ public class House implements Serializable {
 		this.addtime = addtime;
 	}
 
+	public List<Map<String, String>> getImglist() {
+		return imglist;
+	}
+
+	public void setImglist(List<Map<String, String>> imglist) {
+		this.imglist = imglist;
+	}
 }

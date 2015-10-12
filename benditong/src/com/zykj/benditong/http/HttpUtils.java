@@ -148,8 +148,8 @@ public class HttpUtils {
     	client.post(UrlContants.getUrl(UrlContants.GETHOUSELIST), params, handler);
     }
     /*发布房产信息*/
-    public static void submitHouseInfo(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.SUBMITHOUSEINFO), params, handler);
+    public static void submitHouseInfo(AsyncHttpResponseHandler handler, String params){
+    	client.get(UrlContants.getUrl(UrlContants.SUBMITHOUSEINFO) + params, handler);
     }
     /*获取房产详情*/
     public static void getHouseInfo(AsyncHttpResponseHandler handler, RequestParams params){
