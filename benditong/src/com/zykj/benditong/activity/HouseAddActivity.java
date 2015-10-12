@@ -82,6 +82,7 @@ public class HouseAddActivity extends BaseActivity implements
 		rent_type = (SegmentView) findViewById(R.id.house_type);
 		rent_type.setSegmentText("合租房", 0);
 		rent_type.setSegmentText("整租房", 1);
+		rent_type.setSegmentStatus(type);
 		rent_type.setBackgroundResource(R.drawable.demand_tab_left,
 				R.drawable.demand_tab_right);
 		rent_type.setTextColor(R.drawable.demand_tab_color);
@@ -131,16 +132,11 @@ public class HouseAddActivity extends BaseActivity implements
 	 * SegmentView整租、合租 切换
 	 */
 	@Override
-	public void onSegmentViewClick(View v, int position) {
+	public void onSegmentViewClick(View view, int position) {
 		switch (position) {
-		case 0:
-			type = 0;
-			break;
-		case 1:
-			type = 1;
-			break;
-		default:
-			break;
+		case 0:type = 0;break;
+		case 1:type = 1;break;
+		default:break;
 		}
 	}
 

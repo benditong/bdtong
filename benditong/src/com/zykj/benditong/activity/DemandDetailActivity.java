@@ -70,8 +70,7 @@ public class DemandDetailActivity extends BaseActivity {
 			break;
 		case R.id.demand_img_mobile:
 			/** 打电话 */
-			startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
-					+ demand_mobile.getText().toString().trim())));
+			startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+demand_mobile.getText().toString().trim())));
 			break;
 		default:
 			break;

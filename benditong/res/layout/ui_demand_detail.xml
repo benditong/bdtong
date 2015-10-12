@@ -129,7 +129,8 @@
                             android:layout_width="@dimen/twenty"
                             android:layout_height="@dimen/twenty"
                             android:layout_marginLeft="@dimen/twenty"
-                            android:src="@drawable/zp_pic_phone" />
+                            android:src="@drawable/zp_pic_phone" 
+                            android:contentDescription="@string/app_name"/>
                     </LinearLayout>
                 </LinearLayout>
 

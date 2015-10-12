@@ -57,6 +57,7 @@ public class HouseFragment extends Fragment implements IXListViewListener,OnItem
 				ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 		mListView = new XListView(getActivity(), null);
 		mListView.setLayoutParams(params);
+		mListView.setDividerHeight(0);
 		mListView.setPullRefreshEnable(true);
 		mListView.setPullLoadEnable(true);
 		mListView.setXListViewListener(this);

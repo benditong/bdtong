@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/devide_gray_bt" >
     
     <TextView 
         android:id="@+id/zp_zhiwei_name"
@@ -66,4 +67,9 @@
         android:layout_marginTop="@dimen/ten"
         android:layout_marginLeft="@dimen/ten"
         android:text="@string/zp_comp_name"/>
+    
+    <View android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/ten"
+        android:background="@color/content_background_color"/>
 </LinearLayout>

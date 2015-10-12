@@ -1,14 +1,11 @@
 package com.zykj.benditong.activity;
 
-import android.R.integer;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
@@ -23,9 +20,8 @@ public class CarpoolSignUpActivity extends BaseActivity {
 	/**
 	 * 报名提交信息
 	 */
-	private String tid;
 	private TextView textView_orign, textView_destination,
-			textView_depart_time, textView_remain_seats, textView_cost;
+			textView_depart_time, textView_remain_seats;
 	private EditText editText_sign_persons, editText_name, editText_phone;
 	private String mobileCode;
 	private ImageButton imageButton;
@@ -34,11 +30,9 @@ public class CarpoolSignUpActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.ui_carpool_sign_up);
 		car = (Car) getIntent().getSerializableExtra("car");
-		tid = "1";
 		initView();
 	}
 

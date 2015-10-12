@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/ten"
                 android:layout_marginTop="@dimen/five"
-                android:text="@string/zp_zhiweiname" />
+                android:text="@string/zp_zhiweiname" 
+                android:textSize="@dimen/t_sixteen"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                     android:layout_marginLeft="@dimen/ten"
                     android:text="@string/zp_publish_time"
                     android:textColor="@color/grey"
-                    android:textSize="12sp" />
+                    />
 
                 <TextView
                     android:id="@+id/zp_details_publish_time"
@@ -49,8 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:text="@string/zp_publish_time2"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp" />
+                    android:textColor="@color/grey"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -65,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="@dimen/ten"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -73,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:hint="@string/zp_salary2"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange" 
+                    android:textSize="@dimen/t_sixteen"/>
             </LinearLayout>
 
             <LinearLayout
@@ -89,8 +91,7 @@
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
                     android:text="@string/zp_comp_name2"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp" />
+                    android:textColor="@color/grey"/>
 
                 <TextView
                     android:id="@+id/zp_details_comp_name"
@@ -99,8 +100,7 @@
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:hint="@string/zp_comp_address_hint"
-                    android:textSize="12sp" />
+                    android:hint="@string/zp_comp_address_hint"/>
             </LinearLayout>
 
             <LinearLayout
@@ -116,8 +116,7 @@
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
                     android:text="@string/zp_comp_address2"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp" />
+                    android:textColor="@color/grey"/>
 
                 <TextView
                     android:id="@+id/zp_details_comp_address"
@@ -126,8 +125,7 @@
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:hint="@string/zp_comp_address_hint"
-                    android:textSize="12sp" />
+                    android:hint="@string/zp_comp_address_hint"/>
             </LinearLayout>
 
             <LinearLayout
@@ -143,8 +141,7 @@
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
                     android:text="@string/zp_persons2"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp" />
+                    android:textColor="@color/grey"/>
 
                 <TextView
                     android:id="@+id/zp_details_persons"
@@ -153,8 +150,7 @@
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:hint="@string/zp_comp_address_hint"
-                    android:textSize="12sp" />
+                    android:hint="@string/zp_comp_address_hint"/>
             </LinearLayout>
 
             <View
@@ -166,7 +162,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/sixty"
+                android:layout_height="@dimen/eighty_five"
                 android:layout_marginTop="@dimen/ten"
                 android:orientation="horizontal" >
 
@@ -176,7 +172,6 @@
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
                     android:text="@string/zp_position_require"
-                    android:textSize="12sp"
                     android:textColor="@color/grey" />
 
                 <TextView
@@ -186,14 +181,13 @@
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:hint="@string/zp_comp_about"
-                    android:textSize="12sp" />
+                    android:hint="@string/zp_comp_about"/>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/sixty"
+            android:layout_height="@dimen/eighty_five"
             android:layout_marginTop="@dimen/ten"
             android:background="@color/white"
             android:orientation="horizontal" >
@@ -205,7 +199,6 @@
                 android:background="@color/white"
                 android:paddingLeft="@dimen/ten"
                 android:text="@string/zp_comp_about2"
-                android:textSize="12sp" 
                 android:textColor="@color/grey"/>
 
             <TextView
@@ -216,9 +209,7 @@
                 android:layout_marginTop="@dimen/ten"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:hint="@string/zp_comp_about"
-                android:paddingLeft="@dimen/ten"
-                android:textSize="12sp" />
+                android:hint="@string/zp_comp_about"/>
         </LinearLayout>
 
         <LinearLayout
@@ -239,8 +230,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
-                    android:text="@string/zp_contacts"
-                    android:textSize="12sp" 
+                    android:text="@string/zp_contacts2"
                     android:textColor="@color/grey"/>
 
                 <TextView
@@ -251,8 +241,7 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:hint="@string/zp_contacts_name"
-                    android:paddingLeft="@dimen/ten"
-                    android:textSize="12sp" />
+                    android:paddingLeft="@dimen/ten"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -265,8 +254,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/ten"
-                    android:text="@string/zp_mobile"
-                    android:textSize="12sp" 
+                    android:text="@string/zp_mobile2"
                     android:textColor="@color/grey"/>
 
                 <TextView
@@ -276,14 +264,14 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/ten"
                     android:hint="@string/zp_mobilecode"
-                    android:paddingLeft="@dimen/ten"
-                    android:textSize="12sp" />
+                    android:paddingLeft="@dimen/ten"/>
                 <ImageView 
                     android:id="@+id/zp_details_phone"
                     android:layout_width="@dimen/twenty"
                     android:layout_height="@dimen/twenty"
                     android:layout_marginLeft="@dimen/twenty"
-                    android:src="@drawable/zp_pic_phone"/>
+                    android:src="@drawable/zp_pic_phone"
+                    android:contentDescription="@string/app_name"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
