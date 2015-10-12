@@ -154,6 +154,7 @@ public class UserActivity extends BaseActivity {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					user_sign_text.setText("已签到");
+					BaseApp.getModel().setSign("ok");
 				}
 			}, params);
 			break;
