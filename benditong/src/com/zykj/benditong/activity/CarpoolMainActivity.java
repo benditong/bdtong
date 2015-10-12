@@ -27,7 +27,7 @@ import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class CarpoolMainActivity extends BaseActivity implements
 		IXListViewListener, OnItemClickListener {
-	private static int PERPAGE = 3;// perpage默认每页显示5条信息
+	private static int PERPAGE = 5;// perpage默认每页显示5条信息
 	private int nowpage = 1;// 当前显示的页面
 	private Button btn_carpoolNeeder, btn_carpoolOwner;
 	private ImageButton btn_carpoolBack;
@@ -51,6 +51,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 		btn_carpoolOwner = (Button) findViewById(R.id.btn_carpool_owner);
 		car_listView = (XListView) findViewById(R.id.car_listview);
 		setListener(btn_carpoolBack, btn_carpoolNeeder, btn_carpoolOwner);
+		car_listView.setDividerHeight(0);
 		car_listView.setPullLoadEnable(true);
 		car_listView.setPullRefreshEnable(true);
 		car_listView.setXListViewListener(this);

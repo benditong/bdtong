@@ -269,7 +269,6 @@
         <activity
             android:name=".activity.HouseActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
@@ -281,7 +280,6 @@
         <activity
             android:name=".activity.HouseAddActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity

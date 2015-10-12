@@ -1,5 +1,6 @@
 package com.zykj.benditong.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -71,9 +72,20 @@ public class HouseActivity extends FragmentActivity implements
 	@Override
 	public void onClick(View vieww) {
 		if (checkedId == R.id.fangchan_tab1){
-			startActivity(new Intent(this, HouseAddActivity.class).putExtra("type", 1));//发布合租
+			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 1), 1);//发布合租
 		} else if (checkedId == R.id.fangchan_tab2) {
-			startActivity(new Intent(this, HouseAddActivity.class).putExtra("type", 2));//发布整租
+			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 2), 2);//发布整租
+		}
+	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		super.onActivityResult(requestCode, resultCode, intent);
+		if(resultCode == Activity.RESULT_OK){
+			if(requestCode == 1){
+				fangChanFragment1.reflush();//刷新1
+			}else if(requestCode == 2){
+				fangChanFragment2.reflush();//刷新2
+			}
 		}
 	}
 }
