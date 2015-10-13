@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -9,47 +8,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <RadioGroup
-        android:id="@+id/tab_zhaopin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty"
-        android:layout_marginTop="@dimen/five"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/zp_tab1"
-            style="@style/my_radiobutton"
-            android:checked="true"
-            android:text="@string/zp_all" />
-
-        <RadioButton
-            android:id="@+id/zp_tab2"
-            style="@style/my_radiobutton"
-            android:text="@string/zp_sell" />
-
-        <RadioButton
-            android:id="@+id/zp_tab3"
-            style="@style/my_radiobutton"
-            android:text="@string/zp_jianzhi" />
-
-        <RadioButton
-            android:id="@+id/zp_tab4"
-            style="@style/my_radiobutton"
-            android:text="@string/zp_zonghe" />
-    </RadioGroup>
-
-    <!--
-         <com.zykj.benditong.view.HorizontalListView
+    <HorizontalScrollView
         android:id="@+id/zp_hlistView"
+		android:layout_marginTop="@dimen/five"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/forty"/>
-    -->
-
-    <FrameLayout
-        android:id="@+id/zhaopin_framelayout"
+        android:layout_height="@dimen/forty">
+        <RadioGroup
+	        android:id="@+id/tab_zhaopin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="@dimen/forty"
+	        android:gravity="center"
+	        android:orientation="horizontal"/>
+	</HorizontalScrollView>
+    
+	<com.zykj.benditong.view.XListView 
+	    android:id="@+id/zhaopin_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </FrameLayout>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

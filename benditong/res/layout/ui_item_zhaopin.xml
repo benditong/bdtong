@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/ten"
+    android:background="@drawable/devide_gray_bt">
     
     <TextView 
         android:id="@+id/zp_zhiwei_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ten"
-        android:layout_marginLeft="@dimen/ten"
         android:text="@string/zp_zhiweiname"
         android:textSize="18sp"/>
 
@@ -17,45 +17,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/ten"
-        android:layout_marginLeft="@dimen/ten"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zp_item_salary" />
-
+        android:orientation="horizontal"
+        android:weightSum="16" >
         <TextView
             android:id="@+id/zp_item_salary"
-            android:layout_width="wrap_content"
+            android:layout_width="0.0dip"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/five"
-            android:textColor="@color/orange"
-            android:text="@string/zp_salary2"/>
-           <View 
-               android:layout_width="0dp"
-                android:layout_height="10dp"
-             android:layout_weight="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zp_item_persons" />
-
+            android:layout_weight="7"
+            android:text="@string/zp_item_salary" />
         <TextView
             android:id="@+id/zp_item_persons"
-            android:layout_width="wrap_content"
+            android:layout_width="0.0dip"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/five"
+            android:layout_weight="5"
             android:text="@string/zp_item_persons2" />
-        <View 
-             android:layout_width="0dp"
-             android:layout_height="10dp"
-             android:layout_weight="1"/>
         <TextView
             android:id="@+id/zp_publish_time"
-            android:layout_width="wrap_content"
+            android:layout_width="0.0dip"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/ten"
+            android:layout_weight="4"
+            android:gravity="right"
             android:text="@string/zp_item_date" />
     </LinearLayout>
     
@@ -64,6 +45,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/ten"
-        android:layout_marginLeft="@dimen/ten"
         android:text="@string/zp_comp_name"/>
 </LinearLayout>

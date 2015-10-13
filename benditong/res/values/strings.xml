@@ -243,7 +243,7 @@
     <string name="zp_zonghe">综合</string>
     <string name="zp_zhiweiname">职位名称</string>
     <string name="zp_salary">薪资区间</string>
-    <string name="zp_item_salary">薪资:</string>
+    <string name="zp_item_salary">薪资：</string>
     <string name="zp_salary2">2000-3000元</string>
     <string name="zp_persons">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
     <string name="zp_item_persons">人数:</string>

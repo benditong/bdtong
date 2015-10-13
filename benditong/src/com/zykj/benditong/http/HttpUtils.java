@@ -128,8 +128,8 @@ public class HttpUtils {
         client.post(UrlContants.getUrl(UrlContants.GETBIANMINLIST), handler);
         }
     /*获取招聘类别*/
-    public static void getZhaoPinCategory(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.getUrl(UrlContants.GETZHAOPINCATEGORY), params, handler);
+    public static void getZhaoPinCategory(AsyncHttpResponseHandler handler){
+    	client.post(UrlContants.getUrl(UrlContants.GETZHAOPINCATEGORY), handler);
     }
     /*获取招聘列表*/
     public static void getZhaoPinList(AsyncHttpResponseHandler handler, RequestParams params){
