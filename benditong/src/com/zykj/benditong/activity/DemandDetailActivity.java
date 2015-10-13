@@ -34,7 +34,7 @@ public class DemandDetailActivity extends BaseActivity {
 
 	private void initView() {
 		myCommonTitle = (MyShareAndStoreTitle) findViewById(R.id.aci_mytitle);
-		myCommonTitle.setLisener(null, this);
+		myCommonTitle.setLisener(null, null);
 		myCommonTitle.setTitle("信息详情");
 		
 		demand_image = (ImageView) findViewById(R.id.demand_image);

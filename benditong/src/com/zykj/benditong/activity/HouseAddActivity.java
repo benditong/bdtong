@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,15 +23,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.deserializer.StringFieldDeserializer;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
@@ -56,6 +61,7 @@ public class HouseAddActivity extends BaseActivity implements
 	private EditText house_title, house_price, house_room, house_square,
 			house_infloor, house_totalfloor, house_plot, house_address,
 			house_intro, house_contacts, house_mobile;
+	private TextView house_decoration;
 	private Button btn_submit;
 	private CommonAdapter<Bitmap> adapter;
 	private List<Bitmap> images = new ArrayList<Bitmap>();
@@ -92,6 +98,7 @@ public class HouseAddActivity extends BaseActivity implements
 		house_price = (EditText) findViewById(R.id.house_price);
 		house_room = (EditText) findViewById(R.id.house_room);
 		house_square = (EditText) findViewById(R.id.house_square);
+		house_decoration = (TextView) findViewById(R.id.house_add_decoration);
 		house_infloor = (EditText) findViewById(R.id.house_infloor);
 		house_totalfloor = (EditText) findViewById(R.id.house_totalfloor);
 		house_plot = (EditText) findViewById(R.id.house_plot);
@@ -100,14 +107,56 @@ public class HouseAddActivity extends BaseActivity implements
 		house_contacts = (EditText) findViewById(R.id.house_contacts);
 		house_mobile = (EditText) findViewById(R.id.house_mobile);
 
+		house_decoration.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						HouseAddActivity.this);
+				builder.setIcon(R.drawable.ic_house);
+				
+				builder.setTitle("请选择装修情况");
+				// 指定下拉列表的显示数据
+				final String fitments[] = { "毛坯装修", "一般装修", "精装修", "豪华装修" };
+				// 设置一个下拉的列表选择项
+				builder.setItems(fitments,
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								house_decoration.setText(fitments[which]);
+							}
+						});
+				// builder.setPositiveButton("确定", new
+				// DialogInterface.OnClickListener() {
+				// @Override
+				// public void onClick(DialogInterface dialog, int which) {
+				// house_decoration.setText(fitments[which]);
+				// }
+				// });
+				// builder.setNegativeButton("取消", new
+				// DialogInterface.OnClickListener() {
+				//
+				// @Override
+				// public void onClick(DialogInterface dialog, int which) {
+				//
+				// }
+				// });
+				builder.show();
+			}
+		});
+
 		btn_submit = (Button) findViewById(R.id.house_submit);
-		images.add(BitmapFactory.decodeResource(getResources(), R.drawable.add_photo));
+		images.add(BitmapFactory.decodeResource(getResources(),
+				R.drawable.add_photo));
 		house_image = (GridView) findViewById(R.id.fc_add_house_image);
 		house_image.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		adapter = new CommonAdapter<Bitmap>(this, R.layout.ui_simple_image, images) {
+		adapter = new CommonAdapter<Bitmap>(this, R.layout.ui_simple_image,
+				images) {
 			@Override
 			public void convert(ViewHolder holder, Bitmap bitmap) {
-				LayoutParams pageParms = holder.getView(R.id.assess_image).getLayoutParams();
+				LayoutParams pageParms = holder.getView(R.id.assess_image)
+						.getLayoutParams();
 				pageParms.width = (Tools.M_SCREEN_WIDTH - 40) / 5;
 				pageParms.height = (Tools.M_SCREEN_WIDTH - 40) / 5;
 				holder.setImageView(R.id.assess_image, bitmap);
@@ -115,11 +164,14 @@ public class HouseAddActivity extends BaseActivity implements
 		};
 		house_image.setAdapter(adapter);
 		house_image.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View convertView, int position, long checkedid) {
+			public void onItemClick(AdapterView<?> parent, View convertView,
+					int position, long checkedid) {
 				if (position == 0) {
-					if(files.size() < 5){
-						UIDialog.ForThreeBtn(HouseAddActivity.this, new String[]{"拍照", "从相册中选取", "取消"}, HouseAddActivity.this);
-					}else{
+					if (files.size() < 5) {
+						UIDialog.ForThreeBtn(HouseAddActivity.this,
+								new String[] { "拍照", "从相册中选取", "取消" },
+								HouseAddActivity.this);
+					} else {
 						Tools.toast(HouseAddActivity.this, "最多上传五张图片");
 					}
 				}
@@ -134,9 +186,14 @@ public class HouseAddActivity extends BaseActivity implements
 	@Override
 	public void onSegmentViewClick(View view, int position) {
 		switch (position) {
-		case 0:type = 0;break;
-		case 1:type = 1;break;
-		default:break;
+		case 0:
+			type = 0;
+			break;
+		case 1:
+			type = 1;
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -145,7 +202,7 @@ public class HouseAddActivity extends BaseActivity implements
 		super.onClick(view);
 		switch (view.getId()) {
 		case R.id.dialog_modif_1:
-			/*拍照*/
+			/* 拍照 */
 			UIDialog.closeDialog();
 			/**
 			 * 下面这句还是老样子，调用快速拍照功能，至于为什么叫快速拍照，大家可以参考如下官方
@@ -154,16 +211,19 @@ public class HouseAddActivity extends BaseActivity implements
 			 * 官方文档太长了就不看了，其实是错的，这个地方小马也错了，必须改正
 			 */
 			Date date = new Date(System.currentTimeMillis());
-			SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
+			SimpleDateFormat dateFormat = new SimpleDateFormat(
+					"'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
 			timeString = dateFormat.format(date);
 			createSDCardDir();
 			Intent shootIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-			shootIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory()
-							+ "/DCIM/Camera", timeString + ".jpg")));
+			shootIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri
+					.fromFile(new File(Environment
+							.getExternalStorageDirectory() + "/DCIM/Camera",
+							timeString + ".jpg")));
 			startActivityForResult(shootIntent, 2);
 			break;
 		case R.id.dialog_modif_2:
-			/*从相册中选取*/
+			/* 从相册中选取 */
 			UIDialog.closeDialog();
 			/**
 			 * 刚开始，我自己也不知道ACTION_PICK是干嘛的，后来直接看Intent源码，
@@ -171,15 +231,13 @@ public class HouseAddActivity extends BaseActivity implements
 			 */
 			Intent photoIntent = new Intent(Intent.ACTION_PICK, null);
 			/**
-			 * 下面这句话，与其它方式写是一样的效果，如果：
-			 * intent.setData(MediaStore.Images
-			 * .Media.EXTERNAL_CONTENT_URI);
-			 * intent.setType(""image/*");设置数据类型
-			 * 如果朋友们要限制上传到服务器的图片类型时可以直接写如
-			 * ："image/jpeg 、 image/png等的类型"
+			 * 下面这句话，与其它方式写是一样的效果，如果： intent.setData(MediaStore.Images
+			 * .Media.EXTERNAL_CONTENT_URI); intent.setType(""image/*");设置数据类型
+			 * 如果朋友们要限制上传到服务器的图片类型时可以直接写如 ："image/jpeg 、 image/png等的类型"
 			 * 这个地方小马有个疑问，希望高手解答下：就是这个数据URI与类型为什么要分两种形式来写呀？有什么区别？
 			 */
-			photoIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+			photoIntent.setDataAndType(
+					MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 			startActivityForResult(photoIntent, 1);
 			break;
 		case R.id.dialog_modif_3:
@@ -209,6 +267,9 @@ public class HouseAddActivity extends BaseActivity implements
 			} else if (Integer.parseInt(house_square.getText().toString()
 					.trim()) <= 0) {
 				Tools.toast(this, "面积不能为0或负数");
+			} else if (StringUtil.isEmpty(house_decoration.getText().toString()
+					.trim())) {
+				Tools.toast(this, "内部装修不能为空");
 			} else if (StringUtil.isEmpty(house_infloor.getText().toString()
 					.trim())) {
 				Tools.toast(this, "所在楼层不能为空");
@@ -237,10 +298,11 @@ public class HouseAddActivity extends BaseActivity implements
 			} else {
 				try {
 					MyRequestDailog.showDialog(this, "");
-					index = 0;imgs = "";
+					index = 0;
+					imgs = "";
 					RequestParams params = new RequestParams();
 					params.put("imgsrc", files.get(index));
-					HttpUtils.uploadone(res_uploadone, params);//上传图片
+					HttpUtils.uploadone(res_uploadone, params);// 上传图片
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				}
@@ -250,7 +312,7 @@ public class HouseAddActivity extends BaseActivity implements
 			break;
 		}
 	}
-	
+
 	/**
 	 * 单张图片上传
 	 */
@@ -258,14 +320,15 @@ public class HouseAddActivity extends BaseActivity implements
 		@Override
 		public void onRecevieSuccess(JSONObject json) {
 			try {
-				String imgsrc = json.getJSONObject(UrlContants.jsonData).getJSONObject("imgsrc").getString("imgsrc");
-				imgs += "&imgsrc[]="+imgsrc;
+				String imgsrc = json.getJSONObject(UrlContants.jsonData)
+						.getJSONObject("imgsrc").getString("imgsrc");
+				imgs += "&imgsrc[]=" + imgsrc;
 				index++;
-				if(index < files.size()){
+				if (index < files.size()) {
 					RequestParams params = new RequestParams();
 					params.put("imgsrc", files.get(index));
 					HttpUtils.uploadone(res_uploadone, params);
-				}else{
+				} else {
 					submitData();
 				}
 			} catch (FileNotFoundException e) {
@@ -276,19 +339,22 @@ public class HouseAddActivity extends BaseActivity implements
 
 	private void submitData() {
 		String parameter = "";
-		parameter += "&title="+house_title.getText().toString().trim();//标题
-		parameter += "&price="+house_price.getText().toString().trim();//价格
-		parameter += "&tingshi="+house_room.getText().toString().trim();//厅室
-		parameter += "&area="+house_square.getText().toString().trim();//面积
-		parameter += "&floor="+house_infloor.getText().toString().trim();//所在楼层
-		parameter += "&allfloor="+house_totalfloor.getText().toString().trim();//总楼层数
-		parameter += "&plot="+house_plot.getText().toString().trim();//小区名称
-		parameter += "&plotaddress="+house_address.getText().toString().trim();//小区地址
-		parameter += "&intro="+house_intro.getText().toString().trim();//房源简介
-		parameter += "&type="+(type + 1);//租住方式：合租房：1，整租房：2
-		parameter += "&name="+house_contacts.getText().toString().trim();//联系人
-		parameter += "&mobile="+house_mobile.getText().toString().trim();//联系电话
-		parameter += imgs;//图片地址，上传好的图片路径
+		parameter += "&title=" + house_title.getText().toString().trim();// 标题
+		parameter += "&price=" + house_price.getText().toString().trim();// 价格
+		parameter += "&tingshi=" + house_room.getText().toString().trim();// 厅室
+		parameter += "&area=" + house_square.getText().toString().trim();// 面积
+		parameter += "&fitment=" + house_decoration.getText().toString().trim();// 面积
+		parameter += "&floor=" + house_infloor.getText().toString().trim();// 所在楼层
+		parameter += "&allfloor="
+				+ house_totalfloor.getText().toString().trim();// 总楼层数
+		parameter += "&plot=" + house_plot.getText().toString().trim();// 小区名称
+		parameter += "&plotaddress="
+				+ house_address.getText().toString().trim();// 小区地址
+		parameter += "&intro=" + house_intro.getText().toString().trim();// 房源简介
+		parameter += "&type=" + (type + 1);// 租住方式：合租房：1，整租房：2
+		parameter += "&name=" + house_contacts.getText().toString().trim();// 联系人
+		parameter += "&mobile=" + house_mobile.getText().toString().trim();// 联系电话
+		parameter += imgs;// 图片地址，上传好的图片路径
 		HttpUtils.submitHouseInfo(new HttpErrorHandler() {
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
@@ -297,6 +363,7 @@ public class HouseAddActivity extends BaseActivity implements
 				setResult(Activity.RESULT_OK);
 				finish();
 			}
+
 			@Override
 			public void onRecevieFailed(String status, JSONObject json) {
 				super.onRecevieFailed(status, json);
@@ -304,11 +371,12 @@ public class HouseAddActivity extends BaseActivity implements
 			}
 		}, parameter.toString());
 	}
+
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		case 1:
-			/*如果是直接从相册获取*/
+			/* 如果是直接从相册获取 */
 			try {
 				startPhotoZoom(data.getData());
 			} catch (Exception e) {
@@ -316,17 +384,18 @@ public class HouseAddActivity extends BaseActivity implements
 			}
 			break;
 		case 2:
-			/*如果是调用相机拍照时
-			File temp = new File(Environment.getExternalStorageDirectory() + "/xiaoma.jpg");
-			给图片设置名字和路径*/
+			/*
+			 * 如果是调用相机拍照时 File temp = new
+			 * File(Environment.getExternalStorageDirectory() + "/xiaoma.jpg");
+			 * 给图片设置名字和路径
+			 */
 			File temp = new File(Environment.getExternalStorageDirectory()
 					.getPath() + "/DCIM/Camera/" + timeString + ".jpg");
 			startPhotoZoom(Uri.fromFile(temp));
 			break;
 		case 3:
 			/**
-			 * 取得裁剪后的图片
-			 * 非空判断大家一定要验证，如果不验证的话， 在剪裁之后如果发现不满意，要重新裁剪，丢弃
+			 * 取得裁剪后的图片 非空判断大家一定要验证，如果不验证的话， 在剪裁之后如果发现不满意，要重新裁剪，丢弃
 			 * 当前功能时，会报NullException，小马只 在这个地方加下，大家可以根据不同情况在合适的 地方做判断处理类似情况
 			 */
 			if (data != null) {
@@ -338,6 +407,7 @@ public class HouseAddActivity extends BaseActivity implements
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
+
 	public void createSDCardDir() {
 		if (Environment.MEDIA_MOUNTED.equals(Environment
 				.getExternalStorageState())) {
@@ -353,8 +423,10 @@ public class HouseAddActivity extends BaseActivity implements
 			}
 		}
 	}
+
 	/**
 	 * 裁剪图片方法实现
+	 * 
 	 * @param uri
 	 */
 	public void startPhotoZoom(Uri uri) {
@@ -380,14 +452,15 @@ public class HouseAddActivity extends BaseActivity implements
 
 	/**
 	 * 保存裁剪之后的图片数据
+	 * 
 	 * @param picdata
 	 */
 	private void setPicToView(Intent picdata) {
 		Bundle extras = picdata.getExtras();
 		if (extras != null) {
 			Bitmap photo = extras.getParcelable("data");
-			//Drawable drawable = new BitmapDrawable(photo);
-			/*下面注释的方法是将裁剪之后的图片以Base64Coder的字符方式上 传到服务器，QQ头像上传采用的方法跟这个类似*/
+			// Drawable drawable = new BitmapDrawable(photo);
+			/* 下面注释的方法是将裁剪之后的图片以Base64Coder的字符方式上 传到服务器，QQ头像上传采用的方法跟这个类似 */
 			savaBitmap(photo);
 			// avatar_head_image.setBackgroundDrawable(drawable);
 		}
@@ -398,9 +471,11 @@ public class HouseAddActivity extends BaseActivity implements
 	 */
 	public void savaBitmap(Bitmap bitmap) {
 		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
 		String cutnameString = dateFormat.format(date);
-		String filename = Environment.getExternalStorageDirectory().getPath() + "/" + cutnameString + ".jpg";
+		String filename = Environment.getExternalStorageDirectory().getPath()
+				+ "/" + cutnameString + ".jpg";
 		File f = new File(filename);
 		FileOutputStream fOut = null;
 		try {

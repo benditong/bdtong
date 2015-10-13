@@ -117,6 +117,7 @@ public class HouseDetailActivity extends BaseActivity {
 		house_square.setText(house.getArea()+"m²");
 		house_floor.setText(house.getFloor()+"层"+"/"+house.getAllfloor()+"层");
 		house_plot.setText(house.getPlot());
+		house_decoration.setText(house.getFitment());
 		house_rent.setText("1".equals(StringUtil.toString(house.getType()))?"合租":"整租");
 		house_intro.setText(house.getIntro());
 		house_address.setText(house.getPlotaddress());

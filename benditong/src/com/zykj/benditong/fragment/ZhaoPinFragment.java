@@ -35,7 +35,6 @@ public class ZhaoPinFragment extends Fragment implements IXListViewListener,
 	private int nowpage = 1;// 当前显示的页面
 	private int mType = 0;
 	private XListView mListView;
-	private ZhaoPin zhaoPin;
 	private List<ZhaoPin> zhaoPins = new ArrayList<ZhaoPin>();
 	private CommonAdapter<ZhaoPin> zhaopinAdapter;
 	private Handler mHandler = new Handler();// 异步加载或刷新
