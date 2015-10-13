@@ -33,7 +33,6 @@ import com.zykj.benditong.view.MyCommonTitle;
 public class BianMinActivity extends BaseActivity implements
 		OnItemClickListener {
 	private MyCommonTitle myCommonTitle;
-	private BianMin bianMin;
 	private TextView tv_temperature, tv_weather, tv_city, tv_wind;
 	private GridView gv_bianmin;
 	private List<BianMin> bianmins = new ArrayList<BianMin>();
@@ -79,10 +78,10 @@ public class BianMinActivity extends BaseActivity implements
 							String windDir = aMapLocalWeatherLive.getWindDir();// 风向
 							String windPower = aMapLocalWeatherLive
 									.getWindPower();// 风力
-							String hunidity = aMapLocalWeatherLive
-									.getHumidity();// 空气湿度
-							String reportTime = aMapLocalWeatherLive
-									.getReportTime();// 数据发布时间
+//							String hunidity = aMapLocalWeatherLive
+//									.getHumidity();// 空气湿度
+//							String reportTime = aMapLocalWeatherLive
+//									.getReportTime();// 数据发布时间
 							tv_temperature.setText(String.format("°%s",
 									temperature));
 							tv_weather.setText(weather);

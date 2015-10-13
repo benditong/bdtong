@@ -135,7 +135,12 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_price_1"
         android:text=""/>
-
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="5dp"
+    android:layout_marginTop="@dimen/five"
+    android:layout_below="@+id/textView_price_2"
+    android:background="@color/content_background_color"/>
     <Button
         android:id="@+id/btn_carpool_sign_up"
         android:layout_width="wrap_content"

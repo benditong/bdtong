@@ -3,20 +3,18 @@ package com.zykj.benditong.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
-import com.zykj.benditong.model.Car;
 import com.zykj.benditong.model.ZhaoPin;
 import com.zykj.benditong.view.MyCommonTitle;
 
 public class ZhaoPinDetailsActivity extends BaseActivity {
-	private String tid;
+	
 	private MyCommonTitle myCommonTitle;
 	private TextView tv_position, tv_publish_time, tv_salary, tv_comp_name,
 			tv_comp_address, tv_persons, tv_require, tv_comp_about,
@@ -29,7 +27,6 @@ public class ZhaoPinDetailsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_zhaopin_details);
 		zhaoPin = (ZhaoPin) getIntent().getSerializableExtra("zhaoPin");
-		tid = "1";
 		initView();
 	}
 
@@ -51,7 +48,7 @@ public class ZhaoPinDetailsActivity extends BaseActivity {
 		
 		tv_position.setText(zhaoPin.getTitle());
 		tv_publish_time.setText(zhaoPin.getAddtime());
-		tv_salary.setText(zhaoPin.getPay());
+		tv_salary.setText(zhaoPin.getPay()+"元");
 		tv_comp_name.setText(zhaoPin.getConame());
 		tv_comp_address.setText(zhaoPin.getCoaddress());
 		tv_persons.setText(zhaoPin.getNum());
@@ -61,13 +58,13 @@ public class ZhaoPinDetailsActivity extends BaseActivity {
 		tv_mobile.setText(zhaoPin.getMobile());
 		
 		img_phone = (ImageView) findViewById(R.id.zp_details_phone);
-		img_phone.setOnTouchListener(new OnTouchListener() {
+		img_phone.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public void onClick(View v) {
 				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+tv_mobile.getText().toString().trim())));
-				return true;
 			}
 		});
+	
 	}
 }

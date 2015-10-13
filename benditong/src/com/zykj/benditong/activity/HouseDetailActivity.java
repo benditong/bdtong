@@ -68,8 +68,8 @@ public class HouseDetailActivity extends BaseActivity {
 		house_intro = (TextView) findViewById(R.id.house_intro);
 		house_address = (TextView) findViewById(R.id.house_address);
 		house_decoration = (TextView) findViewById(R.id.house_decoration);
-		house_mobile = (TextView) findViewById(R.id.house_mobile);
-
+		house_mobile = (TextView) findViewById(R.id.house_details_mobile);
+		house_img_mobile=(ImageView) findViewById(R.id.house_details_phone);
 		LayoutParams pageParms = house_image.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
 		pageParms.height = Tools.M_SCREEN_WIDTH*10/27;
@@ -88,9 +88,9 @@ public class HouseDetailActivity extends BaseActivity {
 		/**
 		 * 打电话
 		 */
-		findViewById(R.id.house_details_phone).setOnClickListener(new OnClickListener() {
+		house_img_mobile.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View v) {
 				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+house_mobile.getText().toString().trim())));
 			}
 		});
@@ -115,7 +115,7 @@ public class HouseDetailActivity extends BaseActivity {
 		house_time.setText(house.getAddtime());
 		house_room.setText(house.getTingshi());
 		house_square.setText(house.getArea()+"m²");
-		house_floor.setText(house.getFloor()+"层");
+		house_floor.setText(house.getFloor()+"层"+"/"+house.getAllfloor()+"层");
 		house_plot.setText(house.getPlot());
 		house_rent.setText("1".equals(StringUtil.toString(house.getType()))?"合租":"整租");
 		house_intro.setText(house.getIntro());

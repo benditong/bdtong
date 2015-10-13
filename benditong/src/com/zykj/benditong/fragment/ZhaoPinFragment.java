@@ -55,6 +55,7 @@ public class ZhaoPinFragment extends Fragment implements IXListViewListener,
 				ViewGroup.LayoutParams.MATCH_PARENT);
 		mListView = new XListView(getActivity(), null);
 		mListView.setLayoutParams(params);
+		mListView.setDividerHeight(0);
 		mListView.setPullLoadEnable(true);
 		mListView.setPullRefreshEnable(true);
 		mListView.setXListViewListener(this);
@@ -67,7 +68,7 @@ public class ZhaoPinFragment extends Fragment implements IXListViewListener,
 		super.onViewCreated(view, savedInstanceState);
 		Bundle argumens = getArguments();
 		mType = argumens.getInt("type");
-		
+
 		zhaopinAdapter = new CommonAdapter<ZhaoPin>(getActivity(),
 				R.layout.ui_item_zhaopin, zhaoPins) {
 			@Override
@@ -78,12 +79,9 @@ public class ZhaoPinFragment extends Fragment implements IXListViewListener,
 								StringUtil.toString(zhaoPin.getPay()))
 						.setText(R.id.zp_item_persons,
 								StringUtil.toString(zhaoPin.getNum()))
-						.setText(
-								R.id.zp_publish_time,
-								StringUtil.toString(zhaoPin
-										.getAddtime()))
-						.setText(
-								R.id.zp_item_comp_name,
+						.setText(R.id.zp_publish_time,
+								StringUtil.toString(zhaoPin.getAddtime()))
+						.setText(R.id.zp_item_comp_name,
 								StringUtil.toString(zhaoPin.getConame()));
 			}
 		};
@@ -93,6 +91,7 @@ public class ZhaoPinFragment extends Fragment implements IXListViewListener,
 		requestData();
 
 	}
+
 	/**
 	 * 请求服务器获取数据
 	 */

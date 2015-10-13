@@ -94,9 +94,6 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 			if(StringUtil.isEmpty(ed_contacts.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "联系人不能为空");return;
 			}	
-			if((ed_contacts.getText().toString().trim().length())<4&&(ed_contacts.getText().toString().trim().length())>12){
-				Tools.toast(ZhaoPinPublishActivity.this, "联系人的长度为2-6个字母或汉字");return;
-			}
 			if(StringUtil.isEmpty(ed_mobile.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "联系电话不能为空");return;
 			}

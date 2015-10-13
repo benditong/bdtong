@@ -6,21 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CitysAdapter;
 import com.zykj.benditong.http.EntityHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Area;
 import com.zykj.benditong.utils.CharacterParser;
-import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.BladeView;
 import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.PinnedHeaderListView;

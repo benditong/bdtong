@@ -1,21 +1,18 @@
 package com.zykj.benditong.activity;
 
-import java.util.Map;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.Time;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 
@@ -29,7 +26,6 @@ public class CarpoolNeederActivity extends BaseActivity {
 	private Button btn_submit;
 	private ImageButton imageButton;
 	private String mobileCode;
-	private Map<String, String> submit_data;
 
 	
 	@Override
@@ -44,6 +40,7 @@ public class CarpoolNeederActivity extends BaseActivity {
 		editText_orign = (EditText) findViewById(R.id.user_origin);
 		editText_destination = (EditText) findViewById(R.id.user_destination);
 		editText_depart_time = (EditText) findViewById(R.id.user_departure_time);
+		editText_depart_time.setInputType(InputType.TYPE_NULL);
 		editText_persons = (EditText) findViewById(R.id.user_persons);
 		editText_cost = (EditText) findViewById(R.id.user_car_cost);
 		editText_name = (EditText) findViewById(R.id.user_name);
@@ -52,13 +49,16 @@ public class CarpoolNeederActivity extends BaseActivity {
 		imageButton = (ImageButton) findViewById(R.id.btn_back);
 		btn_submit = (Button) findViewById(R.id.btn_carpool_submit);
 
-		setListener(btn_submit, imageButton);
+		setListener(editText_depart_time,btn_submit, imageButton);
 
 	}
 
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
+		case R.id.user_departure_time:
+			CommonUtils.showDateTimePicker(CarpoolNeederActivity.this, editText_depart_time);
+			break;
 		case R.id.btn_back:
 			finish();
 			break;

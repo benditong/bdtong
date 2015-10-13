@@ -42,12 +42,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_origin_1"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
             <EditText
                 android:id="@+id/user_origin"
@@ -64,12 +65,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_destination_1"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
             <EditText
                 android:id="@+id/user_destination"
@@ -86,18 +88,19 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_departure_time_1"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
-            <EditText
-                android:id="@+id/user_departure_time"
-                style="@style/carpool_textview"
-                android:inputType="datetime" 
-                android:hint="@string/starttime"/>
+            <EditText 
+	            android:id="@+id/user_departure_time"
+		        style="@style/carpool_textview"
+		        android:textColorHint="@color/grey"
+		        android:hint="\t\t月\t\t日\t\t时\t\t分"/>
         </LinearLayout>
 
         <LinearLayout
@@ -108,12 +111,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_number"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
             <EditText
                 android:id="@+id/user_persons"
@@ -130,12 +134,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_cost"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
             <EditText
                 android:id="@+id/user_car_cost"
@@ -152,12 +157,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:text="@string/user_carpool_name"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
             <EditText
                 android:id="@+id/user_name"
@@ -174,12 +180,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="70sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10sp"
                 android:text="@string/user_carpool_phone"
-                android:textColor="@color/text_dgrey"/>
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/t_sixteen"/>
 
             <EditText
                 android:id="@+id/user_phone"
@@ -201,9 +208,10 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="20dp"
-                android:background="#ffc600"
+                android:background="@drawable/bg_round_yellow"
                 android:text="@string/user_carpool_submit"
-                android:textColor="#FFF" />
+                android:textColor="#FFF" 
+                android:textSize="@dimen/t_sixteen"/>
         </LinearLayout>
     </LinearLayout>
 

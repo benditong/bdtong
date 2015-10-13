@@ -72,9 +72,9 @@ public class HouseActivity extends FragmentActivity implements
 	@Override
 	public void onClick(View vieww) {
 		if (checkedId == R.id.fangchan_tab1){
-			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 1), 1);//发布合租
+			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 0), 1);//发布合租
 		} else if (checkedId == R.id.fangchan_tab2) {
-			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 2), 2);//发布整租
+			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 1), 2);//发布整租
 		}
 	}
 	@Override

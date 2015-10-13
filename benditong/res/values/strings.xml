@@ -51,8 +51,8 @@
 
     <!-- 餐饮 -->
     <string name="restaurant_name">餐厅名称餐厅名称</string>
-    <string name="restaurant_time">用餐时间：2015&#8211;06&#8211;17 14:00&#8211;16:00</string>
-    <string name="reserve_time">预定时间：2015&#8211;06&#8211;16 14:30</string>
+    <string name="restaurant_time">用餐时间：2015&#8211;06&#8211;17 14：00&#8211;16：00</string>
+    <string name="reserve_time">预定时间：2015&#8211;06&#8211;16 14：30</string>
     <string name="order_delete">删除订单</string>
     <string name="order_assess">评价</string>
     <string name="restaurant_score">评价：4.5分</string>
@@ -62,7 +62,7 @@
     <string name="res_introduct">餐厅简介：</string>
     <string name="res_assess">评价列表</string>
     <string name="res_assess_name">还**吹</string>
-    <string name="res_assess_time">2015&#8211;06&#8211;17 14:00</string>
+    <string name="res_assess_time">2015&#8211;06&#8211;17 14：00</string>
     <string name="res_assess_more">查看更多评价</string>
     <string name="reserve_go">立即抢购</string>
     <string name="reserve_go2">立即预定</string>
@@ -82,10 +82,11 @@
     <!-- 拼车信息 -->
     <string name="user_carpool_need">我要拼车</string>
     <string name="user_carpool_owner">我是车主</string>
-    <string name="user_carpool_origin_1">出 &#160;&#160;发 &#160;&#160;地</string>
-    <string name="user_carpool_destination_1">目 &#160;&#160;的 &#160;&#160;地</string>
+    <string name="user_carpool_origin_1">出&#160;&#160;发&#160;&#160;地</string>
+    <string name="user_carpool_destination_1">目&#160;&#160;的&#160;&#160;地</string>
     <string name="user_carpool_departure_time_1">出发时间</string>
     <string name="user_carpool_remain_seats_1">剩余座位</string>
+    <string name="datetime_picker">\t\t月\t\t日\t\t时\t\t分</string>
     <string name="user_carpool_car_model">车&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;型</string>
     <string name="user_carpool_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string>
     <string name="user_carpool_phone">联系电话</string>
@@ -93,13 +94,13 @@
     <string name="user_carpool_remain_seats">剩余座位</string>
     <string name="user_carpool_number">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
     <string name="user_carpool_cost">预计费用</string>
-    <string name="user_carpool_origin_2">出&#160;&#160;发&#160;&#160;地:</string>
-    <string name="user_carpool_destination_2">目&#160;&#160;的&#160;&#160;地:</string>
-    <string name="user_carpool_departure_time_2">时&#160;&#160;间&#160;&#160;段:</string>
-    <string name="user_carpool_remain_seats_2">剩余座位:</string>
-    <string name="user_sign_up_number">报名人数:</string>
+    <string name="user_carpool_origin_2">出&#160;&#160;发&#160;&#160;地：</string>
+    <string name="user_carpool_destination_2">目&#160;&#160;的&#160;&#160;地：</string>
+    <string name="user_carpool_departure_time_2">时&#160;&#160;间&#160;&#160;段：</string>
+    <string name="user_carpool_remain_seats_2">剩余座位：</string>
+    <string name="user_sign_up_number">报名人数</string>
     <string name="user_sign_up_number_default">1</string>
-    <string name="user_carpool_unit_price">单价:</string>
+    <string name="user_carpool_unit_price">单价：</string>
     <string name="user_carpool_sign_up">立即报名</string>
     <string name="orign">请输入出发地</string>
     <string name="destination">请输入目的地</string>
@@ -130,7 +131,7 @@
     <string name="order1">联系人姓名：</string>
     <string name="order2">联系电话：</string>
     <string name="order3">下单时间：</string>
-    <string name="order4">用餐时间：2015&#8211;28&#8211;28 14:00&#8211;16:00</string>
+    <string name="order4">用餐时间：2015&#8211;28&#8211;28 14：00&#8211;16：00</string>
     <string name="order5">用餐人数：10人</string>
     <string name="order6">预计消费：300元</string>
     <string name="order_people">张先生</string>
@@ -142,7 +143,7 @@
 
     <!-- 供求 -->
     <string name="demand_call">一键拨号</string>
-    <string name="demand_time">发布时间：09&#8211;22 08:00</string>
+    <string name="demand_time">发布时间：09&#8211;22 08：00</string>
     <string name="demand_person">联系人：叶良辰</string>
     <string name="demand_mobile">联系电话：13325095533</string>
     <string name="demand_content">文字描述</string>
@@ -246,33 +247,33 @@
     <string name="zp_item_salary">薪资：</string>
     <string name="zp_salary2">2000-3000元</string>
     <string name="zp_persons">人&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
-    <string name="zp_item_persons">人数:</string>
+    <string name="zp_item_persons">人数：</string>
     <string name="zp_item_persons2">2人</string>
     <string name="zp_item_date">09-22</string>
-    <string name="zp_persons2">招聘人数:</string>
+    <string name="zp_persons2">招聘人数：</string>
     <string name="zp_person_hint">数字填写，不能是0和负数</string>
     <string name="zp_person">人</string>
     <string name="zp_contacts">联&#160;&#160;系&#160;&#160;人</string>
-    <string name="zp_contacts2">联&#160;&#160;系&#160;&#160;人:</string>
+    <string name="zp_contacts2">联&#160;&#160;系&#160;&#160;人：</string>
     <string name="zp_contacts_name">孙总</string>
     <string name="zp_contacts_hint">2-6字，汉字或字母</string>
     <string name="zp_mobile">联系电话</string>
-    <string name="zp_mobile2">联系电话:</string>
+    <string name="zp_mobile2">联系电话：</string>
     <string name="zp_mobilecode">1505566778</string>
     <string name="zp_mobile_hint">只能填写手机号或电话号码</string>
     <string name="zp_comp_name">公司名称</string>
-    <string name="zp_comp_name2">公司名称:</string>
+    <string name="zp_comp_name2">公司名称：</string>
     <string name="zp_comp_address">公司地址</string>
-    <string name="zp_comp_address2">公司地址:</string>
+    <string name="zp_comp_address2">公司地址：</string>
     <string name="zp_comp_address_hint">7-40字的详述描述</string>
     <string name="zp_comp_about">公司简介</string>
-    <string name="zp_comp_about2">公司简介:</string>
+    <string name="zp_comp_about2">公司简介：</string>
     <string name="zp_zhiweisort">职位类别</string>
     <string name="zp_position_require">职位要求：</string>
     <string name="zp_zhiweidescrip">职位描述</string>
     <string name="zp_publish">发布招聘</string>
-    <string name="zp_publish_time">发布时间:</string>
-    <string name="zp_publish_time2">2105-09-22&#160;&#160;14:08</string>
+    <string name="zp_publish_time">发布时间：</string>
+    <string name="zp_publish_time2">2105-09-22&#160;&#160;14：08</string>
     <string name="zp_zhiweidescrip_hint">10-180字，如岗位职责，任职资格，工作时间等，不能填写电话，qq号和特殊字符</string>
 
     <!-- 房产 -->
@@ -293,7 +294,7 @@
     <string name="house_totalfloor">总楼层数</string>
     <string name="house_name">小区名称</string>
     <string name="house_address">小区地址</string>
-    <string name="house_address2">小区地址:</string>
+    <string name="house_address2">小区地址：</string>
     <string name="house_price">价&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;格</string>
 
     <!-- 设置 -->
