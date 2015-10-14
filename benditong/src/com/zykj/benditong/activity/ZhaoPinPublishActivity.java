@@ -85,9 +85,9 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 			if(StringUtil.isEmpty(ed_persons.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "招聘人数不能为空");return;
 			}
-			if(StringUtil.isEmpty(ed_position_sort.getText().toString().trim())){
-				Tools.toast(ZhaoPinPublishActivity.this, "职位类别不能为空");return;
-			}
+//			if(StringUtil.isEmpty(ed_position_sort.getText().toString().trim())){
+//				Tools.toast(ZhaoPinPublishActivity.this, "职位类别不能为空");return;
+//			}
 			if(StringUtil.isEmpty(ed_description.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位描述不能为空");return;
 			}
@@ -135,7 +135,6 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
 				Tools.toast(ZhaoPinPublishActivity.this, "招聘信息发布成功");
-				setResult(ZhaoPinPublishActivity.RESULT_OK);
 				finish();
 			}
 			@Override

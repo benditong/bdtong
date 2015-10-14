@@ -447,10 +447,10 @@
                         android:background="@color/content_background_color" />
 	                <EditText
 	                    android:id="@+id/zp_company_about"
-	                    style="@style/edit_text"
 	                    android:layout_width="fill_parent"
 	                    android:layout_height="wrap_content"
 	                	android:layout_margin="@dimen/ten"
+	                	android:background="@color/white"
 	                    android:hint="@string/zp_comp_about"
 	                    android:gravity="top"
 	                    android:lines="3" />
