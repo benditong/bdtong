@@ -72,7 +72,6 @@ public class Tools {
 		activity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				if (mToast != null) {
 					mToast.cancel();
 					mToast = null;

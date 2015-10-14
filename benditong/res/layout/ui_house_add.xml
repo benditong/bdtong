@@ -186,7 +186,43 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/ten"
                 android:background="@color/grey" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten" >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/house_decoration"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/t_sixteen" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:background="@color/grey" />
+
+                <TextView
+                    android:id="@+id/house_add_decoration"
+                    style="@style/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:maxLength="10"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/ten"
+                android:background="@color/grey" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

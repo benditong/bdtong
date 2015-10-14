@@ -3,8 +3,6 @@ package com.zykj.benditong.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
@@ -28,27 +25,18 @@ import com.zykj.benditong.view.MyCommonTitle;
 
 public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelectedListener {
 	private MyCommonTitle myCommonTitle;
-	private EditText ed_position, ed_persons, ed_position_sort,
+	private EditText ed_position, ed_persons, ed_salary, ed_position_sort,
 			ed_description, ed_contacts, ed_mobile, ed_comp_name,
 			ed_comp_address, ed_comp_about;
 	private Button btn_publish;
 	private Spinner salaSpinner;
 	private List<String> list;
 	private ArrayAdapter<String> adapter;
-	private String[] strs;
-	private JSONArray jsonArray;
-	private String cateId = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_zhaopin_publish);
-		String category = getIntent().getStringExtra("category");
-		jsonArray = JSONArray.parseArray(category);
-		strs = new String[jsonArray.size()];
-		for (int i = 0; i < jsonArray.size(); i++) {
-			strs[i] = jsonArray.getJSONObject(i).getString("title");
-		}
 		initView();
 	}
 
@@ -72,35 +60,21 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 		list.add("3000-3999");
 		list.add("4000-4999");
 		list.add("5000以上");
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+		adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		salaSpinner.setAdapter(adapter);
 		salaSpinner.setOnItemSelectedListener(ZhaoPinPublishActivity.this);
 
+
 		btn_publish = (Button) findViewById(R.id.zp_publish);
-		setListener(ed_position_sort, btn_publish);
+		setListener(btn_publish);
 	}
 
 	@Override
 	public void onClick(View view) {
 		super.onClick(view);
 		switch (view.getId()) {
-		case R.id.zp_zhiweisort:
-			new AlertDialog.Builder(this)
-					.setTitle("请选择职位")
-					.setIcon(android.R.drawable.ic_dialog_info)
-					.setSingleChoiceItems(strs, 0,
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-									ed_position_sort.setText(strs[which]);
-									cateId = jsonArray.getJSONObject(which).getString("id");
-									//Tools.toast(ZhaoPinPublishActivity.this, which+"----------------------");
-									dialog.dismiss();
-								}
-							})
-		 	.setNegativeButton("取消", null)
-		 	.show();
-			break;
 		case R.id.zp_publish:
 			if(StringUtil.isEmpty(ed_position.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位不能为空");return;
@@ -114,7 +88,7 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 			if(StringUtil.isEmpty(ed_position_sort.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位类别不能为空");return;
 			}
-			if(StringUtil.isEmpty(cateId)){
+			if(StringUtil.isEmpty(ed_description.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位描述不能为空");return;
 			}
 			if(StringUtil.isEmpty(ed_contacts.getText().toString().trim())){
@@ -173,10 +147,14 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 	}
 
 	@Override
-	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		//salaSpinner= (String)arg0.getItemAtPosition(arg2);
+		
 	}
 
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
+		
 	}
 }

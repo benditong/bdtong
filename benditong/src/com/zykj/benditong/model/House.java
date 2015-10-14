@@ -15,6 +15,9 @@ public class House implements Serializable {
 	private String price;// 价格
 	private String tingshi;// 厅室
 	private String area;// 面积
+	private String fitment;//内部装修
+
+
 	private String floor;// 所在楼层
 	private String allfloor;// 总楼层数
 	private String plot;// 小区名称
@@ -65,7 +68,13 @@ public class House implements Serializable {
 	public void setArea(String area) {
 		this.area = area;
 	}
+	public String getFitment() {
+		return fitment;
+	}
 
+	public void setFitment(String fitment) {
+		this.fitment = fitment;
+	}
 	public String getFloor() {
 		return floor;
 	}
