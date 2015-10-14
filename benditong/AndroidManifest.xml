@@ -83,7 +83,6 @@
         <activity
             android:name=".activity.ZhaoPinPublishActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity

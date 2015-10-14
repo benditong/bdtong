@@ -20,25 +20,17 @@ public class ZhaoPin implements Serializable{
 	private String coaddress;// 公司地址
 	private String conintro;// 公司简介
 	private String addtime;
-	
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getAddtime() {
-		return addtime;
-	}
-	public void setAddtime(String addtime) {
-		this.addtime = addtime;
-	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getPay() {
 		return pay;
@@ -94,6 +86,12 @@ public class ZhaoPin implements Serializable{
 	public void setConintro(String conintro) {
 		this.conintro = conintro;
 	}
+	public String getAddtime() {
+		return addtime;
+	}
+	public void setAddtime(String addtime) {
+		this.addtime = addtime;
+	}
 	
-	
+
 }
