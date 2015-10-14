@@ -17,7 +17,7 @@
             android:layout_height="@dimen/eighty_five"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
-            android:src="@drawable/fangchan_icon" />
+            android:src="@drawable/icon_image_default" />
 
         <LinearLayout
             android:layout_width="match_parent"

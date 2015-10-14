@@ -39,7 +39,7 @@ import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
 
 public class ZhaoPinActivity extends BaseActivity implements IXListViewListener, OnItemClickListener{
-	private static int PERPAGE = 2;// perpager默认每页显示的条数
+	private static int PERPAGE = 10;// perpager默认每页显示的条数
 	private int nowpage = 1;// 当前显示的页面
 	
 	private MyCommonTitle myCommonTitle;
@@ -51,6 +51,7 @@ public class ZhaoPinActivity extends BaseActivity implements IXListViewListener,
 	private CommonAdapter<ZhaoPin> zhaopinAdapter;
 	private List<ZhaoPin> zhaoPins = new ArrayList<ZhaoPin>();
 	private Handler mHandler = new Handler();
+	private JSONArray category;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,7 @@ public class ZhaoPinActivity extends BaseActivity implements IXListViewListener,
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.aci_shared_btn:
-			startActivity(new Intent(this, ZhaoPinPublishActivity.class));
+			startActivity(new Intent(this, ZhaoPinPublishActivity.class).putExtra("category", category.toString()));
 			break;
 		default:
 			break;
@@ -126,7 +127,7 @@ public class ZhaoPinActivity extends BaseActivity implements IXListViewListener,
 	private AsyncHttpResponseHandler res_getCategory = new HttpErrorHandler() {
 		@Override
 		public void onRecevieSuccess(JSONObject json) {
-			JSONArray category = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
+			category = json.getJSONObject(UrlContants.jsonData).getJSONArray("list");
 			addRadioButton(9999, "全部", category.size());
 			for (int i = 0; i < category.size(); i++) {
 				addRadioButton(Integer.valueOf(category.getJSONObject(i).getString("id")), 

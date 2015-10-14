@@ -12,8 +12,6 @@ import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Demand;
-import com.zykj.benditong.utils.CommonUtils;
-import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyShareAndStoreTitle;
 
 public class DemandDetailActivity extends BaseActivity {
@@ -34,7 +32,6 @@ public class DemandDetailActivity extends BaseActivity {
 
 	private void initView() {
 		myCommonTitle = (MyShareAndStoreTitle) findViewById(R.id.aci_mytitle);
-		myCommonTitle.setLisener(null, this);
 		myCommonTitle.setTitle("信息详情");
 		
 		demand_image = (ImageView) findViewById(R.id.demand_image);
@@ -45,7 +42,7 @@ public class DemandDetailActivity extends BaseActivity {
 		demand_content = (TextView) findViewById(R.id.demand_content);
 		demand_img_mobile = (ImageView) findViewById(R.id.demand_img_mobile);
 
-		demand_image.setMinimumHeight(Tools.M_SCREEN_WIDTH * 2 / 5);
+		//demand_image.setMinimumHeight(Tools.M_SCREEN_WIDTH * 2 / 5);
 
 		setListener(demand_img_mobile);
 		initializationDate();
@@ -64,10 +61,6 @@ public class DemandDetailActivity extends BaseActivity {
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
-		case R.id.aci_store_btn:
-			/** 收藏 */
-			CommonUtils.showShare(this, "滴滴快讯", demand.getTitle(), "http://www.pgyer.com/ZttO");
-			break;
 		case R.id.demand_img_mobile:
 			/** 打电话 */
 			startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+demand_mobile.getText().toString().trim())));

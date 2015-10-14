@@ -3,13 +3,9 @@ package com.zykj.benditong.activity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.security.auth.PrivateCredentialPermission;
-
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.ViewFlipper;
 
 import com.alibaba.fastjson.JSONObject;
 import com.amap.api.location.AMapLocation;
@@ -20,7 +16,6 @@ import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
-import com.zykj.benditong.R.layout;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
@@ -28,7 +23,6 @@ import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 
 public class Welcome extends BaseActivity {
-	private ViewFlipper flipper;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//在使用SDK各组件之前初始化context信息，传入ApplicationContext
@@ -126,10 +120,4 @@ public class Welcome extends BaseActivity {
 			}
 		}
 	};
-	private ImageView getImageView(int resId)
-	{
-		ImageView image =new ImageView(this);
-		image.setBackgroundResource(resId);
-		return image;
-	}
 }

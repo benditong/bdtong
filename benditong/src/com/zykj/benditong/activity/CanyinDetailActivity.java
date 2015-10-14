@@ -215,13 +215,12 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
 		case R.id.aci_store_btn:
-			
+			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请先登录!");return;}
 			RequestParams params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
 			params.put("type", restaurant.getType());
 			params.put("pid", restaurant.getId());
 			HttpUtils.addCollection(new HttpErrorHandler() {
-				
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");

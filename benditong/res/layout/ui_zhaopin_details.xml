@@ -28,7 +28,7 @@
                 android:layout_marginLeft="@dimen/ten"
                 android:layout_marginTop="@dimen/five"
                 android:text="@string/zp_zhiweiname" 
-                android:textSize="@dimen/t_sixteen"/>
+                android:textSize="@dimen/t_eighteen"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,8 +41,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:text="@string/zp_publish_time"
-                    android:textColor="@color/grey"
-                    />
+                    android:textColor="@color/dimgrey"
+                    android:textSize="@dimen/t_sixteen"/>
 
                 <TextView
                     android:id="@+id/zp_details_publish_time"
@@ -50,7 +50,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:text="@string/zp_publish_time2"
-                    android:textColor="@color/grey"/>
+                    android:textSize="@dimen/t_sixteen"
+                    android:textColor="@color/dimgrey"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -75,7 +76,7 @@
                     android:layout_marginLeft="@dimen/ten"
                     android:hint="@string/zp_salary2"
                     android:textColor="@color/orange" 
-                    android:textSize="@dimen/t_sixteen"/>
+                    android:textSize="@dimen/t_eighteen"/>
             </LinearLayout>
 
             <LinearLayout
@@ -91,7 +92,8 @@
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
                     android:text="@string/zp_comp_name2"
-                    android:textColor="@color/grey"/>
+                    android:textSize="@dimen/t_sixteen"
+                    android:textColor="@color/dimgrey"/>
 
                 <TextView
                     android:id="@+id/zp_details_comp_name"
@@ -99,7 +101,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:textSize="@dimen/t_sixteen"
+                    android:textColor="@color/dimgrey"
                     android:hint="@string/zp_comp_address_hint"/>
             </LinearLayout>
 
@@ -115,8 +118,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
+                    android:textSize="@dimen/t_sixteen"
                     android:text="@string/zp_comp_address2"
-                    android:textColor="@color/grey"/>
+                    android:textColor="@color/dimgrey"/>
 
                 <TextView
                     android:id="@+id/zp_details_comp_address"
@@ -124,7 +128,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:textSize="@dimen/t_sixteen"
+                    android:textColor="@color/dimgrey"
                     android:hint="@string/zp_comp_address_hint"/>
             </LinearLayout>
 
@@ -140,8 +145,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
+                    android:textSize="@dimen/t_sixteen"
                     android:text="@string/zp_persons2"
-                    android:textColor="@color/grey"/>
+                    android:textColor="@color/dimgrey"/>
 
                 <TextView
                     android:id="@+id/zp_details_persons"
@@ -149,7 +155,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:textSize="@dimen/t_sixteen"
+                    android:textColor="@color/dimgrey"
                     android:hint="@string/zp_comp_address_hint"/>
             </LinearLayout>
 
@@ -171,8 +178,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
+                    android:textSize="@dimen/t_sixteen"
                     android:text="@string/zp_position_require"
-                    android:textColor="@color/grey" />
+                    android:textColor="@color/dimgrey" />
 
                 <TextView
                     android:id="@+id/zp_details_require"
@@ -180,8 +188,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    android:hint="@string/zp_comp_about"/>
+                    android:textSize="@dimen/t_sixteen"
+                    android:textColor="@color/dimgrey"
+                    android:text="@string/zp_comp_about"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -198,8 +207,9 @@
                 android:layout_marginTop="@dimen/ten"
                 android:background="@color/white"
                 android:paddingLeft="@dimen/ten"
+             	android:textSize="@dimen/t_sixteen"
                 android:text="@string/zp_comp_about2"
-                android:textColor="@color/grey"/>
+          		android:textColor="@color/dimgrey"/>
 
             <TextView
                 android:id="@+id/zp_details_comp_about"
@@ -208,8 +218,9 @@
                 android:layout_marginLeft="@dimen/ten"
                 android:layout_marginTop="@dimen/ten"
                 android:layout_weight="1"
-                android:background="@color/white"
-                android:hint="@string/zp_comp_about"/>
+              	android:textColor="@color/dimgrey"
+             	android:textSize="@dimen/t_sixteen"
+                android:text="@string/zp_comp_about"/>
         </LinearLayout>
 
         <LinearLayout
@@ -230,8 +241,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:paddingLeft="@dimen/ten"
+             		android:textSize="@dimen/t_sixteen"
                     android:text="@string/zp_contacts2"
-                    android:textColor="@color/grey"/>
+                    android:textColor="@color/dimgrey"/>
 
                 <TextView
                     android:id="@+id/zp_details_contacts"
@@ -239,9 +251,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/ten"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    android:hint="@string/zp_contacts_name"
-                    android:paddingLeft="@dimen/ten"/>
+                    android:textColor="@color/dimgrey"
+             		android:textSize="@dimen/t_sixteen"
+                    android:hint="@string/zp_contacts_name"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -254,17 +266,19 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/ten"
+             		android:textSize="@dimen/t_sixteen"
                     android:text="@string/zp_mobile2"
-                    android:textColor="@color/grey"/>
+                    android:textColor="@color/dimgrey"/>
 
                 <TextView
                     android:id="@+id/zp_details_mobile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/dimgrey"
+             		android:textSize="@dimen/t_sixteen"
                     android:layout_marginLeft="@dimen/ten"
-                    android:hint="@string/zp_mobilecode"
-                    android:paddingLeft="@dimen/ten"/>
+                    android:text="@string/zp_mobilecode"/>
                 <ImageView 
                     android:id="@+id/zp_details_phone"
                     android:layout_width="@dimen/twenty"
