@@ -18,7 +18,7 @@ public class ZhaoPin implements Serializable{
 	private String mobile;// 联系电话
 	private String coname;// 公司名称
 	private String coaddress;// 公司地址
-	private String conintro;// 公司简介
+	private String cointro;// 公司简介
 	private String addtime;
 	public String getId() {
 		return id;
@@ -80,11 +80,11 @@ public class ZhaoPin implements Serializable{
 	public void setCoaddress(String coaddress) {
 		this.coaddress = coaddress;
 	}
-	public String getConintro() {
-		return conintro;
+	public String getCointro() {
+		return cointro;
 	}
-	public void setConintro(String conintro) {
-		this.conintro = conintro;
+	public void setCointro(String cointro) {
+		this.cointro = cointro;
 	}
 	public String getAddtime() {
 		return addtime;

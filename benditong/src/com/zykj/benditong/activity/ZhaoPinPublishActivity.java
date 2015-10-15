@@ -128,7 +128,7 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 		params.put("mobile", ed_mobile.getText().toString().trim());
 		params.put("coname", ed_comp_name.getText().toString().trim());
 		params.put("coaddress", ed_comp_address.getText().toString().trim());
-		params.put("conintro", ed_comp_about.getText().toString().trim());
+		params.put("cointro", ed_comp_about.getText().toString().trim());
 		
 		HttpUtils.SubmitZhaoPinInfo(new HttpErrorHandler() {
 			
