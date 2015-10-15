@@ -85,13 +85,13 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 		super.onClick(view);
 		switch (view.getId()) {
 		case R.id.zp_zhiweisort:
-			new PickDialog(this, "职位", listCate, new PickDialogListener() {
-				@Override
-				public void onListItemClick(int position, String string) {
-					ed_position_sort.setText(jsonArray.getJSONObject(position).getString("title"));
-					cateId = jsonArray.getJSONObject(position).getString("id");
-				}
-			}).show();
+//			new PickDialog(this, "职位", listCate, new PickDialogListener() {
+//				@Override
+//				public void onListItemClick(int position, String string) {
+//					ed_position_sort.setText(jsonArray.getJSONObject(position).getString("title"));
+//					cateId = jsonArray.getJSONObject(position).getString("id");
+//				}
+//			}).show();
 			break;
 		case R.id.zp_publish:
 			if(StringUtil.isEmpty(ed_position.getText().toString().trim())){
