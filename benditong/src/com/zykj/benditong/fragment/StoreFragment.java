@@ -41,7 +41,7 @@ import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
 
 public class StoreFragment extends Fragment implements IXListViewListener, OnItemClickListener, OnMenuItemClickListener{
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int PERPAGE=10;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
 	private int mType=1;//1收藏的产品 2收藏的店铺
     private SwipeMenuListView mListView;
