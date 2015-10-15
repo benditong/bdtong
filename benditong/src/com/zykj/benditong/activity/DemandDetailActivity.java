@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.Demand;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyShareAndStoreTitle;
 
 public class DemandDetailActivity extends BaseActivity {
@@ -41,7 +43,9 @@ public class DemandDetailActivity extends BaseActivity {
 		demand_mobile = (TextView) findViewById(R.id.demand_mobile);
 		demand_content = (TextView) findViewById(R.id.demand_content);
 		demand_img_mobile = (ImageView) findViewById(R.id.demand_img_mobile);
-
+		LayoutParams pageParms = demand_image.getLayoutParams();
+		pageParms.width = Tools.M_SCREEN_WIDTH;
+		pageParms.height = Tools.M_SCREEN_WIDTH*17/27;
 		//demand_image.setMinimumHeight(Tools.M_SCREEN_WIDTH * 2 / 5);
 
 		setListener(demand_img_mobile);

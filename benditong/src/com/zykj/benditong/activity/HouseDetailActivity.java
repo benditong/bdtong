@@ -72,7 +72,7 @@ public class HouseDetailActivity extends BaseActivity {
 		house_img_mobile=(ImageView) findViewById(R.id.house_details_phone);
 		LayoutParams pageParms = house_image.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
-		pageParms.height = Tools.M_SCREEN_WIDTH*10/27;
+		pageParms.height = Tools.M_SCREEN_WIDTH*17/27;
 		
 		house_image.setInterval(2000);
 		house_image.startAutoScroll();
