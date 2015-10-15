@@ -31,6 +31,7 @@ import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyDialog;
 import com.zykj.benditong.view.RoundImageView;
 import com.zykj.benditong.view.UIDialog;
 
@@ -88,21 +89,21 @@ public class UserInfoActivity extends BaseActivity{
 			finish();
 			break;
 		case R.id.add_name:
-//			new MyDialog(this, R.style.MyDialog, "昵称", "确定", "取消",
-//					new MyDialog.DialogClickListener() {
-//						@Override
-//						public void onRightBtnClick(Dialog dialog) {
-//							dialog.dismiss();
-//						}
-//						@Override
-//						public void onLeftBtnClick(Dialog dialog) {
-//							EditText tv_edit = (EditText)dialog.findViewById(R.id.tv_edit);
-//							if(!StringUtil.isEmpty(tv_edit.getText().toString().trim())){
-//								add_name.setText(tv_edit.getText().toString().trim());
-//							}
-//							dialog.dismiss();
-//						}
-//					}).show();
+			new MyDialog(this, R.style.MyDialog, "昵称", "确定", "取消",
+					new MyDialog.DialogClickListener() {
+						@Override
+						public void onRightBtnClick(Dialog dialog) {
+							dialog.dismiss();
+						}
+						@Override
+						public void onLeftBtnClick(Dialog dialog) {
+							EditText tv_edit = (EditText)dialog.findViewById(R.id.tv_edit);
+							if(!StringUtil.isEmpty(tv_edit.getText().toString().trim())){
+								add_name.setText(tv_edit.getText().toString().trim());
+							}
+							dialog.dismiss();
+						}
+					}).show();
 			break;
 		case R.id.aci_edit_btn:
 			/* 保存 */
