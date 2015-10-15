@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -30,6 +31,7 @@ import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.MyDialog;
 import com.zykj.benditong.view.RoundImageView;
 import com.zykj.benditong.view.UIDialog;
 
@@ -38,8 +40,7 @@ public class UserInfoActivity extends BaseActivity{
 	private String timeString;//上传头像的字段
 	private MyCommonTitle myCommonTitle;
 	private RoundImageView rv_me_avatar;
-	private EditText add_name;
-	private TextView mobile_number;
+	private TextView add_name, mobile_number;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -60,10 +61,10 @@ public class UserInfoActivity extends BaseActivity{
 		myCommonTitle.setLisener(this, this);
 
 		rv_me_avatar = (RoundImageView)findViewById(R.id.rv_me_avatar);//头像
-		add_name = (EditText)findViewById(R.id.add_name);//昵称
+		add_name = (TextView)findViewById(R.id.add_name);//昵称
 		mobile_number = (TextView)findViewById(R.id.mobile_number);//性别
 		
-		setListener(rv_me_avatar);
+		setListener(add_name, rv_me_avatar);
 	}
 
 	/**
@@ -86,6 +87,23 @@ public class UserInfoActivity extends BaseActivity{
 			/* 返回 */
 			setResult(Activity.RESULT_OK);
 			finish();
+			break;
+		case R.id.add_name:
+			new MyDialog(this, R.style.MyDialog, "昵称", "确定", "取消",
+					new MyDialog.DialogClickListener() {
+						@Override
+						public void onRightBtnClick(Dialog dialog) {
+							dialog.dismiss();
+						}
+						@Override
+						public void onLeftBtnClick(Dialog dialog) {
+							EditText tv_edit = (EditText)dialog.findViewById(R.id.tv_edit);
+							if(!StringUtil.isEmpty(tv_edit.getText().toString().trim())){
+								add_name.setText(tv_edit.getText().toString().trim());
+							}
+							dialog.dismiss();
+						}
+					}).show();
 			break;
 		case R.id.aci_edit_btn:
 			/* 保存 */

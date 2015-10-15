@@ -170,6 +170,7 @@
                     android:background="@color/content_background_color" />
 
                 <LinearLayout
+                    android:id="@+id/aci_zhiwei"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/forty"
                     android:gravity="center"
@@ -192,14 +193,13 @@
                         android:layout_marginTop="5dp"
                         android:background="@color/content_background_color" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/zp_zhiweisort"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/ten"
-                        android:layout_weight="3"
-                        android:editable="false"
-                        android:background="@color/white" />
+                        android:textSize="@dimen/t_eighteen"
+                        android:layout_weight="3"/>
 
                     <ImageView
                         android:layout_width="@dimen/ten"
