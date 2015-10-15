@@ -53,7 +53,7 @@ public class ZhaoPinDetailsActivity extends BaseActivity {
 		tv_comp_address.setText(zhaoPin.getCoaddress());
 		tv_persons.setText(zhaoPin.getNum());
 		tv_require.setText(zhaoPin.getIntro());
-		tv_comp_about.setText(zhaoPin.getConintro());
+		tv_comp_about.setText(zhaoPin.getCointro());
 		tv_contacts.setText(zhaoPin.getName());
 		tv_mobile.setText(zhaoPin.getMobile());
 		
