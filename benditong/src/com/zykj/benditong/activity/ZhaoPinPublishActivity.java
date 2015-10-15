@@ -11,7 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
@@ -22,21 +24,30 @@ import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
+import com.zykj.benditong.view.PickDialog;
+import com.zykj.benditong.view.PickDialog.PickDialogListener;
 
 public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelectedListener {
 	private MyCommonTitle myCommonTitle;
-	private EditText ed_position, ed_persons, ed_salary, ed_position_sort,
-			ed_description, ed_contacts, ed_mobile, ed_comp_name,
-			ed_comp_address, ed_comp_about;
+	private EditText ed_position, ed_persons, ed_description, ed_contacts, 
+			ed_mobile, ed_comp_name, ed_comp_address, ed_comp_about;
+	private TextView ed_position_sort;
 	private Button btn_publish;
 	private Spinner salaSpinner;
 	private List<String> list;
+	private List<String> listCate = new ArrayList<String>();
 	private ArrayAdapter<String> adapter;
+	private JSONArray jsonArray;
+	private String cateId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_zhaopin_publish);
+		jsonArray = JSONArray.parseArray(getIntent().getStringExtra("category"));
+		for (int i = 0; i < jsonArray.size(); i++) {
+			listCate.add(jsonArray.getJSONObject(i).getString("title"));
+		}
 		initView();
 	}
 
@@ -46,7 +57,7 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 		ed_position = (EditText) findViewById(R.id.zp_position);
 		salaSpinner=(Spinner) findViewById(R.id.zp_salary_select);
 		ed_persons = (EditText) findViewById(R.id.zp_persons);
-		ed_position_sort=(EditText) findViewById(R.id.zp_zhiweisort);
+		ed_position_sort=(TextView) findViewById(R.id.zp_zhiweisort);
 		ed_description = (EditText) findViewById(R.id.zp_description);
 		ed_contacts = (EditText) findViewById(R.id.zp_contacts);
 		ed_mobile = (EditText) findViewById(R.id.zp_mobile);
@@ -68,13 +79,22 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 
 
 		btn_publish = (Button) findViewById(R.id.zp_publish);
-		setListener(btn_publish);
+		setListener(ed_position_sort, btn_publish);
 	}
 
 	@Override
 	public void onClick(View view) {
 		super.onClick(view);
 		switch (view.getId()) {
+		case R.id.zp_zhiweisort:
+			new PickDialog(this, "职位", listCate, new PickDialogListener() {
+				@Override
+				public void onListItemClick(int position, String string) {
+					ed_position_sort.setText(jsonArray.getJSONObject(position).getString("title"));
+					cateId = jsonArray.getJSONObject(position).getString("id");
+				}
+			}).show();
+			break;
 		case R.id.zp_publish:
 			if(StringUtil.isEmpty(ed_position.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位不能为空");return;
@@ -85,9 +105,9 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 			if(StringUtil.isEmpty(ed_persons.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "招聘人数不能为空");return;
 			}
-//			if(StringUtil.isEmpty(ed_position_sort.getText().toString().trim())){
-//				Tools.toast(ZhaoPinPublishActivity.this, "职位类别不能为空");return;
-//			}
+			if(StringUtil.isEmpty(cateId)){
+				Tools.toast(ZhaoPinPublishActivity.this, "职位类别不能为空");return;
+			}
 			if(StringUtil.isEmpty(ed_description.getText().toString().trim())){
 				Tools.toast(ZhaoPinPublishActivity.this, "职位描述不能为空");return;
 			}
@@ -122,13 +142,13 @@ public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelect
 		params.put("title", ed_position.getText().toString().trim());
 		params.put("pay", list.get(salaSpinner.getSelectedItemPosition()));//薪资区间
 		params.put("num", ed_persons.getText().toString().trim());
-		params.put("tid", ed_position_sort.getText().toString().trim());//职位类别
+		params.put("tid", cateId);//职位类别
 		params.put("intro", ed_description.getText().toString().trim());
 		params.put("name", ed_contacts.getText().toString().trim());
 		params.put("mobile", ed_mobile.getText().toString().trim());
 		params.put("coname", ed_comp_name.getText().toString().trim());
 		params.put("coaddress", ed_comp_address.getText().toString().trim());
-		params.put("conintro", ed_comp_about.getText().toString().trim());
+		params.put("cointro", ed_comp_about.getText().toString().trim());
 		
 		HttpUtils.SubmitZhaoPinInfo(new HttpErrorHandler() {
 			

@@ -135,8 +135,4 @@ public class ViewHolder {
 		view.setOnClickListener(listener);
 		return this;
 	}
-
-
-	
-
 }

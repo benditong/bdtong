@@ -12,6 +12,7 @@
         android:id="@+id/zp_hlistView"
 		android:layout_marginTop="@dimen/five"
         android:layout_width="match_parent"
+        android:scrollbars="none"
         android:layout_height="@dimen/forty">
         <RadioGroup
 	        android:id="@+id/tab_zhaopin"
