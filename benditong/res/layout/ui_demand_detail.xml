@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/demand_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/two_hundred"
                 android:contentDescription="@string/app_name"
                 android:scaleType="fitXY"
                 android:src="@drawable/icon_image_default" />
