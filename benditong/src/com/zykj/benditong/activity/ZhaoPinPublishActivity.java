@@ -24,8 +24,6 @@ import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
-import com.zykj.benditong.view.PickDialog;
-import com.zykj.benditong.view.PickDialog.PickDialogListener;
 
 public class ZhaoPinPublishActivity extends BaseActivity implements OnItemSelectedListener {
 	private MyCommonTitle myCommonTitle;
