@@ -7,10 +7,11 @@
 
     <ImageView
         android:id="@+id/image_orign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
+        android:padding="1dp"
         android:src="@drawable/carpool_origin" />
 
     <TextView
@@ -35,11 +36,12 @@
 
     <ImageView
         android:id="@+id/image_destination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@id/image_orign"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:padding="1dp"
         android:src="@drawable/carpool_destination" />
 
     <TextView
@@ -64,11 +66,12 @@
 
     <ImageView
         android:id="@+id/image_carpool_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@id/image_destination"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:padding="1dp"
         android:src="@drawable/carpool_time" />
 
     <TextView
@@ -93,11 +96,12 @@
 
     <ImageView
         android:id="@+id/image_carpool_remain_seats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@id/image_carpool_time"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:padding="1dp"
         android:src="@drawable/carpool_remain_seats" />
 
     <TextView
@@ -125,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/image_carpool_remain_seats"
-        android:layout_marginLeft="90dp"
+        android:layout_marginLeft="80dp"
         android:layout_toRightOf="@id/textView_remain_seats_2"
         android:text="@string/user_carpool_unit_price"
         android:textColor="@color/text_light" 
@@ -136,7 +140,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/image_carpool_remain_seats"
-        android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/textView_price_1"
         android:text=""/>
 <View 

@@ -55,6 +55,11 @@ public class HttpUtils {
         client.post(UrlContants.getUrl(UrlContants.RESETPASSWORD), params, handler);
     }
     
+    /*修改昵称*/
+    public static void resetUsername(AsyncHttpResponseHandler handler, RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.RESETUSERNAME), params, handler);
+    }
+    
     /*猜你喜欢*/
     public static void getLikeList(AsyncHttpResponseHandler handler, RequestParams params){
         client.post(UrlContants.getUrl(UrlContants.LIKELIST), params, handler);

@@ -34,9 +34,11 @@ public class UrlContants {
 
     public static final String RESETPASSWORD = "c=user&a=resetPassword";//重置密码
     
+    public static final String RESETUSERNAME = "c=user&a=resetUsername";//修改昵称
+    
     public static final String LIKELIST =  "c=info&a=getLikeList";//猜你喜欢
     
-    public static final String POSIUSERAVATAR = "c=user&a=postUserAvatar";//猜你喜欢
+    public static final String POSIUSERAVATAR = "c=user&a=postUserAvatar";//上传头像
     
     public static final String GETCATEGORY = "c=info&a=getcategory";//获取餐饮、酒店、商铺分类
 

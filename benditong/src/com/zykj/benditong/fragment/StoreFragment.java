@@ -102,9 +102,10 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 		goodAdapter=new CommonAdapter<Good>(getActivity(),R.layout.ui_item_collection,goods) {
 			@Override
 			public void convert(ViewHolder holder, Good good) {
+				String time=StringUtil.toString(good.getAddtime());
 				holder.setImageUrl(R.id.collection_img,StringUtil.toString(good.getImgsrc()))
 				      .setText(R.id.collection_name, StringUtil.toString(good.getTitle()))
-				      .setText(R.id.collection_time, StringUtil.toString(good.getAddtime()));
+				      .setText(R.id.collection_time, time.length()<10?time:time.substring(5, 10)+"  收藏");
 			}
 		};
 		mListView.setAdapter(goodAdapter);
