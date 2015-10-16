@@ -37,7 +37,7 @@
             android:background="#FCFBF9" >
 
             <TextView
-                android:id="@+id/about_us"
+                android:id="@+id/app_about_us"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -64,6 +64,7 @@
                 android:textSize="@dimen/eighteen" />
 
             <TextView
+                android:id="@+id/app_url"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -89,7 +90,7 @@
                 android:textSize="@dimen/eighteen" />
 
             <TextView
-                android:id="@+id/phone"
+                android:id="@+id/app_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

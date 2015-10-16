@@ -29,6 +29,7 @@ import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
@@ -109,12 +110,15 @@ public class UserInfoActivity extends BaseActivity{
 		case R.id.aci_edit_btn:
 			/* 保存 */
 			RequestParams params=new RequestParams();
-			params.put("username", add_name);
+			params.put("username", add_name.getText().toString().trim());
+			params.put("mob", BaseApp.getModel().getMobile());
 			HttpUtils.resetUsername(new HttpErrorHandler() {
 				
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(UserInfoActivity.this, "昵称修改成功");
+					BaseApp.getModel().setUsername(add_name.getText().toString().trim());
+					setResult(RESULT_OK);
 					finish();
 				}
 			}, params);
@@ -305,6 +309,11 @@ public class UserInfoActivity extends BaseActivity{
 			HttpUtils.postUserAvatar(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(UserInfoActivity.this, "头像上传成功");
+					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("imgUrl[]");
+					BaseApp.getModel().setAvatar(UrlContants.IMAGE_URL+imgurl);
+					setResult(RESULT_OK);
+					finish();
 				}
 			}, params);
 		} catch (FileNotFoundException e) {

@@ -53,6 +53,7 @@
             android:layout_marginTop="@dimen/two"
             android:background="@color/white"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="horizontal" >
 
             <TextView
@@ -77,6 +78,7 @@
             android:layout_height="@dimen/forty"
             android:layout_marginTop="@dimen/two"
             android:background="@color/white"
+            android:visibility="gone"
             android:orientation="horizontal" >
 
             <TextView
@@ -111,6 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"
+            android:visibility="gone"
             android:background="#FCFBF9" >
 
             <TextView

@@ -29,6 +29,11 @@ public class HttpUtils {
     public static void getAdsList(AsyncHttpResponseHandler handler, String type){
         client.get(UrlContants.getUrl(UrlContants.GETADSLIST)+"&id="+type, handler);
     }
+ 	
+ 	  /*关于我们*/
+ 		public static void getAboutUs(AsyncHttpResponseHandler handler,RequestParams params){
+        client.post(UrlContants.getUrl(UrlContants.GETABOUTUS),params,  handler);
+    }
     
     /*点单列表*/
     public static void getOrderList(AsyncHttpResponseHandler handler, RequestParams params){
