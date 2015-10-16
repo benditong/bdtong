@@ -245,8 +245,8 @@ public class HttpUtils {
     }
     
     /*获取酒店详情*/
-    public static void getShopInfo(AsyncHttpResponseHandler handler, String shopid){
-    	client.get(UrlContants.getUrl(UrlContants.SHOPDETAIL)+"&id="+shopid, handler);
+    public static void getShopInfo(AsyncHttpResponseHandler handler, RequestParams params){
+    	client.post(UrlContants.getUrl(UrlContants.SHOPDETAIL), params, handler);
     }
     
     /*删除收藏*/

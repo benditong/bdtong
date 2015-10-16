@@ -147,6 +147,7 @@ public class UserActivity extends BaseActivity {
 			startActivityForResult(new Intent(this,UserInfoActivity.class), 11);
 			break;
 		case R.id.user_sign:
+			/* 签到 */
 			if("ok".equals(BaseApp.getModel().getSign())){Tools.toast(this, "今天已经签到");return;}
 			RequestParams params = new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());

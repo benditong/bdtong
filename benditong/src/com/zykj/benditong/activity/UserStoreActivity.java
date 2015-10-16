@@ -9,7 +9,7 @@ import com.zykj.benditong.fragment.StoreFragment;
 import com.zykj.benditong.view.MyCommonTitle;
 
 public class UserStoreActivity extends FragmentActivity {
-
+	
 	private MyCommonTitle myCommonTitle;
     private RadioGroup tab_store;
     private StoreFragment storeFragment1,storeFragment2;
@@ -20,7 +20,6 @@ public class UserStoreActivity extends FragmentActivity {
 		setContentView(R.layout.ui_user_store);
 		initView();
 		requestData();
-	
 	}
 	/**
 	 * 初始化页面

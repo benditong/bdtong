@@ -180,6 +180,9 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 					.putExtra("shopId", good.getTid()));
 		}else{
 			//2收藏的店铺
+			RequestParams params = new RequestParams();
+			params.put("id", good.getPid());
+			params.put("uid", BaseApp.getModel().getUserid());
 			HttpUtils.getShopInfo(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
@@ -188,7 +191,7 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 							"shop".equals(good.getType())?ShopDetailActivity.class:CanyinDetailActivity.class)
 							.putExtra("restaurant", restaurant));
 				}
-			}, good.getPid());
+			}, params);
 		}
 	}
 

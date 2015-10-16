@@ -58,7 +58,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:focusable="false"
                 android:layout_toLeftOf="@id/search_delete"
              	android:hint="@string/app_search"
                 android:textColor="#000"

@@ -61,8 +61,13 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 		restaurant = (Restaurant)getIntent().getSerializableExtra("restaurant");
 		
 		initView();
+		if(StringUtil.isEmpty(restaurant.getIsFav())){
+			requestData();
+		}else{
+			img_store.setImageResource("1".equals(restaurant.getIsFav())?R.drawable.my_store_normal:R.drawable.my_store_select);
+		}
 	}
-	
+
 	private void initView(){
 		myCommonTitle = (MyShareAndStoreTitle)findViewById(R.id.aci_mytitle);
 		myCommonTitle.setLisener(this, this);
@@ -88,7 +93,7 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 		restaurant_list = (AutoListView)findViewById(R.id.restaurant_list);
 		restaurant_list.setFocusable(false);
 		reserve_go = (Button)findViewById(R.id.reserve_go);
-		img_store=(ImageView) findViewById(R.id.aci_store_btn);
+		img_store=(ImageView) findViewById(R.id.aci_store_btn);//收藏
 		
 		LayoutParams pageParms = aci_header.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
@@ -102,6 +107,24 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 		params.put("perpage", 1);//每页数量
 		HttpUtils.getCommentsList(res_getCommentsList, params);
 		initializationDate();
+	}
+	
+	/**
+	 * 查看用户是否收藏
+	 */
+	private void requestData() {
+		if(!CommonUtils.CheckLogin()){return;}
+		RequestParams params = new RequestParams();
+		params.put("id", restaurant.getId());
+		params.put("uid", BaseApp.getModel().getUserid());
+		HttpUtils.getShopInfo(new HttpErrorHandler() {
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				String isFav = json.getJSONObject(UrlContants.jsonData).getString("isFav");
+				restaurant.setIsFav(isFav);
+				img_store.setImageResource("1".equals(isFav)?R.drawable.my_store_normal:R.drawable.my_store_select);
+			}
+		}, params);
 	}
 	
 	/**
@@ -212,26 +235,35 @@ public class CanyinDetailActivity extends BaseActivity implements OnClickListene
 				.putExtra("type", restaurant.getType()).putExtra("id", restaurant.getId()));
 			break;
 		case R.id.aci_shared_btn:
+			/** 分享 */
 			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
 		case R.id.aci_store_btn:
-			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请先登录!");return;}
-			RequestParams params=new RequestParams();
-			params.put("uid", BaseApp.getModel().getUserid());
-			params.put("type", restaurant.getType());
-			params.put("pid", restaurant.getId());
-			HttpUtils.addCollection(new HttpErrorHandler() {
-				@Override
-				public void onRecevieSuccess(JSONObject json) {
-					Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
-					img_store.setImageResource(R.drawable.my_store_select);
-				}
-				@Override
-				public void onRecevieFailed(String status, JSONObject json) {
-					Tools.toast(CanyinDetailActivity.this, "添加收藏失败");
-				}
-			}, params);
+			if(!CommonUtils.CheckLogin()){
+				Tools.toast(this, "请先登录!");
+			}else if("1".equals(restaurant.getIsFav())){
+				/**收藏*/
+				RequestParams params=new RequestParams();
+				params.put("uid", BaseApp.getModel().getUserid());
+				params.put("type", "2");
+				params.put("pid", restaurant.getId());
+				HttpUtils.addCollection(res_addCollection, params);
+			}else{
+				/**取消收藏*/
+			}
 			break;
 		}
 	}
+	
+	private AsyncHttpResponseHandler res_addCollection = new HttpErrorHandler() {
+		@Override
+		public void onRecevieSuccess(JSONObject json) {
+			Tools.toast(CanyinDetailActivity.this, "添加收藏成功");
+			img_store.setImageResource(R.drawable.my_store_select);
+		}
+		@Override
+		public void onRecevieFailed(String status, JSONObject json) {
+			Tools.toast(CanyinDetailActivity.this, "添加收藏失败");
+		}
+	};
 }

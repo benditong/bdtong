@@ -50,7 +50,7 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 	private RelativeLayout aci_header;
 	private TextView restaurant_name,res_address/*,res_assess_num*/,res_assess_name,res_assess_content,res_assess_time,res_assess_more;
 	private RatingBar restaurant_star,res_assess_star;
-	private ImageView restaurant_img,res_phone,res_assess_img,header_background;
+	private ImageView restaurant_img,res_phone,res_assess_img,header_background,img_store;
 	private AutoListView  restaurant_list;
 	private GridView grid_images;
 	private List<Good> datalist;
@@ -62,6 +62,11 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 		restaurant = (Restaurant)getIntent().getSerializableExtra("restaurant");
 		
 		initView();
+		if(StringUtil.isEmpty(restaurant.getIsFav())){
+			requestData();
+		}else{
+			img_store.setImageResource("1".equals(restaurant.getIsFav())?R.drawable.my_store_normal:R.drawable.my_store_select);
+		}
 	}
 	
 	private void initView(){
@@ -86,14 +91,32 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 		res_assess_more = (TextView)findViewById(R.id.res_assess_more);
 		restaurant_list = (AutoListView)findViewById(R.id.restaurant_list);
 		restaurant_list.setOnItemClickListener(this);
+		img_store=(ImageView) findViewById(R.id.aci_store_btn);//收藏
 		
 		LayoutParams pageParms = aci_header.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
 		pageParms.height = Tools.M_SCREEN_WIDTH*2/5;
 		
-		setListener(res_address,res_phone,res_assess_more);
+		setListener(res_address,res_phone,res_assess_more,img_store);
 		HttpUtils.getgoodslist(res_getgoodslist, restaurant.getId());
 		initializationDate();
+	}
+	
+	/**
+	 * 查看用户是否收藏
+	 */
+	private void requestData() {
+		if(!CommonUtils.CheckLogin()){return;}
+		RequestParams params = new RequestParams();
+		params.put("id", restaurant.getId());
+		params.put("uid", BaseApp.getModel().getUserid());
+		HttpUtils.getShopInfo(new HttpErrorHandler() {
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				String isFav = json.getJSONObject(UrlContants.jsonData).getString("isFav");
+				img_store.setImageResource("1".equals(isFav)?R.drawable.my_store_normal:R.drawable.my_store_select);
+			}
+		}, params);
 	}
 
 	/**
@@ -204,31 +227,37 @@ public class ShopDetailActivity extends BaseActivity implements OnItemClickListe
 			startActivity(new Intent(ShopDetailActivity.this,AssessListActivity.class)
 				.putExtra("type", restaurant.getType()).putExtra("pid", restaurant.getId()));
 			break;
-		case R.id.aci_store_btn:
-			RequestParams params=new RequestParams();
-			params.put("uid", BaseApp.getModel().getUserid());
-			params.put("type", restaurant.getType());
-			params.put("pid", restaurant.getId());
-			HttpUtils.addCollection(new HttpErrorHandler() {
-				
-				@Override
-				public void onRecevieSuccess(JSONObject json) {
-					//btn_store.setImageResource(R.drawable.my_store_select);
-					Tools.toast(ShopDetailActivity.this, "添加收藏成功");
-				}
-				@Override
-				public void onRecevieFailed(String status, JSONObject json) {
-					Tools.toast(ShopDetailActivity.this, "添加收藏失败");
-				}
-			}, params);
-			break;
 		case R.id.aci_shared_btn:
 			CommonUtils.showShare(this, restaurant.getTitle(), restaurant.getAddress(), "http://fir.im");
 			break;
-		default:
+		case R.id.aci_store_btn:
+			if(!CommonUtils.CheckLogin()){
+				Tools.toast(this, "请先登录!");
+			}else if("1".equals(restaurant.getIsFav())){
+				/**收藏*/
+				RequestParams params=new RequestParams();
+				params.put("uid", BaseApp.getModel().getUserid());
+				params.put("type", "2");
+				params.put("pid", restaurant.getId());
+				HttpUtils.addCollection(res_addCollection, params);
+			}else{
+				/**取消收藏*/
+			}
 			break;
 		}
 	}
+	
+	private AsyncHttpResponseHandler res_addCollection = new HttpErrorHandler() {
+		@Override
+		public void onRecevieSuccess(JSONObject json) {
+			Tools.toast(ShopDetailActivity.this, "添加收藏成功");
+			img_store.setImageResource(R.drawable.my_store_select);
+		}
+		@Override
+		public void onRecevieFailed(String status, JSONObject json) {
+			Tools.toast(ShopDetailActivity.this, "添加收藏失败");
+		}
+	};
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View convertView, int position, long checkId) {

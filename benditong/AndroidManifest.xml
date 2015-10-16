@@ -7,6 +7,11 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
+    <supports-screens 
+		android:largeScreens="true"
+		android:normalScreens="true"
+		android:smallScreens="true"
+		android:anyDensity="true"/>
     <!-- 连接互联网Internet权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 电话服务添加 -->

@@ -31,6 +31,7 @@ public class Restaurant implements Serializable{
 	private String seodesc;
 	private String avg;
 	private float km;
+	private String isFav;
 	
 	public String getId() {
 		return id;
@@ -169,5 +170,11 @@ public class Restaurant implements Serializable{
 	}
 	public void setKm(float km) {
 		this.km = km;
+	}
+	public String getIsFav() {
+		return isFav;
+	}
+	public void setIsFav(String isFav) {
+		this.isFav = isFav;
 	}
 }
