@@ -29,7 +29,9 @@ import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
+import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.MyDialog;
 import com.zykj.benditong.view.RoundImageView;
@@ -58,7 +60,7 @@ public class UserInfoActivity extends BaseActivity{
 		myCommonTitle = (MyCommonTitle)findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("修改信息");
 		myCommonTitle.setEditTitle("保存");
-		myCommonTitle.setLisener(this, this);
+		myCommonTitle.setLisener(this, null);
 
 		rv_me_avatar = (RoundImageView)findViewById(R.id.rv_me_avatar);//头像
 		add_name = (TextView)findViewById(R.id.add_name);//昵称
@@ -107,6 +109,20 @@ public class UserInfoActivity extends BaseActivity{
 			break;
 		case R.id.aci_edit_btn:
 			/* 保存 */
+			RequestParams params=new RequestParams();
+			params.put("username", add_name.getText().toString().trim());
+			params.put("mob", BaseApp.getModel().getMobile());
+			HttpUtils.resetUsername(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(UserInfoActivity.this, "昵称修改成功");
+					BaseApp.getModel().setUsername(add_name.getText().toString().trim());
+					setResult(RESULT_OK);
+					finish();
+				}
+			}, params);
+			
 			break;
 		case R.id.rv_me_avatar:
 			UIDialog.ForThreeBtn(this, new String[]{"相册", "拍照", "取消"}, this);
@@ -293,6 +309,11 @@ public class UserInfoActivity extends BaseActivity{
 			HttpUtils.postUserAvatar(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(UserInfoActivity.this, "头像上传成功");
+					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("imgUrl[]");
+					BaseApp.getModel().setAvatar(UrlContants.IMAGE_URL+imgurl);
+					setResult(RESULT_OK);
+					finish();
 				}
 			}, params);
 		} catch (FileNotFoundException e) {

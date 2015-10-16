@@ -2,8 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@color/content_background_color"
     android:orientation="vertical" >
 
     <com.zykj.benditong.view.MyCommonTitle
@@ -13,133 +11,120 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FCFBF9" >
-
-        <ImageView
-            android:id="@+id/imag_about_logo"
-            android:layout_width="55dp"
-            android:layout_height="53dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/app_logo" >
-        </ImageView>
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#FCFBF9" >
-
-        <TextView
-            android:id="@+id/tv_instructions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/instructions"/>
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:background="#FFF"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/t_ten"
-            android:text="网址:"
-            android:textSize="@dimen/eighteen" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/t_ten"
-            android:text="http://55tuantuan.com"
-            android:autoLink="all"
-            android:textSize="@dimen/eighteen" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:background="#FFF"
-        android:orientation="vertical"
-        android:weightSum="2" >
+        android:layout_height="match_parent"
+        android:background="@color/content_background_color"
+        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_weight="1"
-            android:background="#FFF" >
+            android:background="#FCFBF9" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/t_ten"
-                android:text="如有疑问，请致电"
-                android:textSize="@dimen/eighteen" />
+            <ImageView
+                android:id="@+id/imag_about_logo"
+                android:layout_width="55dp"
+                android:layout_height="53dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/app_logo" >
+            </ImageView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_weight="1"
-            android:background="#FFF"
-            android:gravity="center_vertical"
+            android:background="#FCFBF9" >
+
+            <TextView
+                android:id="@+id/tv_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/instructions" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty"
+            android:layout_marginTop="@dimen/two"
+            android:background="@color/white"
+            android:gravity="center"
+            android:visibility="gone"
             android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/t_ten"
-                android:text="电话:"
+                android:layout_marginLeft="@dimen/ten"
+                android:text="@string/app_url"
+                android:textColor="@color/text_light"
                 android:textSize="@dimen/eighteen" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/app_url2"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/eighteen" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty"
+            android:layout_marginTop="@dimen/two"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/t_ten"
-                android:text="400-105-5555"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/ten"
+                android:text="@string/app_tel"
+                android:textColor="@color/text_light"
                 android:textSize="@dimen/eighteen" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="right">
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_tel2"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/eighteen" />
 
-                <ImageButton
-                    android:id="@+id/imag_buton_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#FFF"
-                    android:layout_marginRight="20dp"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:src="@drawable/phone" />
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imag_buton_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/ten"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/phone" />
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FCFBF9" >
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:gravity="right"
-            android:text="©  2011-2015 tuantuan.com" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:visibility="gone"
+            android:background="#FCFBF9" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="@dimen/ten"
+                android:gravity="right"
+                android:text="@string/app_url3"
+                android:textSize="@dimen/eighteen" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

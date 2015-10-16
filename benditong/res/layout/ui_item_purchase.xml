@@ -81,7 +81,6 @@
 			        android:id="@+id/product_price"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:textSize="@dimen/t_sixteen"
 		            android:textColor="@color/black"
 		            android:text="@string/product_price"/>
 	        </LinearLayout>
@@ -120,7 +119,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/forty_five"
 		android:gravity="center_vertical|right"
-		android:text="@string/total_price"/>
+		android:text="@string/total_price"
+		android:textSize="@dimen/t_eighteen"
+		android:textStyle="bold"/>
     
     <View 
         android:layout_width="match_parent"
@@ -131,7 +132,7 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/fifty"
         android:orientation="horizontal"
-        android:paddingTop="@dimen/eight">
+        android:gravity="center">
 	    <View 
 	        android:layout_width="0.0dip"
 	        android:layout_height="match_parent"
@@ -140,6 +141,7 @@
 	        android:id="@+id/order_cancel"
 	        android:layout_width="@dimen/eighty"
 	        android:layout_height="@dimen/thirty"
+	        android:layout_marginBottom="@dimen/four"
 	        android:background="@drawable/bg_null_black"
 	        android:textColor="@color/black"
 	        android:gravity="center"
@@ -149,6 +151,7 @@
 	        android:id="@+id/order_pay"
 	        android:layout_width="@dimen/eighty"
 	        android:layout_height="@dimen/thirty"
+	        android:layout_marginBottom="@dimen/four"
 	        android:background="@drawable/bg_null_orange"
 	        android:textColor="@color/theme_orange"
 	        android:gravity="center"

@@ -48,6 +48,8 @@ import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.MyRequestDailog;
+import com.zykj.benditong.view.PickDialog;
+import com.zykj.benditong.view.PickDialog.PickDialogListener;
 import com.zykj.benditong.view.SegmentView;
 import com.zykj.benditong.view.SegmentView.onSegmentViewClickListener;
 import com.zykj.benditong.view.UIDialog;
@@ -105,45 +107,30 @@ public class HouseAddActivity extends BaseActivity implements
 		house_intro = (EditText) findViewById(R.id.house_intro);
 		house_contacts = (EditText) findViewById(R.id.house_contacts);
 		house_mobile = (EditText) findViewById(R.id.house_mobile);
-
-		house_decoration.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				AlertDialog.Builder builder = new AlertDialog.Builder(
-						HouseAddActivity.this);
-				builder.setIcon(R.drawable.ic_house);
-				
-				builder.setTitle("请选择装修情况");
-				// 指定下拉列表的显示数据
-				final String fitments[] = { "毛坯装修", "一般装修", "精装修", "豪华装修" };
-				// 设置一个下拉的列表选择项
-				builder.setItems(fitments,
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								house_decoration.setText(fitments[which]);
-							}
-						});
-				// builder.setPositiveButton("确定", new
-				// DialogInterface.OnClickListener() {
-				// @Override
-				// public void onClick(DialogInterface dialog, int which) {
-				// house_decoration.setText(fitments[which]);
-				// }
-				// });
-				// builder.setNegativeButton("取消", new
-				// DialogInterface.OnClickListener() {
-				//
-				// @Override
-				// public void onClick(DialogInterface dialog, int which) {
-				//
-				// }
-				// });
-				builder.show();
-			}
-		});
+       
+//		house_decoration.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				AlertDialog.Builder builder = new AlertDialog.Builder(
+//						HouseAddActivity.this);
+//				builder.setIcon(R.drawable.ic_house);
+//				
+//				builder.setTitle("请选择装修情况");
+//				// 指定下拉列表的显示数据
+//				final String fitments[] = { "毛坯装修", "一般装修", "精装修", "豪华装修" };
+//				// 设置一个下拉的列表选择项
+//				builder.setItems(fitments,
+//						new DialogInterface.OnClickListener() {
+//							@Override
+//							public void onClick(DialogInterface dialog,
+//									int which) {
+//								house_decoration.setText(fitments[which]);
+//							}
+//						});
+//				builder.show();
+//			}
+//		});
 
 		btn_submit = (Button) findViewById(R.id.house_submit);
 		images.add(BitmapFactory.decodeResource(getResources(),
@@ -176,7 +163,7 @@ public class HouseAddActivity extends BaseActivity implements
 				}
 			}
 		});
-		setListener(btn_submit);
+		setListener(btn_submit,house_decoration);
 	}
 
 	/**
@@ -241,6 +228,20 @@ public class HouseAddActivity extends BaseActivity implements
 			break;
 		case R.id.dialog_modif_3:
 			UIDialog.closeDialog();
+			break;
+		case R.id.house_add_decoration:
+			final List<String> lists=new ArrayList<String>();
+			lists.add("毛坯装修");
+			lists.add("一般装修");
+			lists.add("精装修");
+			lists.add("豪华装修");
+			new PickDialog(HouseAddActivity.this, "请选择装修情况", lists, new PickDialogListener() {
+				
+				@Override
+				public void onListItemClick(int position, String string) {
+					house_decoration.setText(lists.get(position));
+				}
+			}).show();
 			break;
 		case R.id.house_submit:
 			/**

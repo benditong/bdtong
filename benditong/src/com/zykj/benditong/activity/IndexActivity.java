@@ -73,6 +73,7 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 		if (data != null) {
 			Area area = (Area) data.getSerializableExtra("area");
 			aci_mytitle.setAddresseeText(area.getTitle());
+		
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
@@ -81,6 +82,7 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 	public void onClick(View view) {
 		RequestParams params = new RequestParams();
 		switch (view.getId()) {
+	
 		case R.id.address:
 			/* 城市 */
 			startActivityForResult(new Intent(IndexActivity.this,

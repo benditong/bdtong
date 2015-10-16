@@ -7,29 +7,34 @@ import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
 import com.zykj.benditong.R;
+import com.zykj.benditong.http.HttpErrorHandler;
+import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.view.MyCommonTitle;
 
 public class AppExplainActivity extends BaseActivity {
 	
 	private MyCommonTitle myCommonTitle;
-	private ImageButton mCallButton;
+	private ImageView mCallButton;
 	private TextView tv_phone,tv_instructions;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_explain);
+		
 		myCommonTitle=(MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("应用说明");
+		
 		tv_instructions=(TextView) findViewById(R.id.tv_instructions);
-		tv_instructions.setText(Html.fromHtml(tv_instructions.getText().toString()));
+		//tv_instructions.setText(Html.fromHtml(tv_instructions.getText().toString()));
 		tv_phone=(TextView) findViewById(R.id.phone);
-		mCallButton=(ImageButton) findViewById(R.id.imag_buton_phone);
+		mCallButton=(ImageView) findViewById(R.id.imag_buton_phone);
 		mCallButton.setOnTouchListener(new OnTouchListener() {
 		
 			public boolean onTouch(View arg0, MotionEvent arg1) {
@@ -38,6 +43,25 @@ public class AppExplainActivity extends BaseActivity {
 				return true;
 			}
 		});
+		
+		requestData();
+		
+	}
+	private void requestData() {
+		
+		RequestParams params=new RequestParams();
+		params.put("type", "about");
+		params.put("id", "1");
+		
+		HttpUtils.getAboutUs(new HttpErrorHandler() {
+			
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				JSONObject jsonObject=json.getJSONObject("datas");
+				tv_instructions.setText(jsonObject.getString("content"));
+				
+			}
+		}, params);
 		
 	}
 	

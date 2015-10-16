@@ -100,7 +100,7 @@
     <string name="user_carpool_remain_seats_2">剩余座位：</string>
     <string name="user_sign_up_number">报名人数</string>
     <string name="user_sign_up_number_default">1</string>
-    <string name="user_carpool_unit_price">单价：</string>
+    <string name="user_carpool_unit_price">单价：&#160;&#160;￥</string>
     <string name="user_carpool_sign_up">立即报名</string>
     <string name="orign">请输入出发地</string>
     <string name="destination">请输入目的地</string>

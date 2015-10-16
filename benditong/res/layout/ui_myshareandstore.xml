@@ -50,13 +50,15 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
             android:paddingBottom="@dimen/eight"
+            android:layout_gravity="center"
             android:paddingTop="@dimen/eight"
             android:src="@drawable/my_share_normal"
             android:visibility="gone" />
 
         <View
             android:layout_width="@dimen/one"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" 
+            android:layout_marginLeft="@dimen/ten"/>
 
         <ImageView
             android:id="@+id/aci_store_btn"

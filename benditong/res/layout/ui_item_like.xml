@@ -16,12 +16,13 @@
     
     <LinearLayout 
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/ninety"
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/eight">
         <LinearLayout 
 	        android:layout_width="fill_parent"
-	        android:layout_height="@dimen/twenty_five"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
 	        android:orientation="horizontal">
 	        <TextView 
 		        android:id="@+id/product_title"
@@ -48,10 +49,12 @@
             android:textSize="@dimen/t_sixteen"
             android:paddingTop="@dimen/five"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout 
 	        android:layout_width="fill_parent"
-	        android:layout_height="@dimen/thirty"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
 	        android:orientation="horizontal">
 	        <TextView 
 		        android:id="@+id/product_price"
@@ -60,12 +63,12 @@
 	            android:textSize="@dimen/t_ten"
 	            android:layout_width="0.0dip"
 	            android:layout_height="match_parent"
-	            android:gravity="center_vertical"
+	            android:gravity="center_vertical|bottom"
 	            android:layout_weight="1"/>
 	        <TextView 
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/t_sixteen"
+	            android:textSize="@dimen/t_twelve"
 	            android:textColor="@color/text_light"
 	            android:text="@string/index_product_other"/>
         </LinearLayout>

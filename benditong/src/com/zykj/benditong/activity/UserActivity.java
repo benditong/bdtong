@@ -88,7 +88,7 @@ public class UserActivity extends BaseActivity {
 			user_sign.setVisibility(View.VISIBLE);
 //			rv_me_avatar.setOnClickListener(this);
 			String avatar = BaseApp.getModel().getAvatar();
-			tv_me_mobile.setText(StringUtil.isEmpty(BaseApp.getModel().getMobile())?BaseApp.getModel().getUsername():BaseApp.getModel().getMobile());//默认账户
+			tv_me_mobile.setText(StringUtil.isEmpty(BaseApp.getModel().getUsername())?BaseApp.getModel().getMobile():BaseApp.getModel().getUsername());//默认账户
 			ImageLoader.getInstance().displayImage(avatar, rv_me_avatar);//用户头像
 			user_money.setText(String.format("￥%.2f", Float.valueOf(BaseApp.getModel().getMoney())));//用户余额
 			user_integral.setText(BaseApp.getModel().getIntegral());//用户资产

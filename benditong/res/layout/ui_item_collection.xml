@@ -39,6 +39,7 @@
             android:paddingTop="@dimen/five"
             android:singleLine="true"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/ten"
             android:layout_gravity="right"
             android:text="@string/collection_time"
             android:textColor="@color/text_dgrey"

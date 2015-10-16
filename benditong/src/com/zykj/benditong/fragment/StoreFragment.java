@@ -41,7 +41,7 @@ import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
 
 public class StoreFragment extends Fragment implements IXListViewListener, OnItemClickListener, OnMenuItemClickListener{
-	private static int PERPAGE=2;//perpage默认每页显示10条信息
+	private static int PERPAGE=10;//perpage默认每页显示10条信息
 	private int nowpage=1;//当前显示的页面 
 	private int mType=1;//1收藏的产品 2收藏的店铺
     private SwipeMenuListView mListView;
@@ -102,9 +102,10 @@ public class StoreFragment extends Fragment implements IXListViewListener, OnIte
 		goodAdapter=new CommonAdapter<Good>(getActivity(),R.layout.ui_item_collection,goods) {
 			@Override
 			public void convert(ViewHolder holder, Good good) {
+				String time=StringUtil.toString(good.getAddtime());
 				holder.setImageUrl(R.id.collection_img,StringUtil.toString(good.getImgsrc()))
 				      .setText(R.id.collection_name, StringUtil.toString(good.getTitle()))
-				      .setText(R.id.collection_time, StringUtil.toString(good.getAddtime()));
+				      .setText(R.id.collection_time, time.length()<10?time:time.substring(5, 10)+"  收藏");
 			}
 		};
 		mListView.setAdapter(goodAdapter);
