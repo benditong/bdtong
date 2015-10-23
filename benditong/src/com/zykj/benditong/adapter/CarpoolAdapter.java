@@ -2,7 +2,6 @@ package com.zykj.benditong.adapter;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -32,19 +31,16 @@ public class CarpoolAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return dataList.size();
 	}
 
 	@Override
 	public Car getItem(int position) {
-		// TODO Auto-generated method stub
 		return dataList.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 

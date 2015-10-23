@@ -25,7 +25,13 @@ public class Car implements Serializable{
 	private String orderSeat; //已订购的座位数
 	private String remain;     //剩余座位数
 	private String trueprice; //当前座位数的价格
-	
+	private String area;
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	public String getId() {
 		return id;
 	}
@@ -129,6 +135,4 @@ public class Car implements Serializable{
 		this.trueprice = trueprice;
 	}
 	
-	
-
 }

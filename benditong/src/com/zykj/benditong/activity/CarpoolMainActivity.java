@@ -16,11 +16,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CarpoolAdapter;
 import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Car;
+import com.zykj.benditong.utils.Tools;
 //import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
@@ -82,6 +84,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 	private void getShopListData() {
 		RequestParams params = new RequestParams();
 		params.put("type", "need");
+		//params.put("area",  Tools.CURRENTCITY);
 		params.put("nowpage", nowpage);// 第几页
 		params.put("perpage", PERPAGE);// 每页条数
 		HttpUtils.getList(res_getList, params);
