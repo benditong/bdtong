@@ -84,7 +84,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 	private void getShopListData() {
 		RequestParams params = new RequestParams();
 		params.put("type", "need");
-		//params.put("area",  Tools.CURRENTCITY);
+		params.put("area",  Tools.CURRENTCITY);
 		params.put("nowpage", nowpage);// 第几页
 		params.put("perpage", PERPAGE);// 每页条数
 		HttpUtils.getList(res_getList, params);
