@@ -111,10 +111,11 @@ public class Welcome extends BaseActivity {
 		
 		@Override
 		public void onLocationChanged(AMapLocation location) {
+			Tools.CURRENTCITY = location.getCity();
 			if (location != null && location.getAMapException().getErrorCode() == 0) {
 				BaseApp.getModel().setLatitude(location.getLatitude()+"");
 				BaseApp.getModel().setLongitude(location.getLongitude()+"");
-				Tools.toast(Welcome.this, "lat="+location.getLatitude()+"long="+location.getLongitude());
+				Tools.toast(Welcome.this, "城市="+location.getCity()+"lat="+location.getLatitude()+"long="+location.getLongitude());
 			}else{
 				Tools.toast(Welcome.this, "定位出现异常");
 			}

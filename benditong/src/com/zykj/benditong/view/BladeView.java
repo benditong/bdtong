@@ -106,7 +106,7 @@ public class BladeView extends View {
 			mPopupText.setTextSize(50);
 			mPopupText.setGravity(Gravity.CENTER_HORIZONTAL
 					| Gravity.CENTER_VERTICAL);
-			mPopupWindow = new PopupWindow(mPopupText, 100, 100);
+			mPopupWindow = new PopupWindow(mPopupText, 150, 150);
 		}
 		String text = "";
 		if (item == 0) {

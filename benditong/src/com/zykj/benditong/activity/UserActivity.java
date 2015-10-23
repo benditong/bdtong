@@ -124,6 +124,7 @@ public class UserActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		requestData();
 		user_money.setText("￥"+StringUtil.toString(BaseApp.getModel().getMoney(), "0.00"));//用户余额
 		user_integral.setText(StringUtil.toString(BaseApp.getModel().getIntegral(), "0"));//用户资产
 	}

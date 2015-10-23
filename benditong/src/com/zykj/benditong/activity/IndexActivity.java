@@ -1,5 +1,6 @@
 package com.zykj.benditong.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -19,10 +20,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -37,18 +38,15 @@ import com.zykj.benditong.http.HttpErrorHandler;
 import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.AdsImages;
-import com.zykj.benditong.model.Area;
 import com.zykj.benditong.model.GuessLike;
 import com.zykj.benditong.utils.CommonUtils;
 import com.zykj.benditong.utils.StringUtil;
 import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.AutoListView;
-import com.zykj.benditong.view.MySearchTitle;
 
 @SuppressLint("HandlerLeak")
 public class IndexActivity extends BaseActivity implements OnItemClickListener {
 
-	private MySearchTitle aci_mytitle;
 	private AutoScrollViewPager viewPager;
 	private AutoListView index_list;
 	private LinearLayout im_b1pinche, im_b1canyin, im_b1jiudian, im_b1shangpu,
@@ -57,7 +55,8 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 	/** 当前的位置 */
 	private int now_pos = 0;
 	private List<AdsImages> imageList;
-	private List<GuessLike> datalist;
+	private List<GuessLike> datalist = new ArrayList<GuessLike>();
+	private CommonAdapter<GuessLike> likeAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +70,9 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (data != null) {
-			Area area = (Area) data.getSerializableExtra("area");
-			aci_mytitle.setAddresseeText(area.getTitle());
-		
+//			Area area = (Area) data.getSerializableExtra("area");
+			address.setText(Tools.CURRENTCITY);//area.getTitle()
+			requestData();
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
@@ -82,8 +81,7 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 	public void onClick(View view) {
 		RequestParams params = new RequestParams();
 		switch (view.getId()) {
-	
-		case R.id.address:
+		case R.id.rl_ditu:
 			/* 城市 */
 			startActivityForResult(new Intent(IndexActivity.this,
 					CitysActivity.class), 1);
@@ -180,15 +178,33 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 		}
 	}
 
+	private RelativeLayout rl_ditu;
+	private TextView address;
 	/**
 	 * 加载页面
 	 */
 	private void initView(){
-		aci_mytitle = (MySearchTitle) findViewById(R.id.aci_mytitle);//轮播图
-		aci_mytitle.setAddresseeListener(this);
+//		aci_mytitle = (MySearchTitle) findViewById(R.id.aci_mytitle);//轮播图
+//		aci_mytitle.setAddresseeListener(this);
+//		aci_mytitle.setAddresseeText(Tools.CURRENTCITY);
+		
+		rl_ditu = (RelativeLayout)findViewById(R.id.rl_ditu);//选择城市
+		address = (TextView)findViewById(R.id.address);//城市
 		
 		viewPager = (AutoScrollViewPager) findViewById(R.id.index_slider);//轮播图
 		index_list = (AutoListView)findViewById(R.id.index_list);//猜你喜欢
+		likeAdapter = new CommonAdapter<GuessLike>(IndexActivity.this, R.layout.ui_item_like, datalist) {
+			@Override
+			public void convert(ViewHolder holder, GuessLike like) {
+				holder.setText(R.id.product_title, like.getTitle())
+						.setImageUrl(R.id.product_image, like.getImgsrc(),10f)
+						.setText(R.id.product_distance, like.getKm() + "km")
+						.setText(R.id.product_content, StringUtil.isEmpty(like.getIntro()) ? "该商品暂无说明" : like.getIntro());
+				TextView ptext = holder.getView(R.id.product_price);
+				ptext.setText(Html.fromHtml("<big><big><font color=#25B6ED>" + like.getPrice() + "</font></big></big>元"));
+			}
+		};
+		index_list.setAdapter(likeAdapter);
 		index_list.setOnItemClickListener(this);
 		im_b1canyin = (LinearLayout)findViewById(R.id.im_b1canyin);//餐饮
 		im_b1jiudian = (LinearLayout)findViewById(R.id.im_b1jiudian);//酒店
@@ -217,49 +233,32 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 			public void onPageScrolled(int arg0, float arg1, int arg2) {}
 			public void onPageScrollStateChanged(int arg0) {}
 		});
-		
-		setListener(im_b1canyin, im_b1jiudian, im_b1shangpu, im_b1pinche,im_b1bianmin,im_b1zhaopin,im_b1fangchan,im_b1gongqiu, tv_index_order, user_gift_left, user_gift_right);
+		setListener(rl_ditu, im_b1canyin, im_b1jiudian, im_b1shangpu, im_b1pinche,im_b1bianmin,im_b1zhaopin,im_b1fangchan,im_b1gongqiu, tv_index_order, user_gift_left, user_gift_right);
+		HttpUtils.getAdsList(res_getAdsList, "slideFocus");
 	}
 
 	/**
 	 * 请求服务器数据---首页
 	 */
 	private void requestData() {
-		HttpUtils.getAdsList(res_getAdsList, "slideFocus");
 		RequestParams params = new RequestParams();
-		params.put("nowpage", "1");
-		params.put("perpage", "5");
+		params.put("nowpage", "1");//当前页
+		params.put("perpage", "5");//每页条数
+		params.put("lng", BaseApp.getModel().getLongitude());//经度
+		params.put("lat", BaseApp.getModel().getLatitude());//纬度
+		params.put("area", Tools.CURRENTCITY);//地区ID编号
 		HttpUtils.getLikeList(res_getLikeList, params);
 	}
 
 	/**
 	 * 请求首页猜你喜欢
 	 */
-	private AsyncHttpResponseHandler res_getLikeList = new HttpErrorHandler() {
+	private AsyncHttpResponseHandler res_getLikeList = new EntityHandler<GuessLike>(GuessLike.class) {
 		@Override
-		public void onRecevieSuccess(JSONObject json) {
-			JSONArray jsonArray = json.getJSONObject(UrlContants.jsonData)
-					.getJSONArray("list");
-			datalist = JSONArray.parseArray(jsonArray.toString(),
-					GuessLike.class);
-			index_list.setAdapter(new CommonAdapter<GuessLike>(
-					IndexActivity.this, R.layout.ui_item_like, datalist) {
-				@Override
-				public void convert(ViewHolder holder, GuessLike like) {
-					holder.setText(R.id.product_title, like.getTitle())
-							.setImageUrl(R.id.product_image, like.getImgsrc(),
-									10f)
-							.setText(R.id.product_distance, like.getKm() + "km")
-							.setText(
-									R.id.product_content,
-									StringUtil.isEmpty(like.getIntro()) ? "该商品暂无说明"
-											: like.getIntro());
-					TextView ptext = holder.getView(R.id.product_price);
-					ptext.setText(Html
-							.fromHtml("<big><big><font color=#25B6ED>"
-									+ like.getPrice() + "</font></big></big>元"));
-				}
-			});
+		public void onReadSuccess(List<GuessLike> list) {
+			datalist.clear();
+			datalist.addAll(list);
+			likeAdapter.notifyDataSetChanged();
 		}
 	};
 

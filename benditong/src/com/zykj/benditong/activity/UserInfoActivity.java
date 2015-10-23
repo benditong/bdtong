@@ -75,7 +75,7 @@ public class UserInfoActivity extends BaseActivity{
 	private void requestData(){
 		ImageLoader.getInstance().displayImage(BaseApp.getModel().getAvatar(), rv_me_avatar);//用户头像
 		String name = BaseApp.getModel().getUsername();
-		add_name.setHint(StringUtil.isEmpty(name)?"添加昵称":name);
+		add_name.setText(StringUtil.isEmpty(name)?"添加昵称":name);
 		String mobile = BaseApp.getModel().getMobile();
 		if(!StringUtil.isEmpty(mobile)){
 			mobile_number.setText(mobile.substring(0, 3)+"****"+mobile.substring(mobile.length()-4));
@@ -310,7 +310,7 @@ public class UserInfoActivity extends BaseActivity{
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(UserInfoActivity.this, "头像上传成功");
-					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("imgUrl[]");
+					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("avatar");
 					BaseApp.getModel().setAvatar(UrlContants.IMAGE_URL+imgurl);
 					setResult(RESULT_OK);
 					finish();

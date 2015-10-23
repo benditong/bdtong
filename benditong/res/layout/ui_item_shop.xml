@@ -39,10 +39,12 @@
 	            android:textColor="@color/text_light"
 	            android:textSize="@dimen/t_sixteen"
 	            android:paddingTop="@dimen/ten"
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"/>
+	            android:layout_width="0.0dip"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"/>
 	        <TextView 
 		        android:id="@+id/good_old_price"
+		        android:visibility="gone"
 	            android:text="@string/good_price"
 	            android:layout_marginLeft="@dimen/five"
 	            android:textColor="@color/text_light"

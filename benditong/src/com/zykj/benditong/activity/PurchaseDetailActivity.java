@@ -77,6 +77,12 @@ public class PurchaseDetailActivity extends BaseActivity{
 		order_pay.setText("0".contains(order.getState())?"付款":"评价");
 		order_pay.setVisibility("02".contains(order.getState())?View.VISIBLE:View.GONE);
 		setListener(order_cancel, order_pay);
+		if("1".equals(order.getIscomment())){
+			order_pay.setOnClickListener(null);
+			order_pay.setBackgroundResource(R.drawable.bg_null_grey);
+			order_pay.setText("已评价");
+			order_pay.setTextColor(PurchaseDetailActivity.this.getResources().getColor(R.color.grey));
+		}
 	}
 	
 	@Override

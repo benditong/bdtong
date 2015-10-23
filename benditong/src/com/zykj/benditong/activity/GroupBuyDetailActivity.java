@@ -42,10 +42,10 @@ public class GroupBuyDetailActivity extends BaseActivity {
 	private Good good;
 	private String shopId;
 	private MyShareAndStoreTitle myCommonTitle;
-	private TextView title_one,title_two,title_three;
+	private TextView title_one,title_two,title_three,good_assess;
 	private TextView good_price,good_old_price,good_sell_num;
 	private RatingBar restaurant_star;
-	private ImageView header_background,img_store;
+	private ImageView header_background;//,img_store;
 	private Button reserve_go;
 	private AutoListView assess_list;
 
@@ -77,6 +77,7 @@ public class GroupBuyDetailActivity extends BaseActivity {
 		
 		header_background = (ImageView)findViewById(R.id.header_background);//主图图片
 		restaurant_star = (RatingBar)findViewById(R.id.restaurant_star);//评价星
+		good_assess = (TextView)findViewById(R.id.good_assess);//评价星
 		title_one = (TextView)findViewById(R.id.title_one);//有效期
 		title_two = (TextView)findViewById(R.id.title_two);//使用时间
 		title_three = (TextView)findViewById(R.id.title_three);//使用规则
@@ -85,7 +86,7 @@ public class GroupBuyDetailActivity extends BaseActivity {
 		good_sell_num = (TextView)findViewById(R.id.good_sell_num);//已售数量
 		reserve_go = (Button)findViewById(R.id.reserve_go);//立即抢购
 		assess_list = (AutoListView)findViewById(R.id.assess_list);//评价列表
-		img_store=(ImageView) findViewById(R.id.aci_store_btn);
+//		img_store=(ImageView) findViewById(R.id.aci_store_btn);
 		
 		LayoutParams pageParms = header_background.getLayoutParams();
 		pageParms.width = Tools.M_SCREEN_WIDTH;
@@ -137,8 +138,9 @@ public class GroupBuyDetailActivity extends BaseActivity {
 		good_price.setText(Html.fromHtml("<big><big><font color=#25B6ED>"+good.getPrice()+"</font></big></big>元"));
 		good_old_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
 		good_old_price.setText("360元");
-		good_sell_num.setText("已售1042");
-		restaurant_star.setRating(3f);
+		good_sell_num.setText("已售"+good.getSellnum());
+		restaurant_star.setRating((float)(Math.round(good.getAvg()*100))/100);
+		good_assess.setText(good.getComments()+"评价");
 		title_one.setText(good.getLasts());//有效期
 		title_two.setText(good.getUsetime());//使用时间
 		title_three.setText(good.getGuize());//使用规则
@@ -162,18 +164,17 @@ public class GroupBuyDetailActivity extends BaseActivity {
 			if(!CommonUtils.CheckLogin()){Tools.toast(this, "请先登录！");return;}
 			RequestParams params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
-			params.put("type", good.getType());
+			params.put("type", "1");
 			params.put("pid", good.getId());
 			HttpUtils.addCollection(new HttpErrorHandler() {
-				
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
-					Tools.toast(GroupBuyDetailActivity.this, "添加收藏成功");
-					img_store.setImageResource(R.drawable.my_store_select);
+					Tools.toast(GroupBuyDetailActivity.this, json.getString("message"));
+//					img_store.setImageResource(R.drawable.my_store_select);
 				}
 				@Override
 				public void onRecevieFailed(String status, JSONObject json) {
-					Tools.toast(GroupBuyDetailActivity.this, "添加收藏成功");
+					Tools.toast(GroupBuyDetailActivity.this, json.getString("message"));
 				}
 			}, params);
 		default:
