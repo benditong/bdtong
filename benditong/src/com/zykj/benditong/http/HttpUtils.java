@@ -122,12 +122,12 @@ public class HttpUtils {
     public static void getArea(AsyncHttpResponseHandler handler){
     	client.post(UrlContants.getUrl(UrlContants.GETAREA), handler);
     }
-
+    
     /*提交餐饮、酒店*/
     public static void submit(AsyncHttpResponseHandler handler, RequestParams params){
     	client.post(UrlContants.getUrl(UrlContants.SUBMIT), params, handler);
     }
-
+    
     /*获取产品详情*/
     public static void getGoods(AsyncHttpResponseHandler handler, String goodId){
     	client.get(UrlContants.getUrl(UrlContants.GETGOODS)+"&id="+goodId, handler);
@@ -261,6 +261,6 @@ public class HttpUtils {
     
     /*删除收藏*/
     public static void delCollectionInfo(AsyncHttpResponseHandler handler, RequestParams params){
-    	client.post(UrlContants.DELCOLLECTIONINFO, params, handler);
+    	client.post(UrlContants.getUrl(UrlContants.DELCOLLECTIONINFO), params, handler);
     }
 }

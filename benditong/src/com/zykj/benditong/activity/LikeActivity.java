@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
+import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CommonAdapter;
 import com.zykj.benditong.adapter.ViewHolder;
@@ -24,6 +25,7 @@ import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.http.UrlContants;
 import com.zykj.benditong.model.GuessLike;
 import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.MyCommonTitle;
 import com.zykj.benditong.view.XListView;
 import com.zykj.benditong.view.XListView.IXListViewListener;
@@ -73,6 +75,9 @@ public class LikeActivity extends BaseActivity implements IXListViewListener, On
 		RequestParams params = new RequestParams();
 		params.put("nowpage", nowpage);
 		params.put("perpage", PERPAGE);
+		params.put("lng", BaseApp.getModel().getLongitude());//经度
+		params.put("lat", BaseApp.getModel().getLatitude());//纬度
+		params.put("area", Tools.CURRENTCITY);//地区ID编号
 		HttpUtils.getLikeList(res_getLikeList, params);
 	}
 	

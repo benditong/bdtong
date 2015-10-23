@@ -8,15 +8,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="15dp" >
+        android:layout_centerVertical="true" >
         <TextView
             android:id="@+id/address"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
             android:text="@string/address"
+            android:paddingLeft="15dp"
+            android:gravity="center_vertical"
             android:textColor="#FFF"
             android:textSize="16sp" />
         <ImageView
@@ -28,41 +27,11 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/b1_ditusousuo" />
     </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/rl_sousuokuang"
-        android:layout_width="fill_parent"
-        android:layout_height="35dp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_toRightOf="@id/rl_ditu"
-        android:background="@drawable/shape_corner_down" >
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:focusable="true"
-            android:background="@null"
-            android:focusableInTouchMode="true" >
-            <ImageView
-                android:id="@+id/search_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ico_search"
-                android:contentDescription="@string/app_name"/>
-            <EditText
-                android:id="@+id/search_input"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/search_delete"
-             	android:hint="@string/app_search"
-                android:textColor="#000"
-            	style="@style/edit_text"
-                android:textSize="14sp" />
-        </RelativeLayout>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/aci_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:layout_centerInParent="true"
+        style="@style/ui_titletext" />
 </RelativeLayout>

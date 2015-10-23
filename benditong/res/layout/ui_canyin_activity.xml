@@ -32,8 +32,7 @@
 	            android:layout_marginLeft="10dp"
 	            android:layout_marginRight="10dp"
 	            android:focusable="true"
-	            android:background="@null"
-	            android:focusableInTouchMode="true" >
+	            android:background="@null" >
 	            <ImageView
 	                android:id="@+id/search_delete"
 	                android:layout_width="wrap_content"
@@ -46,11 +45,12 @@
 	                android:layout_width="fill_parent"
 	                android:layout_height="wrap_content"
 	                android:layout_centerVertical="true"
-	                android:focusable="false"
 	                android:layout_toLeftOf="@id/search_delete"
 	             	android:hint="@string/app_search"
 	                android:textColor="#000"
 	            	style="@style/edit_text"
+	            	android:singleLine="true"
+	            	android:imeOptions="actionSearch"
 	                android:textSize="14sp" />
 	        </RelativeLayout>
 	    </RelativeLayout>

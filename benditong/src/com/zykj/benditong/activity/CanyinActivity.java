@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -25,6 +29,7 @@ import com.zykj.benditong.http.HttpUtils;
 import com.zykj.benditong.model.Category;
 import com.zykj.benditong.model.Restaurant;
 import com.zykj.benditong.utils.StringUtil;
+import com.zykj.benditong.utils.Tools;
 import com.zykj.benditong.view.ExpandTabView;
 import com.zykj.benditong.view.ViewLeft;
 import com.zykj.benditong.view.ViewRight;
@@ -44,6 +49,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 
 	private ImageView aci_back_btn;
 	private ExpandTabView expandTabView;
+	private EditText searchView;
 	private ArrayList<View> mViewArray = new ArrayList<View>();
 	private List<Category> mCategory = new ArrayList<Category>();
 	private List<Restaurant> restaurants = new ArrayList<Restaurant>();
@@ -72,6 +78,17 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	private void initView(){
 		aci_back_btn = (ImageView)findViewById(R.id.aci_back_btn);
 		expandTabView = (ExpandTabView) findViewById(R.id.expandtab_view);
+		searchView = (EditText) findViewById(R.id.search_input);
+		searchView.setOnEditorActionListener(new OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView searView, int actionId, KeyEvent event) {
+                if ((actionId == 0 || actionId == 3) && event != null) {
+            		params.put("keys", searView.getText().toString().trim());
+            		requestData();
+                }
+				return false;
+            }
+		});
 		canyin_list = (XListView) findViewById(R.id.canyin_list);
 		canyin_list.setDividerHeight(0);
 		canyin_list.setPullLoadEnable(true);
@@ -103,6 +120,7 @@ public class CanyinActivity extends BaseActivity implements IXListViewListener, 
 	}
 	
 	private void requestData(){
+		params.put("area", Tools.CURRENTCITY);
 		params.put("tid", tid);
 		params.put("orderby", orderby);
 		params.put("lng", BaseApp.getModel().getLongitude());//经度

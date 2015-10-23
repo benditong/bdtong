@@ -39,7 +39,7 @@ public class PurchaseAdapter extends CommonAdapter<Order> {
 			.setText(R.id.product_content, StringUtil.toString(order.getName(), ""))
 			.setText(R.id.product_num, "x"+StringUtil.toString(order.getInnum()));
 		final TextView order_cancel = holder.getView(R.id.order_cancel);//删除订单
-		TextView order_pay = holder.getView(R.id.order_pay);//评价
+		final TextView order_pay = holder.getView(R.id.order_pay);//评价
 		order_cancel.setText("1".contains(order.getState())?"取消订单":"删除订单");
 		order_pay.setText("0".contains(order.getState())?"付款":"评价");
 		order_pay.setVisibility("02".contains(order.getState())?View.VISIBLE:View.GONE);
@@ -81,15 +81,22 @@ public class PurchaseAdapter extends CommonAdapter<Order> {
 		        }).setNegativeButton("取消",null).show();
 			}
 		});
-		holder.getView(R.id.order_pay).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				if("2".equals(order.getState())){
-					mContext.startActivity(new Intent(mContext, AssessActivity.class).putExtra("order", order));
-				}else{
-					mContext.startActivity(new Intent(mContext, PayActivity.class).putExtra("order", order));
+		if("0".equals(order.getIscomment())){
+			order_pay.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					if("2".equals(order.getState())){
+						mContext.startActivity(new Intent(mContext, AssessActivity.class).putExtra("order", order));
+					}else{
+						mContext.startActivity(new Intent(mContext, PayActivity.class).putExtra("order", order));
+					}
 				}
-			}
-		});
+			});
+		}else{
+			order_pay.setOnClickListener(null);
+			order_pay.setBackgroundResource(R.drawable.bg_null_grey);
+			order_pay.setText("已评价");
+			order_pay.setTextColor(mContext.getResources().getColor(R.color.grey));
+		}
 	}
 }

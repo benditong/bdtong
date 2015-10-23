@@ -12,7 +12,7 @@ import com.zykj.benditong.R;
 
 /**
  * @author Administrator
- * 团购订单分类
+ * 预定订单分类
  */
 public class ReserveFragment extends Fragment{
     

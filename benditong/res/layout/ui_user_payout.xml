@@ -37,6 +37,36 @@
             android:hint="@string/alipay_allow_hint"
             android:inputType="numberDecimal"/>
     </LinearLayout>
+    <View 
+        android:layout_width="match_parent"
+		android:layout_height="0.5dip"
+		android:layout_marginLeft="@dimen/ten"
+		android:layout_marginRight="@dimen/ten"
+    	android:background="@color/content_background_color"/>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+		android:layout_height="@dimen/forty_five"
+        android:orientation="horizontal"
+	    android:paddingLeft="@dimen/ten"
+	    android:paddingRight="@dimen/ten"
+	    android:background="@color/white"
+        android:gravity="center_vertical">
+        <TextView 
+	        android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/t_seventeen"
+			android:text="@string/alipay_name_text"/>
+     	<EditText 
+     	    android:id="@+id/user_alipay"
+          	android:layout_width="0.0dip"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginLeft="@dimen/five"
+			style="@style/edit_text"
+            android:src="@drawable/user_right"
+            android:hint="@string/alipay_name_hint"
+            android:inputType="textEmailAddress"/>
+    </LinearLayout>
     <Button 
         android:id="@+id/pay_button"
      	android:layout_width="fill_parent"

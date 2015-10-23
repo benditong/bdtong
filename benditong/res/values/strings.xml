@@ -196,6 +196,8 @@
     <string name="alipay_allow_out">余额转出(提现)</string>
     <string name="alipay_allow_money">转出金额</string>
     <string name="alipay_allow_hint">请输入转出金额</string>
+    <string name="alipay_name_text">支&#160;&#160;付&#160;&#160;宝</string>
+    <string name="alipay_name_hint">请输入支付宝账号</string>
     <string name="alipay_allow_sure">确认转出</string>
 
     <!-- 收藏 -->

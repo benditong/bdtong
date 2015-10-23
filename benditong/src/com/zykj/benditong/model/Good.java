@@ -24,6 +24,9 @@ public class Good implements Serializable{
 	private String usetime;
 	private String guize;
 	private String pid;
+	private String sellnum;
+	private Float avg;
+	private Integer comments;
 	
 	public String getId() {
 		return id;
@@ -120,5 +123,23 @@ public class Good implements Serializable{
 	}
 	public void setPid(String pid) {
 		this.pid = pid;
+	}
+	public String getSellnum() {
+		return sellnum;
+	}
+	public void setSellnum(String sellnum) {
+		this.sellnum = sellnum;
+	}
+	public Float getAvg() {
+		return avg;
+	}
+	public void setAvg(Float avg) {
+		this.avg = avg;
+	}
+	public Integer getComments() {
+		return comments;
+	}
+	public void setComments(Integer comments) {
+		this.comments = comments;
 	}
 }

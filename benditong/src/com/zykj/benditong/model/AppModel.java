@@ -24,8 +24,8 @@ public class AppModel {
     private String userid;//用户Id
     private String avatar;//头像
     private String mobile;//手机
-    private String money;//红包金额
-    private String integral;//红包个数
+    private String money;//我的钱包
+    private String integral;//积分
     private String latitude;//经度
     private String longitude;//纬度
     private String sign;

@@ -35,6 +35,8 @@ public class Tools {
 
 	public static int M_SCREEN_HEIGHT;
 
+	public static String CURRENTCITY = "临沂";//默认城市
+
 	/**
 	 * log输出
 	 * @param msg
