@@ -21,7 +21,7 @@ public class UrlContants {
 
 	public static final String ZERODATA = "{\"code\":200,\"message\":\"没有数据\",\"datas\":\"\"}";
 
-	public static final String GETADSLIST = "c=public&a=getAdsList&type=slideFocus";// 轮播图
+	public static final String GETADSLIST = "c=public&a=getAdsList";// 轮播图
 
 	//http://121.42.194.222/api.php?c=public&a=getArticleInfo&type=about&id=1  
 		

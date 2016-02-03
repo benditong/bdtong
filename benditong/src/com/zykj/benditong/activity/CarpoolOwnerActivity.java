@@ -17,6 +17,9 @@ import com.zykj.benditong.utils.TextUtil;
 import com.zykj.benditong.utils.Tools;
 
 public class CarpoolOwnerActivity extends BaseActivity {
+	/**
+	 * 车主提交信息
+	 */
 	private EditText editText_orign, editText_destination,
 			editText_depart_time, editText_seats, editText_model,
 			editText_name, editText_phone;

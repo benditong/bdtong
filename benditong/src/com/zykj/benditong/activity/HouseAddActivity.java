@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,7 +21,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -87,8 +84,8 @@ public class HouseAddActivity extends BaseActivity implements
 		 * 初始化控件
 		 */
 		rent_type = (SegmentView) findViewById(R.id.house_type);
-		rent_type.setSegmentText("合租房", 0);
-		rent_type.setSegmentText("整租房", 1);
+		rent_type.setSegmentText("售房", 0);
+		rent_type.setSegmentText("租房", 1);
 		rent_type.setSegmentStatus(type);
 		rent_type.setBackgroundResource(R.drawable.demand_tab_left,
 				R.drawable.demand_tab_right);

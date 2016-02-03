@@ -41,8 +41,8 @@ public class HouseActivity extends FragmentActivity implements
 		img_publish.setImageResource(R.drawable.img_publish);
 
 		tab_fangChan = (RadioGroup) findViewById(R.id.tab_fangchan);
-		fangChanFragment1 = HouseFragment.getInstance(1);// 合租房
-		fangChanFragment2 = HouseFragment.getInstance(2);// 整租房
+		fangChanFragment1 = HouseFragment.getInstance(1);// 售房
+		fangChanFragment2 = HouseFragment.getInstance(2);// 租房
 
 		tab_fangChan.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
@@ -72,9 +72,9 @@ public class HouseActivity extends FragmentActivity implements
 	@Override
 	public void onClick(View vieww) {
 		if (checkedId == R.id.fangchan_tab1){
-			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 0), 1);//发布合租
+			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 0), 1);//发布售房
 		} else if (checkedId == R.id.fangchan_tab2) {
-			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 1), 2);//发布整租
+			startActivityForResult(new Intent(this, HouseAddActivity.class).putExtra("type", 1), 2);//发布租房
 		}
 	}
 	@Override

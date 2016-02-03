@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -190,6 +191,7 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 		
 		rl_ditu = (RelativeLayout)findViewById(R.id.rl_ditu);//选择城市
 		address = (TextView)findViewById(R.id.address);//城市
+		address.setText(Tools.CURRENTCITY);
 		
 		viewPager = (AutoScrollViewPager) findViewById(R.id.index_slider);//轮播图
 		index_list = (AutoListView)findViewById(R.id.index_list);//猜你喜欢
@@ -274,31 +276,22 @@ public class IndexActivity extends BaseActivity implements OnItemClickListener {
 				public int getCount() {
 					return imageList.size();
 				}
-
 				@Override
-				public View getView(int position, View convertView,
-						ViewGroup container) {
+				public View getView(final int position, View convertView, ViewGroup container) {
 					ImageView imageView;
 					if (convertView == null) {
-						convertView = imageView = new ImageView(
-								IndexActivity.this);
+						convertView = imageView = new ImageView(IndexActivity.this);
 						imageView.setScaleType(ScaleType.FIT_XY);
 						convertView.setTag(imageView);
 					} else {
 						imageView = (ImageView) convertView.getTag();
 					}
-					CommonUtils.showPic(imageList.get(position).getImgsrc(),
-							imageView);
+					CommonUtils.showPic(imageList.get(position).getImgsrc(), imageView);
 					imageView.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View arg0) {
-							// Intent detailIntent = new
-							// Intent(IndexActivity.this,
-							// MessageDetailActivity.class);
-							// detailIntent.putExtra("special_id",
-							// imageList.get(position));
-							// startActivity(new Intent(IndexActivity.this,
-							// MessageDetailActivity.class));
+							String url = imageList.get(position).getUrl();
+							startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
 						}
 					});
 					return convertView;

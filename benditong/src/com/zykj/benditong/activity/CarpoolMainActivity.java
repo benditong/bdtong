@@ -11,12 +11,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.benditong.BaseActivity;
-import com.zykj.benditong.BaseApp;
 import com.zykj.benditong.R;
 import com.zykj.benditong.adapter.CarpoolAdapter;
 import com.zykj.benditong.http.HttpErrorHandler;
@@ -57,25 +57,7 @@ public class CarpoolMainActivity extends BaseActivity implements
 		car_listView.setPullLoadEnable(true);
 		car_listView.setPullRefreshEnable(true);
 		car_listView.setXListViewListener(this);
-//		adapter = new CommonAdapter<Car>(CarpoolMainActivity.this,
-//				R.layout.ui_item_carpool_details, cars) {
-//			@Override
-//			public void convert(ViewHolder holder, Car car) {
-//				holder.setText(R.id.textView_orign_2, car.getFrom_address())
-//						.setText(R.id.textView_destination_2,
-//								car.getTo_address())
-//						.setText(R.id.textView_departure_time_2,
-//								car.getStarttime())
-//						.setText(R.id.textView_remain_seats_2, car.getSeat())
-//						.setText(R.id.textView_price_2, car.getPrice());
-////						.setButton(R.id.btn_carpool_sign_up,"立即报名", new OnClickListener() {
-////
-////							@Override
-////							public void onClick(View v) {
-////							}
-////						});
-//			}
-//		};
+		adapter=new CarpoolAdapter(CarpoolMainActivity.this, cars);
 		car_listView.setAdapter(adapter);
 		//car_listView.setOnItemClickListener(this);
 
@@ -101,8 +83,6 @@ public class CarpoolMainActivity extends BaseActivity implements
 			}
 			//String remainSeats=getIntent().getExtras().get("remainSeats").toString();
 			cars.addAll(list);
-			adapter=new CarpoolAdapter(CarpoolMainActivity.this, cars);
-			car_listView.setAdapter(adapter);
 			adapter.notifyDataSetChanged();
 		}
 	};
@@ -182,9 +162,11 @@ public class CarpoolMainActivity extends BaseActivity implements
 			finish();
 			break;
 		case R.id.btn_carpool_need:
+			/*拼车*/
 			startActivity(new Intent(this, CarpoolNeederActivity.class));
 			break;
 		case R.id.btn_carpool_owner:
+			/*车主*/
 			startActivity(new Intent(this, CarpoolOwnerActivity.class));
 			break;
 		}

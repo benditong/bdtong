@@ -27,7 +27,7 @@ public class HttpUtils {
     
     /*轮播图*/
     public static void getAdsList(AsyncHttpResponseHandler handler, String type){
-        client.get(UrlContants.getUrl(UrlContants.GETADSLIST)+"&id="+type, handler);
+        client.get(UrlContants.getUrl(UrlContants.GETADSLIST)+"&type="+type, handler);
     }
  	
  	  /*关于我们*/

@@ -279,8 +279,8 @@
     <string name="zp_zhiweidescrip_hint">10-180字，如岗位职责，任职资格，工作时间等，不能填写电话，qq号和特殊字符</string>
 
     <!-- 房产 -->
-    <string name="fc_entire_rent">整租房</string>
-    <string name="fc_joint_rent">合租房</string>
+    <string name="fc_joint_rent">售房</string>
+    <string name="fc_entire_rent">租房</string>
     <string name="fc_title">名称名称</string>
     <string name="fc_price">1200元/月</string>
     <string name="fc_address">西直门外大街21号</string>
