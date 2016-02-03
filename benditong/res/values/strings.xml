@@ -162,9 +162,11 @@
     <!-- 登录 -->
     <string name="username">账号</string>
     <string name="password">密码</string>
+    <string name="invite">邀请人</string>
     <string name="hint_username">请填写手机号</string>
     <string name="hint_code">验证码</string>
     <string name="hint_password">请填写密码</string>
+    <string name="hint_invite">手机号(选填)</string>
     <string name="forgetpwd"><u>忘记密码?</u></string>
     <string name="login_in">登录</string>
     <string name="register_in">注册</string>

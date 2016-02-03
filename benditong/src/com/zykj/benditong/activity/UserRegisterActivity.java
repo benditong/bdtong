@@ -28,8 +28,8 @@ import com.zykj.benditong.view.MyRequestDailog;
 public class UserRegisterActivity extends BaseActivity{
 	
 	private MyCommonTitle myCommonTitle;
-	private EditText uu_username,phone_code,uu_password;
-	private String username, password;
+	private EditText uu_username,phone_code,uu_password,uu_invite;
+	private String username, password, invite;
 	private String type;
 	private Button identifying_code;
 
@@ -69,6 +69,8 @@ public class UserRegisterActivity extends BaseActivity{
 		identifying_code = (Button)findViewById(R.id.identifying_code);//发送验证码
 		uu_password = (EditText)findViewById(R.id.uu_password);//密码
 		Button app_register_in = (Button)findViewById(R.id.app_register_in);//注册
+		findViewById(R.id.layout_invite).setVisibility("forget".equals(type)?View.GONE:View.VISIBLE);
+		uu_invite = (EditText)findViewById(R.id.uu_invite);//邀请人
 		app_register_in.setText("forget".equals(type)?"重置密码":"注册");
 		
 		setListener(identifying_code, app_register_in);
@@ -77,16 +79,19 @@ public class UserRegisterActivity extends BaseActivity{
 	@Override
 	public void onClick(View view) {
         username=uu_username.getText().toString().trim();
+        invite=uu_invite.getText().toString().trim();
 		switch(view.getId()){
 		case R.id.identifying_code:
 	        if(!TextUtil.isMobile(username)){
 	        	Tools.toast(UserRegisterActivity.this, "手机号格式不对");
-	        	return;
+	        }else if(!"forget".equals(type) && !TextUtil.isMobile(invite)){
+	        	Tools.toast(UserRegisterActivity.this, "邀请码格式不对");
+	        }else{
+				/*发送手机验证码*/
+		        identifying_code.setOnClickListener(null);
+		        new MyCount(60000, 1000).start();//一分钟倒计时
+				SMSSDK.getVerificationCode("86",username);
 	        }
-			/*发送手机验证码*/
-	        identifying_code.setOnClickListener(null);
-	        new MyCount(60000, 1000).start();//一分钟倒计时
-			SMSSDK.getVerificationCode("86",username);
 			break;
 		case R.id.app_register_in:
 			/*注册、重置*/
@@ -166,6 +171,7 @@ public class UserRegisterActivity extends BaseActivity{
 			} else {
 				params.put("mob", username);
 				params.put("pass", password);
+				params.put("referrer", invite);//邀请人手机号
 				HttpUtils.register(new HttpErrorHandler() {
 					@Override
 					public void onRecevieSuccess(JSONObject json) {
